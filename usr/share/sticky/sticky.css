@@ -1,0 +1,378 @@
+@define-color red1 #ff8990; /* main */
+@define-color red2 #ff5561; /* title */
+@define-color red3 #ff5561; /* slider */
+@define-color red4 #ff8990; /* slider hover */
+@define-color red5 #ffc5ca; /* slider trough */
+
+@define-color blue1 #81bdff; /* main */
+@define-color blue2 #3d9bff; /* title */
+@define-color blue3 #3d9bff; /* slider */
+@define-color blue4 #81bdff; /* slider hover */
+@define-color blue5 #bddbff; /* slider trough */
+
+@define-color green1 #afffaf; /* main */
+@define-color green2 #67ff67; /* title */
+@define-color green3 #67ff67; /* slider */
+@define-color green4 #afffaf; /* slider hover */
+@define-color green5 #d7ffd7; /* slider trough */
+
+@define-color yellow1 #feff9f; /* main */
+@define-color yellow2 #f6f907; /* title */
+@define-color yellow3 #f6f907; /* slider */
+@define-color yellow4 #feff9f; /* slider hover */
+@define-color yellow5 #feffdb; /* slider trough */
+
+@define-color purple1 #c695ff; /* main */
+@define-color purple2 #a553ff; /* title */
+@define-color purple3 #a553ff; /* slider */
+@define-color purple4 #c695ff; /* slider hover */
+@define-color purple5 #dabdff; /* slider trough */
+
+@define-color teal1 #affff8; /* main */
+@define-color teal2 #41ffed; /* title */
+@define-color teal3 #41ffed; /* slider */
+@define-color teal4 #affff8; /* slider hover */
+@define-color teal5 #cdfffb; /* slider trough */
+
+@define-color orange1 #ffc47b; /* main */
+@define-color orange2 #ffa939; /* title */
+@define-color orange3 #ffa939; /* slider */
+@define-color orange4 #ffc47b; /* slider hover */
+@define-color orange5 #ffe3b9; /* slider trough */
+
+@define-color magenta1 #ffb9fb; /* main */
+@define-color magenta2 #ff7ff7; /* title */
+@define-color magenta3 #ff7ff7; /* slider */
+@define-color magenta4 #ffb9fb; /* slider hover */
+@define-color magenta5 #ffd7fd; /* slider trough */
+
+
+/* common */
+#title-box {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#sticky-note textview {
+    font-size: 14px;
+
+}
+
+textview text {
+    padding: 10px;
+}
+
+#sticky-note #title-box {
+    font-size: 16px;
+}
+
+#sticky-note entry {
+    border: none;
+    background-color: rgba(220, 220, 220, .25);
+}
+
+#sticky-note #title-box label {
+    color: #303030;
+}
+
+#sticky-note check {
+    -gtk-icon-source: url("unchecked.svg");
+    /*background-color: red;*/
+}
+
+#sticky-note check:checked {
+    -gtk-icon-source: url("checked.svg");
+    /*background-color: red;*/
+}
+
+#sticky-note .scrollbar.trough,
+#sticky-note scrollbar trough {
+    border: none;
+    background-image: none;
+}
+
+#sticky-note scrollbar,
+#sticky-note .scrollbar.contents,
+#sticky-note scrollbar contents,
+#sticky-note .scrollbar.contents:hover,
+#sticky-note scrollbar contents:hover {
+    background-color: transparent;
+    background-image: none;
+    background-size: 0;
+    border: none;
+    border-radius: 0;
+}
+
+#window-button {
+    background-color: transparent;
+    background-image: none;
+    background-size: 0;
+    padding: 0px 0px 0px 0px;
+    border: none;
+    border-radius: 12px;
+}
+
+/* red */
+.red textview text,
+button.red {
+    background-color: @red1;
+}
+
+.red #title-box {
+    background-color: @red2;
+}
+
+#sticky-note.red scrollbar slider {
+    background-color: @red3;
+}
+
+#sticky-note.red scrollbar slider:hover {
+    background-color: @red4;
+}
+
+#sticky-note.red .scrollbar.trough,
+#sticky-note.red scrollbar trough {
+    background-color: @red5;
+}
+
+.red #window-button:hover {
+    background-color: @red4;
+}
+
+.red.note-preview {
+    background-color: @red1;
+    color: black;
+    box-shadow: 1px 1px 2px;
+}
+
+/* blue */
+.blue textview text,
+button.blue {
+    background-color: @blue1;
+}
+
+.blue #title-box {
+    background-color: @blue2;
+}
+
+#sticky-note.blue scrollbar slider {
+    background-color: @blue3;
+}
+
+#sticky-note.blue scrollbar slider:hover {
+    background-color: @blue4;
+}
+
+#sticky-note.blue .scrollbar.trough,
+#sticky-note.blue scrollbar trough {
+    background-color: @blue5;
+}
+
+.blue #window-button:hover {
+    background-color: @blue4;
+}
+
+.blue.note-preview {
+    background-color: @blue1;
+    color: black;
+    box-shadow: 1px 1px 2px;
+}
+
+/* green */
+.green textview text,
+button.green {
+    background-color: @green1;
+}
+
+.green #title-box {
+    background-color: @green2;
+}
+
+#sticky-note.green scrollbar slider {
+    background-color: @green3;
+}
+
+#sticky-note.green scrollbar slider:hover {
+    background-color: @green4;
+}
+
+#sticky-note.green .scrollbar.trough,
+#sticky-note.green scrollbar trough {
+    background-color: @green5;
+}
+
+.green #window-button:hover {
+    background-color: @green4;
+}
+
+.green.note-preview {
+    background-color: @green1;
+    color: black;
+    box-shadow: 1px 1px 2px;
+}
+
+/* yellow */
+.yellow textview text,
+button.yellow {
+    background-color: @yellow1;
+}
+
+.yellow #title-box {
+    background-color: @yellow2;
+}
+
+#sticky-note.yellow scrollbar slider {
+    background-color: @yellow3;
+}
+
+#sticky-note.yellow scrollbar slider:hover {
+    background-color: @yellow4;
+}
+
+#sticky-note.yellow .scrollbar.trough,
+#sticky-note.yellow scrollbar trough {
+    background-color: @yellow5;
+}
+
+.yellow #window-button:hover {
+    background-color: @yellow4;
+}
+
+.yellow.note-preview {
+    background-color: @yellow1;
+    color: black;
+    box-shadow: 1px 1px 2px;
+}
+
+/* purple */
+.purple textview text,
+button.purple {
+    background-color: @purple1;
+}
+
+.purple #title-box {
+    background-color: @purple2;
+}
+
+#sticky-note.purple scrollbar slider {
+    background-color: @purple3;
+}
+
+#sticky-note.purple scrollbar slider:hover {
+    background-color: @purple4;
+}
+
+#sticky-note.purple .scrollbar.trough,
+#sticky-note.purple scrollbar trough {
+    background-color: @purple5;
+}
+
+.purple #window-button:hover {
+    background-color: @purple4;
+}
+
+.purple.note-preview {
+    background-color: @purple1;
+    color: black;
+    box-shadow: 1px 1px 2px;
+}
+
+/* teal */
+.teal textview text,
+button.teal {
+    background-color: @teal1;
+}
+
+.teal #title-box {
+    background-color: @teal2;
+}
+
+#sticky-note.teal scrollbar slider {
+    background-color: @teal3;
+}
+
+#sticky-note.teal scrollbar slider:hover {
+    background-color: @teal4;
+}
+
+#sticky-note.teal .scrollbar.trough,
+#sticky-note.teal scrollbar trough {
+    background-color: @teal5;
+}
+
+.teal #window-button:hover {
+    background-color: @teal4;
+}
+
+.teal.note-preview {
+    background-color: @teal1;
+    color: black;
+    box-shadow: 1px 1px 2px;
+}
+
+/* orange */
+.orange textview text,
+button.orange {
+    background-color: @orange1;
+}
+
+.orange #title-box {
+    background-color: @orange2;
+}
+
+#sticky-note.orange scrollbar slider {
+    background-color: @orange3;
+}
+
+#sticky-note.orange scrollbar slider:hover {
+    background-color: @orange4;
+}
+
+#sticky-note.orange .scrollbar.trough,
+#sticky-note.orange scrollbar trough {
+    background-color: @orange5;
+}
+
+.orange #window-button:hover {
+    background-color: @orange4;
+}
+
+.orange.note-preview {
+    background-color: @orange1;
+    color: black;
+    box-shadow: 1px 1px 2px;
+}
+
+/* magenta */
+.magenta textview text,
+button.magenta {
+    background-color: @magenta1;
+}
+
+.magenta #title-box {
+    background-color: @magenta2;
+}
+
+#sticky-note.magenta scrollbar slider {
+    background-color: @magenta3;
+}
+
+#sticky-note.magenta scrollbar slider:hover {
+    background-color: @magenta4;
+}
+
+#sticky-note.magenta .scrollbar.trough,
+#sticky-note.magenta scrollbar trough {
+    background-color: @magenta5;
+}
+
+.magenta #window-button:hover {
+    background-color: @magenta4;
+}
+
+.magenta.note-preview {
+    background-color: @magenta1;
+    color: black;
+    box-shadow: 1px 1px 2px;
+}
+

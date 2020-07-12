@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg7384"
+   height="16"
+   width="16"
+   version="1.1"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="sticky-symbolic.svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1600"
+     inkscape:window-height="805"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="32"
+     inkscape:cx="-0.656099"
+     inkscape:cy="7.8276926"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg7384" />
+  <metadata
+     id="metadata90">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Gnome Symbolic Icon Theme</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <title
+     id="title9167">Gnome Symbolic Icon Theme</title>
+  <g
+     id="g816"
+     transform="translate(-0.99997465,0.9999745)">
+    <path
+       sodipodi:nodetypes="sssssccssssssssssccsssss"
+       inkscape:connector-curvature="0"
+       id="rect2985"
+       d="M 1.114289,-0.88565972 C 0.99503957,-0.76641033 1.0000037,-0.56144845 1.0000037,-0.39280438 V 14.392856 c 0,0.168644 -0.004964,0.373605 0.1142853,0.492855 0.1192494,0.11925 0.3242112,0.114285 0.4928553,0.114285 h 8.5356827 l 6.857118,-6.8571174 v -8.53568298 c 0,-0.16864407 0.005,-0.37360595 -0.114285,-0.49285534 -0.11925,-0.11924938 -0.324212,-0.11428529 -0.492856,-0.11428529 H 1.6071443 c -0.1686441,0 -0.3736059,-0.004964 -0.4928553,0.11428529 z m 1.1428529,1.14285296 c 0.1110647,-0.11106588 0.3000902,-0.11183159 0.4571412,-0.1142853 2.2854269,-0.0357096 10.2859559,-0.0357096 12.5713829,0 0.15705,0.002457 0.346075,0.003223 0.457141,0.1142853 0.111062,0.11106473 0.114285,0.30007101 0.114285,0.45714118 V 8.1428786 L 10.142827,13.857143 H 2.7142831 c -0.1570702,0 -0.3460759,-0.0032 -0.4571412,-0.114285 C 2.1460766,13.631792 2.1428566,13.442787 2.1428566,13.285717 V 0.71433442 c 0,-0.15707017 0.00322,-0.34607588 0.1142853,-0.45714118 z"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:1.23076475;marker:none;enable-background:accumulate" />
+    <path
+       sodipodi:nodetypes="ssccccssssccss"
+       inkscape:connector-curvature="0"
+       id="rect3761"
+       d="m 10.257113,8.2571639 c -0.111066,0.1110653 -0.114286,0.300071 -0.114286,0.4571412 v 5.1428379 1.142853 l 6.857118,-6.8571174 h -1.142853 -5.142838 c -0.15707,0 -0.346076,0.00322 -0.457141,0.1142853 z m 1.142853,1.142853 c 0.111062,-0.1110625 0.30007,-0.1142853 0.457141,-0.1142853 h 2.857132 L 11.28568,12.71429 V 9.857158 c 0,-0.1570702 0.0032,-0.3460753 0.114286,-0.4571411 z"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:1.1428529;marker:none;enable-background:accumulate" />
+  </g>
+  <rect
+     style="fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:2.0826304;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     id="rect815"
+     width="10"
+     height="1"
+     x="3"
+     y="3" />
+  <rect
+     style="fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:2.0826304;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     id="rect815-3"
+     width="10"
+     height="1"
+     x="3"
+     y="6" />
+  <rect
+     style="fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:1.47264206;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     id="rect815-6"
+     width="5"
+     height="1"
+     x="3"
+     y="9" />
+  <rect
+     style="fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:1.47264206;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     id="rect815-6-7"
+     width="5"
+     height="1"
+     x="3"
+     y="12" />
+</svg>

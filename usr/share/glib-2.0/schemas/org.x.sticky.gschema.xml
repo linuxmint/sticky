@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<schemalist>
+
+  <schema path="/org/x/sticky/" id="org.x.sticky">
+
+    <key name='default-height' type='u'>
+      <default>200</default>
+      <summary>Default Height</summary>
+      <description>
+        The height that new notes will have upon creation. This will not affect existing notes.
+      </description>
+    </key>
+
+    <key name='default-width' type='u'>
+      <default>250</default>
+      <summary>Default Width</summary>
+      <description>
+        The width that new notes will have upon creation. This will not affect existing notes.
+      </description>
+    </key>
+
+    <key name='default-color' type='s'>
+      <default>"blue"</default>
+      <summary>Default Color</summary>
+      <choices>
+        <choice value='red'/>
+        <choice value='green'/>
+        <choice value='blue'/>
+        <choice value='yellow'/>
+        <choice value='purple'/>
+        <choice value='teal'/>
+        <choice value='orange'/>
+        <choice value='magenta'/>
+        <choice value='random'/>
+      </choices>
+      <aliases>
+        <alias value='Red' target='red'/>
+        <alias value='Green' target='green'/>
+        <alias value='Blue' target='blue'/>
+        <alias value='Yellow' target='yellow'/>
+        <alias value='Purple' target='purple'/>
+        <alias value='Teal' target='teal'/>
+        <alias value='Orange' target='orange'/>
+        <alias value='Magenta' target='magenta'/>
+      </aliases>
+      <description>
+        The color that new notes will have upon creation. This will not affect existing notes.
+      </description>
+    </key>
+
+    <key name='default-group' type='s'>
+      <default>"Desktop"</default>
+      <summary>Default Group</summary>
+      <description>
+        The group of notes that will be shown by default. This can be changed in the notes manager window.
+      </description>
+    </key>
+
+  </schema>
+
+</schemalist>
