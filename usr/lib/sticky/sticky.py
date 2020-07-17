@@ -6,9 +6,10 @@ import random
 
 import gi
 gi.require_version('Gdk', '3.0')
+gi.require_version('Gspell', '1')
 gi.require_version('Gtk', '3.0')
 gi.require_version('XApp', '1.0')
-from gi.repository import Gdk, Gio, GObject, Gtk, Pango, XApp
+from gi.repository import Gdk, Gio, GObject, Gspell, Gtk, Pango, XApp
 
 from xapp.GSettingsWidgets import *
 
@@ -107,11 +108,10 @@ class Note(Gtk.Window):
         # buffer
         self.buffer = NoteBuffer()
 
-        tag = self.buffer.create_tag('red', foreground='red')
-
         # text view
         self.view = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, populate_all=True, buffer=self.buffer)
         self.buffer.view = self.view #fixme: this is an ugly hack so that we can add checkboxes and bullet points from the buffer
+        Gspell.TextView.get_from_gtk_text_view(self.view).basic_setup()
         self.view.set_left_margin(10)
         self.view.set_right_margin(10)
         self.view.set_top_margin(10)
@@ -123,10 +123,8 @@ class Note(Gtk.Window):
         self.add(scroll)
         scroll.add(self.view)
 
-        # self.buffer.begin_not_undoable_action()
         self.buffer.set_from_internal_markup(text)
-        # self.buffer.end_not_undoable_action()
-        self.changed_id = self.buffer.connect('changed', self.changed)
+        self.changed_id = self.buffer.connect('content-changed', self.changed)
 
         self.connect('configure-event', self.handle_update)
         self.connect('show', self.on_show)
@@ -137,7 +135,6 @@ class Note(Gtk.Window):
 
     def test(self, *args):
         self.buffer.tag_selection('red')
-        # print(self.get_text_test())
 
     def handle_update(self, *args):
         if self.showing:
@@ -159,10 +156,6 @@ class Note(Gtk.Window):
         self.showing = True
 
     def on_key_press(self, v, event):
-        # moving to note_buffer
-        # if event.get_keyval()[1] in (Gdk.KEY_Return, Gdk.KEY_ISO_Enter, Gdk.KEY_KP_Enter):
-        #     return self.maybe_repeat()
-
         if event.get_state() & Gdk.ModifierType.CONTROL_MASK:
             if event.get_keyval()[1] == Gdk.KEY_z:
                 self.buffer.undo()
@@ -213,117 +206,6 @@ class Note(Gtk.Window):
         }
 
         return info
-
-    # moving to note_buffer
-    # def get_text(self):
-    #     (start, end) = self.buffer.get_bounds()
-    #     raw_text = self.buffer.get_slice(start, end, True)
-
-    #     inserted_objects = []
-    #     current_tags = []
-    #     text = ''
-
-    #     index = 0
-
-    #     while True:
-    #         index = raw_text.find('\ufffc', index+1)
-    #         if index == -1:
-    #             break
-
-    #         inserted_objects.append(self.buffer.get_iter_at_offset(index))
-
-    #     # current_iter: is our placeholder for where we start copying from
-    #     # current_insert: the next occurrence of an inserted object (bullet, checkbox, etc)
-    #     # next_iter: is where we find the next set of tag open/close in the buffer
-    #     current_iter = start.copy()
-    #     current_insert = inserted_objects.pop(0) if len(inserted_objects) > 0 else end
-    #     while True:
-    #         next_iter = current_iter.copy()
-    #         next_iter.forward_to_tag_toggle()
-
-    #         # if there happens to be an inserted object before the next tag, we handle that first, but otherwise we
-    #         # want to close out our tags first, though it probably doesn't matter since the check boxes are affected
-    #         # by the formatting and vice-versa
-    #         if current_insert.compare(next_iter) < 0:
-    #             text += self.buffer.get_slice(current_iter, current_insert, False).replace('#', '##')
-
-    #             try:
-    #                 checked = current_insert.get_child_anchor().get_widgets()[0].get_active()
-    #                 text += '#check:' + str(int(checked))
-    #             except:
-    #                 pass
-
-    #             current_iter = current_insert.copy()
-    #             current_iter.forward_char()
-    #             current_insert = inserted_objects.pop(0) if len(inserted_objects) > 0 else end
-
-    #         else:
-    #             text += self.buffer.get_slice(current_iter, next_iter, False).replace('#', '##')
-
-    #             # if not all tags are closed, we still need to keep track of them, but leaving them in the list will
-    #             # cause an infinite loop, so we hold on to them in unclosed_tags and re-add them after exiting the loop
-    #             unclosed_tags = []
-
-    #             tags = next_iter.get_toggled_tags(False)
-    #             while len(current_tags) and len(tags):
-    #                 tag = current_tags.pop()
-
-    #                 if len(tags) == 0 or tag not in tags:
-    #                     unclosed_tags.append(tag)
-    #                     continue
-
-    #                 text += '#tag:%s:' % tag.props.name
-    #                 tags.remove(tag)
-
-    #             current_tags += unclosed_tags
-
-    #             tags = next_iter.get_toggled_tags(True)
-    #             while len(tags):
-    #                 tag = tags.pop()
-    #                 name = tag.props.name
-
-    #                 text += '#tag:%s:' % tag.props.name
-    #                 current_tags.append(tag)
-
-    #             current_iter = next_iter
-
-    #         if current_iter.compare(end) == 0:
-    #             break
-
-    #     return text
-
-    # # moving to note_buffer
-    # def set_text(self, text):
-    #     current_index = 0
-    #     open_tags = {}
-    #     while True:
-    #         next_index = text.find('#', current_index)
-    #         if next_index == -1:
-    #             self.buffer.insert(self.buffer.get_end_iter(), text[current_index:])
-    #             break
-    #         self.buffer.insert(self.buffer.get_end_iter(), text[current_index:next_index])
-
-    #         if text[next_index:next_index+2] == '##':
-    #             self.buffer.insert(self.buffer.get_end_iter(), '#')
-    #             current_index = next_index + 2
-    #         elif text[next_index:next_index+6] == '#check':
-    #             checked = bool(int(text[next_index+7]))
-    #             self.add_check_button(self.buffer.get_end_iter(), checked=checked)
-    #             current_index = next_index + 8
-    #         elif text[next_index:next_index+4] == '#tag':
-    #             end_tag_index = text.find(':', next_index+6)
-    #             tag_name = text[next_index+5:end_tag_index]
-    #             if tag_name in open_tags:
-    #                 mark = open_tags.pop(tag_name)
-    #                 start = self.buffer.get_iter_at_mark(mark)
-    #                 end = self.buffer.get_end_iter()
-    #                 self.buffer.apply_tag_by_name(tag_name, start, end)
-    #                 self.buffer.delete_mark(mark)
-    #             else:
-    #                 open_tags[tag_name] = self.buffer.create_mark(None, self.buffer.get_end_iter(), True)
-
-
-    #             current_index = next_index + 6 + len(tag_name)
 
     def add_context_menu_items(self, popup, is_title=False):
         if not is_title:
@@ -412,77 +294,6 @@ class Note(Gtk.Window):
             self.emit('update')
 
         return Gdk.EVENT_STOP
-
-    # moving to note_buffer
-    # def maybe_repeat(self):
-    #     if self.buffer.get_has_selection():
-    #         start = self.buffer.get_selection_bounds()[1]
-    #     else:
-    #         start = self.buffer.get_iter_at_mark(self.buffer.get_insert())
-    #     line_start = start.copy()
-    #     line_start.set_line_index(0)
-    #     anchor = line_start.get_child_anchor()
-
-    #     if anchor is None:
-    #         # we don't need to repeat anything, so we'll just use the built-in handler
-    #         return Gdk.EVENT_PROPAGATE
-
-    #     with self.buffer.handler_block(self.changed_id):
-    #         mark = Gtk.TextMark(left_gravity=False)
-    #         self.buffer.add_mark(mark, start)
-
-    #         if self.buffer.get_has_selection():
-    #             self.buffer.delete_selection()
-
-    #         self.buffer.insert(self.buffer.get_iter_at_mark(mark), '\n')
-
-    #         self.add_check_button(self.buffer.get_iter_at_mark(mark))
-
-    #         self.buffer.select_range(self.buffer.get_iter_at_mark(mark), self.buffer.get_iter_at_mark(mark))
-
-    #         self.buffer.delete_mark(mark)
-
-    #     self.changed()
-
-    #     return Gdk.EVENT_STOP
-
-    # moving to note_buffer
-    # def toggle_checklist(self, *args):
-    #     with self.buffer.handler_block(self.changed_id):
-    #         self.buffer.begin_user_action()
-    #         if self.buffer.get_has_selection():
-    #             (start, end) = self.buffer.get_selection_bounds()
-    #         else:
-    #             start = end = self.buffer.get_iter_at_mark(self.buffer.get_insert())
-
-    #         line_index_start = start.get_line()
-    #         line_index_end = end.get_line()
-
-    #         all_have_checkboxes = True
-    #         for line in range(line_index_start, line_index_end + 1):
-    #             if self.buffer.get_iter_at_line(line).get_child_anchor() is None:
-    #                 all_have_checkboxes = False
-    #                 break
-
-    #         for line in range(line_index_start, line_index_end + 1):
-    #             if all_have_checkboxes:
-    #                 anchor = self.buffer.get_iter_at_line(line).get_child_anchor()
-    #                 if anchor is not None:
-    #                     self.view.remove(anchor.get_widgets()[0])
-    #             else:
-    #                 self.add_check_button(self.buffer.get_iter_at_line(line))
-
-    #         self.buffer.end_user_action()
-
-    #     self.changed()
-
-    # moving to note_buffer
-    # def add_check_button(self, a_iter, checked=False):
-    #     anchor = self.buffer.create_child_anchor(a_iter)
-    #     check_button = Gtk.CheckButton(visible=True, active=checked, margin_right=5, margin_top=5)
-    #     check_button.connect('toggled', self.changed)
-    #     self.view.add_child_at_anchor(check_button, anchor)
-
 
 class SettingsWindow(XApp.PreferencesWindow):
     def __init__(self, app):

@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 
-from gi.repository import Gdk, GObject, Gtk
+from gi.repository import Gdk, GLib, GObject, Gtk
 
+TAG_DEFINITIONS = {
+    'red': {'foreground': 'red'}
+}
 
 class GenericAction(object):
     def maybe_join(self, new_action):
@@ -82,41 +85,69 @@ class DeletionAction(GenericAction):
 
 # Used for objects inserted at an anchor point such as checkbuttons, bullets, etc.
 class ObjectInsertAction(GenericAction):
-    def __init__(self, buffer, location, anchor):
+    def __init__(self, buffer, anchor, is_addition=True):
         super(ObjectInsertAction, self).__init__()
         self.buffer = buffer
-        self.anchor = anchor
+        self.is_addition = is_addition
+        if isinstance(anchor.get_widgets()[0], Gtk.CheckButton):
+            self.anchor_type = 'check'
+        elif isinstance(anchor.get_widgets()[0], Gtk.Image):
+            self.anchor_type = 'bullet'
 
         self.position = buffer.get_iter_at_child_anchor(anchor).get_offset()
-        # print()
-        # print(self.position)
 
-    def undo(self):
-        # needs some work
-        # print(self.buffer.get_slice(self.buffer.get_iter_at_offset(self.position), self.buffer.get_iter_at_offset(self.position+1), True))
+    def remove(self):
         start_anchor_iter = self.buffer.get_iter_at_offset(self.position)
         end_anchor_iter = self.buffer.get_iter_at_offset(self.position + 1)
-        self.checked = start_anchor_iter.get_child_anchor().get_widgets()[0].get_active()
+        if self.anchor_type == 'check':
+            self.checked = start_anchor_iter.get_child_anchor().get_widgets()[0].get_active()
         self.buffer.delete(start_anchor_iter, end_anchor_iter)
 
+    def add(self):
+        if self.anchor_type == 'check':
+            self.buffer.add_check_button(self.buffer.get_iter_at_offset(self.position), checked=self.checked)
+        elif self.anchor_type == 'bullet':
+            self.buffer.add_bullet(self.buffer.get_iter_at_offset(self.position))
+
+    def undo(self):
+        if self.is_addition:
+            self.remove()
+        else:
+            self.add()
+
     def redo(self):
-        # needs some work
-        self.buffer.add_check_button(self.buffer.get_iter_at_offset(self.position), self.checked)
+        if self.is_addition:
+            self.add()
+        else:
+            self.remove()
 
 # Used for setting formatting tags
 class TagAction(GenericAction):
-    def __init__(self, buffer, name, start, end):
+    def __init__(self, buffer, name, start, end, is_addition=True):
         super(TagAction, self).__init__()
         self.buffer = buffer
         self.name = name
         self.start = start.get_offset()
         self.end = end.get_offset()
+        self.is_addition = is_addition
 
-    def undo(self):
+    def remove(self):
         self.buffer.remove_tag_by_name(self.name, self.buffer.get_iter_at_offset(self.start), self.buffer.get_iter_at_offset(self.end))
 
-    def redo(self):
+    def add(self):
         self.buffer.apply_tag_by_name(self.name, self.buffer.get_iter_at_offset(self.start), self.buffer.get_iter_at_offset(self.end))
+
+    def undo(self):
+        if self.is_addition:
+            self.remove()
+        else:
+            self.add()
+
+    def redo(self):
+        if self.is_addition:
+            self.add()
+        else:
+            self.remove()
 
 # Used to combine multiple actions into one single undable action. Actions should be passed in the same order in which
 # they were performed. Failure to do so could result in order getting mixed up in the buffer.
@@ -135,11 +166,11 @@ class CompositeAction(GenericAction):
 
 class NoteBuffer(Gtk.TextBuffer):
     # These values should not be modified directly.
-    # inhibit_notify keeps the "content-changed" signal from firing while the buffer performs several actions. It
+    # internal_action_count keeps the "content-changed" signal from firing while the buffer performs several actions. It
     # should not be modified directly. Instead use
     #       with self.internal_action():
     #           do_something()
-    inhibit_notify = 0
+    internal_action_count = 0
 
     # in_composite and composite_actions will rarely be used in practice as it is generally much easier and
     # straightforward to construct the composite action directly as you perform them. This functionality is primarily
@@ -167,101 +198,82 @@ class NoteBuffer(Gtk.TextBuffer):
     def __init__(self):
         super(NoteBuffer, self).__init__()
 
+        for name, attributes in TAG_DEFINITIONS.items():
+            self.create_tag(name, **attributes)
+
         self.connect('insert-text', self.on_insert)
         self.connect('delete-range', self.on_delete)
+        self.connect('changed', self.trigger_changed)
         self.connect('begin-user-action', self.begin_composite_action)
         self.connect('end-user-action', self.end_composite_action)
 
     def trigger_changed(self, *args):
-        if not self.inhibit_notify:
-            self.emit('content_changed')
+        if not self.internal_action_count:
+            self.emit('content-changed')
 
     def internal_action(self, trigger_on_complete=True):
         class InternalActionHandler(object):
             def __enter__(a):
-                self.inhibit_notify += 1
+                self.internal_action_count += 1
 
             def __exit__(a, exc_type, exc_value, traceback):
-                self.inhibit_notify -= 1
+                self.internal_action_count -= 1
                 if trigger_on_complete:
-                    self.trigger_changed()
+                    GLib.idle_add(self.trigger_changed)
 
         return InternalActionHandler()
 
     def get_internal_markup(self):
         (start, end) = self.get_bounds()
-        raw_text = self.get_slice(start, end, True)
-
-        inserted_objects = []
         current_tags = []
         text = ''
 
-        index = 0
-
-        while True:
-            index = raw_text.find('\ufffc', index+1)
-            if index == -1:
-                break
-
-            inserted_objects.append(self.get_iter_at_offset(index))
-
-        # current_iter: our placeholder for where we start copying from
-        # current_insert: the next occurrence of an inserted object (bullet, checkbox, etc)
-        # next_iter: where we find the next set of tag open/close in the buffer
         current_iter = start.copy()
-        current_insert = inserted_objects.pop(0) if len(inserted_objects) > 0 else end
-        while True:
-            next_iter = current_iter.copy()
-            next_iter.forward_to_tag_toggle()
+        while current_iter.compare(end) != 0:
+            # if not all tags are closed, we still need to keep track of them, but leaving them in the list will
+            # cause an infinite loop, so we hold on to them in unclosed_tags and re-add them after exiting the loop
+            unclosed_tags = []
 
-            # if there happens to be an inserted object before the next tag, we handle that first, but otherwise we
-            # want to close out our tags first, though it probably doesn't matter since the check boxes are affected
-            # by the formatting and vice-versa
-            if current_insert.compare(next_iter) < 0:
-                text += self.get_slice(current_iter, current_insert, False).replace('#', '##')
+            tags = current_iter.get_toggled_tags(False)
+            while len(current_tags) and len(tags):
+                tag = current_tags.pop()
+                name = tag.props.name
 
-                try:
-                    checked = current_insert.get_child_anchor().get_widgets()[0].get_active()
+                if not name or name not in TAG_DEFINITIONS:
+                    continue
+
+                if len(tags) == 0 or tag not in tags:
+                    unclosed_tags.append(tag)
+                    continue
+
+                text += '#tag:%s:' % name
+                tags.remove(tag)
+
+            current_char = current_iter.get_char()
+            if current_char == '#':
+                text += '#'
+            elif current_iter.get_child_anchor() is not None:
+                anchor_child = current_iter.get_child_anchor().get_widgets()[0]
+                if isinstance(anchor_child, Gtk.CheckButton):
+                    checked = anchor_child.get_active()
                     text += '#check:' + str(int(checked))
-                except:
-                    pass
-
-                current_iter = current_insert.copy()
-                current_iter.forward_char()
-                current_insert = inserted_objects.pop(0) if len(inserted_objects) > 0 else end
-
+                elif isinstance(anchor_child, Gtk.Image):
+                    text += '#bullet:'
             else:
-                text += self.get_slice(current_iter, next_iter, False).replace('#', '##')
+                text += current_char
 
-                # if not all tags are closed, we still need to keep track of them, but leaving them in the list will
-                # cause an infinite loop, so we hold on to them in unclosed_tags and re-add them after exiting the loop
-                unclosed_tags = []
+            tags = current_iter.get_toggled_tags(True)
+            while len(tags):
+                tag = tags.pop()
+                name = tag.props.name
 
-                tags = next_iter.get_toggled_tags(False)
-                while len(current_tags) and len(tags):
-                    tag = current_tags.pop()
+                if not name or name not in TAG_DEFINITIONS:
+                    continue
 
-                    if len(tags) == 0 or tag not in tags:
-                        unclosed_tags.append(tag)
-                        continue
+                text += '#tag:%s:' % tag.props.name
+                current_tags.append(tag)
 
-                    text += '#tag:%s:' % tag.props.name
-                    tags.remove(tag)
-
-                current_tags += unclosed_tags
-
-                tags = next_iter.get_toggled_tags(True)
-                while len(tags):
-                    tag = tags.pop()
-                    name = tag.props.name
-
-                    text += '#tag:%s:' % tag.props.name
-                    current_tags.append(tag)
-
-                current_iter = next_iter
-
-            if current_iter.compare(end) == 0:
-                break
+            current_iter.forward_char()
 
         return text
 
@@ -285,6 +297,9 @@ class NoteBuffer(Gtk.TextBuffer):
                 elif text[next_index:next_index+6] == '#check':
                     checked = bool(int(text[next_index+7]))
                     self.add_check_button(self.get_end_iter(), checked=checked)
+                    current_index = next_index + 8
+                elif text[next_index:next_index+7] == '#bullet':
+                    self.add_bullet(self.get_end_iter())
                     current_index = next_index + 8
                 elif text[next_index:next_index+4] == '#tag':
                     end_tag_index = text.find(':', next_index+6)
@@ -348,29 +363,86 @@ class NoteBuffer(Gtk.TextBuffer):
             self.redo_actions.clear()
 
     def on_insert(self, buffer, location, text, *args):
-        if self.inhibit_notify:
+        if self.internal_action_count:
             return
 
         action = AdditionAction(self, text, location)
         if text == '\n' and self.maybe_repeat(location, action):
             return
 
-        if self.props.can_undo:
-            self.undo_actions[-1].maybe_join(action)
+        if self.props.can_undo and self.undo_actions[-1].maybe_join(action):
             return
 
         self.add_undo_action(action)
 
     def on_delete(self, buffer, start, end):
-        if self.inhibit_notify:
+        if self.internal_action_count:
             return
 
-        action = DeletionAction(self, start, end)
-        if self.props.can_undo:
-            self.undo_actions[-1].maybe_join(action)
-            return
+        # if there were tags, bullets or checkboxes here, we need to handle those first so that we can undo later
+        actions = []
+        with self.internal_action(False):
+            current_iter = start.copy()
 
-        self.add_undo_action(action)
+            start_mark = Gtk.TextMark()
+            end_mark = Gtk.TextMark()
+
+            self.add_mark(start_mark, start)
+            self.add_mark(end_mark, end)
+
+            open_tags = {}
+            while current_iter.compare(end) < 0:
+                anchor = current_iter.get_child_anchor()
+                if anchor is not None:
+                    current_offset = current_iter.get_offset()
+                    action = ObjectInsertAction(self, anchor, is_addition=False)
+                    actions.append(action)
+                    action.remove()
+
+                    current_iter = self.get_iter_at_offset(current_offset)
+                    end.assign(self.get_iter_at_mark(end_mark))
+                    start.assign(self.get_iter_at_mark(start_mark))
+
+                for tag in current_iter.get_toggled_tags(True):
+                    # ignore tags that don't have one of our names (i.e. spell checker)
+                    if tag.props.name in TAG_DEFINITIONS:
+                        open_tags[tag.props.name] = current_iter.get_offset()
+
+                for tag in current_iter.get_toggled_tags(False):
+                    # ignore tags that don't have one of our names (i.e. spell checker)
+                    if tag.props.name not in TAG_DEFINITIONS:
+                        continue
+
+                    if tag.props.name in open_tags:
+                        actions.append(TagAction(self, tag.props.name, self.get_iter_at_offset(open_tags[tag.props.name]), current_iter, False))
+                        del open_tags[tag.props.name]
+                    else:
+                        actions.append(TagAction(self, tag.props.name, start, current_iter, False))
+
+                current_iter.forward_char()
+
+            for name, offset in open_tags.items():
+                actions.append(TagAction(self, name, self.get_iter_at_offset(offset), end, False))
+
+            self.delete_mark(start_mark)
+            self.delete_mark(end_mark)
+
+            # if it's just an object deletion, there's nothing left to remove, so there's no need to create an undo action
+            if start.compare(end) != 0:
+                actions.append(DeletionAction(self, start, end))
+
+            if len(actions) == 0:
+                return Gdk.EVENT_STOP
+            elif len(actions) == 1:
+                action = actions[0]
+            else:
+                actions.append(action)
+                action = CompositeAction(*actions)
+
+            if self.props.can_undo and self.undo_actions[-1].maybe_join(action):
+                return Gdk.EVENT_PROPAGATE
+
+            self.add_undo_action(action)
 
     def tag_selection(self, tag_name):
         if self.get_has_selection():
@@ -389,7 +461,7 @@ class NoteBuffer(Gtk.TextBuffer):
             check_button.connect('toggled', self.trigger_changed)
             self.view.add_child_at_anchor(check_button, anchor)
 
-            return ObjectInsertAction(self, a_iter, anchor)
+            return ObjectInsertAction(self, anchor)
 
     def add_bullet(self, a_iter):
         with self.internal_action():
@@ -397,7 +469,7 @@ class NoteBuffer(Gtk.TextBuffer):
             bullet = Gtk.Image(visible=True, icon_name='menu-bullet', pixel_size=16)
             self.view.add_child_at_anchor(bullet, anchor)
 
-            return ObjectInsertAction(self, a_iter, anchor)
+            return ObjectInsertAction(self, anchor)
 
     def toggle_checklist(self, *args):
         actions = []
@@ -420,12 +492,14 @@ class NoteBuffer(Gtk.TextBuffer):
                 if all_have_checkboxes:
                     anchor = self.get_iter_at_line(line).get_child_anchor()
                     if anchor is not None:
-                        self.view.remove(anchor.get_widgets()[0])
+                        action = ObjectInsertAction(self, anchor, False)
+                        action.remove()
+                        actions.append(action)
                 else:
                     actions.append(self.add_check_button(self.get_iter_at_line(line)))
 
-        if len(actions):
-            self.add_undo_action(CompositeAction(*actions))
+            if len(actions):
+                self.add_undo_action(CompositeAction(*actions))
 
     def toggle_bullets(self, *args):
         actions = []
@@ -448,7 +522,9 @@ class NoteBuffer(Gtk.TextBuffer):
                 if all_have_bullets:
                     anchor = self.get_iter_at_line(line).get_child_anchor()
                     if anchor is not None:
-                        self.view.remove(anchor.get_widgets()[0])
+                        action = ObjectInsertAction(self, anchor, False)
+                        action.remove()
+                        actions.append(action)
                 else:
                     actions.append(self.add_bullet(self.get_iter_at_line(line)))
 
