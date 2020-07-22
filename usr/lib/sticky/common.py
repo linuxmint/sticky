@@ -6,7 +6,7 @@ import json
 from gi.repository import GLib, GObject
 
 CONFIG_PATH = os.path.join(GLib.get_user_config_dir(), 'sticky', 'notes.json')
-SAVE_DELAY = 1
+SAVE_DELAY = 3
 
 class FileHandler(GObject.Object):
     @GObject.Signal(flags=GObject.SignalFlags.RUN_LAST, return_type=bool,
@@ -60,9 +60,15 @@ class FileHandler(GObject.Object):
         with open(CONFIG_PATH, 'w+') as file:
             file.write(json.dumps(self.notes_lists, indent=4))
 
+    def flush(self):
+        if self.timer_id > 0:
+            GLib.source_remove(self.timer_id)
+
+        self.save_note_list()
+
     def remove_group(self, group_name):
         if group_name not in self.notes_lists:
             raise ValueError('invalid group name %s' % group_name)
         del self.notes_lists[group_name]
 
-        self.queue_save()
+        self.save_note_list()

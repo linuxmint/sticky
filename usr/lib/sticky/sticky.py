@@ -462,6 +462,8 @@ class Application(Gtk.Application):
         self.on_update()
 
     def quit_app(self, *args):
+        self.file_handler.flush()
+
         for note in self.notes:
             note.destroy()
 
