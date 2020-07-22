@@ -71,7 +71,7 @@ class Note(Gtk.Window):
         )
 
         if self.color == 'random':
-            self.color = random.choice(COLORS)
+            self.color = random.choice(list(COLORS.keys()))
 
         context = self.get_style_context()
         context.add_class(self.color)
