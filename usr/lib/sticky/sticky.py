@@ -110,7 +110,7 @@ class Note(Gtk.Window):
 
         # text view
         self.view = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, populate_all=True, buffer=self.buffer)
-        self.buffer.view = self.view #fixme: this is an ugly hack so that we can add checkboxes and bullet points from the buffer
+        self.buffer.set_view(self.view)
         Gspell.TextView.get_from_gtk_text_view(self.view).basic_setup()
         self.view.set_left_margin(10)
         self.view.set_right_margin(10)
@@ -134,7 +134,7 @@ class Note(Gtk.Window):
         self.show_all()
 
     def test(self, *args):
-        self.buffer.tag_selection('red')
+        self.buffer.test()
 
     def handle_update(self, *args):
         if self.showing:
@@ -240,6 +240,22 @@ class Note(Gtk.Window):
             menu_item.connect('activate', self.set_color, color)
             color_menu.append(menu_item)
 
+        format_menu = Gtk.Menu()
+        format_item = Gtk.MenuItem(label=_("Format"), submenu=format_menu, visible=True)
+        popup.append(format_item)
+
+        bold_item = Gtk.MenuItem(label=_("Bold"), visible=True)
+        bold_item.connect('activate', self.apply_format, 'bold')
+        format_menu.append(bold_item)
+
+        italic_item = Gtk.MenuItem(label=_("Italic"), visible=True)
+        italic_item.connect('activate', self.apply_format, 'italic')
+        format_menu.append(italic_item)
+
+        underline_item = Gtk.MenuItem(label=_("Underline"), visible=True)
+        underline_item.connect('activate', self.apply_format, 'underline')
+        format_menu.append(underline_item)
+
         label = _("Set Title") if self.title.get_text() == '' else _('Edit Title')
         edit_title = Gtk.MenuItem(label=label, visible=True)
         edit_title.connect('activate', self.set_title)
@@ -258,6 +274,9 @@ class Note(Gtk.Window):
         self.color = color
 
         self.emit('update')
+
+    def apply_format(self, m, format_type):
+        self.buffer.tag_selection(format_type)
 
     def remove(self, *args):
         self.emit('removed')
