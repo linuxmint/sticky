@@ -245,6 +245,7 @@ class NotesManager(object):
                 self.file_handler.update_note_list([], text)
             entry_box.remove(entry)
 
+            self.generate_group_list()
             self.group_list.select_row(self.group_list.get_children()[-1])
 
         entry.grab_focus()
@@ -263,6 +264,7 @@ class NotesManager(object):
 
     def remove_group(self, *args):
         self.file_handler.remove_group(self.get_current_group())
+        self.generate_group_list()
 
     def preview_group(self, *args):
         group_name = self.get_current_group()
