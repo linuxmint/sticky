@@ -318,23 +318,28 @@ class SettingsWindow(XApp.PreferencesWindow):
     def __init__(self, app):
         super(SettingsWindow, self).__init__()
 
-        defaults_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        general_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
-        defaults_page.pack_start(GSettingsSpinButton(_("Default Height"), SCHEMA, 'default-height', mini=50, maxi=2000, step=10), False, False, 0)
-        defaults_page.pack_start(GSettingsSpinButton(_("Default Width"), SCHEMA, 'default-width', mini=50, maxi=2000, step=10), False, False, 0)
+        general_page.pack_start(GSettingsSwitch(_("Show in Taskbar"), SCHEMA, 'show-in-taskbar'), False, False, 0)
+        self.add_page(general_page, 'general', _("General"))
+
+        notes_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+
+        notes_page.pack_start(GSettingsSpinButton(_("Default Height"), SCHEMA, 'default-height', mini=50, maxi=2000, step=10), False, False, 0)
+        notes_page.pack_start(GSettingsSpinButton(_("Default Width"), SCHEMA, 'default-width', mini=50, maxi=2000, step=10), False, False, 0)
         try:
             colors = [(x, y) for x, y in COLORS.items()]
             colors.append(('sep', ''))
             colors.append(('random', _('Random')))
 
-            defaults_page.pack_start(GSettingsComboBox(_("Default Color"), SCHEMA, 'default-color', options=colors, valtype=str, separator='sep'), False, False, 0)
+            notes_page.pack_start(GSettingsComboBox(_("Default Color"), SCHEMA, 'default-color', options=colors, valtype=str, separator='sep'), False, False, 0)
         except Exception as e:
             colors = [(x, y) for x, y in COLORS.items()]
             colors.append(('random', _('Random')))
 
-            defaults_page.pack_start(GSettingsComboBox(_("Default Color"), SCHEMA, 'default-color', options=colors, valtype=str), False, False, 0)
+            notes_page.pack_start(GSettingsComboBox(_("Default Color"), SCHEMA, 'default-color', options=colors, valtype=str), False, False, 0)
 
-        self.add_page(defaults_page, 'default', _("Defaults"))
+        self.add_page(notes_page, 'notes', _("Notes"))
 
         backup_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
@@ -345,6 +350,8 @@ class SettingsWindow(XApp.PreferencesWindow):
         self.show_all()
 
 class Application(Gtk.Application):
+    dummy_window = None
+
     def __init__(self):
         super(Application, self).__init__(application_id=APPLICATION_ID, flags=Gio.ApplicationFlags.FLAGS_NONE)
 
@@ -358,6 +365,9 @@ class Application(Gtk.Application):
         self.file_handler = FileHandler()
 
         self.settings = Gio.Settings(schema_id=SCHEMA)
+
+        self.settings.connect('changed::show-in-taskbar', self.update_dummy_window)
+        self.update_dummy_window()
 
         self.note_group = self.settings.get_string('default-group')
         group_names = self.file_handler.get_note_group_names()
@@ -406,6 +416,19 @@ class Application(Gtk.Application):
 
         self.hold()
 
+    def update_dummy_window(self, *args):
+        if self.settings.get_boolean('show-in-taskbar'):
+            self.dummy_window = Gtk.Window(default_height=1, default_width=1, decorated=False, deletable=False)
+            self.dummy_window.stick()
+            self.dummy_window.show()
+
+        elif self.dummy_window is not None:
+            self.dummy_window.destroy()
+            self.dummy_window = None
+
+        for note in self.notes:
+            note.set_transient_for(self.dummy_window)
+
     def activate_notes(self, i, b, time):
         for note in self.notes:
             if note.is_active():
@@ -426,6 +449,10 @@ class Application(Gtk.Application):
         note = Note(self, info)
         note.connect('update', self.on_update)
         note.connect('removed', self.on_removed)
+
+        if self.dummy_window:
+            note.set_transient_for(self.dummy_window)
+
         self.notes.append(note)
 
     def load_notes(self):
