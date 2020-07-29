@@ -50,6 +50,7 @@ class Note(Gtk.Window):
         self.app = app
 
         self.showing = False
+        self.is_pinned = False
 
         self.x = info.get('x', 0)
         self.y = info.get('y', 0)
@@ -128,6 +129,7 @@ class Note(Gtk.Window):
 
         self.connect('configure-event', self.handle_update)
         self.connect('show', self.on_show)
+        self.connect('window-state-event', self.update_window_state)
 
         self.move(self.x, self.y)
 
@@ -170,6 +172,11 @@ class Note(Gtk.Window):
                 return Gdk.EVENT_STOP
 
         return Gdk.EVENT_PROPAGATE
+
+    def update_window_state(self, w, event):
+        self.is_stuck = event.new_window_state & Gdk.WindowState.STICKY
+        # for some reason, the ABOVE flag is never actually being set, even when it should be
+        # self.is_pinned = event.new_window_state & Gdk.WindowState.ABOVE
 
     def on_title_click(self, w, event):
         if event.button == 3:
@@ -264,6 +271,30 @@ class Note(Gtk.Window):
         remove_item = Gtk.MenuItem(label=_("Remove"), visible=True)
         remove_item.connect('activate', self.remove)
         popup.append(remove_item)
+
+        if is_title:
+            popup.append(Gtk.SeparatorMenuItem(visible=True))
+
+            if self.is_stuck:
+                label = _("Only on This Workspace")
+                def on_activate(*args):
+                    self.unstick()
+            else:
+                label = _("Always on Visible Workspace")
+                def on_activate(*args):
+                    self.stick()
+
+            stick_menu_item = Gtk.MenuItem(label=label, visible=True)
+            stick_menu_item.connect('activate', on_activate)
+            popup.append(stick_menu_item)
+
+            def on_activate(*args):
+                self.set_keep_above(not self.is_pinned)
+                self.is_pinned = not self.is_pinned
+
+            pin_menu_item = Gtk.CheckMenuItem(active=self.is_pinned, label=_("Always on Top"), visible=True)
+            pin_menu_item.connect('activate', on_activate)
+            popup.append(pin_menu_item)
 
     def set_color(self, menu, color):
         if color == self.color:
