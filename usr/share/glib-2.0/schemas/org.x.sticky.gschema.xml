@@ -49,6 +49,14 @@
       </description>
     </key>
 
+    <key name='inline-spell-check' type='b'>
+      <default>true</default>
+      <summary>Show Spelling Mistakes</summary>
+      <description>
+        If true, spelling mistakes are marked with a red underline in the text.
+      </description>
+    </key>
+
     <key name='default-group' type='s'>
       <default>"Desktop"</default>
       <summary>Default Group</summary>

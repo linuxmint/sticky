@@ -112,7 +112,9 @@ class Note(Gtk.Window):
         # text view
         self.view = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, populate_all=True, buffer=self.buffer)
         self.buffer.set_view(self.view)
-        Gspell.TextView.get_from_gtk_text_view(self.view).basic_setup()
+        spell_checker = Gspell.TextView.get_from_gtk_text_view(self.view)
+        spell_checker.basic_setup()
+        self.app.settings.bind('inline-spell-check', spell_checker, 'inline-spell-checking', Gio.SettingsBindFlags.GET)
         self.view.set_left_margin(10)
         self.view.set_right_margin(10)
         self.view.set_top_margin(10)
@@ -349,11 +351,13 @@ class SettingsWindow(XApp.PreferencesWindow):
     def __init__(self, app):
         super(SettingsWindow, self).__init__()
 
+        # general settings
         general_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
         general_page.pack_start(GSettingsSwitch(_("Show in Taskbar"), SCHEMA, 'show-in-taskbar'), False, False, 0)
         self.add_page(general_page, 'general', _("General"))
 
+        # note related settings
         notes_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
         notes_page.pack_start(GSettingsSpinButton(_("Default Height"), SCHEMA, 'default-height', mini=50, maxi=2000, step=10), False, False, 0)
@@ -370,8 +374,11 @@ class SettingsWindow(XApp.PreferencesWindow):
 
             notes_page.pack_start(GSettingsComboBox(_("Default Color"), SCHEMA, 'default-color', options=colors, valtype=str), False, False, 0)
 
+        notes_page.pack_start(GSettingsSwitch(_("Show Spelling Mistakes"), SCHEMA, 'inline-spell-check'), False, False, 0)
+
         self.add_page(notes_page, 'notes', _("Notes"))
 
+        # backups
         backup_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
         backup_page.pack_start(Switch(_("Create periodic backups")), False, False, 0)
