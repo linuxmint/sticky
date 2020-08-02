@@ -303,7 +303,7 @@ class NoteBuffer(Gtk.TextBuffer):
             current_char = current_iter.get_char()
             if current_char == '#':
                 # we need to escape '#' characters to avoid misinterpretation when we parse it later
-                text += '#'
+                text += '##'
             elif current_iter.get_child_anchor() is not None:
                 # object insertions (bullets and checkboxes)
                 anchor_child = current_iter.get_child_anchor().get_widgets()[0]
