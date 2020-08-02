@@ -131,15 +131,36 @@ class TagAction(GenericAction):
         super(TagAction, self).__init__()
         self.buffer = buffer
         self.name = name
-        self.start = start.get_offset()
-        self.end = end.get_offset()
         self.is_addition = is_addition
 
+        # there may be text between `start` and `end` that already has the tag applied (or doesn't, in the case of a
+        # removal), and we need to find those ranges (if they exist) so we can restore that state properly when undoing
+        current_iter = start.copy()
+        in_tag = False
+        range_start = None
+        self.ranges = []
+        while current_iter.compare(end) < 0:
+            has_tag = current_iter.has_tag(buffer.get_tag_table().lookup(name))
+            # if we're adding a tag, we only want to chage text that isn't already tagged
+            # if it's a removal, we only want to change text that is already tagged
+            if range_start is None and has_tag != is_addition:
+                range_start = current_iter.get_offset()
+            elif range_start and has_tag == is_addition:
+                self.ranges.append((range_start, current_iter.get_offset()))
+                range_start = None
+
+            current_iter.forward_char()
+
+        if range_start is not None:
+            self.ranges.append((range_start, end.get_offset()))
+
     def remove(self):
-        self.buffer.remove_tag_by_name(self.name, self.buffer.get_iter_at_offset(self.start), self.buffer.get_iter_at_offset(self.end))
+        for (start, end) in self.ranges:
+            self.buffer.remove_tag_by_name(self.name, self.buffer.get_iter_at_offset(start), self.buffer.get_iter_at_offset(end))
 
     def add(self):
-        self.buffer.apply_tag_by_name(self.name, self.buffer.get_iter_at_offset(self.start), self.buffer.get_iter_at_offset(self.end))
+        for (start, end) in self.ranges:
+            self.buffer.apply_tag_by_name(self.name, self.buffer.get_iter_at_offset(start), self.buffer.get_iter_at_offset(end))
 
     def undo(self):
         if self.is_addition:
@@ -260,12 +281,11 @@ class NoteBuffer(Gtk.TextBuffer):
         return InternalActionHandler()
 
     def get_internal_markup(self):
-        (start, end) = self.get_bounds()
         current_tags = []
         text = ''
 
-        current_iter = start.copy()
-        while current_iter.compare(end) != 0:
+        current_iter = self.get_iter_at_offset(0)
+        while True:
             # if not all tags are closed, we still need to keep track of them, but leaving them in the list will
             # cause an infinite loop, so we hold on to them in unclosed_tags and re-add them after exiting the loop
             unclosed_tags = []
@@ -315,11 +335,13 @@ class NoteBuffer(Gtk.TextBuffer):
             else:
                 text += current_char
 
-            current_iter.forward_char()
+            if not current_iter.forward_char():
+                break
 
-        # this shouldn't ever be true, but if it is, we want to know about it
-        if len(current_tags):
-            print('warning: tags %s were not properly closed' % str(current_tags))
+        # If the tag goes to the end of the text, the 'toggle-off' point will technically be after the end of the text,
+        # so we wont pick it up above. Instead, we'll just close all tags and assume they're supposed to go to the end.
+        for tag in current_tags:
+            text += '#tag:%s:' % tag.props.name
 
         return text
 
@@ -489,7 +511,6 @@ class NoteBuffer(Gtk.TextBuffer):
             elif len(actions) == 1:
                 action = actions[0]
             else:
-                actions.append(action)
                 action = CompositeAction(*actions)
 
             if self.props.can_undo and self.undo_actions[-1].maybe_join(action):
@@ -499,14 +520,38 @@ class NoteBuffer(Gtk.TextBuffer):
 
     def tag_selection(self, tag_name):
         if self.get_has_selection():
-            self.add_undo_action(self.add_tag(tag_name, *self.get_selection_bounds()))
+            (start, end) = self.get_selection_bounds()
+
+            current_iter = start.copy()
+            all_has_tag = True
+            while current_iter.compare(end) < 0:
+                if not current_iter.has_tag(self.get_tag_table().lookup(tag_name)):
+                    all_has_tag = False
+                    break
+
+                current_iter.forward_char()
+
+            # remove the tag if the whole selection already has it
+            if all_has_tag:
+                self.add_undo_action(self.strip_tag(tag_name, start, end))
+            else:
+                self.add_undo_action(self.add_tag(tag_name, start, end))
         else:
+            # This needs to be fixed so that it properly applies the tag when entering text. Currently, setting a tag
+            # without a selection does nothing as both start and end have left gravity.
             cursor_location = self.get_iter_at_mark(self.get_insert())
             self.add_undo_action(self.add_tag(tag_name, cursor_location, cursor_location))
 
     def add_tag(self, tag_name, start, end):
-        self.apply_tag_by_name(tag_name, start, end)
         action = TagAction(self, tag_name, start, end)
+        self.apply_tag_by_name(tag_name, start, end)
+        self.trigger_changed()
+
+        return action
+
+    def strip_tag(self, tag_name, start, end):
+        action = TagAction(self, tag_name, start, end, False)
+        self.remove_tag_by_name(tag_name, start, end)
         self.trigger_changed()
 
         return action
