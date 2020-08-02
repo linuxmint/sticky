@@ -173,6 +173,22 @@ class Note(Gtk.Window):
                 self.buffer.toggle_checklist()
                 return Gdk.EVENT_STOP
 
+            elif event.get_keyval()[1] == Gdk.KEY_l:
+                self.buffer.toggle_bullets()
+                return Gdk.EVENT_STOP
+
+            elif event.get_keyval()[1] == Gdk.KEY_b:
+                self.buffer.tag_selection('bold')
+                return Gdk.EVENT_STOP
+
+            elif event.get_keyval()[1] == Gdk.KEY_i:
+                self.buffer.tag_selection('italic')
+                return Gdk.EVENT_STOP
+
+            elif event.get_keyval()[1] == Gdk.KEY_u:
+                self.buffer.tag_selection('underline')
+                return Gdk.EVENT_STOP
+
         return Gdk.EVENT_PROPAGATE
 
     def update_window_state(self, w, event):
