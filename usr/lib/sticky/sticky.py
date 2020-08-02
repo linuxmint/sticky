@@ -77,7 +77,8 @@ class Note(Gtk.Window):
         context = self.get_style_context()
         context.add_class(self.color)
 
-        self.stick()
+        if self.app.settings.get_boolean('desktop-window-state'):
+            self.stick()
 
         # title bar
         self.title_box = Gtk.Box(height_request=30, name='title-box')
@@ -372,6 +373,7 @@ class SettingsWindow(XApp.PreferencesWindow):
 
         general_page.pack_start(GSettingsSwitch(_("Show in Taskbar"), SCHEMA, 'show-in-taskbar'), False, False, 0)
         general_page.pack_start(GSettingsSwitch(_("Show Manager on Start"), SCHEMA, 'show-manager-on-start'), False, False, 0)
+        general_page.pack_start(GSettingsSwitch(_("Show Notes on all Desktops"), SCHEMA, 'desktop-window-state'), False, False, 0)
 
         self.add_page(general_page, 'general', _("General"))
 
@@ -478,7 +480,8 @@ class Application(Gtk.Application):
     def update_dummy_window(self, *args):
         if self.settings.get_boolean('show-in-taskbar'):
             self.dummy_window = Gtk.Window(default_height=1, default_width=1, decorated=False, deletable=False)
-            self.dummy_window.stick()
+            if self.settings.get_boolean('desktop-window-state'):
+                self.dummy_window.stick()
             self.dummy_window.show()
 
         elif self.dummy_window is not None:

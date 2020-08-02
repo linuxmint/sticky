@@ -81,6 +81,14 @@
       </description>
     </key>
 
+    <key name='desktop-window-state' type='b'>
+      <default>false</default>
+      <summary>Show Notes on all Desktops</summary>
+      <description>
+        Whether to show the notes on all desktops.
+      </description>
+    </key>
+
   </schema>
 
 </schemalist>
