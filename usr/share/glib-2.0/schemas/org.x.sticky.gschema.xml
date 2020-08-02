@@ -73,6 +73,14 @@
       </description>
     </key>
 
+    <key name='show-manager-on-start' type='b'>
+      <default>false</default>
+      <summary>Show Manager on Start</summary>
+      <description>
+        Whether to show the notes manager when the application first starts.
+      </description>
+    </key>
+
   </schema>
 
 </schemalist>

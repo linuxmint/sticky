@@ -355,6 +355,8 @@ class SettingsWindow(XApp.PreferencesWindow):
         general_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
         general_page.pack_start(GSettingsSwitch(_("Show in Taskbar"), SCHEMA, 'show-in-taskbar'), False, False, 0)
+        general_page.pack_start(GSettingsSwitch(_("Show Manager on Start"), SCHEMA, 'show-manager-on-start'), False, False, 0)
+
         self.add_page(general_page, 'general', _("General"))
 
         # note related settings
@@ -451,6 +453,9 @@ class Application(Gtk.Application):
         self.status_icon.connect('activate', self.activate_notes)
 
         self.load_notes()
+
+        if self.settings.get_boolean('show-manager-on-start'):
+            self.open_manager()
 
         self.hold()
 
