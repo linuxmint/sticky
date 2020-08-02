@@ -61,7 +61,7 @@ class DeletionAction(GenericAction):
         elif self.buffer.get_iter_at_mark(self.buffer.get_insert()).compare(end) == 0:
             self.deletion_type = 'backward'
         elif self.buffer.get_iter_at_mark(self.buffer.get_insert()).compare(start) == 0:
-            self.deletion_type = 'foreward'
+            self.deletion_type = 'forward'
         else:
             self.deletion_type = 'other'
 
@@ -77,7 +77,7 @@ class DeletionAction(GenericAction):
         if not isinstance(new_action, DeletionAction) or new_action.deletion_type != self.deletion_type:
             return False
 
-        if self.deletion_type == 'foreward' and new_action.position == self.position:
+        if self.deletion_type == 'forward' and new_action.position == self.position:
             self.text += new_action.text
             return True
         elif self.deletion_type == 'backward' and new_action.position == self.position - 1:
