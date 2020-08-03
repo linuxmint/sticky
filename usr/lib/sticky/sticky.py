@@ -401,7 +401,10 @@ class SettingsWindow(XApp.PreferencesWindow):
         # backups
         backup_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
-        backup_page.pack_start(Switch(_("Create periodic backups")), False, False, 0)
+        backup_page.pack_start(GSettingsSwitch(_("Create Periodic Backups"), SCHEMA, 'automatic-backups'), False, False, 0)
+        backup_page.pack_start(GSettingsSpinButton(_("Time Between Backups"), SCHEMA, 'backup-interval', units=_("hours")), False, False, 0)
+        obm_tooltip = _("Set this to zero if you wish to keep all backups indefinitely")
+        backup_page.pack_start(GSettingsSpinButton(_("Number to Keep"), SCHEMA, 'old-backups-max', tooltip=obm_tooltip), False, False, 0)
 
         self.add_page(backup_page, 'backup', _("Backups"))
 
@@ -420,9 +423,9 @@ class Application(Gtk.Application):
     def do_activate(self):
         Gtk.Application.do_activate(self)
 
-        self.file_handler = FileHandler()
-
         self.settings = Gio.Settings(schema_id=SCHEMA)
+
+        self.file_handler = FileHandler(self.settings)
 
         self.settings.connect('changed::show-in-taskbar', self.update_dummy_window)
         self.update_dummy_window()
@@ -452,6 +455,10 @@ class Application(Gtk.Application):
 
         item = Gtk.MenuItem(label=_("Settings"))
         item.connect('activate', self.open_settings_window)
+        self.menu.append(item)
+
+        item = Gtk.MenuItem(label=_("Back Up Notes"))
+        item.connect('activate', self.file_handler.save_backup)
         self.menu.append(item)
 
         self.menu.append(Gtk.SeparatorMenuItem())

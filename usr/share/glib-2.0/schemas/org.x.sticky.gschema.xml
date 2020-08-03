@@ -89,6 +89,40 @@
       </description>
     </key>
 
+    <key name='automatic-backups' type='b'>
+      <default>true</default>
+      <summary>Auto Backup</summary>
+      <description>
+        Whether to back up all notes periodically to a separate file.
+      </description>
+    </key>
+
+    <key name='backup-interval' type='u'>
+      <default>24</default>
+      <range min='1' max='168'/>
+      <summary>Backup Interval</summary>
+      <description>
+        How many hours between backups.
+      </description>
+    </key>
+
+    <key name='latest-backup' type='u'>
+      <default>0</default>
+      <summary>Latest Backup</summary>
+      <description>
+        This setting should not be changed directly. It is used solely for internal tracking.
+      </description>
+    </key>
+
+    <key name='old-backups-max' type='u'>
+      <default>7</default>
+      <range min='0' max='100'/>
+      <summary>Backups to Keep</summary>
+      <description>
+        How many backups are preserved. Older ones are deleted. Set to zero to never delete old backups.
+      </description>
+    </key>
+
   </schema>
 
 </schemalist>
