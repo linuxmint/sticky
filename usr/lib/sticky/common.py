@@ -65,8 +65,8 @@ class FileHandler(GObject.Object):
     def save_note_list(self):
         self.save_timer_id = 0
 
-        if not os.path.exists(os.path.dirname(CONFIG_DIR)):
-            os.makedirs(os.path.dirname(CONFIG_DIR))
+        if not os.path.exists(CONFIG_DIR):
+            os.makedirs(CONFIG_DIR)
 
         with open(CONFIG_PATH, 'w+') as file:
             file.write(json.dumps(self.notes_lists, indent=4))
@@ -99,8 +99,8 @@ class FileHandler(GObject.Object):
     def save_backup(self, *args):
         self.backup_timer_id = 0
 
-        if not os.path.exists(os.path.dirname(CONFIG_DIR)):
-            os.makedirs(os.path.dirname(CONFIG_DIR))
+        if not os.path.exists(CONFIG_DIR):
+            os.makedirs(CONFIG_DIR)
 
         timestamp = int(time.time())
         path = os.path.join(CONFIG_DIR, 'backup-%d.json' % timestamp)
