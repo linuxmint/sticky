@@ -258,7 +258,7 @@ class Note(Gtk.Window):
             popup.append(Gtk.SeparatorMenuItem(visible=True))
 
         color_menu = Gtk.Menu()
-        color_item = Gtk.MenuItem(label=_("Set Color"), submenu=color_menu, visible=True)
+        color_item = Gtk.MenuItem(label=_("Set Note Color"), submenu=color_menu, visible=True)
         popup.append(color_item)
 
         for color, color_name in COLORS.items():
