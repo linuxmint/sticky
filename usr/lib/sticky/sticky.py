@@ -99,11 +99,11 @@ class Note(Gtk.Window):
         add_button.connect('button-press-event', self.on_title_click)
         self.title_box.pack_end(add_button, False, False, 0)
 
-        test_icon = Gtk.Image.new_from_icon_name('system-run-symbolic', Gtk.IconSize.BUTTON)
-        test_button = Gtk.Button(image=test_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
-        test_button.connect('clicked', self.test)
-        test_button.connect('button-press-event', self.on_title_click)
-        self.title_box.pack_end(test_button, False, False, 0)
+        # test_icon = Gtk.Image.new_from_icon_name('system-run-symbolic', Gtk.IconSize.BUTTON)
+        # test_button = Gtk.Button(image=test_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
+        # test_button.connect('clicked', self.test)
+        # test_button.connect('button-press-event', self.on_title_click)
+        # self.title_box.pack_end(test_button, False, False, 0)
 
         self.set_titlebar(self.title_box)
 
