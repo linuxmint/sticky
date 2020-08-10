@@ -371,9 +371,11 @@ class SettingsWindow(XApp.PreferencesWindow):
         # general settings
         general_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
-        general_page.pack_start(GSettingsSwitch(_("Show in Taskbar"), SCHEMA, 'show-in-taskbar'), False, False, 0)
-        general_page.pack_start(GSettingsSwitch(_("Show Manager on Start"), SCHEMA, 'show-manager-on-start'), False, False, 0)
         general_page.pack_start(GSettingsSwitch(_("Show Notes on all Desktops"), SCHEMA, 'desktop-window-state'), False, False, 0)
+        general_page.pack_start(GSettingsSwitch(_("Show Status Icon in Tray"), SCHEMA, 'show-in-tray'), False, False, 0)
+        dep = SCHEMA + '/show-in-tray'
+        general_page.pack_start(GSettingsSwitch(_("Show Manager on Start"), SCHEMA, 'show-manager-on-start', dep_key=dep), False, False, 0)
+        general_page.pack_start(GSettingsSwitch(_("Show in Taskbar"), SCHEMA, 'show-in-taskbar', dep_key=dep), False, False, 0)
 
         self.add_page(general_page, 'general', _("General"))
 
@@ -412,6 +414,7 @@ class SettingsWindow(XApp.PreferencesWindow):
 
 class Application(Gtk.Application):
     dummy_window = None
+    status_icon = None
 
     def __init__(self):
         super(Application, self).__init__(application_id=APPLICATION_ID, flags=Gio.ApplicationFlags.FLAGS_NONE)
@@ -427,6 +430,15 @@ class Application(Gtk.Application):
 
         self.file_handler = FileHandler(self.settings)
 
+        if self.settings.get_boolean('show-in-tray'):
+            self.create_status_icon()
+
+            if self.settings.get_boolean('show-manager-on-start'):
+                self.open_manager()
+        else:
+            self.open_manager()
+
+        self.settings.connect('changed::show-in-tray', self.update_tray_icon)
         self.settings.connect('changed::show-in-taskbar', self.update_dummy_window)
         self.update_dummy_window()
 
@@ -443,6 +455,11 @@ class Application(Gtk.Application):
 
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default(), provider, 600)
 
+        self.load_notes()
+
+        self.hold()
+
+    def create_status_icon(self):
         self.menu = Gtk.Menu()
 
         item = Gtk.MenuItem(label=_("New Note"))
@@ -477,12 +494,17 @@ class Application(Gtk.Application):
         self.status_icon.set_secondary_menu(self.menu)
         self.status_icon.connect('activate', self.activate_notes)
 
-        self.load_notes()
+    def destroy_status_icon(self):
+        self.status_icon.set_visible(False)
+        self.status_icon = None
+        self.menu = None
 
-        if self.settings.get_boolean('show-manager-on-start'):
+    def update_tray_icon(self, *args):
+        if self.settings.get_boolean('show-in-tray'):
+            self.create_status_icon()
+        else:
             self.open_manager()
-
-        self.hold()
+            self.destroy_status_icon()
 
     def update_dummy_window(self, *args):
         if self.settings.get_boolean('show-in-taskbar'):
@@ -551,6 +573,8 @@ class Application(Gtk.Application):
 
     def manager_closed(self, *args):
         self.manager = None
+        if self.status_icon is None:
+            self.quit_app()
 
     def open_settings_window(self, *args):
         if self.settings_window:

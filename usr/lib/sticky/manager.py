@@ -134,6 +134,7 @@ class NotesManager(object):
         self.builder.get_object('remove_group').connect('clicked', self.remove_group)
         self.builder.get_object('preview_group').connect('clicked', self.preview_group)
         self.builder.get_object('set_default').connect('clicked', self.set_default)
+        self.builder.get_object('settings').connect('clicked', self.app.open_settings_window)
 
         self.generate_group_list()
 

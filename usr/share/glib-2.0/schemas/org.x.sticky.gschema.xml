@@ -65,6 +65,14 @@
       </description>
     </key>
 
+    <key name='show-in-tray' type='b'>
+      <default>false</default>
+      <summary>Show Status Icon in Tray</summary>
+      <description>
+        Whether to show a status icon in the tray.
+      </description>
+    </key>
+
     <key name='show-in-taskbar' type='b'>
       <default>true</default>
       <summary>Show in Taskbar</summary>
