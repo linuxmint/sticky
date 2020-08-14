@@ -88,6 +88,7 @@ class Note(Gtk.Window):
         more_menu_button = Gtk.Button(image=more_menu_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         more_menu_button.connect('clicked', self.show_more_menu)
         more_menu_button.connect('button-press-event', self.on_title_click)
+        more_menu_button.set_tooltip_text(_("Format"))
         self.title_box.pack_start(more_menu_button, False, False, 0)
 
         self.title = Gtk.Label(label=title, margin_top=4)
@@ -97,12 +98,14 @@ class Note(Gtk.Window):
         close_button = Gtk.Button(image=close_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         close_button.connect('clicked', self.remove)
         close_button.connect('button-press-event', self.on_title_click)
+        close_button.set_tooltip_text(_("Delete Note"))
         self.title_box.pack_end(close_button, False, False, 0)
 
         add_icon = Gtk.Image.new_from_icon_name('add', Gtk.IconSize.BUTTON)
         add_button = Gtk.Button(image=add_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         add_button.connect('clicked', self.app.new_note)
         add_button.connect('button-press-event', self.on_title_click)
+        add_button.set_tooltip_text(_("New Note"))
         self.title_box.pack_end(add_button, False, False, 0)
 
         # test_icon = Gtk.Image.new_from_icon_name('system-run-symbolic', Gtk.IconSize.BUTTON)
