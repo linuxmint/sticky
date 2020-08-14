@@ -84,8 +84,14 @@ class Note(Gtk.Window):
         self.title_box = Gtk.Box(height_request=30, name='title-box')
         self.connect('button-press-event', self.on_title_click)
 
-        self.title = Gtk.Label(label=title)
-        self.title_box.pack_start(self.title, False, False, 0)
+        more_menu_icon = Gtk.Image.new_from_icon_name('view-more', Gtk.IconSize.BUTTON)
+        more_menu_button = Gtk.Button(image=more_menu_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
+        more_menu_button.connect('clicked', self.show_more_menu)
+        more_menu_button.connect('button-press-event', self.on_title_click)
+        self.title_box.pack_start(more_menu_button, False, False, 0)
+
+        self.title = Gtk.Label(label=title, margin_top=4)
+        self.title_box.pack_start(self.title, False, False, 4)
 
         close_icon = Gtk.Image.new_from_icon_name('window-close', Gtk.IconSize.BUTTON)
         close_button = Gtk.Button(image=close_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
@@ -247,41 +253,6 @@ class Note(Gtk.Window):
 
             popup.append(Gtk.SeparatorMenuItem(visible=True))
 
-            self.checklist_item = Gtk.MenuItem(label=_("Toggle Checklist"), visible=True)
-            self.checklist_item.connect('activate', self.buffer.toggle_checklist)
-            popup.append(self.checklist_item)
-
-            self.bullet_item = Gtk.MenuItem(label=_("Toggle Bullets"), visible=True)
-            self.bullet_item.connect('activate', self.buffer.toggle_bullets)
-            popup.append(self.bullet_item)
-
-            popup.append(Gtk.SeparatorMenuItem(visible=True))
-
-        color_menu = Gtk.Menu()
-        color_item = Gtk.MenuItem(label=_("Set Note Color"), submenu=color_menu, visible=True)
-        popup.append(color_item)
-
-        for color, color_name in COLORS.items():
-            menu_item = Gtk.MenuItem(label=color_name, visible=True)
-            menu_item.connect('activate', self.set_color, color)
-            color_menu.append(menu_item)
-
-        format_menu = Gtk.Menu()
-        format_item = Gtk.MenuItem(label=_("Format"), submenu=format_menu, visible=True)
-        popup.append(format_item)
-
-        bold_item = Gtk.MenuItem(label=_("Bold"), visible=True)
-        bold_item.connect('activate', self.apply_format, 'bold')
-        format_menu.append(bold_item)
-
-        italic_item = Gtk.MenuItem(label=_("Italic"), visible=True)
-        italic_item.connect('activate', self.apply_format, 'italic')
-        format_menu.append(italic_item)
-
-        underline_item = Gtk.MenuItem(label=_("Underline"), visible=True)
-        underline_item.connect('activate', self.apply_format, 'underline')
-        format_menu.append(underline_item)
-
         label = _("Set Title") if self.title.get_text() == '' else _('Edit Title')
         edit_title = Gtk.MenuItem(label=label, visible=True)
         edit_title.connect('activate', self.set_title)
@@ -314,6 +285,44 @@ class Note(Gtk.Window):
             pin_menu_item = Gtk.CheckMenuItem(active=self.is_pinned, label=_("Always on Top"), visible=True)
             pin_menu_item.connect('activate', on_activate)
             popup.append(pin_menu_item)
+
+    def show_more_menu(self, button):
+        menu = Gtk.Menu()
+
+        color_menu = Gtk.Menu()
+        color_item = Gtk.MenuItem(label=_("Set Note Color"), submenu=color_menu, visible=True)
+        menu.append(color_item)
+
+        for color, color_name in COLORS.items():
+            menu_item = Gtk.MenuItem(label=color_name, visible=True)
+            menu_item.connect('activate', self.set_color, color)
+            color_menu.append(menu_item)
+
+        menu.append(Gtk.SeparatorMenuItem(visible=True))
+
+        self.checklist_item = Gtk.MenuItem(label=_("Toggle Checklist"), visible=True)
+        self.checklist_item.connect('activate', self.buffer.toggle_checklist)
+        menu.append(self.checklist_item)
+
+        self.bullet_item = Gtk.MenuItem(label=_("Toggle Bullets"), visible=True)
+        self.bullet_item.connect('activate', self.buffer.toggle_bullets)
+        menu.append(self.bullet_item)
+
+        menu.append(Gtk.SeparatorMenuItem(visible=True))
+
+        bold_item = Gtk.MenuItem(label=_("Bold"), visible=True)
+        bold_item.connect('activate', self.apply_format, 'bold')
+        menu.append(bold_item)
+
+        italic_item = Gtk.MenuItem(label=_("Italic"), visible=True)
+        italic_item.connect('activate', self.apply_format, 'italic')
+        menu.append(italic_item)
+
+        underline_item = Gtk.MenuItem(label=_("Underline"), visible=True)
+        underline_item.connect('activate', self.apply_format, 'underline')
+        menu.append(underline_item)
+
+        menu.popup_at_widget(button, Gdk.Gravity.SOUTH, Gdk.Gravity.NORTH_WEST, None)
 
     def set_color(self, menu, color):
         if color == self.color:
