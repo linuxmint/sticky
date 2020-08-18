@@ -75,12 +75,14 @@ textview text {
     color: #303030;
 }
 
-#sticky-note check {
+#sticky-note check,
+.note-preview check {
     -gtk-icon-source: url("unchecked.svg");
     /*background-color: red;*/
 }
 
-#sticky-note check:checked {
+#sticky-note check:checked,
+.note-preview check:checked {
     -gtk-icon-source: url("checked.svg");
     /*background-color: red;*/
 }

@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 from gi.repository import Gdk, Gio, GLib, GObject, Gtk, Pango
+from note_buffer import NoteBuffer
 
 
 NOTE_TARGETS = [Gtk.TargetEntry.new('note-entry', Gtk.TargetFlags.SAME_APP, 1)]
@@ -19,10 +20,13 @@ class NoteEntry(Gtk.Container):
 
         self.set_has_window(False)
 
-        self.text = Gtk.Label(label=item.text, halign=Gtk.Align.START, wrap_mode=Pango.WrapMode.WORD_CHAR, visible=True)
-        self.text.set_parent(self)
+        self.buffer = NoteBuffer()
+        self.text = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, populate_all=True, buffer=self.buffer, visible=True, sensitive=False)
 
-        self.item = item
+        self.buffer.set_view(self.text)
+        self.buffer.set_from_internal_markup(item.text)
+
+        self.text.set_parent(self)
 
         self.initialized = True
 
@@ -30,17 +34,14 @@ class NoteEntry(Gtk.Container):
 
     def do_size_allocate(self, allocation):
         Gtk.Widget.do_size_allocate(self, allocation)
-        x = allocation.x + 10
-        y = allocation.y + 10
-        inner_width = allocation.width - 20
 
         rect = Gdk.Rectangle()
-        rect.x = x
-        rect.y = y
-        rect.height = self.text.get_preferred_height_for_width(inner_width)[1]
-        rect.width = inner_width
-        self.text.size_allocate(rect)
+        rect.x = allocation.x + 10
+        rect.y = allocation.y + 10
+        rect.width = allocation.width - 20
+        rect.height = allocation.height - 20
 
+        self.text.size_allocate(rect)
         self.set_clip(allocation)
 
     def do_get_preferred_height(self):
@@ -182,7 +183,7 @@ class NotesManager(object):
             widget = Gtk.FlowBoxChild()
             widget.item = item
 
-            dnd_wrapper = Gtk.EventBox()
+            dnd_wrapper = Gtk.EventBox(above_child=True)
             dnd_wrapper.drag_source_set(Gdk.ModifierType.BUTTON1_MASK, NOTE_TARGETS, Gdk.DragAction.MOVE)
             dnd_wrapper.connect('drag-begin', self.on_drag_begin)
             widget.add(dnd_wrapper)
