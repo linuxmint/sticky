@@ -261,7 +261,7 @@ class Note(Gtk.Window):
         edit_title.connect('activate', self.set_title)
         popup.append(edit_title)
 
-        remove_item = Gtk.MenuItem(label=_("Remove"), visible=True)
+        remove_item = Gtk.MenuItem(label=_("Remove Note"), visible=True)
         remove_item.connect('activate', self.remove)
         popup.append(remove_item)
 
