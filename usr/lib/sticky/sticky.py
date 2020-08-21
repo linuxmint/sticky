@@ -81,7 +81,7 @@ class Note(Gtk.Window):
             self.stick()
 
         # title bar
-        self.title_box = Gtk.Box(height_request=30, name='title-box')
+        self.title_bar = Gtk.Box(height_request=30, name='title-box')
         self.connect('button-press-event', self.on_title_click)
 
         more_menu_icon = Gtk.Image.new_from_icon_name('view-more', Gtk.IconSize.BUTTON)
@@ -89,32 +89,46 @@ class Note(Gtk.Window):
         more_menu_button.connect('clicked', self.show_more_menu)
         more_menu_button.connect('button-press-event', self.on_title_click)
         more_menu_button.set_tooltip_text(_("Format"))
-        self.title_box.pack_start(more_menu_button, False, False, 0)
+        self.title_bar.pack_start(more_menu_button, False, False, 0)
 
+        self.title_hover = Gtk.EventBox()
+        self.title_bar.pack_start(self.title_hover, True, True, 4)
+        self.title_hover.connect('enter-notify-event', self.set_edit_button_visibility)
+        self.title_hover.connect('leave-notify-event', self.set_edit_button_visibility)
+
+        self.title_box = Gtk.Box()
+        self.title_hover.add(self.title_box)
         self.title = Gtk.Label(label=title, margin_top=4)
-        self.title_box.pack_start(self.title, False, False, 4)
+        self.title_box.pack_start(self.title, False, False, 0)
+
+        edit_title_icon = Gtk.Image.new_from_icon_name('edit', Gtk.IconSize.BUTTON)
+        self.edit_title_button = Gtk.Button(image=edit_title_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER, no_show_all=True)
+        self.edit_title_button.connect('clicked', self.set_title)
+        self.edit_title_button.connect('button-press-event', self.on_title_click)
+        self.edit_title_button.set_tooltip_text(_("Format"))
+        self.title_box.pack_start(self.edit_title_button, False, False, 0)
 
         close_icon = Gtk.Image.new_from_icon_name('window-close', Gtk.IconSize.BUTTON)
         close_button = Gtk.Button(image=close_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         close_button.connect('clicked', self.remove)
         close_button.connect('button-press-event', self.on_title_click)
         close_button.set_tooltip_text(_("Delete Note"))
-        self.title_box.pack_end(close_button, False, False, 0)
+        self.title_bar.pack_end(close_button, False, False, 0)
 
         add_icon = Gtk.Image.new_from_icon_name('add', Gtk.IconSize.BUTTON)
         add_button = Gtk.Button(image=add_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         add_button.connect('clicked', self.app.new_note)
         add_button.connect('button-press-event', self.on_title_click)
         add_button.set_tooltip_text(_("New Note"))
-        self.title_box.pack_end(add_button, False, False, 0)
+        self.title_bar.pack_end(add_button, False, False, 0)
 
         # test_icon = Gtk.Image.new_from_icon_name('system-run-symbolic', Gtk.IconSize.BUTTON)
         # test_button = Gtk.Button(image=test_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         # test_button.connect('clicked', self.test)
         # test_button.connect('button-press-event', self.on_title_click)
-        # self.title_box.pack_end(test_button, False, False, 0)
+        # self.title_bar.pack_end(test_button, False, False, 0)
 
-        self.set_titlebar(self.title_box)
+        self.set_titlebar(self.title_bar)
 
         # buffer
         self.buffer = NoteBuffer()
@@ -344,25 +358,48 @@ class Note(Gtk.Window):
         self.emit('removed')
         self.destroy()
 
+    def set_edit_button_visibility(self, *args):
+        pointer_device = self.get_display().get_default_seat().get_pointer()
+        (mouse_x, mouse_y) = self.title_hover.get_window().get_device_position(pointer_device)[1:3]
+        dimensions = self.title_hover.get_allocation()
+
+        has_mouse = mouse_x >= 0 and mouse_x < dimensions.width and mouse_y >= 0 and mouse_y < dimensions.height
+
+        if not isinstance(self.title, Gtk.Entry) and has_mouse:
+            self.edit_title_button.show()
+        else:
+            self.edit_title_button.hide()
+
     def set_title(self, *args):
         self.title_text = self.title.get_text()
         self.title_box.remove(self.title)
 
         self.title = Gtk.Entry(text=self.title_text, visible=True)
-        self.title_box.pack_start(self.title, True, True, 0)
-        self.title.connect('key-press-event', self.save_title)
-        self.title.connect('focus-out-event', self.save_title)
+        self.title_box.pack_start(self.title, False, False, 0)
+
+        self.title.key_id = self.title.connect('key-press-event', self.save_title)
+        self.title.focus_id = self.title.connect('focus-out-event', self.save_title)
+
+        self.title_box.reorder_child(self.title, 0)
+        self.set_edit_button_visibility()
 
         self.title.grab_focus()
 
     def save_title(self, w, event):
         save = False
-        enter_keys = (Gdk.KEY_Return, Gdk.KEY_ISO_Enter, Gdk.KEY_KP_Enter)
-        if event.type == Gdk.EventType.FOCUS_CHANGE or event.keyval in enter_keys:
-            self.title_text = self.title.get_text()
+        if event.type == Gdk.EventType.FOCUS_CHANGE:
             save = True
-        elif event.keyval != Gdk.KEY_Escape:
-            return Gdk.EVENT_PROPAGATE
+        else:
+            if event.keyval in (Gdk.KEY_Return, Gdk.KEY_ISO_Enter, Gdk.KEY_KP_Enter):
+                save = True
+            elif event.keyval != Gdk.KEY_Escape:
+                return Gdk.EVENT_PROPAGATE
+
+        self.title.disconnect(self.title.key_id)
+        self.title.disconnect(self.title.focus_id)
+
+        if save:
+            self.title_text = self.title.get_text()
 
         self.view.grab_focus()
 
@@ -370,6 +407,9 @@ class Note(Gtk.Window):
 
         self.title = Gtk.Label(label=self.title_text, visible=True)
         self.title_box.pack_start(self.title, False, False, 0)
+
+        self.title_box.reorder_child(self.title, 0)
+        self.set_edit_button_visibility()
 
         if save:
             self.emit('update')
