@@ -481,6 +481,7 @@ class Application(Gtk.Application):
         self.settings = Gio.Settings(schema_id=SCHEMA)
 
         self.file_handler = FileHandler(self.settings)
+        self.file_handler.connect('lists-changed', self.regenerate_notes)
 
         if self.settings.get_boolean('show-in-tray'):
             self.create_status_icon()
@@ -534,6 +535,10 @@ class Application(Gtk.Application):
 
         item = Gtk.MenuItem(label=_("Back Up To File"))
         item.connect('activate', self.file_handler.backup_to_file)
+        self.menu.append(item)
+
+        item = Gtk.MenuItem(label=_("Restore Backup"))
+        item.connect('activate', self.file_handler.restore_backup)
         self.menu.append(item)
 
         self.menu.append(Gtk.SeparatorMenuItem())
@@ -612,6 +617,9 @@ class Application(Gtk.Application):
 
         for note_info in self.file_handler.get_note_list(self.note_group):
             self.generate_note(note_info)
+
+    def regenerate_notes(self, *args):
+        self.load_notes()
 
     def change_note_group(self, group=None):
         if group is None:
