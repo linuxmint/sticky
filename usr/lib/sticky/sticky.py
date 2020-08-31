@@ -526,8 +526,14 @@ class Application(Gtk.Application):
         item.connect('activate', self.open_settings_window)
         self.menu.append(item)
 
+        self.menu.append(Gtk.SeparatorMenuItem())
+
         item = Gtk.MenuItem(label=_("Back Up Notes"))
         item.connect('activate', self.file_handler.save_backup)
+        self.menu.append(item)
+
+        item = Gtk.MenuItem(label=_("Back Up To File"))
+        item.connect('activate', self.file_handler.backup_to_file)
         self.menu.append(item)
 
         self.menu.append(Gtk.SeparatorMenuItem())

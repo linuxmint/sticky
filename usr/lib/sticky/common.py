@@ -5,7 +5,7 @@ import json
 import time
 import re
 
-from gi.repository import GLib, GObject
+from gi.repository import GLib, GObject, Gtk
 
 CONFIG_DIR = os.path.join(GLib.get_user_config_dir(), 'sticky')
 CONFIG_PATH = os.path.join(CONFIG_DIR, 'notes.json')
@@ -62,14 +62,17 @@ class FileHandler(GObject.Object):
 
         self.save_timer_id = GLib.timeout_add_seconds(SAVE_DELAY, self.save_note_list)
 
+    def save_to_file(self, file_path):
+        with open(file_path, 'w+') as file:
+            file.write(json.dumps(self.notes_lists, indent=4))
+
     def save_note_list(self):
         self.save_timer_id = 0
 
         if not os.path.exists(CONFIG_DIR):
             os.makedirs(CONFIG_DIR)
 
-        with open(CONFIG_PATH, 'w+') as file:
-            file.write(json.dumps(self.notes_lists, indent=4))
+        self.save_to_file(CONFIG_PATH)
 
     def check_backup(self, *args):
         if self.backup_timer_id:
@@ -104,8 +107,7 @@ class FileHandler(GObject.Object):
 
         timestamp = int(time.time())
         path = os.path.join(CONFIG_DIR, 'backup-%d.json' % timestamp)
-        with open(path, 'w+') as file:
-            file.write(json.dumps(self.notes_lists, indent=4))
+        self.save_to_file(path)
 
         self.settings.set_uint('latest-backup', timestamp)
 
@@ -122,6 +124,30 @@ class FileHandler(GObject.Object):
                 os.remove(os.path.join(CONFIG_DIR, file))
 
         self.check_backup()
+
+    def backup_to_file(self, *args):
+        file_dialog = Gtk.FileChooserDialog(title=_("Save Backup"), action=Gtk.FileChooserAction.SAVE)
+        file_dialog.add_buttons(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL, Gtk.STOCK_SAVE, Gtk.ResponseType.OK)
+        file_dialog.set_current_folder(GLib.get_home_dir())
+        file_dialog.set_current_name('backup.json')
+        file_dialog.set_do_overwrite_confirmation(True)
+
+        json_filter = Gtk.FileFilter()
+        json_filter.set_name('JSON')
+        json_filter.add_mime_type('application/json')
+        file_dialog.add_filter(json_filter)
+
+        text_filter = Gtk.FileFilter()
+        text_filter.set_name(_("Plain Text"))
+        text_filter.add_mime_type('text/plain')
+        file_dialog.add_filter(text_filter)
+
+        response = file_dialog.run()
+        if response == Gtk.ResponseType.OK:
+            file = file_dialog.get_filename()
+            self.save_to_file(file)
+
+        file_dialog.destroy()
 
     def flush(self):
         if self.save_timer_id > 0:
