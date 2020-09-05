@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.22.2 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkWindow" id="main_window">
     <property name="can_focus">False</property>
     <property name="default_width">800</property>
     <property name="default_height">600</property>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child>
@@ -159,12 +159,25 @@
                   </packing>
                 </child>
                 <child>
+                  <object class="GtkToolButton" id="backup">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">__glade_unnamed_9</property>
+                    <property name="use_underline">True</property>
+                    <property name="icon_name">archive-symbolic</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="homogeneous">False</property>
+                  </packing>
+                </child>
+                <child>
                   <object class="GtkToolButton" id="settings">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes">Set this group as the default</property>
                     <property name="use_underline">True</property>
-                    <property name="icon_name">settings</property>
+                    <property name="icon_name">settings-symbolic</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>

@@ -136,6 +136,7 @@ class NotesManager(object):
         self.builder.get_object('preview_group').connect('clicked', self.preview_group)
         self.builder.get_object('set_default').connect('clicked', self.set_default)
         self.builder.get_object('settings').connect('clicked', self.app.open_settings_window)
+        self.builder.get_object('backup').connect('clicked', self.open_backup_menu)
 
         self.generate_group_list()
 
@@ -295,3 +296,22 @@ class NotesManager(object):
         self.dragged_note = None
 
         Gtk.drag_finish(context, True, False, time)
+
+    def open_backup_menu(self, button):
+        menu = Gtk.Menu()
+
+        item = Gtk.MenuItem(label=_("Back Up Notes"))
+        item.connect('activate', self.file_handler.save_backup)
+        menu.append(item)
+
+        item = Gtk.MenuItem(label=_("Back Up To File"))
+        item.connect('activate', self.file_handler.backup_to_file)
+        menu.append(item)
+
+        item = Gtk.MenuItem(label=_("Restore Backup"))
+        item.connect('activate', self.file_handler.restore_backup)
+        menu.append(item)
+
+        menu.show_all()
+
+        menu.popup_at_widget(button, Gdk.Gravity.SOUTH, Gdk.Gravity.NORTH, None)
