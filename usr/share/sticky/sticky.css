@@ -3,48 +3,56 @@
 @define-color red3 #ff5561; /* slider */
 @define-color red4 #ff8990; /* slider hover */
 @define-color red5 #ffc5ca; /* slider trough */
+@define-color red5 #ac2029; /* selection */
 
 @define-color blue1 #81bdff; /* main */
 @define-color blue2 #3d9bff; /* title */
 @define-color blue3 #3d9bff; /* slider */
 @define-color blue4 #81bdff; /* slider hover */
 @define-color blue5 #bddbff; /* slider trough */
+@define-color blue5 #0f57a9; /* selection */
 
 @define-color green1 #afffaf; /* main */
 @define-color green2 #67ff67; /* title */
 @define-color green3 #67ff67; /* slider */
 @define-color green4 #afffaf; /* slider hover */
 @define-color green5 #d7ffd7; /* slider trough */
+@define-color green5 #076707; /* selection */
 
 @define-color yellow1 #feff9f; /* main */
 @define-color yellow2 #f6f907; /* title */
 @define-color yellow3 #f6f907; /* slider */
 @define-color yellow4 #feff9f; /* slider hover */
 @define-color yellow5 #feffdb; /* slider trough */
+@define-color yellow5 #59591c; /* selection */
 
 @define-color purple1 #c695ff; /* main */
 @define-color purple2 #a553ff; /* title */
 @define-color purple3 #a553ff; /* slider */
 @define-color purple4 #c695ff; /* slider hover */
 @define-color purple5 #dabdff; /* slider trough */
+@define-color purple5 #7722d3; /* selection */
 
 @define-color teal1 #affff8; /* main */
 @define-color teal2 #41ffed; /* title */
 @define-color teal3 #41ffed; /* slider */
 @define-color teal4 #affff8; /* slider hover */
 @define-color teal5 #cdfffb; /* slider trough */
+@define-color teal5 #07645c; /* selection */
 
 @define-color orange1 #ffc47b; /* main */
 @define-color orange2 #ffa939; /* title */
 @define-color orange3 #ffa939; /* slider */
 @define-color orange4 #ffc47b; /* slider hover */
 @define-color orange5 #ffe3b9; /* slider trough */
+@define-color orange5 #804d0a; /* selection */
 
 @define-color magenta1 #ffb9fb; /* main */
 @define-color magenta2 #ff7ff7; /* title */
 @define-color magenta3 #ff7ff7; /* slider */
 @define-color magenta4 #ffb9fb; /* slider hover */
 @define-color magenta5 #ffd7fd; /* slider trough */
+@define-color magenta5 #9d1094; /* selection */
 
 
 /* common */
@@ -55,7 +63,6 @@
 
 #sticky-note textview {
     font-size: 14px;
-
 }
 
 textview text {
@@ -64,15 +71,20 @@ textview text {
 
 #sticky-note #title-box {
     font-size: 16px;
+    color: #303030;
 }
 
-#sticky-note entry {
+#sticky-note entry,
+#sticky-note entry:focus {
     border: none;
+    border-radius: 0px;
     background-color: rgba(220, 220, 220, .25);
+    color: #303030;
 }
 
 #sticky-note #title-box label {
     color: #303030;
+    caret-color: #303030;
 }
 
 #sticky-note check,
@@ -118,6 +130,12 @@ textview text {
 .red textview text,
 button.red {
     background-color: @red1;
+    color: #303030;
+    caret-color: #303030;
+}
+
+.red textview text selection {
+    background-color: @red5;
 }
 
 .red #title-box {
@@ -143,7 +161,7 @@ button.red {
 
 .red.note-preview {
     background-color: @red1;
-    color: black;
+    color: #303030;
     box-shadow: 1px 1px 2px;
 }
 
@@ -151,6 +169,12 @@ button.red {
 .blue textview text,
 button.blue {
     background-color: @blue1;
+    color: #303030;
+    caret-color: #303030;
+}
+
+.blue textview text selection {
+    background-color: @blue5;
 }
 
 .blue #title-box {
@@ -176,7 +200,7 @@ button.blue {
 
 .blue.note-preview {
     background-color: @blue1;
-    color: black;
+    color: #303030;
     box-shadow: 1px 1px 2px;
 }
 
@@ -184,6 +208,12 @@ button.blue {
 .green textview text,
 button.green {
     background-color: @green1;
+    color: #303030;
+    caret-color: #303030;
+}
+
+.green textview text selection {
+    background-color: @green5;
 }
 
 .green #title-box {
@@ -209,7 +239,7 @@ button.green {
 
 .green.note-preview {
     background-color: @green1;
-    color: black;
+    color: #303030;
     box-shadow: 1px 1px 2px;
 }
 
@@ -217,6 +247,12 @@ button.green {
 .yellow textview text,
 button.yellow {
     background-color: @yellow1;
+    color: #303030;
+    caret-color: #303030;
+}
+
+.yellow textview text selection {
+    background-color: @yellow5;
 }
 
 .yellow #title-box {
@@ -242,7 +278,7 @@ button.yellow {
 
 .yellow.note-preview {
     background-color: @yellow1;
-    color: black;
+    color: #303030;
     box-shadow: 1px 1px 2px;
 }
 
@@ -250,6 +286,12 @@ button.yellow {
 .purple textview text,
 button.purple {
     background-color: @purple1;
+    color: #303030;
+    caret-color: #303030;
+}
+
+.purple textview text selection {
+    background-color: @purple5;
 }
 
 .purple #title-box {
@@ -275,7 +317,7 @@ button.purple {
 
 .purple.note-preview {
     background-color: @purple1;
-    color: black;
+    color: #303030;
     box-shadow: 1px 1px 2px;
 }
 
@@ -283,6 +325,12 @@ button.purple {
 .teal textview text,
 button.teal {
     background-color: @teal1;
+    color: #303030;
+    caret-color: #303030;
+}
+
+.teal textview text selection {
+    background-color: @teal5;
 }
 
 .teal #title-box {
@@ -308,7 +356,7 @@ button.teal {
 
 .teal.note-preview {
     background-color: @teal1;
-    color: black;
+    color: #303030;
     box-shadow: 1px 1px 2px;
 }
 
@@ -316,6 +364,12 @@ button.teal {
 .orange textview text,
 button.orange {
     background-color: @orange1;
+    color: #303030;
+    caret-color: #303030;
+}
+
+.orange textview text selection {
+    background-color: @orange5;
 }
 
 .orange #title-box {
@@ -341,7 +395,7 @@ button.orange {
 
 .orange.note-preview {
     background-color: @orange1;
-    color: black;
+    color: #303030;
     box-shadow: 1px 1px 2px;
 }
 
@@ -349,6 +403,12 @@ button.orange {
 .magenta textview text,
 button.magenta {
     background-color: @magenta1;
+    color: #303030;
+    caret-color: #303030;
+}
+
+.magenta textview text selection {
+    background-color: @magenta5;
 }
 
 .magenta #title-box {
@@ -374,7 +434,7 @@ button.magenta {
 
 .magenta.note-preview {
     background-color: @magenta1;
-    color: black;
+    color: #303030;
     box-shadow: 1px 1px 2px;
 }
 
