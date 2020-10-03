@@ -23,8 +23,8 @@ sudo dpkg -i sticky*.deb
 ```
 #### Otherwise (and this is valid anywhere if you want to avoid packaging):
 ```
-sudo cp -r usr/sticky.desktop /usr/
-sudo cp etc/xdg/autostart/ /etc/xdg/autostart/
+sudo cp -r usr/ /usr/
+sudo cp etc/xdg/autostart/sticky.desktop /etc/xdg/autostart/
 ```
 _____
 ##### runtime deps
