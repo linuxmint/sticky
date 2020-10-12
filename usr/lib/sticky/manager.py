@@ -130,13 +130,43 @@ class NotesManager(object):
         self.group_list.connect('row-selected', self.generate_previews)
 
         self.builder.get_object('new_note').connect('clicked', self.new_note)
-        self.builder.get_object('new_group').connect('clicked', self.new_group)
         self.builder.get_object('remove_note').connect('clicked', self.remove_note)
-        self.builder.get_object('remove_group').connect('clicked', self.remove_group)
         self.builder.get_object('preview_group').connect('clicked', self.preview_group)
         self.builder.get_object('set_default').connect('clicked', self.set_default)
-        self.builder.get_object('settings').connect('clicked', self.app.open_settings_window)
-        self.builder.get_object('backup').connect('clicked', self.open_backup_menu)
+
+        main_menu = Gtk.Menu()
+
+        item = Gtk.MenuItem(label=_("New Group"))
+        item.connect('activate', self.new_group)
+        main_menu.append(item)
+
+        item = Gtk.MenuItem(label=_("Remove Group"))
+        item.connect('activate', self.remove_group)
+        main_menu.append(item)
+
+        main_menu.append(Gtk.SeparatorMenuItem(visible=True))
+
+        item = Gtk.MenuItem(label=_("Back Up Notes"))
+        item.connect('activate', self.file_handler.save_backup)
+        main_menu.append(item)
+
+        item = Gtk.MenuItem(label=_("Back Up To File"))
+        item.connect('activate', self.file_handler.backup_to_file)
+        main_menu.append(item)
+
+        item = Gtk.MenuItem(label=_("Restore Backup"))
+        item.connect('activate', self.file_handler.restore_backup)
+        main_menu.append(item)
+
+        main_menu.append(Gtk.SeparatorMenuItem(visible=True))
+
+        item = Gtk.MenuItem(label=_("Settings"))
+        item.connect('activate', self.app.open_settings_window)
+        main_menu.append(item)
+
+        main_menu.show_all()
+
+        self.builder.get_object('menu_button').set_popup(main_menu)
 
         self.generate_group_list()
 
@@ -296,22 +326,3 @@ class NotesManager(object):
         self.dragged_note = None
 
         Gtk.drag_finish(context, True, False, time)
-
-    def open_backup_menu(self, button):
-        menu = Gtk.Menu()
-
-        item = Gtk.MenuItem(label=_("Back Up Notes"))
-        item.connect('activate', self.file_handler.save_backup)
-        menu.append(item)
-
-        item = Gtk.MenuItem(label=_("Back Up To File"))
-        item.connect('activate', self.file_handler.backup_to_file)
-        menu.append(item)
-
-        item = Gtk.MenuItem(label=_("Restore Backup"))
-        item.connect('activate', self.file_handler.restore_backup)
-        menu.append(item)
-
-        menu.show_all()
-
-        menu.popup_at_widget(button, Gdk.Gravity.SOUTH, Gdk.Gravity.NORTH, None)

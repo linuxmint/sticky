@@ -84,6 +84,7 @@ class Note(Gtk.Window):
         self.title_bar = Gtk.Box(height_request=30, name='title-box')
         self.connect('button-press-event', self.on_title_click)
 
+        # formatting items are shown here
         more_menu_icon = Gtk.Image.new_from_icon_name('view-more', Gtk.IconSize.BUTTON)
         more_menu_button = Gtk.Button(image=more_menu_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         more_menu_button.connect('clicked', self.show_more_menu)
@@ -91,6 +92,7 @@ class Note(Gtk.Window):
         more_menu_button.set_tooltip_text(_("Format"))
         self.title_bar.pack_start(more_menu_button, False, False, 0)
 
+        # used to show the edit title icon when the title is hovered
         self.title_hover = Gtk.EventBox()
         self.title_bar.pack_start(self.title_hover, True, True, 4)
         self.title_hover.connect('enter-notify-event', self.set_edit_button_visibility)

@@ -7,7 +7,38 @@
     <property name="default_width">800</property>
     <property name="default_height">600</property>
     <child type="titlebar">
-      <placeholder/>
+      <object class="GtkHeaderBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="title" translatable="yes">Sticky</property>
+        <property name="subtitle" translatable="yes">Manage your sticky notes</property>
+        <property name="show_close_button">True</property>
+        <child>
+          <object class="GtkToolItem" id="menu_button_toolitem">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkMenuButton" id="menu_button">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="relief">none</property>
+                <property name="draw_indicator">True</property>
+                <property name="use_popover">False</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="icon_name">open-menu-symbolic</property>
+                    <property name="use_fallback">True</property>
+                    <property name="icon_size">2</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
     </child>
     <child>
       <object class="GtkBox">
@@ -79,20 +110,6 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkToolButton" id="new_group">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="tooltip_text" translatable="yes">New group</property>
-                    <property name="label" translatable="yes">toolbutton</property>
-                    <property name="use_underline">True</property>
-                    <property name="icon_name">folder-new-symbolic</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="homogeneous">True</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkToolButton" id="remove_note">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -100,20 +117,6 @@
                     <property name="label" translatable="yes">toolbutton</property>
                     <property name="use_underline">True</property>
                     <property name="icon_name">list-remove-symbolic</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="homogeneous">True</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkToolButton" id="remove_group">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="tooltip_text" translatable="yes">Remove selected group</property>
-                    <property name="label" translatable="yes">toolbutton</property>
-                    <property name="use_underline">True</property>
-                    <property name="icon_name">list-remove-all-symbolic</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -152,32 +155,6 @@
                   <object class="GtkSeparatorToolItem">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="homogeneous">True</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkToolButton" id="backup">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">__glade_unnamed_9</property>
-                    <property name="use_underline">True</property>
-                    <property name="icon_name">archive-symbolic</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="homogeneous">False</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkToolButton" id="settings">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="tooltip_text" translatable="yes">Set this group as the default</property>
-                    <property name="use_underline">True</property>
-                    <property name="icon_name">settings-symbolic</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
