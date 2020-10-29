@@ -240,3 +240,27 @@ class FileHandler(GObject.Object):
         del self.notes_lists[group_name]
 
         self.save_note_list()
+
+def prompt(title, message):
+    dialog = Gtk.Dialog(title=title)
+    dialog.add_button(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL)
+    dialog.add_button(Gtk.STOCK_OK, Gtk.ResponseType.OK)
+    dialog.set_default_response(Gtk.ResponseType.OK)
+
+    content = dialog.get_content_area()
+    content.props.margin_left = 20
+    content.props.margin_right = 20
+
+    content.pack_start(Gtk.Label(label=message), False, False, 10)
+    entry = Gtk.Entry(activates_default=True)
+    content.pack_start(entry, False, False, 10)
+
+    content.show_all()
+
+    response = dialog.run()
+    value = entry.get_text()
+
+    dialog.destroy()
+
+    return (response == Gtk.ResponseType.OK, value)
+

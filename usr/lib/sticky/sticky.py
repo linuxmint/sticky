@@ -15,7 +15,7 @@ from xapp.GSettingsWidgets import *
 
 from note_buffer import NoteBuffer
 from manager import NotesManager
-from common import FileHandler
+from common import FileHandler, prompt
 
 import gettext
 gettext.install("sticky", "/usr/share/locale", names="ngettext")
@@ -491,7 +491,7 @@ class Application(Gtk.Application):
         self.settings = Gio.Settings(schema_id=SCHEMA)
 
         self.file_handler = FileHandler(self.settings)
-        self.file_handler.connect('lists-changed', self.regenerate_notes)
+        self.file_handler.connect('lists-changed', self.on_lists_changed)
 
         if self.settings.get_boolean('show-in-tray'):
             self.create_status_icon()
@@ -550,6 +550,14 @@ class Application(Gtk.Application):
         item = Gtk.MenuItem(label=_("Restore Backup"))
         item.connect('activate', self.file_handler.restore_backup)
         self.menu.append(item)
+
+        self.menu.append(Gtk.SeparatorMenuItem())
+
+        self.group_menu = Gtk.Menu()
+        item = Gtk.MenuItem(label=_("Change Group"), submenu=self.group_menu)
+        self.menu.append(item)
+
+        self.update_groups_menu()
 
         self.menu.append(Gtk.SeparatorMenuItem())
 
@@ -619,6 +627,25 @@ class Application(Gtk.Application):
 
         self.notes.append(note)
 
+    def new_group(self, *args):
+        (response, new_group_name) = prompt(_("New Group"), _("Choose a name for the new group"))
+
+        if not response:
+            return
+
+        if new_group_name == "":
+            message = Gtk.MessageDialog(text=_("Cannot create group without a name"), buttons=Gtk.ButtonsType.CLOSE)
+            message.run()
+            message.destroy()
+        elif new_group_name in self.file_handler.get_note_group_names():
+            message = Gtk.MessageDialog(text=_("Cannot create group: the name %s already exists") % new_group_name,
+                                        buttons=Gtk.ButtonsType.CLOSE)
+            message.run()
+            message.destroy()
+        else:
+            self.file_handler.update_note_list([], new_group_name)
+            self.change_note_group(new_group_name)
+
     def load_notes(self):
         for note in self.notes:
             note.destroy()
@@ -628,7 +655,22 @@ class Application(Gtk.Application):
         for note_info in self.file_handler.get_note_list(self.note_group):
             self.generate_note(note_info)
 
-    def regenerate_notes(self, *args):
+    def update_groups_menu(self):
+        item = Gtk.MenuItem(label=_("New Group"))
+        item.connect('activate', self.new_group)
+        self.group_menu.append(item)
+
+        self.group_menu.append(Gtk.SeparatorMenuItem())
+
+        for group in self.file_handler.get_note_group_names():
+            item = Gtk.MenuItem(label=group)
+            item.connect('activate', lambda a, group: self.change_note_group(group), group)
+            self.group_menu.append(item)
+
+        self.group_menu.show_all()
+
+    def on_lists_changed(self, *args):
+        self.update_groups_menu()
         self.load_notes()
 
     def change_note_group(self, group=None):
