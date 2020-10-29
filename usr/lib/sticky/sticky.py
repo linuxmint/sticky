@@ -215,6 +215,10 @@ class Note(Gtk.Window):
                 self.buffer.tag_selection('underline')
                 return Gdk.EVENT_STOP
 
+            elif event.get_keyval()[1] == Gdk.KEY_h:
+                self.buffer.tag_selection('header')
+                return Gdk.EVENT_STOP
+
         return Gdk.EVENT_PROPAGATE
 
     def update_window_state(self, w, event):
@@ -340,6 +344,10 @@ class Note(Gtk.Window):
         underline_item = Gtk.MenuItem(label=_("Underline"), visible=True)
         underline_item.connect('activate', self.apply_format, 'underline')
         menu.append(underline_item)
+
+        header_item = Gtk.MenuItem(label=_("Header"), visible=True)
+        header_item.connect('activate', self.apply_format, 'header')
+        menu.append(header_item)
 
         menu.popup_at_widget(button, Gdk.Gravity.SOUTH, Gdk.Gravity.NORTH_WEST, None)
 

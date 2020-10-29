@@ -8,7 +8,7 @@ TAG_DEFINITIONS = {
     'italic': {'style': Pango.Style.ITALIC},
     'underline': {'underline': Pango.Underline.SINGLE},
     'link': {'underline': Pango.Underline.SINGLE, 'foreground': 'blue'},
-    'red': {'foreground': 'red'}
+    'header': {'scale': 1.5}
 }
 
 class GenericAction(object):
