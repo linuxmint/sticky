@@ -581,7 +581,7 @@ class Application(Gtk.Application):
 
     def update_dummy_window(self, *args):
         if self.settings.get_boolean('show-in-taskbar'):
-            self.dummy_window = Gtk.Window(default_height=1, default_width=1, decorated=False, deletable=False)
+            self.dummy_window = Gtk.Window(name=_("Sticky Notes"), default_height=1, default_width=1, decorated=False, deletable=False)
             if self.settings.get_boolean('desktop-window-state'):
                 self.dummy_window.stick()
             self.dummy_window.show()
