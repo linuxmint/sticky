@@ -645,6 +645,7 @@ class Application(Gtk.Application):
         else:
             self.file_handler.new_group(new_group_name)
             self.change_note_group(new_group_name)
+            self.new_note()
 
     def load_notes(self):
         for note in self.notes:
