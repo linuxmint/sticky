@@ -615,7 +615,8 @@ class Application(Gtk.Application):
             note.hide()
 
     def new_note(self, *args):
-        self.generate_note()
+        note = self.generate_note()
+        note.present()
 
     def generate_note(self, info={}):
         note = Note(self, info)
@@ -626,6 +627,8 @@ class Application(Gtk.Application):
             note.set_transient_for(self.dummy_window)
 
         self.notes.append(note)
+
+        return note
 
     def new_group(self, *args):
         (response, new_group_name) = prompt(_("New Group"), _("Choose a name for the new group"))
