@@ -2,6 +2,7 @@
 
 from gi.repository import Gdk, Gio, GLib, GObject, Gtk, Pango
 from note_buffer import NoteBuffer
+from common import confirm
 
 
 NOTE_TARGETS = [Gtk.TargetEntry.new('note-entry', Gtk.TargetFlags.SAME_APP, 1)]
@@ -297,7 +298,12 @@ class NotesManager(object):
         self.file_handler.update_note_list(notes, self.get_current_group())
 
     def remove_group(self, *args):
-        self.file_handler.remove_group(self.get_current_group())
+        group_name = self.get_current_group()
+        group_count = len(self.file_handler.get_note_list(group_name))
+        if group_count > 0 and not confirm(_("Remove Group"), _("Are you sure you want to remove the group %s?") % group_name, self.window):
+            return
+
+        self.file_handler.remove_group(group_name)
         self.generate_group_list()
 
     def preview_group(self, *args):
