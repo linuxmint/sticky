@@ -100,6 +100,7 @@ class NotesManager(object):
 
         self.file_handler = file_handler
         self.file_handler.connect('group-changed', self.on_list_changed)
+        self.file_handler.connect('lists-changed', self.generate_group_list)
 
         self.builder = Gtk.Builder.new_from_file('/usr/share/sticky/manager.ui')
 
@@ -277,7 +278,7 @@ class NotesManager(object):
 
             text = entry.get_text()
             if text != '':
-                self.file_handler.update_note_list([], text)
+                self.file_handler.new_group(text)
             entry_box.remove(entry)
 
             self.generate_group_list()

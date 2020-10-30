@@ -234,12 +234,19 @@ class FileHandler(GObject.Object):
 
         self.save_note_list()
 
+    def new_group(self, group_name):
+        self.notes_lists[group_name] = []
+
+        self.emit('lists-changed')
+
     def remove_group(self, group_name):
         if group_name not in self.notes_lists:
             raise ValueError('invalid group name %s' % group_name)
         del self.notes_lists[group_name]
 
         self.save_note_list()
+
+        self.emit('lists-changed')
 
 def prompt(title, message):
     dialog = Gtk.Dialog(title=title)

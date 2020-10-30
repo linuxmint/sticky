@@ -511,7 +511,7 @@ class Application(Gtk.Application):
             if len(group_names) > 0:
                 self.note_group = group_names[0]
             else:
-                self.file_handler.update_note_list([], self.note_group)
+                self.file_handler.new_group(self.note_group)
 
         provider = Gtk.CssProvider()
         provider.load_from_path(STYLE_SHEET_PATH)
@@ -643,7 +643,7 @@ class Application(Gtk.Application):
             message.run()
             message.destroy()
         else:
-            self.file_handler.update_note_list([], new_group_name)
+            self.file_handler.new_group(new_group_name)
             self.change_note_group(new_group_name)
 
     def load_notes(self):
@@ -656,6 +656,9 @@ class Application(Gtk.Application):
             self.generate_note(note_info)
 
     def update_groups_menu(self):
+        for item in self.group_menu.get_children():
+            item.destroy()
+
         item = Gtk.MenuItem(label=_("New Group"))
         item.connect('activate', self.new_group)
         self.group_menu.append(item)
@@ -671,7 +674,11 @@ class Application(Gtk.Application):
 
     def on_lists_changed(self, *args):
         self.update_groups_menu()
-        self.load_notes()
+
+        if not self.note_group in self.file_handler.get_note_group_names():
+            self.change_note_group()
+        else:
+            self.load_notes()
 
     def change_note_group(self, group=None):
         if group is None:
