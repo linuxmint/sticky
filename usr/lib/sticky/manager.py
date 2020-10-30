@@ -128,6 +128,7 @@ class NotesManager(object):
         self.group_model = Gio.ListStore()
         self.group_list.bind_model(self.group_model, create_group_entry)
         self.group_list.connect('row-selected', self.generate_previews)
+        self.group_list.connect('key-press-event', self.remove_group)
 
         self.builder.get_object('new_note').connect('clicked', self.new_note)
         self.builder.get_object('remove_note').connect('clicked', self.remove_note)
