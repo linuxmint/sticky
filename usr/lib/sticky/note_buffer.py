@@ -654,5 +654,24 @@ class NoteBuffer(Gtk.TextBuffer):
         if len(actions):
             self.add_undo_action(CompositeAction(*actions))
 
+    def on_return(self):
+        if self.get_has_selection():
+            return Gdk.EVENT_PROPAGATE
+
+        cursor = self.get_iter_at_mark(self.get_insert())
+        prev_char = cursor.copy()
+        prev_char.backward_char()
+
+        if not cursor.ends_line() or not prev_char.starts_line():
+            return Gdk.EVENT_PROPAGATE
+
+        anchor = prev_char.get_child_anchor()
+
+        if anchor is not None:
+            self.delete(prev_char, cursor)
+            return Gdk.EVENT_STOP
+
+        return Gdk.EVENT_PROPAGATE
+
     def test(self):
         print(ends_with_url(self.get_text(*self.get_bounds(), False)))

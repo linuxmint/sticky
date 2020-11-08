@@ -219,6 +219,9 @@ class Note(Gtk.Window):
                 self.buffer.tag_selection('header')
                 return Gdk.EVENT_STOP
 
+        elif event.keyval in (Gdk.KEY_Return, Gdk.KEY_ISO_Enter, Gdk.KEY_KP_Enter):
+            return self.buffer.on_return()
+
         return Gdk.EVENT_PROPAGATE
 
     def update_window_state(self, w, event):
