@@ -226,7 +226,6 @@ class NoteBuffer(Gtk.TextBuffer):
         for name, attributes in TAG_DEFINITIONS.items():
             self.create_tag(name, **attributes)
 
-        self.connect('insert-text', self.on_insert)
         self.connect('delete-range', self.on_delete)
         self.connect('begin-user-action', self.begin_composite_action)
         self.connect('end-user-action', self.end_composite_action)
@@ -430,13 +429,37 @@ class NoteBuffer(Gtk.TextBuffer):
             self.undo_actions.append(action)
             self.redo_actions.clear()
 
-    def on_insert(self, buffer, location, text, *args):
+    def do_insert_text(self, location, text, length):
+        position = location.get_offset()
+
+        action = AdditionAction(self, text, location)
+        Gtk.TextBuffer.do_insert_text(self, location, text, length)
+
         if self.internal_action_count:
             return
 
         with self.internal_action():
-            compound = False
-            action = AdditionAction(self, text, location)
+            if text == '\n':
+                # if the previous line starts with a checkbox or bullet, repeat
+                next_line = self.get_iter_at_offset(position+1)
+                prev_line = next_line.copy()
+                prev_line.backward_line()
+                anchor = prev_line.get_child_anchor()
+
+                if anchor is not None:
+                    if isinstance(anchor.get_widgets()[0], Gtk.CheckButton):
+                        obj_action = self.add_check_button(next_line)
+                    elif isinstance(anchor.get_widgets()[0], Gtk.Image):
+                        obj_action = self.add_bullet(next_line)
+
+                    action = CompositeAction(action, obj_action)
+
+                    location.assign(self.get_iter_at_offset(position-1))
+
+            if self.props.can_undo and self.undo_actions[-1].maybe_join(action):
+                return
+
+            self.add_undo_action(action)
 
             if text in ['\n', '\t', ' ', '.', ',', ';', ':']:
                 pre_text = self.get_slice(self.get_start_iter(), location, True)
@@ -444,15 +467,9 @@ class NoteBuffer(Gtk.TextBuffer):
                 if match:
                     self.add_undo_action(self.add_tag('link', self.get_iter_at_offset(match.start()), location))
 
-            if text == '\n' and self.maybe_repeat(location, action):
-                compound = True
-
-            if not compound and (not self.props.can_undo or not self.undo_actions[-1].maybe_join(action)):
-                self.add_undo_action(action)
-
     def on_delete(self, buffer, start, end):
         if self.internal_action_count:
-            return
+            return Gdk.EVENT_PROPAGATE
 
         # if there were tags, bullets or checkboxes here, we need to handle those first so that we can undo later
         actions = []
@@ -636,25 +653,6 @@ class NoteBuffer(Gtk.TextBuffer):
 
         if len(actions):
             self.add_undo_action(CompositeAction(*actions))
-
-    def maybe_repeat(self, current_iter, prev_action):
-        line_start = current_iter.copy()
-        line_start.set_line_index(0)
-        anchor = line_start.get_child_anchor()
-
-        if anchor is None:
-            return False
-
-        offset = current_iter.get_offset()
-        if isinstance(anchor.get_widgets()[0], Gtk.CheckButton):
-            action = self.add_check_button(current_iter)
-        if isinstance(anchor.get_widgets()[0], Gtk.Image):
-            action = self.add_bullet(current_iter)
-        self.add_undo_action(CompositeAction(prev_action, action))
-
-        current_iter.assign(self.get_iter_at_offset(offset))
-
-        return True
 
     def test(self):
         print(ends_with_url(self.get_text(*self.get_bounds(), False)))
