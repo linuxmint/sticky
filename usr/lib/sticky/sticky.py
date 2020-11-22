@@ -187,6 +187,15 @@ class Note(Gtk.Window):
 
     def on_key_press(self, v, event):
         if event.get_state() & Gdk.ModifierType.CONTROL_MASK:
+            if event.get_state() & Gdk.ModifierType.SHIFT_MASK:
+                if event.get_keyval()[1] == Gdk.KEY_Up:
+                    self.buffer.shift(True)
+                    return Gdk.EVENT_STOP
+
+                elif event.get_keyval()[1] == Gdk.KEY_Down:
+                    self.buffer.shift(False)
+                    return Gdk.EVENT_STOP
+
             if event.get_keyval()[1] == Gdk.KEY_z:
                 self.buffer.undo()
                 return Gdk.EVENT_STOP

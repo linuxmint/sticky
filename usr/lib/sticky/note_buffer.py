@@ -174,6 +174,87 @@ class TagAction(GenericAction):
         else:
             self.remove()
 
+class ShiftAction(GenericAction):
+    def __init__(self, buffer, start, end, is_up):
+        super(ShiftAction, self).__init__()
+        self.buffer = buffer
+        self.is_up = is_up
+
+        self.start = start.get_line()
+        self.end = end.get_line()
+
+    def shift_up(self):
+        start_iter = self.buffer.get_iter_at_line(self.start)
+        end_iter = self.buffer.get_iter_at_line(self.end)
+        end_iter.forward_to_line_end()
+        start_mark = self.buffer.create_mark(None, start_iter, False)
+        end_mark = self.buffer.create_mark(None, end_iter, True)
+
+        move_start = start_iter.copy()
+        move_start.backward_line()
+        move_end = move_start.copy()
+        move_end.forward_to_line_end()
+
+        move_start_mark = self.buffer.create_mark(None, move_start, False)
+        move_end_mark = self.buffer.create_mark(None, move_end, True)
+
+        self.buffer.insert_range(end_iter, move_start, move_end)
+        self.buffer.insert(self.buffer.get_iter_at_mark(end_mark), '\n', -1)
+        delete_start = self.buffer.get_iter_at_mark(move_start_mark)
+        delete_end = self.buffer.get_iter_at_mark(move_end_mark)
+        delete_end.forward_char()
+        self.buffer.delete(delete_start, delete_end)
+
+        self.buffer.delete_mark(move_start_mark)
+        self.buffer.delete_mark(move_end_mark)
+        self.buffer.delete_mark(start_mark)
+        self.buffer.delete_mark(end_mark)
+
+        self.start -= 1
+        self.end -= 1
+
+    def shift_down(self):
+        start_iter = self.buffer.get_iter_at_line(self.start)
+        end_iter = self.buffer.get_iter_at_line(self.end)
+        end_iter.forward_to_line_end()
+        start_mark = self.buffer.create_mark(None, start_iter, False)
+        end_mark = self.buffer.create_mark(None, end_iter, True)
+
+        move_start = end_iter.copy()
+        move_start.forward_line()
+        move_end = move_start.copy()
+        move_end.forward_to_line_end()
+
+        move_start_mark = self.buffer.create_mark(None, move_start, False)
+        move_end_mark = self.buffer.create_mark(None, move_end, True)
+
+        self.buffer.insert_range(start_iter, move_start, move_end)
+        self.buffer.insert(self.buffer.get_iter_at_mark(start_mark), '\n', -1)
+        delete_start = self.buffer.get_iter_at_mark(move_start_mark)
+        delete_start.backward_char()
+        delete_end = self.buffer.get_iter_at_mark(move_end_mark)
+        self.buffer.delete(delete_start, delete_end)
+
+        self.buffer.delete_mark(move_start_mark)
+        self.buffer.delete_mark(move_end_mark)
+        self.buffer.delete_mark(start_mark)
+        self.buffer.delete_mark(end_mark)
+
+        self.start += 1
+        self.end += 1
+
+    def undo(self):
+        if self.is_up:
+            self.shift_down()
+        else:
+            self.shift_up()
+
+    def redo(self):
+        if self.is_up:
+            self.shift_up()
+        else:
+            self.shift_down()
+
 # Used to combine multiple actions into one single undable action. Actions should be passed in the same order in which
 # they were performed. Failure to do so could result in order getting mixed up in the buffer.
 class CompositeAction(GenericAction):
@@ -672,6 +753,30 @@ class NoteBuffer(Gtk.TextBuffer):
             return Gdk.EVENT_STOP
 
         return Gdk.EVENT_PROPAGATE
+
+    def shift(self, is_up):
+        if self.get_has_selection():
+            (start, end) = self.get_selection_bounds()
+        else:
+            start = self.get_iter_at_mark(self.get_insert())
+            end = start.copy()
+
+        action = ShiftAction(self, start, end, is_up)
+
+        with self.internal_action():
+            if is_up:
+                if start.compare(self.get_start_iter()) == 0:
+                    return
+
+                action.shift_up()
+
+            else:
+                if end.compare(self.get_end_iter()) == 0:
+                    return
+
+                action.shift_down()
+
+        self.add_undo_action(action)
 
     def test(self):
         print(ends_with_url(self.get_text(*self.get_bounds(), False)))
