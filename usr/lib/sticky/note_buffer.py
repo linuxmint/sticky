@@ -30,8 +30,16 @@ class AdditionAction(GenericAction):
         end = self.buffer.get_iter_at_offset(self.position + len(self.text))
         self.buffer.delete(start, end)
 
+        # we generally want to put the cursor where the text was added/removed
+        pos = self.buffer.get_iter_at_offset(self.position)
+        self.buffer.select_range(pos, pos)
+
     def redo(self):
         self.buffer.insert(self.buffer.get_iter_at_offset(self.position), self.text)
+
+        # we generally want to put the cursor at the end of the re-added text
+        pos = self.buffer.get_iter_at_offset(self.position + len(self.text))
+        self.buffer.select_range(pos, pos)
 
     def maybe_join(self, new_action):
         if not isinstance(new_action, AdditionAction):
@@ -68,10 +76,27 @@ class DeletionAction(GenericAction):
     def undo(self):
         self.buffer.insert(self.buffer.get_iter_at_offset(self.position), self.text)
 
+        # depending on the type of deletion, we want to put the cursor (and selection) in different places
+        if self.deletion_type == 'forward':
+            pos = self.buffer.get_iter_at_offset(self.position)
+            self.buffer.select_range(pos, pos)
+        elif self.deletion_type == 'backward':
+            pos = self.buffer.get_iter_at_offset(self.position + len(self.text))
+            self.buffer.select_range(pos, pos)
+        else:
+            # any other type of deletion, we probably want to just select the whole thing
+            pos1 = self.buffer.get_iter_at_offset(self.position)
+            pos2 = self.buffer.get_iter_at_offset(self.position + len(self.text))
+            self.buffer.select_range(pos1, pos2)
+
     def redo(self):
         start = self.buffer.get_iter_at_offset(self.position)
         end = self.buffer.get_iter_at_offset(self.position + len(self.text))
         self.buffer.delete(start, end)
+
+        # we usually want to put the cursor at the point of deletion
+        pos = self.buffer.get_iter_at_offset(self.position)
+        self.buffer.select_range(pos, pos)
 
     def maybe_join(self, new_action):
         if not isinstance(new_action, DeletionAction) or new_action.deletion_type != self.deletion_type:
@@ -205,6 +230,9 @@ class ShiftAction(GenericAction):
         delete_end.forward_char()
         self.buffer.delete(delete_start, delete_end)
 
+        # since it gets really messy trying to restore the previous cursor position, just select the lines that are moving
+        self.buffer.select_range(self.buffer.get_iter_at_mark(start_mark), self.buffer.get_iter_at_mark(end_mark))
+
         self.buffer.delete_mark(move_start_mark)
         self.buffer.delete_mark(move_end_mark)
         self.buffer.delete_mark(start_mark)
@@ -234,6 +262,9 @@ class ShiftAction(GenericAction):
         delete_start.backward_char()
         delete_end = self.buffer.get_iter_at_mark(move_end_mark)
         self.buffer.delete(delete_start, delete_end)
+
+        # since it gets really messy trying to restore the previous cursor position, just select the lines that are moving
+        self.buffer.select_range(self.buffer.get_iter_at_mark(start_mark), self.buffer.get_iter_at_mark(end_mark))
 
         self.buffer.delete_mark(move_start_mark)
         self.buffer.delete_mark(move_end_mark)
