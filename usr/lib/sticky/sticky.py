@@ -615,9 +615,13 @@ class Application(Gtk.Application):
         item.connect('activate', self.open_manager)
         self.menu.append(item)
 
-        item = Gtk.MenuItem(label=_("Settings"))
-        item.connect('activate', self.open_settings_window)
+        self.menu.append(Gtk.SeparatorMenuItem())
+
+        self.group_menu = Gtk.Menu()
+        item = Gtk.MenuItem(label=_("Change Group"), submenu=self.group_menu)
         self.menu.append(item)
+
+        self.update_groups_menu()
 
         self.menu.append(Gtk.SeparatorMenuItem())
 
@@ -635,13 +639,9 @@ class Application(Gtk.Application):
 
         self.menu.append(Gtk.SeparatorMenuItem())
 
-        self.group_menu = Gtk.Menu()
-        item = Gtk.MenuItem(label=_("Change Group"), submenu=self.group_menu)
+        item = Gtk.MenuItem(label=_("Settings"))
+        item.connect('activate', self.open_settings_window)
         self.menu.append(item)
-
-        self.update_groups_menu()
-
-        self.menu.append(Gtk.SeparatorMenuItem())
 
         item = Gtk.MenuItem(label=_("Keyboard Shortcuts"))
         item.connect('activate', self.open_keyboard_shortcuts)
