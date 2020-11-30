@@ -36,6 +36,19 @@ COLORS = {
     'magenta': _("Magenta")
 }
 
+SHORTCUTS = [
+    (_("Move selection up"), '<ctrl><shift>Up'),
+    (_("Move selection down"), '<ctrl><shift>Down'),
+    (_("Undo"), '<ctrl>z'),
+    (_("Redo"), '<ctrl>y'),
+    (_("Toggle Checklist"), '<ctrl>e'),
+    (_("Toggle Bullets"), '<ctrl>l'),
+    (_("Bold"), '<ctrl>b'),
+    (_("Italic"), '<ctrl>i'),
+    (_("Underline"), '<ctrl>u'),
+    (_("Header"), '<ctrl>h')
+]
+
 class Note(Gtk.Window):
     @GObject.Signal(flags=GObject.SignalFlags.RUN_LAST, return_type=bool,
                     accumulator=GObject.signal_accumulator_true_handled)
@@ -487,6 +500,22 @@ class SettingsWindow(XApp.PreferencesWindow):
 
         self.show_all()
 
+class ShortcutsWindow(Gtk.ShortcutsWindow):
+    def __init__(self):
+        super(ShortcutsWindow, self).__init__()
+
+        section = Gtk.ShortcutsSection(visible=True)
+
+        group = Gtk.ShortcutsGroup(title='editing', visible=True)
+        section.add(group)
+
+        for shortcut in SHORTCUTS:
+            shortcut_item = Gtk.ShortcutsShortcut(title=shortcut[0], accelerator=shortcut[1], visible=True)
+            group.add(shortcut_item)
+
+        self.add(section)
+        self.show_all()
+
 class Application(Gtk.Application):
     dummy_window = None
     status_icon = None
@@ -496,6 +525,7 @@ class Application(Gtk.Application):
 
         self.notes = []
         self.settings_window = None
+        self.keyboard_shortcuts = None
         self.manager = None
 
     def do_activate(self):
@@ -610,6 +640,12 @@ class Application(Gtk.Application):
         self.menu.append(item)
 
         self.update_groups_menu()
+
+        self.menu.append(Gtk.SeparatorMenuItem())
+
+        item = Gtk.MenuItem(label=_("Keyboard Shortcuts"))
+        item.connect('activate', self.open_keyboard_shortcuts)
+        self.menu.append(item)
 
         self.menu.append(Gtk.SeparatorMenuItem())
 
@@ -770,6 +806,19 @@ class Application(Gtk.Application):
 
     def settings_window_closed(self, *args):
         self.settings_window = None
+
+    def open_keyboard_shortcuts(self, *args):
+        if self.keyboard_shortcuts:
+            self.keyboard_shortcuts.present()
+            return
+
+        self.keyboard_shortcuts = ShortcutsWindow()
+        self.keyboard_shortcuts.connect('destroy', self.keyboard_shortcuts_closed)
+
+        self.keyboard_shortcuts.show_all()
+
+    def keyboard_shortcuts_closed(self, *args):
+        self.keyboard_shortcuts = None
 
     def on_update(self, *args):
         info = []

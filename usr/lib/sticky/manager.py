@@ -167,6 +167,10 @@ class NotesManager(object):
         item.connect('activate', self.app.open_settings_window)
         main_menu.append(item)
 
+        item = Gtk.MenuItem(label=_("Keyboard Shortcuts"))
+        item.connect('activate', self.app.open_keyboard_shortcuts)
+        main_menu.append(item)
+
         main_menu.show_all()
 
         self.builder.get_object('menu_button').set_popup(main_menu)
