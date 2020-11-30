@@ -8,6 +8,7 @@ TAG_DEFINITIONS = {
     'italic': {'style': Pango.Style.ITALIC},
     'underline': {'underline': Pango.Underline.SINGLE},
     'strikethrough': {'strikethrough': True},
+    'highlight': {'background': 'yellow'},
     'link': {'underline': Pango.Underline.SINGLE, 'foreground': 'blue'},
     'header': {'scale': 1.5, 'weight': 500, 'pixels-above-lines': 14, 'pixels-below-lines': 4}
 }

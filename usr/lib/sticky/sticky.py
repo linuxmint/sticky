@@ -47,6 +47,7 @@ SHORTCUTS = [
     (_("Italic"), '<ctrl>i'),
     (_("Underline"), '<ctrl>u'),
     (_("Strikethrough"), '<ctrl>k'),
+    (_("Highlight"), '<ctrl>g'),
     (_("Header"), '<ctrl>h')
 ]
 
@@ -247,6 +248,10 @@ class Note(Gtk.Window):
                 self.buffer.tag_selection('strikethrough')
                 return Gdk.EVENT_STOP
 
+            elif event.get_keyval()[1] == Gdk.KEY_g:
+                self.buffer.tag_selection('highlight')
+                return Gdk.EVENT_STOP
+
         elif event.keyval in (Gdk.KEY_Return, Gdk.KEY_ISO_Enter, Gdk.KEY_KP_Enter):
             return self.buffer.on_return()
 
@@ -379,6 +384,10 @@ class Note(Gtk.Window):
         strikethrough_item = Gtk.MenuItem(label=_("Strikethrough"), visible=True)
         strikethrough_item.connect('activate', self.apply_format, 'strikethrough')
         menu.append(strikethrough_item)
+
+        highlight_item = Gtk.MenuItem(label=_("Highlight"), visible=True)
+        highlight_item.connect('activate', self.apply_format, 'highlight')
+        menu.append(highlight_item)
 
         header_item = Gtk.MenuItem(label=_("Header"), visible=True)
         header_item.connect('activate', self.apply_format, 'header')
