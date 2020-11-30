@@ -131,6 +131,14 @@
       </description>
     </key>
 
+    <key name='first-run' type='b'>
+      <default>true</default>
+      <summary>First Run</summary>
+      <description>
+        This is an internal setting that is used to run certain processes only on the first time running the app.
+      </description>
+    </key>
+
   </schema>
 
 </schemalist>

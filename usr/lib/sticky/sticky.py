@@ -15,7 +15,8 @@ from xapp.GSettingsWidgets import *
 
 from note_buffer import NoteBuffer
 from manager import NotesManager
-from common import FileHandler, prompt
+from common import FileHandler, prompt, confirm
+from util import gnote_to_internal_format
 
 import gettext
 gettext.install("sticky", "/usr/share/locale", names="ngettext")
@@ -503,6 +504,10 @@ class Application(Gtk.Application):
         self.settings = Gio.Settings(schema_id=SCHEMA)
 
         self.file_handler = FileHandler(self.settings)
+
+        if self.settings.get_boolean('first-run'):
+            self.first_run()
+
         self.file_handler.connect('lists-changed', self.on_lists_changed)
 
         if self.settings.get_boolean('show-in-tray'):
@@ -533,6 +538,41 @@ class Application(Gtk.Application):
         self.load_notes()
 
         self.hold()
+
+    def first_run(self):
+        gnote_dir = os.path.join(GLib.get_user_data_dir(), 'gnote')
+
+        if os.path.exists(gnote_dir):
+            contents = os.listdir(gnote_dir)
+
+            import_notes = []
+            for file in contents:
+                path = os.path.join(gnote_dir, file)
+                if os.path.isfile(path) and path.endswith('.note'):
+                    import_notes.append(path)
+
+            if len(import_notes) > 0:
+                resp = confirm(_("Sticky Notes"),
+                              _("Would you like to import your notes from Gnote? This will not change your Gnote notes in any way."))
+
+                if resp:
+                    for file in import_notes:
+                        (group_name, info) = gnote_to_internal_format(file)
+
+                        color = self.settings.get_string('default-color')
+                        if color == 'random':
+                            info['color'] = random.choice(list(COLORS.keys()))
+                        else:
+                            info['color'] = color
+
+                        if group_name not in self.file_handler.get_note_group_names():
+                            self.file_handler.new_group(group_name)
+
+                        group_list = self.file_handler.get_note_list(group_name)
+                        group_list.append(info)
+                        self.file_handler.update_note_list(group_list, group_name)
+
+        self.settings.set_boolean('first-run', False)
 
     def create_status_icon(self):
         self.menu = Gtk.Menu()
