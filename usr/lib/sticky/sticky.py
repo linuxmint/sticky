@@ -689,7 +689,8 @@ class Application(Gtk.Application):
         self.group_menu.show_all()
 
     def on_lists_changed(self, *args):
-        self.update_groups_menu()
+        if self.status_icon:
+            self.update_groups_menu()
 
         if not self.note_group in self.file_handler.get_note_group_names():
             self.change_note_group()
