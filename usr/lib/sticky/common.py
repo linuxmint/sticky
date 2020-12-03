@@ -34,7 +34,7 @@ class FileHandler(GObject.Object):
         self.notes_lists = {}
 
         if not os.path.exists(CONFIG_PATH):
-            self.update_note_list([{}], _("Desktop"))
+            self.update_note_list([{text:'', color:'blue'}], _("Desktop"))
         else:
             self.load_notes()
 
