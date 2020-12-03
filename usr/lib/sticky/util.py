@@ -61,10 +61,13 @@ def gnote_to_internal_format(file_path):
     info['text'] = process_element(root.find(GNOTE_NS_PREFIX + 'text').find(GNOTE_NS_PREFIX + 'note-content'))
 
     category = None
-    tags = root.find(GNOTE_NS_PREFIX + 'tags')
-    for tag in tags:
-        if tag.text.startswith('system:notebook:'):
-            category = tag.text[16:]
+    try:
+        tags = root.find(GNOTE_NS_PREFIX + 'tags')
+        for tag in tags:
+            if tag.text.startswith('system:notebook:'):
+                category = tag.text[16:]
+    except Exception as e:
+        pass
 
     if category is None:
         category = _("Unfiled")
