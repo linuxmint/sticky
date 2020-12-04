@@ -52,7 +52,7 @@ class FileHandler(GObject.Object):
         return self.notes_lists[group_name]
 
     def get_note_group_names(self):
-        return self.notes_lists.keys()
+        return list(self.notes_lists.keys())
 
     def update_note_list(self, notes_list, group_name):
         self.notes_lists[group_name] = notes_list
