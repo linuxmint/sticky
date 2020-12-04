@@ -226,6 +226,14 @@ class ShiftAction(GenericAction):
         move_end_mark = self.buffer.create_mark(None, move_end, True)
 
         self.buffer.insert_range(end_iter, move_start, move_end)
+        anchor = self.buffer.get_iter_at_mark(move_start_mark).get_child_anchor()
+        if anchor is not None:
+            if isinstance(anchor.get_widgets()[0], Gtk.CheckButton):
+                checked = anchor.get_widgets()[0].get_active()
+                obj_action = self.buffer.add_check_button(self.buffer.get_iter_at_mark(end_mark), checked=checked)
+            elif isinstance(anchor.get_widgets()[0], Gtk.Image):
+                obj_action = self.buffer.add_bullet(self.buffer.get_iter_at_mark(end_mark))
+
         self.buffer.insert(self.buffer.get_iter_at_mark(end_mark), '\n', -1)
         delete_start = self.buffer.get_iter_at_mark(move_start_mark)
         delete_end = self.buffer.get_iter_at_mark(move_end_mark)
@@ -247,6 +255,7 @@ class ShiftAction(GenericAction):
         start_iter = self.buffer.get_iter_at_line(self.start)
         end_iter = self.buffer.get_iter_at_line(self.end)
         end_iter.forward_to_line_end()
+        begin_mark = self.buffer.create_mark(None, start_iter, True)
         start_mark = self.buffer.create_mark(None, start_iter, False)
         end_mark = self.buffer.create_mark(None, end_iter, True)
 
@@ -260,6 +269,14 @@ class ShiftAction(GenericAction):
 
         self.buffer.insert_range(start_iter, move_start, move_end)
         self.buffer.insert(self.buffer.get_iter_at_mark(start_mark), '\n', -1)
+        anchor = self.buffer.get_iter_at_mark(move_start_mark).get_child_anchor()
+        if anchor is not None:
+            if isinstance(anchor.get_widgets()[0], Gtk.CheckButton):
+                checked = anchor.get_widgets()[0].get_active()
+                obj_action = self.buffer.add_check_button(self.buffer.get_iter_at_mark(begin_mark), checked=checked)
+            elif isinstance(anchor.get_widgets()[0], Gtk.Image):
+                obj_action = self.buffer.add_bullet(self.buffer.get_iter_at_mark(begin_mark))
+
         delete_start = self.buffer.get_iter_at_mark(move_start_mark)
         delete_start.backward_char()
         delete_end = self.buffer.get_iter_at_mark(move_end_mark)
@@ -272,6 +289,7 @@ class ShiftAction(GenericAction):
         self.buffer.delete_mark(move_end_mark)
         self.buffer.delete_mark(start_mark)
         self.buffer.delete_mark(end_mark)
+        self.buffer.delete_mark(begin_mark)
 
         self.start += 1
         self.end += 1
