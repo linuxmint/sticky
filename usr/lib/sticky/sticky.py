@@ -557,6 +557,7 @@ class Application(Gtk.Application):
             self.first_run()
 
         self.file_handler.connect('lists-changed', self.on_lists_changed)
+        self.group_update_id = self.file_handler.connect('group-changed', self.on_group_changed)
 
         if self.settings.get_boolean('show-in-tray'):
             self.create_status_icon()
@@ -791,6 +792,10 @@ class Application(Gtk.Application):
         else:
             self.load_notes()
 
+    def on_group_changed(self, f, group_name):
+        if self.note_group == group_name:
+            self.load_notes()
+
     def change_note_group(self, group=None):
         if group is None:
             self.note_group = self.settings.get_string('default-group')
@@ -843,7 +848,9 @@ class Application(Gtk.Application):
         for note in self.notes:
             info.append(note.get_info())
 
+        self.file_handler.handler_block(self.group_update_id)
         self.file_handler.update_note_list(info, self.note_group)
+        self.file_handler.handler_unblock(self.group_update_id)
 
     def on_removed(self, note):
         self.notes.remove(note)
