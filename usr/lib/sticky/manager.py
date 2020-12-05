@@ -280,13 +280,14 @@ class NotesManager(object):
             entry.disconnect(activate_id)
             entry.disconnect(focus_id)
 
-            text = entry.get_text()
-            if text != '':
-                self.file_handler.new_group(text)
+            group_name = entry.get_text()
+            if group_name != '':
+                self.file_handler.new_group(group_name)
             entry_box.remove(entry)
 
             self.generate_group_list()
             self.group_list.select_row(self.group_list.get_children()[-1])
+            self.set_visible_group(group_name)
 
         entry.grab_focus()
         activate_id = entry.connect('activate', set_group_name)
