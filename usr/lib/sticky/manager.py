@@ -92,8 +92,6 @@ class Note(GObject.Object):
 
 class NotesManager(object):
     def __init__(self, app, file_handler):
-        self.group_lists = {}
-
         self.app = app
         self.visible_group = None
         self.dragged_note = None
