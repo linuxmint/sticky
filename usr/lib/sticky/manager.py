@@ -135,6 +135,10 @@ class NotesManager(object):
         self.builder.get_object('preview_group').connect('clicked', self.preview_group)
         self.builder.get_object('set_default').connect('clicked', self.set_default)
 
+        self.entry_box = self.builder.get_object('group_name_entry_box')
+        self.entry_box.drag_dest_set(Gtk.DestDefaults.MOTION | Gtk.DestDefaults.HIGHLIGHT, NOTE_TARGETS, Gdk.DragAction.MOVE)
+        self.entry_box.connect('drag-drop', self.handle_new_group_drop)
+
         main_menu = Gtk.Menu()
 
         item = Gtk.MenuItem(label=_("New Group"))
@@ -267,29 +271,58 @@ class NotesManager(object):
         self.set_visible_group(group_name)
         self.app.new_note()
 
-    def new_group(self, *args):
-        entry_box = self.builder.get_object('group_name_entry_box')
+    def create_new_group(self, callback):
         entry = Gtk.Entry(visible=True)
-        entry_box.pack_start(entry, False, False, 5)
+        self.entry_box.pack_start(entry, False, False, 5)
         activate_id = 0
         focus_id = 0
+        key_id = 0
 
-        def set_group_name(entry, *args):
+        def clean_up(entry):
             entry.disconnect(activate_id)
             entry.disconnect(focus_id)
 
-            group_name = entry.get_text()
-            if group_name != '':
-                self.file_handler.new_group(group_name)
-            entry_box.remove(entry)
+            self.entry_box.remove(entry)
 
             self.generate_group_list()
-            self.group_list.select_row(self.group_list.get_children()[-1])
-            self.set_visible_group(group_name)
+
+        def maybe_done(entry, *args):
+            group_name = entry.get_text()
+            if group_name == '':
+                group_name = None
+            else:
+                self.file_handler.new_group(group_name)
+
+            clean_up(entry)
+            callback(group_name)
+
+        def key_pressed(entry, event):
+            if event.keyval != Gdk.KEY_Escape:
+                return Gdk.EVENT_PROPAGATE
+
+            clean_up(entry)
+            callback(None)
 
         entry.grab_focus()
-        activate_id = entry.connect('activate', set_group_name)
-        focus_id = entry.connect('focus_out_event', set_group_name)
+        activate_id = entry.connect('activate', maybe_done)
+        focus_id = entry.connect('focus-out-event', maybe_done)
+        key_id = entry.connect('key-press-event', key_pressed)
+
+    def new_group(self, *args):
+        old_group = self.get_current_group()
+
+        def on_complete(group_name):
+            if group_name is None:
+                group_name = old_group
+
+            for row in self.group_list.get_children():
+                if row.item.name == group_name:
+                    self.group_list.select_row(row)
+                    self.set_visible_group(group_name)
+
+                    return
+
+        self.create_new_group(on_complete)
 
     def remove_note(self, *args):
         notes = []
@@ -335,5 +368,34 @@ class NotesManager(object):
         self.file_handler.update_note_list(old_list, old_group)
 
         self.dragged_note = None
+
+        Gtk.drag_finish(context, True, False, time)
+
+    def handle_new_group_drop(self, widget, context, x, y, time):
+        old_group = self.get_current_group()
+        old_list = self.file_handler.get_note_list(old_group)
+
+        def on_created(group_name):
+            if group_name is None:
+                group_name = old_group
+            else:
+                old_list.remove(self.dragged_note)
+
+                new_list = self.file_handler.get_note_list(group_name)
+                new_list.append(self.dragged_note)
+
+                self.file_handler.update_note_list(new_list, group_name)
+                self.file_handler.update_note_list(old_list, old_group)
+
+            self.dragged_note = None
+
+            for row in self.group_list.get_children():
+                if row.item.name == group_name:
+                    self.group_list.select_row(row)
+                    self.set_visible_group(group_name)
+
+                    return
+
+        self.create_new_group(on_created)
 
         Gtk.drag_finish(context, True, False, time)
