@@ -329,7 +329,6 @@ class NotesManager(object):
         selected = self.get_selected_note()
         for child in self.note_view.get_children():
             if child.item.info != selected:
-                print(child.item.info)
                 notes.append(child.item.info)
 
         self.file_handler.update_note_list(notes, self.get_current_group())
