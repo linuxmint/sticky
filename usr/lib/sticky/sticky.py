@@ -537,6 +537,7 @@ class ShortcutsWindow(Gtk.ShortcutsWindow):
 class Application(Gtk.Application):
     dummy_window = None
     status_icon = None
+    has_activated = False
 
     def __init__(self):
         super(Application, self).__init__(application_id=APPLICATION_ID, flags=Gio.ApplicationFlags.FLAGS_NONE)
@@ -547,6 +548,12 @@ class Application(Gtk.Application):
         self.manager = None
 
     def do_activate(self):
+        if self.has_activated:
+            for note in self.notes:
+                note.restore()
+
+            return
+
         Gtk.Application.do_activate(self)
 
         self.settings = Gio.Settings(schema_id=SCHEMA)
@@ -587,6 +594,8 @@ class Application(Gtk.Application):
         self.load_notes()
 
         self.hold()
+
+        self.has_activated = True
 
     def first_run(self):
         gnote_dir = os.path.join(GLib.get_user_data_dir(), 'gnote')
