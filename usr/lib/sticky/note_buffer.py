@@ -591,10 +591,8 @@ class NoteBuffer(Gtk.TextBuffer):
 
                     location.assign(self.get_iter_at_offset(position-1))
 
-            if self.props.can_undo and self.undo_actions[-1].maybe_join(action):
-                return
-
-            self.add_undo_action(action)
+            if not self.props.can_undo or not self.undo_actions[-1].maybe_join(action):
+                self.add_undo_action(action)
 
             if text in ['\n', '\t', ' ', '.', ',', ';', ':']:
                 end = location.copy()
