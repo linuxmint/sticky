@@ -597,10 +597,12 @@ class NoteBuffer(Gtk.TextBuffer):
             self.add_undo_action(action)
 
             if text in ['\n', '\t', ' ', '.', ',', ';', ':']:
-                pre_text = self.get_slice(self.get_start_iter(), location, True)
+                end = location.copy()
+                end.backward_char()
+                pre_text = self.get_slice(self.get_start_iter(), end, True)
                 match = get_url_start(pre_text)
                 if match:
-                    self.add_undo_action(self.add_tag('link', self.get_iter_at_offset(match.start()), location))
+                    self.add_undo_action(self.add_tag('link', self.get_iter_at_offset(match.start()), end))
 
     def on_delete(self, buffer, start, end):
         if self.internal_action_count:
