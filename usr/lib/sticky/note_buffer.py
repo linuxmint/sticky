@@ -47,6 +47,9 @@ class AdditionAction(GenericAction):
         if not isinstance(new_action, AdditionAction):
             return False
 
+        if new_action.text == '\n':
+            return False
+
         if new_action.position == self.position + len(self.text):
             self.text += new_action.text
             return True
