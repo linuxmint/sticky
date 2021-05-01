@@ -49,6 +49,14 @@
       </description>
     </key>
 
+    <key name='font' type='s'>
+      <default>"Arial 14"</default>
+      <summary>The note text font</summary>
+      <description>
+        The font and attributes to use for the note text.
+      </description>
+    </key>
+
     <key name='inline-spell-check' type='b'>
       <default>true</default>
       <summary>Show Spelling Mistakes</summary>

@@ -61,16 +61,12 @@
     padding-right: 10px;
 }
 
-#sticky-note textview {
-    font-size: 14px;
-}
-
 textview text {
     padding: 10px;
 }
 
 #sticky-note #title-box {
-    font-size: 16px;
+    font-size: 1.3em;
     color: #303030;
 }
 
