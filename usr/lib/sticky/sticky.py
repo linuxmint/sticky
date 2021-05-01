@@ -87,6 +87,10 @@ class Note(Gtk.Window):
             name='sticky-note'
         )
 
+        self.style_manager = XApp.StyleManager(widget=self)
+        self.app.settings.connect('changed::font', self.set_font)
+        self.set_font()
+
         if self.color == 'random':
             self.color = random.choice(list(COLORS.keys()))
 
@@ -405,6 +409,9 @@ class Note(Gtk.Window):
 
         self.emit('update')
 
+    def set_font(self, *args):
+        self.style_manager.set_from_pango_font_string(self.app.settings.get_string('font'))
+
     def apply_format(self, m, format_type):
         self.buffer.tag_selection(format_type)
 
@@ -502,6 +509,7 @@ class SettingsWindow(XApp.PreferencesWindow):
 
             notes_page.pack_start(GSettingsComboBox(_("Default Color"), SCHEMA, 'default-color', options=colors, valtype=str), False, False, 0)
 
+        notes_page.pack_start(GSettingsFontButton(_("Font"), SCHEMA, 'font', level=Gtk.FontChooserLevel.SIZE), False, False, 0)
         notes_page.pack_start(GSettingsSwitch(_("Show Spelling Mistakes"), SCHEMA, 'inline-spell-check'), False, False, 0)
 
         self.add_page(notes_page, 'notes', _("Notes"))
