@@ -342,6 +342,10 @@ class NoteBuffer(Gtk.TextBuffer):
     undo_actions = []
     redo_actions = []
 
+    # Used to keep track of tags that are toggled when no text is selected. We need this so we can apply the tag when
+    # typing.
+    tag_toggles = []
+
     @GObject.Property
     def can_undo(self):
         return len(self.undo_actions)
@@ -364,6 +368,7 @@ class NoteBuffer(Gtk.TextBuffer):
         self.connect('delete-range', self.on_delete)
         self.connect('begin-user-action', self.begin_composite_action)
         self.connect('end-user-action', self.end_composite_action)
+        self.connect('mark-set', self.on_mark_set)
 
     def set_view(self, view):
         def track_motion(v, event):
@@ -591,6 +596,22 @@ class NoteBuffer(Gtk.TextBuffer):
 
                     location.assign(self.get_iter_at_offset(position-1))
 
+            start = location.copy()
+            start.backward_char()
+
+            # check tag toggles
+            if length == 1:
+                for tag_name in self.tag_toggles:
+                    if location.has_tag(self.get_tag_table().lookup(tag_name)):
+                        action = CompositeAction(action, self.strip_tag(tag_name, start, location))
+                    else:
+                        action = CompositeAction(action, self.add_tag(tag_name, start, location))
+
+                for tag in start.get_toggled_tags(False):
+                    tag_name = tag.props.name
+                    if tag_name not in self.tag_toggles:
+                        action = CompositeAction(action, self.add_tag(tag_name, start, location))
+
             if not self.props.can_undo or not self.undo_actions[-1].maybe_join(action):
                 self.add_undo_action(action)
 
@@ -696,10 +717,10 @@ class NoteBuffer(Gtk.TextBuffer):
             else:
                 self.add_undo_action(self.add_tag(tag_name, start, end))
         else:
-            # This needs to be fixed so that it properly applies the tag when entering text. Currently, setting a tag
-            # without a selection does nothing as both start and end have left gravity.
-            cursor_location = self.get_iter_at_mark(self.get_insert())
-            self.add_undo_action(self.add_tag(tag_name, cursor_location, cursor_location))
+            if tag_name in self.tag_toggles:
+                self.tag_toggles.remove(tag_name)
+            else:
+                self.tag_toggles.append(tag_name)
 
     def add_tag(self, tag_name, start, end):
         action = TagAction(self, tag_name, start, end)
@@ -834,6 +855,10 @@ class NoteBuffer(Gtk.TextBuffer):
                 action.shift_down()
 
         self.add_undo_action(action)
+
+    def on_mark_set(self, b, l, mark):
+        if mark.get_name() == 'insert':
+            self.tag_toggles = []
 
     def test(self):
         print(ends_with_url(self.get_text(*self.get_bounds(), False)))
