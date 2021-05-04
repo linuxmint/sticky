@@ -100,6 +100,8 @@ class NotesManager(object):
         self.file_handler.connect('group-changed', self.on_list_changed)
         self.file_handler.connect('lists-changed', self.generate_group_list)
 
+        self.app.connect('visible-group-changed', self.update_visible_group)
+
         self.builder = Gtk.Builder.new_from_file('/usr/share/sticky/manager.ui')
 
         self.window = self.builder.get_object('main_window')
@@ -261,8 +263,10 @@ class NotesManager(object):
         if self.visible_group == group_name:
             return
 
-        self.visible_group = group_name
-        self.app.change_note_group(self.visible_group)
+        self.app.change_visible_note_group(group_name)
+
+    def update_visible_group(self, *args):
+        self.visible_group = self.app.note_group
         self.generate_group_list()
 
     def new_note(self, *args):

@@ -539,6 +539,11 @@ class Application(Gtk.Application):
     status_icon = None
     has_activated = False
 
+    @GObject.Signal(flags=GObject.SignalFlags.RUN_LAST, return_type=bool,
+                    accumulator=GObject.signal_accumulator_true_handled)
+    def visible_group_changed(self):
+        pass
+
     def __init__(self):
         super(Application, self).__init__(application_id=APPLICATION_ID, flags=Gio.ApplicationFlags.FLAGS_NONE)
 
@@ -763,7 +768,7 @@ class Application(Gtk.Application):
             message.destroy()
         else:
             self.file_handler.new_group(new_group_name)
-            self.change_note_group(new_group_name)
+            self.change_visible_note_group(new_group_name)
             self.new_note()
 
     def load_notes(self):
@@ -787,7 +792,7 @@ class Application(Gtk.Application):
 
         for group in self.file_handler.get_note_group_names():
             item = Gtk.MenuItem(label=group)
-            item.connect('activate', lambda a, group: self.change_note_group(group), group)
+            item.connect('activate', lambda a, group: self.change_visible_note_group(group), group)
             self.group_menu.append(item)
 
         self.group_menu.show_all()
@@ -797,7 +802,7 @@ class Application(Gtk.Application):
             self.update_groups_menu()
 
         if not self.note_group in self.file_handler.get_note_group_names():
-            self.change_note_group()
+            self.change_visible_note_group()
         else:
             self.load_notes()
 
@@ -805,13 +810,15 @@ class Application(Gtk.Application):
         if self.note_group == group_name:
             self.load_notes()
 
-    def change_note_group(self, group=None):
+    def change_visible_note_group(self, group=None):
         if group is None:
             self.note_group = self.settings.get_string('default-group')
         else:
             self.note_group = group
 
         self.load_notes()
+
+        self.emit('visible-group-changed')
 
     def open_manager(self, *args):
         if self.manager:
