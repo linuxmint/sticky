@@ -248,6 +248,39 @@ class FileHandler(GObject.Object):
 
         self.emit('lists-changed')
 
+class HoverBox(Gtk.EventBox):
+    def __init__(self, widget=None):
+        super(HoverBox, self).__init__()
+        self.child_widget = widget
+
+        self.inhibited = False
+
+        self.connect('enter-notify-event', self.set_child_widget_visibility)
+        self.connect('leave-notify-event', self.set_child_widget_visibility)
+
+    def set_child_widget(self, widget):
+        self.child_widget = widget
+
+    def disable(self):
+        self.inhibited = True
+        self.set_child_widget_visibility()
+
+    def enable(self):
+        self.inhibited = False
+        self.set_child_widget_visibility()
+
+    def set_child_widget_visibility(self, *args):
+        pointer_device = self.get_display().get_default_seat().get_pointer()
+        (mouse_x, mouse_y) = self.get_window().get_device_position(pointer_device)[1:3]
+        dimensions = self.get_allocation()
+
+        has_mouse = mouse_x >= 0 and mouse_x < dimensions.width and mouse_y >= 0 and mouse_y < dimensions.height
+
+        if not self.inhibited and has_mouse:
+            self.child_widget.show()
+        else:
+            self.child_widget.hide()
+
 def prompt(title, message):
     dialog = Gtk.Dialog(title=title)
     dialog.add_button(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL)

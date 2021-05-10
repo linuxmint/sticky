@@ -15,7 +15,7 @@ from xapp.GSettingsWidgets import *
 
 from note_buffer import NoteBuffer
 from manager import NotesManager
-from common import FileHandler, prompt, confirm
+from common import FileHandler, HoverBox, prompt, confirm
 from util import gnote_to_internal_format
 
 import gettext
@@ -109,10 +109,8 @@ class Note(Gtk.Window):
         self.title_bar.pack_start(more_menu_button, False, False, 0)
 
         # used to show the edit title icon when the title is hovered
-        self.title_hover = Gtk.EventBox()
+        self.title_hover = HoverBox()
         self.title_bar.pack_start(self.title_hover, True, True, 4)
-        self.title_hover.connect('enter-notify-event', self.set_edit_button_visibility)
-        self.title_hover.connect('leave-notify-event', self.set_edit_button_visibility)
 
         self.title_box = Gtk.Box()
         self.title_hover.add(self.title_box)
@@ -125,6 +123,7 @@ class Note(Gtk.Window):
         self.edit_title_button.connect('button-press-event', self.on_title_click)
         self.edit_title_button.set_tooltip_text(_("Format"))
         self.title_box.pack_start(self.edit_title_button, False, False, 0)
+        self.title_hover.set_child_widget(self.edit_title_button)
 
         close_icon = Gtk.Image.new_from_icon_name('window-close', Gtk.IconSize.BUTTON)
         close_button = Gtk.Button(image=close_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
@@ -412,18 +411,6 @@ class Note(Gtk.Window):
         self.emit('removed')
         self.destroy()
 
-    def set_edit_button_visibility(self, *args):
-        pointer_device = self.get_display().get_default_seat().get_pointer()
-        (mouse_x, mouse_y) = self.title_hover.get_window().get_device_position(pointer_device)[1:3]
-        dimensions = self.title_hover.get_allocation()
-
-        has_mouse = mouse_x >= 0 and mouse_x < dimensions.width and mouse_y >= 0 and mouse_y < dimensions.height
-
-        if not isinstance(self.title, Gtk.Entry) and has_mouse:
-            self.edit_title_button.show()
-        else:
-            self.edit_title_button.hide()
-
     def set_title(self, *args):
         self.title_text = self.title.get_text()
         self.title_box.remove(self.title)
@@ -435,7 +422,7 @@ class Note(Gtk.Window):
         self.title.focus_id = self.title.connect('focus-out-event', self.save_title)
 
         self.title_box.reorder_child(self.title, 0)
-        self.set_edit_button_visibility()
+        self.title_hover.disable()
 
         self.title.grab_focus()
 
@@ -463,7 +450,7 @@ class Note(Gtk.Window):
         self.title_box.pack_start(self.title, False, False, 0)
 
         self.title_box.reorder_child(self.title, 0)
-        self.set_edit_button_visibility()
+        self.title_hover.enable()
 
         if save:
             self.emit('update')
