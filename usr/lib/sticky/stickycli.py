@@ -80,7 +80,7 @@ def parse_command_line():
         with b.add_command('note'):
             b.add_command('activate')
             b.add_command('hide')
-            # b.add_command('toggle')
+            b.add_command('toggle')
             b.add_command('new')
 
         with b.add_command('group'):
@@ -134,6 +134,7 @@ def call_dbus_method(args):
     _command_line_to_dbus_method_name = {
         'note.activate': ('activate_notes', lambda args: ()),
         'note.hide': ('hide_notes', lambda args: ()),
+        'note.toggle': ('toggle_notes', lambda args: ()),
         'note.new': ('new_note', lambda args: ()),
         'group.new': ('new_group', lambda args: ()),
         'group.change': ('change_visible_note_group', lambda args: (args.group_name, )),

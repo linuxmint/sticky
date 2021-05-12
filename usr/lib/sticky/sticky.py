@@ -745,6 +745,19 @@ class Application(Gtk.Application):
         for note in self.notes:
             note.hide()
 
+    def are_notes_visible(self):
+        for note in self.notes:
+            if note.is_active():
+                return True
+
+        return False
+
+    def toggle_notes(self):
+        if self.are_notes_visible():
+            self.hide_notes()
+        else:
+            self.do_activate_notes()
+
     def new_note(self, *args):
         note = self.generate_note()
         note.present()
@@ -905,6 +918,10 @@ class DbusService(dbus.service.Object):
     @dbus.service.method(dbus_interface=names.bus_name)
     def hide_notes(self):
         self._sticky.hide_notes()
+
+    @dbus.service.method(dbus_interface=names.bus_name)
+    def toggle_notes(self):
+        self._sticky.toggle_notes()
 
     @dbus.service.method(dbus_interface=names.bus_name)
     def new_note(self):
