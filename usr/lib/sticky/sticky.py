@@ -21,6 +21,13 @@ from util import gnote_to_internal_format
 import gettext
 gettext.install("sticky", "/usr/share/locale", names="ngettext")
 
+import dbus
+import dbus.service
+from dbus.mainloop.glib import DBusGMainLoop
+import names
+import logging
+
+
 APPLICATION_ID = 'org.x.sticky'
 STYLE_SHEET_PATH = '/usr/share/sticky/sticky.css'
 SCHEMA = 'org.x.sticky'
@@ -723,6 +730,9 @@ class Application(Gtk.Application):
             note.set_transient_for(self.dummy_window)
 
     def activate_notes(self, i, b, time):
+        self.do_activate_notes(time)
+
+    def do_activate_notes(self, time=0):
         for note in self.notes:
             if note.is_active():
                 self.hide_notes()
@@ -880,6 +890,57 @@ class Application(Gtk.Application):
 
         self.quit()
 
+
+class DbusService(dbus.service.Object):
+
+    def __init__(self, sticky):
+        bus_name = dbus.service.BusName(names.bus_name, bus=dbus.SessionBus())
+        dbus.service.Object.__init__(self, bus_name, names.object_path)
+        self._sticky = sticky
+
+    @dbus.service.method(dbus_interface=names.bus_name)
+    def activate_notes(self):
+        self._sticky.do_activate_notes()
+
+    @dbus.service.method(dbus_interface=names.bus_name)
+    def hide_notes(self):
+        self._sticky.hide_notes()
+
+    @dbus.service.method(dbus_interface=names.bus_name)
+    def new_note(self):
+        self._sticky.new_note()
+
+    @dbus.service.method(dbus_interface=names.bus_name)
+    def new_group(self):
+        self._sticky.new_group()
+
+    @dbus.service.method(dbus_interface=names.bus_name)
+    def change_visible_note_group(self, group=None):
+        logging.debug(f'Changing note group to {group}')
+        self._sticky.change_visible_note_group(group)
+
+    @dbus.service.method(dbus_interface=names.bus_name)
+    def open_manager(self):
+        self._sticky.open_manager()
+
+    @dbus.service.method(dbus_interface=names.bus_name)
+    def open_settings_window(self):
+        self._sticky.open_settings_window()
+
+    @dbus.service.method(dbus_interface=names.bus_name)
+    def open_keyboard_shortcuts(self):
+        self._sticky.open_keyboard_shortcuts()
+
+    @dbus.service.method(dbus_interface=names.bus_name)
+    def quit_app(self):
+        self._sticky.quit_app()
+
+global logger
+logger = logging.getLogger(__name__)
+logging.basicConfig(level='DEBUG')
+
 if __name__ == "__main__":
+    DBusGMainLoop(set_as_default=True)
     sticky = Application()
+    dbusService = DbusService(sticky)
     sticky.run()
