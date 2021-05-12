@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+
+import os
+import sys
+
+path = '/usr/lib/sticky/stickycli.py'
+os.execlp(path, path, *sys.argv[1:])
