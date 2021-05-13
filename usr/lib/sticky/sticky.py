@@ -747,7 +747,7 @@ class Application(Gtk.Application):
 
     def are_notes_visible(self):
         for note in self.notes:
-            if note.is_active():
+            if note.is_visible():
                 return True
 
         return False
