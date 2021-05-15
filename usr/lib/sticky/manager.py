@@ -2,7 +2,7 @@
 
 from gi.repository import Gdk, Gio, GLib, GObject, Gtk, Pango
 from note_buffer import NoteBuffer
-from common import confirm
+from common import HoverBox, confirm
 
 
 NOTE_TARGETS = [Gtk.TargetEntry.new('note-entry', Gtk.TargetFlags.SAME_APP, 1)]
@@ -70,14 +70,89 @@ class NoteEntry(Gtk.Container):
         if include_internals:
             callback(self.text, *args)
 
+class GroupEntry(Gtk.ListBoxRow):
+    def __init__(self, item):
+        super(GroupEntry, self).__init__()
+        self.item = item
+
+        self.hoverbox = HoverBox()
+        self.add(self.hoverbox)
+
+        self.generate_content()
+
+    def generate_content(self):
+        self.box = Gtk.Box(height_request=34)
+        self.hoverbox.add(self.box)
+
+        if self.item.is_default:
+            self.box.pack_start(Gtk.Image.new_from_icon_name('emblem-default-symbolic', Gtk.IconSize.BUTTON), False, False, 2)
+        elif self.item.visible:
+            self.box.pack_start(Gtk.Image.new_from_icon_name('group-visible-symbolic', Gtk.IconSize.BUTTON), False, False, 2)
+        else:
+            self.box.pack_start(Gtk.Box(height_request=16, width_request=16), False, False, 2)
+
+        label = Gtk.Label(label=self.item.name, halign=Gtk.Align.START, margin=5)
+        self.box.pack_start(label, True, True, 5)
+
+        button = Gtk.Button(image=Gtk.Image.new_from_icon_name('edit', Gtk.IconSize.BUTTON), relief=Gtk.ReliefStyle.NONE)
+        self.box.pack_end(button, False, False, 2)
+        button.connect('clicked', self.edit_group_name)
+        self.hoverbox.set_child_widget(button)
+
+        self.box.show_all()
+
+    def edit_group_name(self, *args):
+        self.box.destroy()
+        self.box = None
+
+        self.entry = Gtk.Entry(visible=True, text=self.item.name)
+        self.hoverbox.add(self.entry)
+
+        self.activate_id = self.entry.connect('activate', self.maybe_done)
+        self.focus_id = self.entry.connect('focus-out-event', self.maybe_done)
+        self.key_id = self.entry.connect('key-press-event', self.key_pressed)
+        self.hoverbox.disable()
+
+        self.entry.grab_focus()
+
+    def maybe_done(self, *args):
+        group_name = self.entry.get_text()
+        if group_name != '' and group_name != self.item.name:
+            old_name = self.item.name
+            self.item.name = group_name
+            self.item.manager.file_handler.change_group_name(old_name, group_name)
+
+        self.clean_up()
+
+    def key_pressed(self, w, event):
+        if event.keyval != Gdk.KEY_Escape:
+            return Gdk.EVENT_PROPAGATE
+
+        self.clean_up(self.entry)
+
+        return Gdk.EVENT_STOP
+
+    def clean_up(self):
+        if self.entry is None:
+            return
+        self.entry.disconnect(self.activate_id)
+        self.entry.disconnect(self.focus_id)
+        self.entry.disconnect(self.key_id)
+
+        self.entry.destroy()
+        self.entry = None
+
+        self.generate_content()
+        self.hoverbox.enable()
+
 class Group(GObject.Object):
-    def __init__(self, name, note_list, model, is_default=False, visible=False):
+    def __init__(self, name, manager, model, is_default=False, visible=False):
         super(Group, self).__init__()
 
         self.is_default = is_default
         self.visible = visible
         self.name = name
-        self.note_list = note_list
+        self.manager = manager
         self.model = model
 
 class Note(GObject.Object):
@@ -109,28 +184,15 @@ class NotesManager(object):
         self.note_view = self.builder.get_object('note_view')
 
         def create_group_entry(item):
-            widget = Gtk.ListBoxRow()
+            widget = GroupEntry(item)
             widget.drag_dest_set(Gtk.DestDefaults.MOTION | Gtk.DestDefaults.HIGHLIGHT, NOTE_TARGETS, Gdk.DragAction.MOVE)
             widget.connect('drag-drop', self.handle_drop)
-            widget.item = item
-
-            box = Gtk.Box()
-            widget.add(box)
-
-            label = Gtk.Label(label=item.name, halign=Gtk.Align.START, margin=5)
-            box.pack_start(label, True, True, 10)
-
-            if item.is_default:
-                box.pack_end(Gtk.Image.new_from_icon_name('emblem-default-symbolic', Gtk.IconSize.BUTTON), False, False, 10)
-            elif item.visible:
-                box.pack_end(Gtk.Image.new_from_icon_name('group-visible-symbolic', Gtk.IconSize.BUTTON), False, False, 10)
 
             return widget
 
         self.group_model = Gio.ListStore()
         self.group_list.bind_model(self.group_model, create_group_entry)
         self.group_list.connect('row-selected', self.generate_previews)
-        self.group_list.connect('key-press-event', self.remove_group)
 
         self.builder.get_object('new_note').connect('clicked', self.new_note)
         self.builder.get_object('remove_note').connect('clicked', self.remove_note)
@@ -192,13 +254,12 @@ class NotesManager(object):
         self.group_model.remove_all()
 
         for group_name in self.file_handler.get_note_group_names():
-            note_list = self.file_handler.get_note_list(group_name)
             model = Gio.ListStore()
 
             is_default = self.app.settings.get_string('default-group') == group_name
             visible = self.visible_group == group_name
 
-            self.group_model.append(Group(group_name, note_list, model, is_default, visible))
+            self.group_model.append(Group(group_name, self, model, is_default, visible))
 
         self.group_list.show_all()
 

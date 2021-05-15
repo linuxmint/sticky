@@ -118,7 +118,7 @@ class Note(Gtk.Window):
         self.title_box.pack_start(self.title, False, False, 0)
 
         edit_title_icon = Gtk.Image.new_from_icon_name('edit', Gtk.IconSize.BUTTON)
-        self.edit_title_button = Gtk.Button(image=edit_title_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER, no_show_all=True)
+        self.edit_title_button = Gtk.Button(image=edit_title_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         self.edit_title_button.connect('clicked', self.set_title)
         self.edit_title_button.connect('button-press-event', self.on_title_click)
         self.edit_title_button.set_tooltip_text(_("Format"))
@@ -557,6 +557,7 @@ class Application(Gtk.Application):
 
         self.file_handler.connect('lists-changed', self.on_lists_changed)
         self.group_update_id = self.file_handler.connect('group-changed', self.on_group_changed)
+        self.file_handler.connect('group-name-changed', self.on_group_name_changed)
 
         if self.settings.get_boolean('show-in-tray'):
             self.create_status_icon()
@@ -796,6 +797,13 @@ class Application(Gtk.Application):
     def on_group_changed(self, f, group_name):
         if self.note_group == group_name:
             self.load_notes()
+
+    def on_group_name_changed(self, f, old_name, new_name):
+        if self.note_group == old_name:
+            self.change_visible_note_group(new_name)
+
+        if self.settings.get_string('default-group') == old_name:
+            self.settings.set_string('default-group', new_name)
 
     def change_visible_note_group(self, group=None):
         if group is None:

@@ -21,6 +21,12 @@ class FileHandler(GObject.Object):
         pass
 
     @GObject.Signal(flags=GObject.SignalFlags.RUN_LAST, return_type=bool,
+                    arg_types=(str, str),
+                    accumulator=GObject.signal_accumulator_true_handled)
+    def group_name_changed(self, old_name, new_name):
+        pass
+
+    @GObject.Signal(flags=GObject.SignalFlags.RUN_LAST, return_type=bool,
                     accumulator=GObject.signal_accumulator_true_handled)
     def lists_changed(self):
         pass
@@ -248,10 +254,17 @@ class FileHandler(GObject.Object):
 
         self.emit('lists-changed')
 
+    def change_group_name(self, old_group, new_group):
+        self.notes_lists[new_group] = self.notes_lists.pop(old_group)
+
+        self.save_note_list()
+        self.emit('group-name-changed', old_group, new_group)
+
 class HoverBox(Gtk.EventBox):
     def __init__(self, widget=None):
         super(HoverBox, self).__init__()
-        self.child_widget = widget
+        if widget is not None:
+            self.set_child_widget(widget)
 
         self.inhibited = False
 
@@ -260,6 +273,8 @@ class HoverBox(Gtk.EventBox):
 
     def set_child_widget(self, widget):
         self.child_widget = widget
+        widget.set_no_show_all(True)
+        widget.hide()
 
     def disable(self):
         self.inhibited = True
