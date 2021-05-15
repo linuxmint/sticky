@@ -243,6 +243,7 @@ class FileHandler(GObject.Object):
     def new_group(self, group_name):
         self.notes_lists[group_name] = []
 
+        self.save_note_list()
         self.emit('lists-changed')
 
     def remove_group(self, group_name):
@@ -251,7 +252,6 @@ class FileHandler(GObject.Object):
         del self.notes_lists[group_name]
 
         self.save_note_list()
-
         self.emit('lists-changed')
 
     def change_group_name(self, old_group, new_group):
