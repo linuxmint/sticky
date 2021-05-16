@@ -576,6 +576,7 @@ class Application(Gtk.Application):
         if self.note_group not in group_names:
             if len(group_names) > 0:
                 self.note_group = group_names[0]
+                self.settings.set_string('default-group', self.note_group)
             else:
                 self.file_handler.new_group(self.note_group)
 
@@ -806,10 +807,20 @@ class Application(Gtk.Application):
             self.settings.set_string('default-group', new_name)
 
     def change_visible_note_group(self, group=None):
+        default = self.settings.get_string('default-group')
         if group is None:
-            self.note_group = self.settings.get_string('default-group')
+            self.note_group = default
         else:
             self.note_group = group
+
+        group_names = self.file_handler.get_note_group_names()
+        if self.note_group not in group_names:
+            if len(group_names) > 0:
+                self.note_group = group_names[0]
+                self.settings.set_string('default-group', self.note_group)
+            else:
+                self.file_handler.new_group(default)
+                self.note_group = default
 
         self.load_notes()
 
