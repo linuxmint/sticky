@@ -54,6 +54,10 @@
 @define-color magenta5 #ffd7fd; /* slider trough */
 @define-color magenta5 #9d1094; /* selection */
 
+/* manager */
+#manager-group-edit-button {
+    border: none;
+}
 
 /* common */
 #title-box {
