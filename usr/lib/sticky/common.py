@@ -247,6 +247,9 @@ class FileHandler(GObject.Object):
         self.emit('lists-changed')
 
     def remove_group(self, group_name):
+        if not confirm(_("Remove Group"), _("Are you sure you want to remove the group %s?") % group_name):
+            return
+
         if group_name not in self.notes_lists:
             raise ValueError('invalid group name %s' % group_name)
         del self.notes_lists[group_name]
