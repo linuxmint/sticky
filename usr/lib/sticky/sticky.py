@@ -728,9 +728,15 @@ class Application(Gtk.Application):
         for note in self.notes:
             note.restore(time)
 
+        if self.dummy_window:
+            self.dummy_window.set_skip_taskbar_hint(False)
+
     def hide_notes(self):
         for note in self.notes:
             note.hide()
+
+        if self.dummy_window:
+            self.dummy_window.set_skip_taskbar_hint(True)
 
     def new_note(self, *args):
         note = self.generate_note()
