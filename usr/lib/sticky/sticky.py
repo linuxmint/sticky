@@ -466,7 +466,7 @@ class Note(Gtk.Window):
 
 class SettingsWindow(XApp.PreferencesWindow):
     def __init__(self, app):
-        super(SettingsWindow, self).__init__()
+        super(SettingsWindow, self).__init__(skip_taskbar_hint=False, title=_("Sticky Notes Settings"))
 
         # general settings
         general_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
