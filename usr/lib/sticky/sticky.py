@@ -102,7 +102,7 @@ class Note(Gtk.Window):
 
         # title bar
         self.title_bar = Gtk.Box(height_request=30, name='title-box')
-        self.connect('button-press-event', self.on_title_click)
+        self.title_bar.connect('button-press-event', self.on_title_click)
 
         # formatting items are shown here
         more_menu_icon = Gtk.Image.new_from_icon_name('view-more', Gtk.IconSize.BUTTON)
