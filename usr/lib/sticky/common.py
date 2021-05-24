@@ -288,11 +288,8 @@ class HoverBox(Gtk.EventBox):
         self.set_child_widget_visibility()
 
     def set_child_widget_visibility(self, *args):
-        pointer_device = self.get_display().get_default_seat().get_pointer()
-        (mouse_x, mouse_y) = self.get_window().get_device_position(pointer_device)[1:3]
-        dimensions = self.get_allocation()
-
-        has_mouse = mouse_x >= 0 and mouse_x < dimensions.width and mouse_y >= 0 and mouse_y < dimensions.height
+        pointer_window = self.get_display().get_default_seat().get_pointer().get_window_at_position()[0]
+        has_mouse = pointer_window == self.get_window() or pointer_window in self.get_window().get_children()
 
         if not self.inhibited and has_mouse:
             self.child_widget.show()
