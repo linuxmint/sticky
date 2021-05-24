@@ -62,7 +62,7 @@ class Note(Gtk.Window):
     def removed(self):
         pass
 
-    def __init__(self, app, info={}):
+    def __init__(self, app, parent, info={}):
         self.app = app
 
         self.showing = False
@@ -78,7 +78,7 @@ class Note(Gtk.Window):
 
         super(Note, self).__init__(
             skip_taskbar_hint=True,
-            # skip_pager_hint=False,
+            transient_for=parent,
             type_hint=Gdk.WindowTypeHint.UTILITY,
             default_height=self.height,
             default_width=self.width,
@@ -530,7 +530,6 @@ class ShortcutsWindow(Gtk.ShortcutsWindow):
         self.show_all()
 
 class Application(Gtk.Application):
-    dummy_window = None
     status_icon = None
     has_activated = False
 
@@ -546,6 +545,7 @@ class Application(Gtk.Application):
         self.settings_window = None
         self.keyboard_shortcuts = None
         self.manager = None
+        self.notes_hidden = False
 
     def do_activate(self):
         if self.has_activated:
@@ -574,6 +574,8 @@ class Application(Gtk.Application):
                 self.open_manager()
         else:
             self.open_manager()
+
+        self.dummy_window = Gtk.Window(title=_("Sticky Notes"), default_height=1, default_width=1, decorated=False, deletable=False)
 
         self.settings.connect('changed::show-in-tray', self.update_tray_icon)
         self.settings.connect('changed::show-in-taskbar', self.update_dummy_window)
@@ -706,18 +708,16 @@ class Application(Gtk.Application):
             self.destroy_status_icon()
 
     def update_dummy_window(self, *args):
-        if self.settings.get_boolean('show-in-taskbar'):
-            self.dummy_window = Gtk.Window(name=_("Sticky Notes"), default_height=1, default_width=1, decorated=False, deletable=False)
-            if self.settings.get_boolean('desktop-window-state'):
-                self.dummy_window.stick()
+        if self.settings.get_boolean('show-in-taskbar') and not self.notes_hidden:
+            self.dummy_window.set_skip_taskbar_hint(False)
             self.dummy_window.show()
+            self.dummy_window.move(-1, -1)
+        else:
+            self.dummy_window.set_skip_taskbar_hint(True)
+            self.dummy_window.hide()
 
-        elif self.dummy_window is not None:
-            self.dummy_window.destroy()
-            self.dummy_window = None
-
-        for note in self.notes:
-            note.set_transient_for(self.dummy_window)
+        if self.settings.get_boolean('desktop-window-state'):
+            self.dummy_window.stick()
 
     def activate_notes(self, i, b, time):
         for note in self.notes:
@@ -728,27 +728,24 @@ class Application(Gtk.Application):
         for note in self.notes:
             note.restore(time)
 
-        if self.dummy_window:
-            self.dummy_window.set_skip_taskbar_hint(False)
+        self.notes_hidden = False
+        self.update_dummy_window()
 
     def hide_notes(self):
         for note in self.notes:
             note.hide()
 
-        if self.dummy_window:
-            self.dummy_window.set_skip_taskbar_hint(True)
+        self.notes_hidden = True
+        self.update_dummy_window()
 
     def new_note(self, *args):
         note = self.generate_note()
         note.present()
 
     def generate_note(self, info={}):
-        note = Note(self, info)
+        note = Note(self, self.dummy_window, info)
         note.connect('update', self.on_update)
         note.connect('removed', self.on_removed)
-
-        if self.dummy_window:
-            note.set_transient_for(self.dummy_window)
 
         self.notes.append(note)
 
