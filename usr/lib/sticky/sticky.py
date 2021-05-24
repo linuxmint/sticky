@@ -530,9 +530,6 @@ class ShortcutsWindow(Gtk.ShortcutsWindow):
         self.show_all()
 
 class Application(Gtk.Application):
-    status_icon = None
-    has_activated = False
-
     @GObject.Signal(flags=GObject.SignalFlags.RUN_LAST, return_type=bool,
                     accumulator=GObject.signal_accumulator_true_handled)
     def visible_group_changed(self):
@@ -541,6 +538,8 @@ class Application(Gtk.Application):
     def __init__(self):
         super(Application, self).__init__(application_id=APPLICATION_ID, flags=Gio.ApplicationFlags.FLAGS_NONE)
 
+        self.status_icon = None
+        self.has_activated = False
         self.notes = []
         self.settings_window = None
         self.keyboard_shortcuts = None
