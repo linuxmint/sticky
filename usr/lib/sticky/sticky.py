@@ -576,6 +576,7 @@ class Application(Gtk.Application):
             self.open_manager()
 
         self.dummy_window = Gtk.Window(title=_("Sticky Notes"), default_height=1, default_width=1, decorated=False, deletable=False)
+        self.dummy_window.show()
 
         self.settings.connect('changed::show-in-tray', self.update_tray_icon)
         self.settings.connect('changed::show-in-taskbar', self.update_dummy_window)
@@ -710,11 +711,9 @@ class Application(Gtk.Application):
     def update_dummy_window(self, *args):
         if self.settings.get_boolean('show-in-taskbar') and not self.notes_hidden:
             self.dummy_window.set_skip_taskbar_hint(False)
-            self.dummy_window.show()
             self.dummy_window.move(-1, -1)
         else:
             self.dummy_window.set_skip_taskbar_hint(True)
-            self.dummy_window.hide()
 
         if self.settings.get_boolean('desktop-window-state'):
             self.dummy_window.stick()
