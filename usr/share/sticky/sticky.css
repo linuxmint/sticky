@@ -60,7 +60,7 @@
 }
 
 /* common */
-#title-box {
+#title-bar {
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -69,8 +69,7 @@ textview text {
     padding: 10px;
 }
 
-#sticky-note #title-box {
-    font-size: 1.3em;
+#sticky-note #title-bar {
     color: #303030;
 }
 
@@ -82,9 +81,10 @@ textview text {
     color: #303030;
 }
 
-#sticky-note #title-box label {
+#sticky-note #title {
     color: #303030;
     caret-color: #303030;
+    font-size: 1.3em;
 }
 
 #sticky-note check,
@@ -138,7 +138,7 @@ button.red {
     background-color: @red5;
 }
 
-.red #title-box {
+.red #title-bar {
     background-color: @red2;
 }
 
@@ -177,7 +177,7 @@ button.blue {
     background-color: @blue5;
 }
 
-.blue #title-box {
+.blue #title-bar {
     background-color: @blue2;
 }
 
@@ -216,7 +216,7 @@ button.green {
     background-color: @green5;
 }
 
-.green #title-box {
+.green #title-bar {
     background-color: @green2;
 }
 
@@ -255,7 +255,7 @@ button.yellow {
     background-color: @yellow5;
 }
 
-.yellow #title-box {
+.yellow #title-bar {
     background-color: @yellow2;
 }
 
@@ -294,7 +294,7 @@ button.purple {
     background-color: @purple5;
 }
 
-.purple #title-box {
+.purple #title-bar {
     background-color: @purple2;
 }
 
@@ -333,7 +333,7 @@ button.teal {
     background-color: @teal5;
 }
 
-.teal #title-box {
+.teal #title-bar {
     background-color: @teal2;
 }
 
@@ -372,7 +372,7 @@ button.orange {
     background-color: @orange5;
 }
 
-.orange #title-box {
+.orange #title-bar {
     background-color: @orange2;
 }
 
@@ -411,7 +411,7 @@ button.magenta {
     background-color: @magenta5;
 }
 
-.magenta #title-box {
+.magenta #title-bar {
     background-color: @magenta2;
 }
 

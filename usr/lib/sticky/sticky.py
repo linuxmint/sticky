@@ -87,10 +87,6 @@ class Note(Gtk.Window):
             name='sticky-note'
         )
 
-        self.style_manager = XApp.StyleManager(widget=self)
-        self.app.settings.connect('changed::font', self.set_font)
-        self.set_font()
-
         if self.color == 'random':
             self.color = random.choice(list(COLORS.keys()))
 
@@ -101,13 +97,12 @@ class Note(Gtk.Window):
             self.stick()
 
         # title bar
-        self.title_bar = Gtk.Box(height_request=30, name='title-box')
+        self.title_bar = Gtk.Box(height_request=30, name='title-bar')
         self.title_bar.connect('button-press-event', self.on_title_click)
 
         # formatting items are shown here
         more_menu_icon = Gtk.Image.new_from_icon_name('view-more', Gtk.IconSize.BUTTON)
-        more_menu_button = Gtk.Button(image=more_menu_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
-        more_menu_button.connect('clicked', self.show_more_menu)
+        more_menu_button = Gtk.MenuButton(image=more_menu_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         more_menu_button.connect('button-press-event', self.on_title_click)
         more_menu_button.set_tooltip_text(_("Format"))
         self.title_bar.pack_start(more_menu_button, False, False, 0)
@@ -118,8 +113,9 @@ class Note(Gtk.Window):
 
         self.title_box = Gtk.Box()
         self.title_hover.add(self.title_box)
-        self.title = Gtk.Label(label=title, margin_top=4)
+        self.title = Gtk.Label(label=title, margin_top=4, name='title')
         self.title_box.pack_start(self.title, False, False, 0)
+        self.title_style_manager = XApp.StyleManager(widget=self.title_box)
 
         edit_title_icon = Gtk.Image.new_from_icon_name('edit', Gtk.IconSize.BUTTON)
         self.edit_title_button = Gtk.Button(image=edit_title_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
@@ -166,6 +162,7 @@ class Note(Gtk.Window):
         self.view.set_bottom_margin(10)
         self.view.connect('populate-popup', lambda w, p: self.add_context_menu_items(p))
         self.view.connect('key-press-event', self.on_key_press)
+        self.view_style_manager = XApp.StyleManager(widget=self.view)
 
         scroll = Gtk.ScrolledWindow()
         self.add(scroll)
@@ -173,6 +170,11 @@ class Note(Gtk.Window):
 
         self.buffer.set_from_internal_markup(text)
         self.changed_id = self.buffer.connect('content-changed', self.changed)
+
+        self.app.settings.connect('changed::font', self.set_font)
+        self.set_font()
+
+        self.create_format_menu(more_menu_button)
 
         self.connect('configure-event', self.handle_update)
         self.connect('show', self.on_show)
@@ -348,7 +350,7 @@ class Note(Gtk.Window):
             pin_menu_item.connect('activate', on_activate)
             popup.append(pin_menu_item)
 
-    def show_more_menu(self, button):
+    def create_format_menu(self, button):
         menu = Gtk.Menu()
 
         color_menu = Gtk.Menu()
@@ -396,7 +398,7 @@ class Note(Gtk.Window):
         header_item.connect('activate', self.apply_format, 'header')
         menu.append(header_item)
 
-        menu.popup_at_widget(button, Gdk.Gravity.SOUTH, Gdk.Gravity.NORTH_WEST, None)
+        button.set_popup(menu)
 
     def set_color(self, menu, color):
         if color == self.color:
@@ -409,7 +411,8 @@ class Note(Gtk.Window):
         self.emit('update')
 
     def set_font(self, *args):
-        self.style_manager.set_from_pango_font_string(self.app.settings.get_string('font'))
+        self.title_style_manager.set_from_pango_font_string(self.app.settings.get_string('font'))
+        self.view_style_manager.set_from_pango_font_string(self.app.settings.get_string('font'))
 
     def apply_format(self, m, format_type):
         self.buffer.tag_selection(format_type)
@@ -422,7 +425,7 @@ class Note(Gtk.Window):
         self.title_text = self.title.get_text()
         self.title_box.remove(self.title)
 
-        self.title = Gtk.Entry(text=self.title_text, visible=True)
+        self.title = Gtk.Entry(text=self.title_text, visible=True, name='title')
         self.title_box.pack_start(self.title, False, False, 0)
 
         self.title.key_id = self.title.connect('key-press-event', self.save_title)
@@ -453,7 +456,7 @@ class Note(Gtk.Window):
 
         self.title_box.remove(self.title)
 
-        self.title = Gtk.Label(label=self.title_text, visible=True)
+        self.title = Gtk.Label(label=self.title_text, visible=True, name='title')
         self.title_box.pack_start(self.title, False, False, 0)
 
         self.title_box.reorder_child(self.title, 0)
