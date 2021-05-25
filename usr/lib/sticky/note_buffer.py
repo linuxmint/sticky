@@ -609,6 +609,9 @@ class NoteBuffer(Gtk.TextBuffer):
 
                 for tag in start.get_toggled_tags(False):
                     tag_name = tag.props.name
+                    if tag_name is None:
+                        continue
+
                     if tag_name not in self.tag_toggles:
                         action = CompositeAction(action, self.add_tag(tag_name, start, location))
 
