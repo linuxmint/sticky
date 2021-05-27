@@ -2,7 +2,7 @@
 
 from gi.repository import Gdk, Gio, GLib, GObject, Gtk, Pango
 from note_buffer import NoteBuffer
-from common import HoverBox, confirm
+from common import HoverBox
 
 
 NOTE_TARGETS = [Gtk.TargetEntry.new('note-entry', Gtk.TargetFlags.SAME_APP, 1)]
