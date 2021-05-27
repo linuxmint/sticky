@@ -728,26 +728,6 @@ class Application(Gtk.Application):
 
         return note
 
-    def new_group(self, *args):
-        (response, new_group_name) = prompt(_("New Group"), _("Choose a name for the new group"))
-
-        if not response:
-            return
-
-        if new_group_name == "":
-            message = Gtk.MessageDialog(text=_("Cannot create group without a name"), buttons=Gtk.ButtonsType.CLOSE)
-            message.run()
-            message.destroy()
-        elif new_group_name in self.file_handler.get_note_group_names():
-            message = Gtk.MessageDialog(text=_("Cannot create group: the name %s already exists") % new_group_name,
-                                        buttons=Gtk.ButtonsType.CLOSE)
-            message.run()
-            message.destroy()
-        else:
-            self.file_handler.new_group(new_group_name)
-            self.change_visible_note_group(new_group_name)
-            self.new_note()
-
     def load_notes(self):
         for note in self.notes:
             note.destroy()
