@@ -138,7 +138,7 @@ class FileHandler(GObject.Object):
 
     def backup_to_file(self, *args):
         file_dialog = Gtk.FileChooserDialog(title=_("Save Backup"), action=Gtk.FileChooserAction.SAVE)
-        file_dialog.add_buttons(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL, Gtk.STOCK_SAVE, Gtk.ResponseType.OK)
+        file_dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.OK)
         file_dialog.set_current_folder(GLib.get_home_dir())
         file_dialog.set_current_name('backup.json')
         file_dialog.set_do_overwrite_confirmation(True)
@@ -162,7 +162,7 @@ class FileHandler(GObject.Object):
 
     def restore_backup(self, *args):
         dialog = Gtk.Dialog(title=_("Restore Backup"))
-        dialog.add_button(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL)
+        dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
         dialog.add_button(_("From File"), 20)
         restore_button = dialog.add_button(_("Restore"), Gtk.ResponseType.OK)
         dialog.set_default_response(Gtk.ResponseType.OK)
@@ -196,7 +196,7 @@ class FileHandler(GObject.Object):
             file_path = os.path.join(CONFIG_DIR, backup_list.get_selected_row().get_child().file)
         elif response == 20:
             file_dialog = Gtk.FileChooserDialog(title=_("Save Backup"), action=Gtk.FileChooserAction.OPEN)
-            file_dialog.add_buttons(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL, Gtk.STOCK_OPEN, Gtk.ResponseType.OK)
+            file_dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL, _("Open"), Gtk.ResponseType.OK)
             file_dialog.set_current_folder(GLib.get_home_dir())
 
             json_filter = Gtk.FileFilter()
@@ -298,8 +298,8 @@ class HoverBox(Gtk.EventBox):
 
 def prompt(title, message):
     dialog = Gtk.Dialog(title=title)
-    dialog.add_button(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL)
-    dialog.add_button(Gtk.STOCK_OK, Gtk.ResponseType.OK)
+    dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
+    dialog.add_button(_("OK"), Gtk.ResponseType.OK)
     dialog.set_default_response(Gtk.ResponseType.OK)
 
     content = dialog.get_content_area()
@@ -321,8 +321,8 @@ def prompt(title, message):
 
 def confirm(title, message, window=None):
     dialog = Gtk.Dialog(title=title, transient_for=window)
-    dialog.add_button(Gtk.STOCK_NO, Gtk.ResponseType.NO)
-    dialog.add_button(Gtk.STOCK_YES, Gtk.ResponseType.YES)
+    dialog.add_button(_("No"), Gtk.ResponseType.NO)
+    dialog.add_button(_("Yes"), Gtk.ResponseType.YES)
     dialog.set_default_response(Gtk.ResponseType.YES)
 
     content = dialog.get_content_area()
