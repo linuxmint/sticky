@@ -1,0 +1,373 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-27 10:25+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: usr/lib/sticky/common.py:43
+msgid "Desktop"
+msgstr ""
+
+#: usr/lib/sticky/common.py:140 usr/lib/sticky/common.py:198
+msgid "Save Backup"
+msgstr ""
+
+#: usr/lib/sticky/common.py:152 usr/lib/sticky/common.py:208
+msgid "Plain Text"
+msgstr ""
+
+#: usr/lib/sticky/common.py:164 usr/lib/sticky/manager.py:278
+#: usr/lib/sticky/sticky.py:671
+msgid "Restore Backup"
+msgstr ""
+
+#: usr/lib/sticky/common.py:166
+msgid "From File"
+msgstr ""
+
+#: usr/lib/sticky/common.py:167
+msgid "Restore"
+msgstr ""
+
+#: usr/lib/sticky/common.py:231
+msgid "Unable to restore: invalid or corrupted backup file"
+msgstr ""
+
+#: usr/lib/sticky/common.py:250 usr/lib/sticky/manager.py:264
+msgid "Remove Group"
+msgstr ""
+
+#: usr/lib/sticky/common.py:250
+#, python-format
+msgid "Are you sure you want to remove the group %s?"
+msgstr ""
+
+#: usr/lib/sticky/manager.py:84
+msgid "New"
+msgstr ""
+
+#: usr/lib/sticky/manager.py:89
+msgid "Edit"
+msgstr ""
+
+#: usr/lib/sticky/manager.py:93
+msgid "Remove"
+msgstr ""
+
+#: usr/lib/sticky/manager.py:99
+msgid "Preview"
+msgstr ""
+
+#: usr/lib/sticky/manager.py:102
+msgid "Set as default"
+msgstr ""
+
+#: usr/lib/sticky/manager.py:212
+msgid "Untitled"
+msgstr ""
+
+#: usr/lib/sticky/manager.py:260 usr/lib/sticky/sticky.py:756
+#: usr/lib/sticky/sticky.py:788
+msgid "New Group"
+msgstr ""
+
+#: usr/lib/sticky/manager.py:270 usr/lib/sticky/sticky.py:663
+msgid "Back Up Notes"
+msgstr ""
+
+#: usr/lib/sticky/manager.py:274 usr/lib/sticky/sticky.py:667
+msgid "Back Up To File"
+msgstr ""
+
+#: usr/lib/sticky/manager.py:284 usr/lib/sticky/sticky.py:677
+msgid "Settings"
+msgstr ""
+
+#: usr/lib/sticky/manager.py:288 usr/lib/sticky/sticky.py:681
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:29
+msgid "Red"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:30
+msgid "Green"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:31
+msgid "Blue"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:32
+msgid "Yellow"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:33
+msgid "Purple"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:34
+msgid "Teal"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:35
+msgid "Orange"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:36
+msgid "Magenta"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:40
+msgid "Move selection up"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:41
+msgid "Move selection down"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:42
+msgid "Undo"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:43
+msgid "Redo"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:44 usr/lib/sticky/sticky.py:367
+msgid "Toggle Checklist"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:45 usr/lib/sticky/sticky.py:371
+msgid "Toggle Bullets"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:46 usr/lib/sticky/sticky.py:377
+msgid "Bold"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:47 usr/lib/sticky/sticky.py:381
+msgid "Italic"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:48 usr/lib/sticky/sticky.py:385
+msgid "Underline"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:49 usr/lib/sticky/sticky.py:389
+msgid "Strikethrough"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:50 usr/lib/sticky/sticky.py:393
+msgid "Highlight"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:51 usr/lib/sticky/sticky.py:397
+msgid "Header"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:107 usr/lib/sticky/sticky.py:124
+msgid "Format"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:132
+msgid "Delete Note"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:139 usr/lib/sticky/sticky.py:645
+msgid "New Note"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:310
+msgid "undo"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:314
+msgid "redo"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:320
+msgid "Set Title"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:320
+msgid "Edit Title"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:325
+msgid "Remove Note"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:333
+msgid "Only on This Workspace"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:337
+msgid "Always on Visible Workspace"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:349
+msgid "Always on Top"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:357
+msgid "Set Note Color"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:472
+msgid "Sticky Notes Settings"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:477
+msgid "Show Notes on all Desktops"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:478
+msgid "Show Status Icon in Tray"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:480
+msgid "Show Manager on Start"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:481
+msgid "Show in Taskbar"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:483
+msgid "General"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:488
+msgid "Default Height"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:489
+msgid "Default Width"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:493 usr/lib/sticky/sticky.py:498
+msgid "Random"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:495 usr/lib/sticky/sticky.py:500
+msgid "Default Color"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:502
+msgid "Font"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:503
+msgid "Show Spelling Mistakes"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:505
+msgid "Notes"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:510
+msgid "Create Periodic Backups"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:511
+msgid "Time Between Backups"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:511
+msgid "hours"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:512
+msgid "Set this to zero if you wish to keep all backups indefinitely"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:513
+msgid "Number to Keep"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:515
+msgid "Backups"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:580 usr/lib/sticky/sticky.py:620
+#: generate_desktop_files:13
+msgid "Sticky Notes"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:621
+msgid ""
+"Would you like to import your notes from Gnote? This will not change your "
+"Gnote notes in any way."
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:649
+msgid "Manage Notes"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:656
+msgid "Change Group"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:687
+msgid "Exit"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:756
+msgid "Choose a name for the new group"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:762
+msgid "Cannot create group without a name"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:766
+#, python-format
+msgid "Cannot create group: the name %s already exists"
+msgstr ""
+
+#: usr/lib/sticky/util.py:73
+msgid "Unfiled"
+msgstr ""
+
+#: generate_desktop_files:14
+msgid "Create and manage sticky notes on your desktop"
+msgstr ""
+
+#: usr/share/sticky/manager.ui.h:1
+msgid "Sticky Notes Manager"
+msgstr ""
+
+#: usr/share/sticky/manager.ui.h:2
+msgid "Manage your sticky notes"
+msgstr ""
+
+#: usr/share/sticky/manager.ui.h:3
+msgid "New note"
+msgstr ""
+
+#: usr/share/sticky/manager.ui.h:4
+msgid "Remove selected note"
+msgstr ""
+
+#: usr/share/sticky/manager.ui.h:5
+msgid "View and edit the notes in this group"
+msgstr ""
+
+#: usr/share/sticky/manager.ui.h:6
+msgid "Set this group as the default"
+msgstr ""
