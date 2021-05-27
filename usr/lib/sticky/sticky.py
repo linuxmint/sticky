@@ -622,20 +622,20 @@ class Application(Gtk.Application):
 
                 if resp:
                     for file in import_notes:
-                        (group_name, info) = gnote_to_internal_format(file)
+                        (group_name, info, is_template) = gnote_to_internal_format(file)
+                        if not is_template:
+                            color = self.settings.get_string('default-color')
+                            if color == 'random':
+                                info['color'] = random.choice(list(COLORS.keys()))
+                            else:
+                                info['color'] = color
 
-                        color = self.settings.get_string('default-color')
-                        if color == 'random':
-                            info['color'] = random.choice(list(COLORS.keys()))
-                        else:
-                            info['color'] = color
+                            if group_name not in self.file_handler.get_note_group_names():
+                                self.file_handler.new_group(group_name)
 
-                        if group_name not in self.file_handler.get_note_group_names():
-                            self.file_handler.new_group(group_name)
-
-                        group_list = self.file_handler.get_note_list(group_name)
-                        group_list.append(info)
-                        self.file_handler.update_note_list(group_list, group_name)
+                            group_list = self.file_handler.get_note_list(group_name)
+                            group_list.append(info)
+                            self.file_handler.update_note_list(group_list, group_name)
 
         self.settings.set_boolean('first-run', False)
 
