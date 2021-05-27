@@ -321,9 +321,9 @@ def prompt(title, message):
 
 def confirm(title, message, window=None):
     dialog = Gtk.Dialog(title=title, transient_for=window)
-    dialog.add_button(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL)
-    dialog.add_button(Gtk.STOCK_OK, Gtk.ResponseType.OK)
-    dialog.set_default_response(Gtk.ResponseType.OK)
+    dialog.add_button(Gtk.STOCK_NO, Gtk.ResponseType.NO)
+    dialog.add_button(Gtk.STOCK_YES, Gtk.ResponseType.YES)
+    dialog.set_default_response(Gtk.ResponseType.YES)
 
     content = dialog.get_content_area()
     content.props.margin_left = 20
@@ -337,5 +337,5 @@ def confirm(title, message, window=None):
 
     dialog.destroy()
 
-    return response == Gtk.ResponseType.OK
+    return response == Gtk.ResponseType.YES
 
