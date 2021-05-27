@@ -640,44 +640,50 @@ class Application(Gtk.Application):
         self.settings.set_boolean('first-run', False)
 
     def create_status_icon(self):
-        self.menu = Gtk.Menu()
-
-        item = Gtk.MenuItem(label=_("New Note"))
-        item.connect('activate', self.new_note)
-        self.menu.append(item)
-
-        item = Gtk.MenuItem(label=_("Manage Notes"))
-        item.connect('activate', self.open_manager)
-        self.menu.append(item)
-
-        self.menu.append(Gtk.SeparatorMenuItem())
-
-        self.group_menu = Gtk.Menu()
-        item = Gtk.MenuItem(label=_("Change Group"), submenu=self.group_menu)
-        self.menu.append(item)
-
-        self.update_groups_menu()
-
-        self.menu.append(Gtk.SeparatorMenuItem())
-
-        item = Gtk.MenuItem(label=_("Quit"))
-        item.connect('activate', self.quit_app)
-        self.menu.append(item)
-
-        self.menu.show_all()
-
         self.status_icon = XApp.StatusIcon()
         self.status_icon.set_name('sticky')
         self.status_icon.set_icon_name('sticky-symbolic')
         self.status_icon.set_tooltip_text(_('Sticky Notes'))
         self.status_icon.set_visible(True)
-        self.status_icon.set_secondary_menu(self.menu)
-        self.status_icon.connect('activate', self.activate_notes)
+        self.status_icon.connect('button-press-event', self.on_tray_button_pressed)
+        self.status_icon.connect('button-release-event', self.on_tray_button_released)
+
+    def on_tray_button_pressed(self, icon, x, y , button, time, panel_position):
+        if button == 1:
+            self.activate_notes(time)
+
+    def on_tray_button_released(self, icon, x, y , button, time, panel_position):
+      if button == 3:
+            menu = Gtk.Menu()
+            item = Gtk.MenuItem(label=_("New Note"))
+            item.connect('activate', self.new_note)
+            menu.append(item)
+
+            item = Gtk.MenuItem(label=_("Manage Notes"))
+            item.connect('activate', self.open_manager)
+            menu.append(item)
+
+            menu.append(Gtk.SeparatorMenuItem())
+
+            for group in self.file_handler.get_note_group_names():
+                item = Gtk.RadioMenuItem(label=group)
+                if group == self.settings.get_string('default-group'):
+                    item.set_active(True)
+                item.connect('activate', lambda a, group: self.change_visible_note_group(group), group)
+                menu.append(item)
+
+            menu.append(Gtk.SeparatorMenuItem())
+
+            item = Gtk.MenuItem(label=_("Quit"))
+            item.connect('activate', self.quit_app)
+            menu.append(item)
+
+            menu.show_all()
+            self.status_icon.popup_menu(menu, x, y, button, time, panel_position)
 
     def destroy_status_icon(self):
         self.status_icon.set_visible(False)
         self.status_icon = None
-        self.menu = None
 
     def update_tray_icon(self, *args):
         if self.settings.get_boolean('show-in-tray'):
@@ -696,7 +702,7 @@ class Application(Gtk.Application):
         if self.settings.get_boolean('desktop-window-state'):
             self.dummy_window.stick()
 
-    def activate_notes(self, i, b, time):
+    def activate_notes(self, time):
         for note in self.notes:
             if note.is_active():
                 self.hide_notes()
@@ -737,21 +743,7 @@ class Application(Gtk.Application):
         for note_info in self.file_handler.get_note_list(self.note_group):
             self.generate_note(note_info)
 
-    def update_groups_menu(self):
-        for item in self.group_menu.get_children():
-            item.destroy()
-
-        for group in self.file_handler.get_note_group_names():
-            item = Gtk.MenuItem(label=group)
-            item.connect('activate', lambda a, group: self.change_visible_note_group(group), group)
-            self.group_menu.append(item)
-
-        self.group_menu.show_all()
-
     def on_lists_changed(self, *args):
-        if self.status_icon:
-            self.update_groups_menu()
-
         if not self.note_group in self.file_handler.get_note_group_names():
             self.change_visible_note_group()
         else:
