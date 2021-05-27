@@ -660,30 +660,6 @@ class Application(Gtk.Application):
 
         self.menu.append(Gtk.SeparatorMenuItem())
 
-        item = Gtk.MenuItem(label=_("Back Up Notes"))
-        item.connect('activate', self.file_handler.save_backup)
-        self.menu.append(item)
-
-        item = Gtk.MenuItem(label=_("Back Up To File"))
-        item.connect('activate', self.file_handler.backup_to_file)
-        self.menu.append(item)
-
-        item = Gtk.MenuItem(label=_("Restore Backup"))
-        item.connect('activate', self.file_handler.restore_backup)
-        self.menu.append(item)
-
-        self.menu.append(Gtk.SeparatorMenuItem())
-
-        item = Gtk.MenuItem(label=_("Settings"))
-        item.connect('activate', self.open_settings_window)
-        self.menu.append(item)
-
-        item = Gtk.MenuItem(label=_("Keyboard Shortcuts"))
-        item.connect('activate', self.open_keyboard_shortcuts)
-        self.menu.append(item)
-
-        self.menu.append(Gtk.SeparatorMenuItem())
-
         item = Gtk.MenuItem(label=_("Quit"))
         item.connect('activate', self.quit_app)
         self.menu.append(item)
@@ -784,12 +760,6 @@ class Application(Gtk.Application):
     def update_groups_menu(self):
         for item in self.group_menu.get_children():
             item.destroy()
-
-        item = Gtk.MenuItem(label=_("New Group"))
-        item.connect('activate', self.new_group)
-        self.group_menu.append(item)
-
-        self.group_menu.append(Gtk.SeparatorMenuItem())
 
         for group in self.file_handler.get_note_group_names():
             item = Gtk.MenuItem(label=group)
