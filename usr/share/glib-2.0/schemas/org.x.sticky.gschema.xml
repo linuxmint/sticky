@@ -21,7 +21,7 @@
     </key>
 
     <key name='default-color' type='s'>
-      <default>"blue"</default>
+      <default>"yellow"</default>
       <summary>Default Color</summary>
       <choices>
         <choice value='red'/>
