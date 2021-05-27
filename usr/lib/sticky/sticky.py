@@ -684,7 +684,7 @@ class Application(Gtk.Application):
 
         self.menu.append(Gtk.SeparatorMenuItem())
 
-        item = Gtk.MenuItem(label=_("Exit"))
+        item = Gtk.MenuItem(label=_("Quit"))
         item.connect('activate', self.quit_app)
         self.menu.append(item)
 
