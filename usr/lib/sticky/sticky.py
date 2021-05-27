@@ -669,7 +669,7 @@ class Application(Gtk.Application):
         self.status_icon = XApp.StatusIcon()
         self.status_icon.set_name('sticky')
         self.status_icon.set_icon_name('sticky-symbolic')
-        self.status_icon.set_tooltip_text('Sticky Notes')
+        self.status_icon.set_tooltip_text(_('Sticky Notes'))
         self.status_icon.set_visible(True)
         self.status_icon.set_secondary_menu(self.menu)
         self.status_icon.connect('activate', self.activate_notes)
