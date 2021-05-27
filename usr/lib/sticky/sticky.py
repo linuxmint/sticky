@@ -522,7 +522,7 @@ class ShortcutsWindow(Gtk.ShortcutsWindow):
 
         section = Gtk.ShortcutsSection(visible=True)
 
-        group = Gtk.ShortcutsGroup(title='editing', visible=True)
+        group = Gtk.ShortcutsGroup(title='', visible=False)
         section.add(group)
 
         for shortcut in SHORTCUTS:
