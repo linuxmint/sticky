@@ -560,7 +560,10 @@ class Application(Gtk.Application):
 
         self.settings = Gio.Settings(schema_id=SCHEMA)
 
-        self.file_handler = FileHandler(self.settings)
+        self.dummy_window = Gtk.Window(title=_("Sticky Notes"), default_height=1, default_width=1, decorated=False, deletable=False)
+        self.dummy_window.show()
+
+        self.file_handler = FileHandler(self.settings, self.dummy_window)
 
         if self.settings.get_boolean('first-run'):
             self.first_run()
@@ -576,9 +579,6 @@ class Application(Gtk.Application):
                 self.open_manager()
         else:
             self.open_manager()
-
-        self.dummy_window = Gtk.Window(title=_("Sticky Notes"), default_height=1, default_width=1, decorated=False, deletable=False)
-        self.dummy_window.show()
 
         self.settings.connect('changed::show-in-tray', self.update_tray_icon)
         self.settings.connect('changed::show-in-taskbar', self.update_dummy_window)
@@ -618,7 +618,8 @@ class Application(Gtk.Application):
 
             if len(import_notes) > 0:
                 resp = confirm(_("Sticky Notes"),
-                              _("Would you like to import your notes from Gnote? This will not change your Gnote notes in any way."))
+                               _("Would you like to import your notes from Gnote? This will not change your Gnote notes in any way."),
+                               transient_for=self.dummy_window)
 
                 if resp:
                     for file in import_notes:

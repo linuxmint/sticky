@@ -31,10 +31,11 @@ class FileHandler(GObject.Object):
     def lists_changed(self):
         pass
 
-    def __init__(self, settings):
+    def __init__(self, settings, window):
         super(FileHandler, self).__init__()
 
         self.settings = settings
+        self.window = window
         self.save_timer_id = 0
         self.backup_timer_id = 0
         self.notes_lists = {}
@@ -137,7 +138,7 @@ class FileHandler(GObject.Object):
         self.check_backup()
 
     def backup_to_file(self, *args):
-        file_dialog = Gtk.FileChooserDialog(title=_("Save Backup"), action=Gtk.FileChooserAction.SAVE)
+        file_dialog = Gtk.FileChooserDialog(title=_("Save Backup"), action=Gtk.FileChooserAction.SAVE, transient_for=window)
         file_dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.OK)
         file_dialog.set_current_folder(GLib.get_home_dir())
         file_dialog.set_current_name('backup.json')
@@ -161,7 +162,7 @@ class FileHandler(GObject.Object):
         file_dialog.destroy()
 
     def restore_backup(self, *args):
-        dialog = Gtk.Dialog(title=_("Restore Backup"))
+        dialog = Gtk.Dialog(title=_("Restore Backup"), transient_for=window)
         dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
         dialog.add_button(_("From File"), 20)
         restore_button = dialog.add_button(_("Restore"), Gtk.ResponseType.OK)
@@ -195,7 +196,7 @@ class FileHandler(GObject.Object):
         if response == Gtk.ResponseType.OK:
             file_path = os.path.join(CONFIG_DIR, backup_list.get_selected_row().get_child().file)
         elif response == 20:
-            file_dialog = Gtk.FileChooserDialog(title=_("Save Backup"), action=Gtk.FileChooserAction.OPEN)
+            file_dialog = Gtk.FileChooserDialog(title=_("Save Backup"), action=Gtk.FileChooserAction.OPEN, transient_for=self.window)
             file_dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL, _("Open"), Gtk.ResponseType.OK)
             file_dialog.set_current_folder(GLib.get_home_dir())
 
@@ -228,7 +229,8 @@ class FileHandler(GObject.Object):
 
                 self.emit('lists-changed')
             except Exception as e:
-                message = Gtk.MessageDialog(text=_("Unable to restore: invalid or corrupted backup file"), buttons=Gtk.ButtonsType.CLOSE)
+                message = Gtk.MessageDialog(text=_("Unable to restore: invalid or corrupted backup file"),
+                                            buttons=Gtk.ButtonsType.CLOSE, transient_for=self.window)
                 message.run()
                 message.destroy()
 
@@ -247,7 +249,7 @@ class FileHandler(GObject.Object):
         self.emit('lists-changed')
 
     def remove_group(self, group_name):
-        if not confirm(_("Remove Group"), _("Are you sure you want to remove the group %s?") % group_name):
+        if not confirm(_("Remove Group"), _("Are you sure you want to remove the group %s?") % group_name, self.window):
             return
 
         if group_name not in self.notes_lists:
@@ -296,8 +298,8 @@ class HoverBox(Gtk.EventBox):
         else:
             self.child_widget.hide()
 
-def prompt(title, message):
-    dialog = Gtk.Dialog(title=title)
+def prompt(title, message, window):
+    dialog = Gtk.Dialog(title=title, transient_for=window)
     dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
     dialog.add_button(_("OK"), Gtk.ResponseType.OK)
     dialog.set_default_response(Gtk.ResponseType.OK)
