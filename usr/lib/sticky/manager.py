@@ -208,7 +208,6 @@ class Note(GObject.Object):
         super(Note, self).__init__()
         self.info = info
         self.text = info['text']
-        print(info)
         if not 'title'in info or info['title'] in [None, '']:
             self.title = _("Untitled")
         else:

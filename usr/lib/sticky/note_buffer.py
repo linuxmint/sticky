@@ -525,7 +525,6 @@ class NoteBuffer(Gtk.TextBuffer):
 
     def undo(self, *args):
         if len(self.undo_actions) == 0:
-            print('warning: attempting to undo action when there is nothing to undo')
             return
 
         with self.internal_action():
@@ -535,7 +534,6 @@ class NoteBuffer(Gtk.TextBuffer):
 
     def redo(self, *args):
         if len(self.redo_actions) == 0:
-            print('warning: attempting to redo action when there is nothing to redo')
             return
 
         with self.internal_action():
