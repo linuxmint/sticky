@@ -1,0 +1,5 @@
+#!/bin/sh
+
+gsettings reset-recursively org.x.sticky
+rm -rf ~/.config/sticky
+./test
