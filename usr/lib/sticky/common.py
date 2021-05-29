@@ -5,7 +5,7 @@ import json
 import time
 import re
 
-from gi.repository import GLib, GObject, Gtk
+from gi.repository import Gio, GLib, GObject, Gtk
 
 CONFIG_DIR = os.path.join(GLib.get_user_config_dir(), 'sticky')
 CONFIG_PATH = os.path.join(CONFIG_DIR, 'notes.json')
@@ -321,7 +321,7 @@ def prompt(title, message, window):
 
     return (response == Gtk.ResponseType.OK, value)
 
-def confirm(title, message, window=None):
+def confirm(title, message, window=None, settings=None, disable_key=None, disable_inverted=False):
     dialog = Gtk.Dialog(title=title, transient_for=window)
     dialog.add_button(_("No"), Gtk.ResponseType.NO)
     dialog.add_button(_("Yes"), Gtk.ResponseType.YES)
@@ -332,6 +332,14 @@ def confirm(title, message, window=None):
     content.props.margin_right = 20
 
     content.pack_start(Gtk.Label(label=message), False, False, 10)
+
+    if disable_key is not None:
+        disable_checkbox = Gtk.CheckButton.new_with_label(_("Don't ask me again"))
+        content.pack_start(disable_checkbox, False, False, 0)
+        flags = Gio.SettingsBindFlags.DEFAULT
+        if disable_inverted:
+            flags |= Gio.SettingsBindFlags.INVERT_BOOLEAN
+        settings.bind(disable_key, disable_checkbox, 'active', flags)
 
     content.show_all()
 

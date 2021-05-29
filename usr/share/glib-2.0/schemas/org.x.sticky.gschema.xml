@@ -147,6 +147,14 @@
       </description>
     </key>
 
+    <key name='disable-delete-confirm' type='b'>
+      <default>false</default>
+      <summary>Disable delete confirmation</summary>
+      <description>
+        When set to true, the user is not asked to confirm before deleting a note.
+      </description>
+    </key>
+
   </schema>
 
 </schemalist>

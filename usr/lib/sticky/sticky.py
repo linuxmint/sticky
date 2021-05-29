@@ -125,7 +125,7 @@ class Note(Gtk.Window):
         self.title_box.pack_start(self.edit_title_button, False, False, 0)
         self.title_hover.set_child_widget(self.edit_title_button)
 
-        close_icon = Gtk.Image.new_from_icon_name('window-close', Gtk.IconSize.BUTTON)
+        close_icon = Gtk.Image.new_from_icon_name('edit-delete', Gtk.IconSize.BUTTON)
         close_button = Gtk.Button(image=close_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         close_button.connect('clicked', self.remove)
         close_button.connect('button-press-event', self.on_title_click)
@@ -322,7 +322,7 @@ class Note(Gtk.Window):
         edit_title.connect('activate', self.set_title)
         popup.append(edit_title)
 
-        remove_item = Gtk.MenuItem(label=_("Remove Note"), visible=True)
+        remove_item = Gtk.MenuItem(label=_("Delete Note"), visible=True)
         remove_item.connect('activate', self.remove)
         popup.append(remove_item)
 
@@ -418,8 +418,12 @@ class Note(Gtk.Window):
         self.buffer.tag_selection(format_type)
 
     def remove(self, *args):
-        self.emit('removed')
-        self.destroy()
+        # this is ugly but I'm not sure how to make it look better :)
+        if (self.app.settings.get_boolean('disable-delete-confirm') or
+            confirm(_("Delete Note"), _("Are you sure you want to remove this note?"),
+                    self, self.app.settings, 'disable-delete-confirm')):
+            self.emit('removed')
+            self.destroy()
 
     def set_title(self, *args):
         self.title_text = self.title.get_text()
