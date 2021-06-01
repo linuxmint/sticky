@@ -623,7 +623,7 @@ class Application(Gtk.Application):
             if len(import_notes) > 0:
                 resp = confirm(_("Sticky Notes"),
                                _("Would you like to import your notes from Gnote? This will not change your Gnote notes in any way."),
-                               transient_for=self.dummy_window)
+                               window=self.dummy_window)
 
                 if resp:
                     for file in import_notes:
