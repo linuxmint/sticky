@@ -82,7 +82,7 @@
     </key>
 
     <key name='show-in-taskbar' type='b'>
-      <default>true</default>
+      <default>false</default>
       <summary>Show in Taskbar</summary>
       <description>
         Whether to show an entry in the window list and alt-tab.
