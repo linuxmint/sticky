@@ -642,6 +642,9 @@ class Application(Gtk.Application):
                             group_list.append(info)
                             self.file_handler.update_note_list(group_list, group_name)
 
+        if len(self.file_handler.get_note_group_names()) == 0:
+            self.file_handler.update_note_list([{'text':''}], self.settings.get_string('default-group'))
+
         self.settings.set_boolean('first-run', False)
 
     def create_status_icon(self):

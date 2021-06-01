@@ -40,9 +40,7 @@ class FileHandler(GObject.Object):
         self.backup_timer_id = 0
         self.notes_lists = {}
 
-        if not os.path.exists(CONFIG_PATH):
-            self.update_note_list([{'text':'', 'color':'yellow'}], _("Desktop"))
-        else:
+        if os.path.exists(CONFIG_PATH):
             self.load_notes()
 
         self.settings.connect('changed::automatic-backups', self.check_backup)
