@@ -278,12 +278,11 @@ class Note(Gtk.Window):
         return Gdk.EVENT_PROPAGATE
 
     def restore(self, time=0):
-        if not self.get_visible():
-            self.present_with_time(time)
-            self.move(self.x, self.y)
-
+        self.present_with_time(time)
+        self.move(self.x, self.y)
+        # For some reason, present_with_time doesn't seem to focus the notes, so the tray needs an extra click to hide
+        # the notes after showing them. Focusing the Gdk window fixes it.
         self.get_window().focus(time)
-        self.get_window().raise_()
 
     def changed(self, *args):
         self.emit('update')
