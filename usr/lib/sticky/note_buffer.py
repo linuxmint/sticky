@@ -610,6 +610,9 @@ class NoteBuffer(Gtk.TextBuffer):
                     if tag_name is None:
                         continue
 
+                    if text == '\n' and tag_name == 'header':
+                        continue
+
                     if tag_name not in self.tag_toggles:
                         action = CompositeAction(action, self.add_tag(tag_name, start, location))
 
