@@ -94,14 +94,6 @@ class GroupEntry(Gtk.ListBoxRow):
         item.connect('activate', self.remove_group)
         self.menu.append(item)
 
-        self.menu.append(Gtk.SeparatorMenuItem(visible=True))
-
-        self.preview_item = Gtk.MenuItem(label=_("Preview"), visible=True)
-        self.menu.append(self.preview_item)
-
-        self.default_item = Gtk.MenuItem(label=_("Set as default"), visible=True)
-        self.menu.append(self.default_item)
-
         self.connect('popup-menu', self.on_popup)
         self.connect('button-press-event', self.on_button_press)
         self.connect('key-press-event', self.on_key_press)
