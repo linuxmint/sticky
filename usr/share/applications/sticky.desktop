@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=Sticky Notes
-Comment=Create and manage sticky notes on your desktop
-Exec=sticky --manager
+Name=Notes
+Comment=Take notes and stay organized
+Exec=sticky
 Icon=sticky
 Terminal=false
 Type=Application

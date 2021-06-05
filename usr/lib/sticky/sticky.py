@@ -560,7 +560,7 @@ class Application(Gtk.Application):
 
         self.settings = Gio.Settings(schema_id=SCHEMA)
 
-        self.dummy_window = Gtk.Window(title=_("Sticky Notes"), default_height=1, default_width=1, decorated=False, deletable=False)
+        self.dummy_window = Gtk.Window(title=_("Notes"), default_height=1, default_width=1, decorated=False, deletable=False)
         self.dummy_window.show()
 
         self.file_handler = FileHandler(self.settings, self.dummy_window)
@@ -621,7 +621,7 @@ class Application(Gtk.Application):
                     import_notes.append(path)
 
             if len(import_notes) > 0:
-                resp = confirm(_("Sticky Notes"),
+                resp = confirm(_("Notes"),
                                _("Would you like to import your notes from Gnote? This will not change your Gnote notes in any way."),
                                window=self.dummy_window)
 
@@ -652,7 +652,7 @@ class Application(Gtk.Application):
         self.status_icon = XApp.StatusIcon()
         self.status_icon.set_name('sticky')
         self.status_icon.set_icon_name('sticky-symbolic')
-        self.status_icon.set_tooltip_text(_('Sticky Notes'))
+        self.status_icon.set_tooltip_text(_('Notes'))
         self.status_icon.set_visible(True)
         self.status_icon.connect('button-press-event', self.on_tray_button_pressed)
         self.status_icon.connect('button-release-event', self.on_tray_button_released)
@@ -817,8 +817,8 @@ class Application(Gtk.Application):
         dlg = Gtk.AboutDialog()
         dlg.set_transient_for(self.manager.window)
         dlg.set_title(_("About"))
-        dlg.set_program_name(_("Sticky Notes"))
-        dlg.set_comments(_("Manage your sticky notes"))
+        dlg.set_program_name(_("Notes"))
+        dlg.set_comments(_("Take notes and stay organized"))
         try:
             h = open('/usr/share/common-licenses/GPL', encoding="utf-8")
             s = h.readlines()
