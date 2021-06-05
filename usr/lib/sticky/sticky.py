@@ -480,6 +480,7 @@ class SettingsWindow(XApp.PreferencesWindow):
         page.pack_start(GSettingsSwitch(_("Show notes on all desktops"), SCHEMA, 'desktop-window-state'), False, False, 0)
         page.pack_start(GSettingsSwitch(_("Show in taskbar"), SCHEMA, 'show-in-taskbar'), False, False, 0)
         page.pack_start(GSettingsSwitch(_("Tray icon"), SCHEMA, 'show-in-tray'), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Show the main window automatically"), SCHEMA, 'show-manager'), False, False, 0)
         page.pack_start(GSettingsSwitch(_("Start automatically"), SCHEMA, 'autostart'), False, False, 0)
         page.pack_start(GSettingsSwitch(_("Show notes on the screen"), SCHEMA, 'autostart-notes-visible', dep_key=SCHEMA+'/autostart'), False, False, 0)
 
@@ -602,7 +603,8 @@ class Application(Gtk.Application):
             if not self.settings.get_boolean("autostart-notes-visible"):
                 self.hide_notes()
         else:
-            self.open_manager()
+            if self.settings.get_boolean("show-manager"):
+                self.open_manager()
 
         self.has_activated = True
 

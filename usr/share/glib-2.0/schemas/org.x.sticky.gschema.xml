@@ -81,6 +81,14 @@
       </description>
     </key>
 
+    <key name='show-manager' type='b'>
+      <default>true</default>
+      <summary>Show the manager when the application is started (not in autostart)</summary>
+      <description>
+        Whether to show the manager when the application is started (not in autostart).
+      </description>
+    </key>
+
     <key name='show-in-taskbar' type='b'>
       <default>false</default>
       <summary>Show in Taskbar</summary>
