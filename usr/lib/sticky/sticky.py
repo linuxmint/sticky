@@ -481,9 +481,6 @@ class SettingsWindow(XApp.PreferencesWindow):
         page.pack_start(GSettingsSwitch(_("Show in taskbar"), SCHEMA, 'show-in-taskbar'), False, False, 0)
         page.pack_start(GSettingsSwitch(_("Tray icon"), SCHEMA, 'show-in-tray'), False, False, 0)
         page.pack_start(GSettingsSwitch(_("Show the main window automatically"), SCHEMA, 'show-manager', dep_key=SCHEMA+'/show-in-tray'), False, False, 0)
-        page.pack_start(GSettingsSwitch(_("Start automatically"), SCHEMA, 'autostart'), False, False, 0)
-        page.pack_start(GSettingsSwitch(_("Show notes on the screen"), SCHEMA, 'autostart-notes-visible', dep_key=SCHEMA+'/autostart'), False, False, 0)
-
         self.add_page(page, 'general', _("General"))
 
         # note related settings
@@ -516,6 +513,12 @@ class SettingsWindow(XApp.PreferencesWindow):
         page.pack_start(GSettingsSpinButton(_("Number to keep"), SCHEMA, 'old-backups-max', tooltip=obm_tooltip), False, False, 0)
 
         self.add_page(page, 'backup', _("Backups"))
+
+        # autostart
+        page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        page.pack_start(GSettingsSwitch(_("Start automatically"), SCHEMA, 'autostart'), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Show notes on the screen"), SCHEMA, 'autostart-notes-visible', dep_key=SCHEMA+'/autostart'), False, False, 0)
+        self.add_page(page, 'autostart', _("Automatic start"))
 
         self.show_all()
 
