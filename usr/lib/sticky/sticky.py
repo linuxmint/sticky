@@ -392,7 +392,7 @@ class Note(Gtk.Window):
         menu.append(strikethrough_item)
 
         highlight_item = Gtk.MenuItem(label=_("Highlight"), visible=True)
-        highlight_item.get_child().set_markup("<span background='yellow'>%s</span>" % _("Highlight"))
+        highlight_item.get_child().set_markup("<span background='yellow' foreground='black'>%s</span>" % _("Highlight"))
         highlight_item.connect('activate', self.apply_format, 'highlight')
         menu.append(highlight_item)
 
