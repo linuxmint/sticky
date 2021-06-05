@@ -242,16 +242,22 @@ class NotesManager(object):
 
         main_menu.append(Gtk.SeparatorMenuItem(visible=True))
 
-        item = Gtk.MenuItem(label=_("Back Up Notes"))
+        item = Gtk.MenuItem(label=_("Back Up"))
         item.connect('activate', self.file_handler.save_backup)
         main_menu.append(item)
 
-        item = Gtk.MenuItem(label=_("Back Up To File"))
-        item.connect('activate', self.file_handler.backup_to_file)
+        item = Gtk.MenuItem(label=_("Restore Backups..."))
+        item.connect('activate', self.file_handler.restore_backup, self.window)
         main_menu.append(item)
 
-        item = Gtk.MenuItem(label=_("Restore Backup"))
-        item.connect('activate', self.file_handler.restore_backup)
+        main_menu.append(Gtk.SeparatorMenuItem(visible=True))
+
+        item = Gtk.MenuItem(label=_("Import..."))
+        item.connect('activate', self.file_handler.import_notes, self.window)
+        main_menu.append(item)
+
+        item = Gtk.MenuItem(label=_("Export..."))
+        item.connect('activate', self.file_handler.export_notes, self.window)
         main_menu.append(item)
 
         main_menu.append(Gtk.SeparatorMenuItem(visible=True))

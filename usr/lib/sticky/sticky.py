@@ -822,6 +822,7 @@ class Application(Gtk.Application):
     def open_about(self, widget):
         dlg = Gtk.AboutDialog()
         dlg.set_transient_for(self.manager.window)
+        dlg.set_modal(True)
         dlg.set_title(_("About"))
         dlg.set_program_name(_("Notes"))
         dlg.set_comments(_("Take notes and stay organized"))

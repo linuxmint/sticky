@@ -135,8 +135,13 @@ class FileHandler(GObject.Object):
 
         self.check_backup()
 
-    def backup_to_file(self, *args):
-        file_dialog = Gtk.FileChooserDialog(title=_("Save Backup"), action=Gtk.FileChooserAction.SAVE, transient_for=self.window)
+    def delete_all_backups(self):
+        for file in os.listdir(CONFIG_DIR):
+            if backup_file_name.search(file):
+                os.remove(os.path.join(CONFIG_DIR, file))
+
+    def export_notes(self, menuitem, window):
+        file_dialog = Gtk.FileChooserDialog(title=_("Export..."), action=Gtk.FileChooserAction.SAVE, transient_for=window)
         file_dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.OK)
         file_dialog.set_current_folder(GLib.get_home_dir())
         file_dialog.set_current_name('notes.json')
@@ -159,10 +164,33 @@ class FileHandler(GObject.Object):
 
         file_dialog.destroy()
 
-    def restore_backup(self, *args):
-        dialog = Gtk.Dialog(title=_("Restore Backup"), transient_for=self.window)
+    def import_notes(self, menuitem, window):
+        file_dialog = Gtk.FileChooserDialog(title=_("Import..."), action=Gtk.FileChooserAction.OPEN, transient_for=self.window)
+        file_dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL, _("Open"), Gtk.ResponseType.OK)
+        file_dialog.set_current_folder(GLib.get_home_dir())
+
+        json_filter = Gtk.FileFilter()
+        json_filter.set_name('JSON')
+        json_filter.add_mime_type('application/json')
+        file_dialog.add_filter(json_filter)
+
+        text_filter = Gtk.FileFilter()
+        text_filter.set_name(_("Plain Text"))
+        text_filter.add_mime_type('text/plain')
+        file_dialog.add_filter(text_filter)
+
+        response = file_dialog.run()
+        if response == Gtk.ResponseType.OK:
+            file_path = file_dialog.get_filename()
+            if file_path is not None:
+                self.load_notes_from_path(file_path, window)
+
+        file_dialog.destroy()
+
+    def restore_backup(self, menuitem, window):
+        dialog = Gtk.Dialog(title=_("Restore Backup"), transient_for=window)
         dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
-        dialog.add_button(_("From File"), 20)
+        dialog.add_button(_("Clear"), 20)
         restore_button = dialog.add_button(_("Restore"), Gtk.ResponseType.OK)
         dialog.set_default_response(Gtk.ResponseType.OK)
 
@@ -189,50 +217,33 @@ class FileHandler(GObject.Object):
 
         backup_list.show_all()
 
-        file_path = None
         response = dialog.run()
         if response == Gtk.ResponseType.OK:
             file_path = os.path.join(CONFIG_DIR, backup_list.get_selected_row().get_child().file)
+            if file_path is not None:
+                self.load_notes_from_path(file_path, window)
         elif response == 20:
-            file_dialog = Gtk.FileChooserDialog(title=_("Save Backup"), action=Gtk.FileChooserAction.OPEN, transient_for=self.window)
-            file_dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL, _("Open"), Gtk.ResponseType.OK)
-            file_dialog.set_current_folder(GLib.get_home_dir())
-
-            json_filter = Gtk.FileFilter()
-            json_filter.set_name('JSON')
-            json_filter.add_mime_type('application/json')
-            file_dialog.add_filter(json_filter)
-
-            text_filter = Gtk.FileFilter()
-            text_filter.set_name(_("Plain Text"))
-            text_filter.add_mime_type('text/plain')
-            file_dialog.add_filter(text_filter)
-
-            response = file_dialog.run()
-            if response == Gtk.ResponseType.OK:
-                file_path = file_dialog.get_filename()
-
-            file_dialog.destroy()
-
-        if file_path is not None:
-            try:
-                with open(file_path, 'r') as file:
-                    info = json.loads(file.read())
-
-                # todo: needs validation here to ensure the file type is correct, and while we're at it, the validation
-                # should really be added to load_notes() as well
-
-                self.notes_lists = info
-                self.save_note_list()
-
-                self.emit('lists-changed')
-            except Exception as e:
-                message = Gtk.MessageDialog(text=_("Unable to restore: invalid or corrupted backup file"),
-                                            buttons=Gtk.ButtonsType.CLOSE, transient_for=self.window)
-                message.run()
-                message.destroy()
+            self.delete_all_backups()
 
         dialog.destroy()
+
+    def load_notes_from_path(self, path, window):
+        try:
+            with open(path, 'r') as file:
+                info = json.loads(file.read())
+
+            # todo: needs validation here to ensure the file type is correct, and while we're at it, the validation
+            # should really be added to load_notes() as well
+
+            self.notes_lists = info
+            self.save_note_list()
+
+            self.emit('lists-changed')
+        except Exception as e:
+            message = Gtk.MessageDialog(text=_("Unable to restore: invalid or corrupted backup file"),
+                                        buttons=Gtk.ButtonsType.CLOSE, transient_for=window)
+            message.run()
+            message.destroy()
 
     def flush(self):
         if self.save_timer_id > 0:
