@@ -4,3 +4,4 @@ debian/sticky/
 debian/files
 debian/debhelper-build-stamp
 debian/*.substvars
+debian/*.log
