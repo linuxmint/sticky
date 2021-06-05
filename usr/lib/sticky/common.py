@@ -139,7 +139,7 @@ class FileHandler(GObject.Object):
         file_dialog = Gtk.FileChooserDialog(title=_("Save Backup"), action=Gtk.FileChooserAction.SAVE, transient_for=self.window)
         file_dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.OK)
         file_dialog.set_current_folder(GLib.get_home_dir())
-        file_dialog.set_current_name('backup.json')
+        file_dialog.set_current_name('notes.json')
         file_dialog.set_do_overwrite_confirmation(True)
 
         json_filter = Gtk.FileFilter()
