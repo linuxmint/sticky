@@ -473,51 +473,48 @@ class Note(Gtk.Window):
 
 class SettingsWindow(XApp.PreferencesWindow):
     def __init__(self, app):
-        super(SettingsWindow, self).__init__(skip_taskbar_hint=False, title=_("Sticky Notes Settings"))
+        super(SettingsWindow, self).__init__(skip_taskbar_hint=False, title=_("Preferences"))
 
         # general settings
-        general_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        page.pack_start(GSettingsSwitch(_("Show notes on all desktops"), SCHEMA, 'desktop-window-state'), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Show in taskbar"), SCHEMA, 'show-in-taskbar'), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Tray icon"), SCHEMA, 'show-in-tray'), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Start automatically"), SCHEMA, 'autostart'), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Show notes on the screen"), SCHEMA, 'autostart-notes-visible', dep_key=SCHEMA+'/autostart'), False, False, 0)
 
-        general_page.pack_start(GSettingsSwitch(_("Show Notes on all Desktops"), SCHEMA, 'desktop-window-state'), False, False, 0)
-        general_page.pack_start(GSettingsSwitch(_("Show Status Icon in Tray"), SCHEMA, 'show-in-tray'), False, False, 0)
-        dep = SCHEMA + '/show-in-tray'
-        general_page.pack_start(GSettingsSwitch(_("Start automatically"), SCHEMA, 'autostart'), False, False, 0)
-        general_page.pack_start(GSettingsSwitch(_("Show notes on the screen"), SCHEMA, 'autostart-notes-visible', dep_key=SCHEMA+'/autostart'), False, False, 0)
-        general_page.pack_start(GSettingsSwitch(_("Show in Taskbar"), SCHEMA, 'show-in-taskbar', dep_key=dep), False, False, 0)
-
-        self.add_page(general_page, 'general', _("General"))
+        self.add_page(page, 'general', _("General"))
 
         # note related settings
-        notes_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-
-        notes_page.pack_start(GSettingsSpinButton(_("Default Height"), SCHEMA, 'default-height', mini=50, maxi=2000, step=10), False, False, 0)
-        notes_page.pack_start(GSettingsSpinButton(_("Default Width"), SCHEMA, 'default-width', mini=50, maxi=2000, step=10), False, False, 0)
+        page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        page.pack_start(GSettingsSpinButton(_("Default height"), SCHEMA, 'default-height', mini=50, maxi=2000, step=10), False, False, 0)
+        page.pack_start(GSettingsSpinButton(_("Default width"), SCHEMA, 'default-width', mini=50, maxi=2000, step=10), False, False, 0)
         try:
             colors = [(x, y) for x, y in COLORS.items()]
             colors.append(('sep', ''))
             colors.append(('random', _('Random')))
 
-            notes_page.pack_start(GSettingsComboBox(_("Default Color"), SCHEMA, 'default-color', options=colors, valtype=str, separator='sep'), False, False, 0)
+            page.pack_start(GSettingsComboBox(_("Default color"), SCHEMA, 'default-color', options=colors, valtype=str, separator='sep'), False, False, 0)
         except Exception as e:
             colors = [(x, y) for x, y in COLORS.items()]
             colors.append(('random', _('Random')))
 
-            notes_page.pack_start(GSettingsComboBox(_("Default Color"), SCHEMA, 'default-color', options=colors, valtype=str), False, False, 0)
+            page.pack_start(GSettingsComboBox(_("Default color"), SCHEMA, 'default-color', options=colors, valtype=str), False, False, 0)
 
-        notes_page.pack_start(GSettingsFontButton(_("Font"), SCHEMA, 'font', level=Gtk.FontChooserLevel.SIZE), False, False, 0)
-        notes_page.pack_start(GSettingsSwitch(_("Show Spelling Mistakes"), SCHEMA, 'inline-spell-check'), False, False, 0)
+        page.pack_start(GSettingsFontButton(_("Font"), SCHEMA, 'font', level=Gtk.FontChooserLevel.SIZE), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Show spelling mistakes"), SCHEMA, 'inline-spell-check'), False, False, 0)
 
-        self.add_page(notes_page, 'notes', _("Notes"))
+        self.add_page(page, 'notes', _("Notes"))
 
         # backups
-        backup_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
-        backup_page.pack_start(GSettingsSwitch(_("Create Periodic Backups"), SCHEMA, 'automatic-backups'), False, False, 0)
-        backup_page.pack_start(GSettingsSpinButton(_("Time Between Backups"), SCHEMA, 'backup-interval', units=_("hours")), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Create periodic backups"), SCHEMA, 'automatic-backups'), False, False, 0)
+        page.pack_start(GSettingsSpinButton(_("Time between backups"), SCHEMA, 'backup-interval', units=_("hours")), False, False, 0)
         obm_tooltip = _("Set this to zero if you wish to keep all backups indefinitely")
-        backup_page.pack_start(GSettingsSpinButton(_("Number to Keep"), SCHEMA, 'old-backups-max', tooltip=obm_tooltip), False, False, 0)
+        page.pack_start(GSettingsSpinButton(_("Number to keep"), SCHEMA, 'old-backups-max', tooltip=obm_tooltip), False, False, 0)
 
-        self.add_page(backup_page, 'backup', _("Backups"))
+        self.add_page(page, 'backup', _("Backups"))
 
         self.show_all()
 
