@@ -197,7 +197,13 @@ class FileHandler(GObject.Object):
         content = dialog.get_content_area()
 
         backup_list = Gtk.ListBox(selection_mode=Gtk.SelectionMode.BROWSE)
-        content.pack_start(backup_list, True, True, 0)
+
+        scrolled_window = Gtk.ScrolledWindow()
+        scrolled_window.set_shadow_type(Gtk.ShadowType.IN)
+        scrolled_window.set_min_content_height(200)
+        scrolled_window.add(backup_list)
+
+        content.pack_start(scrolled_window, True, True, 0)
 
         backups = []
         for file in os.listdir(CONFIG_DIR):
@@ -215,7 +221,7 @@ class FileHandler(GObject.Object):
             label.file = file_name
             backup_list.add(label)
 
-        backup_list.show_all()
+        scrolled_window.show_all()
 
         response = dialog.run()
         if response == Gtk.ResponseType.OK:
