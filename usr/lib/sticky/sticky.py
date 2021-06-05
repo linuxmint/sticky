@@ -3,6 +3,7 @@
 import json
 import os
 import random
+import sys
 
 import gi
 gi.require_version('Gdk', '3.0')
@@ -551,6 +552,7 @@ class Application(Gtk.Application):
         self.keyboard_shortcuts = None
         self.manager = None
         self.notes_hidden = False
+        self.show_manager = False # indicates if we need to show the manager next time we activate
 
     def do_activate(self):
         if self.has_activated:
@@ -574,6 +576,10 @@ class Application(Gtk.Application):
         self.file_handler.connect('lists-changed', self.on_lists_changed)
         self.group_update_id = self.file_handler.connect('group-changed', self.on_group_changed)
         self.file_handler.connect('group-name-changed', self.on_group_name_changed)
+
+        if self.show_manager:
+            self.open_manager()
+            self.show_manager = False
 
         if self.settings.get_boolean('show-in-tray'):
             self.create_status_icon()
@@ -849,4 +855,7 @@ class Application(Gtk.Application):
 
 if __name__ == "__main__":
     sticky = Application()
+    if "--manager" in sys.argv:
+        sticky.show_manager = True
     sticky.run()
+

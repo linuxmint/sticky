@@ -1,6 +1,3 @@
-#!/usr/bin/python3
+#!/bin/bash
 
-import os
-
-path = '/usr/lib/sticky/sticky.py'
-os.execlp(path, path)
+/usr/lib/sticky/sticky.py $*
