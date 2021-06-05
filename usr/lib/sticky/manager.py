@@ -127,12 +127,7 @@ class GroupEntry(Gtk.ListBoxRow):
         self.box = Gtk.Box(height_request=34)
         self.hoverbox.add(self.box)
 
-        if self.item.is_default:
-            self.box.pack_start(Gtk.Image.new_from_icon_name('emblem-default-symbolic', Gtk.IconSize.BUTTON), False, False, 2)
-        elif self.item.visible:
-            self.box.pack_start(Gtk.Image.new_from_icon_name('group-visible-symbolic', Gtk.IconSize.BUTTON), False, False, 2)
-        else:
-            self.box.pack_start(Gtk.Box(height_request=16, width_request=16), False, False, 2)
+        self.box.pack_start(Gtk.Box(height_request=16, width_request=16), False, False, 2)
 
         label = Gtk.Label(label=self.item.name, halign=Gtk.Align.START, margin=5)
         self.box.pack_start(label, True, True, 5)
@@ -194,11 +189,8 @@ class GroupEntry(Gtk.ListBoxRow):
         self.hoverbox.enable()
 
 class Group(GObject.Object):
-    def __init__(self, name, file_handler, model, is_default=False, visible=False):
+    def __init__(self, name, file_handler, model):
         super(Group, self).__init__()
-
-        self.is_default = is_default
-        self.visible = visible
         self.name = name
         self.file_handler = file_handler
         self.model = model
@@ -216,14 +208,11 @@ class Note(GObject.Object):
 class NotesManager(object):
     def __init__(self, app, file_handler):
         self.app = app
-        self.visible_group = None
         self.dragged_note = None
 
         self.file_handler = file_handler
         self.file_handler.connect('group-changed', self.on_list_changed)
         self.file_handler.connect('lists-changed', self.generate_group_list)
-
-        self.app.connect('visible-group-changed', self.on_visible_group_changed)
 
         self.builder = Gtk.Builder.new_from_file('/usr/share/sticky/manager.ui')
 
@@ -237,19 +226,13 @@ class NotesManager(object):
             widget.connect('drag-drop', self.handle_drop)
 
             widget.new_item.connect('activate', self.new_group)
-            widget.preview_item.connect('activate', lambda *args: self.set_visible_group(item.name))
-            widget.default_item.connect('activate', lambda *args: self.set_default(item.name))
-
             return widget
 
         self.group_model = Gio.ListStore()
         self.group_list.bind_model(self.group_model, create_group_entry)
-        self.group_list.connect('row-selected', self.generate_previews)
 
         self.builder.get_object('new_note').connect('clicked', self.new_note)
         self.builder.get_object('remove_note').connect('clicked', self.remove_note)
-        self.builder.get_object('preview_group').connect('clicked', lambda *args: self.set_visible_group())
-        self.builder.get_object('set_default').connect('clicked', lambda *args: self.set_default())
 
         self.entry_box = self.builder.get_object('group_name_entry_box')
         self.entry_box.drag_dest_set(Gtk.DestDefaults.MOTION | Gtk.DestDefaults.HIGHLIGHT, NOTE_TARGETS, Gdk.DragAction.MOVE)
@@ -297,28 +280,46 @@ class NotesManager(object):
 
         self.window.show_all()
 
+        self.generate_previews()
+        self.group_list.connect('row-selected', self.on_group_selected)
+        self.app.settings.connect('changed::active-group', self.on_active_group_changed)
+
     def on_list_changed(self, a, group_name):
         if group_name == self.get_current_group():
             self.generate_previews()
 
     def generate_group_list(self, *args):
+        name = None
         selected_group_name = self.get_current_group()
         self.group_model.remove_all()
 
         for group_name in self.file_handler.get_note_group_names():
             model = Gio.ListStore()
-
-            is_default = self.app.settings.get_string('default-group') == group_name
-            visible = self.visible_group == group_name
-
-            self.group_model.append(Group(group_name, self.file_handler, model, is_default, visible))
+            if self.app.settings.get_string('active-group') == group_name:
+                name = group_name
+            self.group_model.append(Group(group_name, self.file_handler, model))
 
         self.group_list.show_all()
 
+        if name != None:
+            self.select_group(name)
+
+    def select_group(self, name):
         for row in self.group_list.get_children():
-            if row.item.name == selected_group_name:
+            if row.item.name == name:
                 self.group_list.select_row(row)
-                return
+                break
+
+    def on_active_group_changed(self, settings, key):
+        value = settings.get_string(key)
+        self.select_group(value)
+
+    def on_group_selected(self, listbox, row):
+        group_name = self.get_current_group()
+        if group_name != None:
+            if self.app.settings.get_string('active-group') != group_name:
+                self.app.settings.set_string('active-group', group_name)
+            self.generate_previews()
 
     def generate_previews(self, *args):
         selected_row = self.group_list.get_selected_row()
@@ -372,23 +373,7 @@ class NotesManager(object):
     def get_selected_note(self):
         return self.note_view.get_selected_children()[0].item.info
 
-    def set_visible_group(self, group_name=None):
-        if group_name is None:
-            group_name = self.get_current_group()
-
-        if self.visible_group == group_name:
-            return
-
-        self.app.change_visible_note_group(group_name)
-
-    def on_visible_group_changed(self, *args):
-        self.visible_group = self.app.note_group
-        self.generate_group_list()
-
     def new_note(self, *args):
-        group_name = self.get_current_group()
-
-        self.set_visible_group(group_name)
         self.app.new_note()
 
     def create_new_group(self, callback):
@@ -438,8 +423,6 @@ class NotesManager(object):
             for row in self.group_list.get_children():
                 if row.item.name == group_name:
                     self.group_list.select_row(row)
-                    self.set_visible_group(group_name)
-
                     return
 
         self.create_new_group(on_complete)
@@ -457,13 +440,6 @@ class NotesManager(object):
         group_name = self.get_current_group()
 
         self.file_handler.remove_group(group_name)
-
-    def set_default(self, group_name=None):
-        if group_name is None:
-            group_name = self.get_current_group()
-
-        self.app.settings.set_string('default-group', group_name)
-        self.set_visible_group(group_name)
 
     def on_drag_begin(self, widget, *args):
         self.dragged_note = widget.get_parent().item.info
@@ -505,8 +481,6 @@ class NotesManager(object):
             for row in self.group_list.get_children():
                 if row.item.name == group_name:
                     self.group_list.select_row(row)
-                    self.set_visible_group(group_name)
-
                     return
 
         self.create_new_group(on_created)

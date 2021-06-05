@@ -535,10 +535,6 @@ class ShortcutsWindow(Gtk.ShortcutsWindow):
         self.show_all()
 
 class Application(Gtk.Application):
-    @GObject.Signal(flags=GObject.SignalFlags.RUN_LAST, return_type=bool,
-                    accumulator=GObject.signal_accumulator_true_handled)
-    def visible_group_changed(self):
-        pass
 
     def __init__(self):
         super(Application, self).__init__(application_id=APPLICATION_ID, flags=Gio.ApplicationFlags.FLAGS_NONE)
@@ -580,14 +576,15 @@ class Application(Gtk.Application):
 
         self.settings.connect('changed::show-in-tray', self.update_tray_icon)
         self.settings.connect('changed::show-in-taskbar', self.update_dummy_window)
+        self.settings.connect('changed::active-group', self.on_active_group_changed)
         self.update_dummy_window()
 
-        self.note_group = self.settings.get_string('default-group')
+        self.note_group = self.settings.get_string('active-group')
         group_names = self.file_handler.get_note_group_names()
         if self.note_group not in group_names:
             if len(group_names) > 0:
                 self.note_group = group_names[0]
-                self.settings.set_string('default-group', self.note_group)
+                self.settings.set_string('active-group', self.note_group)
             else:
                 self.file_handler.new_group(self.note_group)
 
@@ -643,8 +640,9 @@ class Application(Gtk.Application):
                             group_list.append(info)
                             self.file_handler.update_note_list(group_list, group_name)
 
+        # Create a default group
         if len(self.file_handler.get_note_group_names()) == 0:
-            self.file_handler.update_note_list([{'text':''}], self.settings.get_string('default-group'))
+            self.file_handler.update_note_list([{'text':'', 'color':'yellow'}], _("Group 1"))
 
         self.settings.set_boolean('first-run', False)
 
@@ -676,9 +674,10 @@ class Application(Gtk.Application):
 
             for group in self.file_handler.get_note_group_names():
                 item = Gtk.RadioMenuItem(label=group)
-                if group == self.settings.get_string('default-group'):
+                if group == self.settings.get_string('active-group'):
                     item.set_active(True)
-                item.connect('activate', lambda a, group: self.change_visible_note_group(group), group)
+                else:
+                    item.connect('activate', self.on_tray_group_selected, group)
                 menu.append(item)
 
             menu.append(Gtk.SeparatorMenuItem())
@@ -700,6 +699,12 @@ class Application(Gtk.Application):
         else:
             self.open_manager()
             self.destroy_status_icon()
+
+    def on_tray_group_selected(self, widget, name):
+        self.settings.set_string('active-group', name)
+
+    def on_active_group_changed(self, settings, key):
+        self.change_visible_note_group()
 
     def update_dummy_window(self, *args):
         if self.settings.get_boolean('show-in-taskbar') and not self.notes_hidden:
@@ -766,11 +771,11 @@ class Application(Gtk.Application):
         if self.note_group == old_name:
             self.change_visible_note_group(new_name)
 
-        if self.settings.get_string('default-group') == old_name:
-            self.settings.set_string('default-group', new_name)
+        if self.settings.get_string('active-group') == old_name:
+            self.settings.set_string('active-group', new_name)
 
     def change_visible_note_group(self, group=None):
-        default = self.settings.get_string('default-group')
+        default = self.settings.get_string('active-group')
         if group is None:
             self.note_group = default
         else:
@@ -780,14 +785,11 @@ class Application(Gtk.Application):
         if self.note_group not in group_names:
             if len(group_names) > 0:
                 self.note_group = group_names[0]
-                self.settings.set_string('default-group', self.note_group)
             else:
                 self.file_handler.new_group(default)
                 self.note_group = default
 
         self.load_notes()
-
-        self.emit('visible-group-changed')
 
     def open_manager(self, *args):
         if self.manager:

@@ -65,11 +65,11 @@
       </description>
     </key>
 
-    <key name='default-group' type='s'>
-      <default>"Desktop"</default>
-      <summary>Default Group</summary>
+    <key name='active-group' type='s'>
+      <default>""</default>
+      <summary>Active group</summary>
       <description>
-        The group of notes that will be shown by default. This can be changed in the notes manager window.
+        The currently active group.
       </description>
     </key>
 
