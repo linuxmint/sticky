@@ -361,37 +361,43 @@ class Note(Gtk.Window):
 
         menu.append(Gtk.SeparatorMenuItem(visible=True))
 
-        self.checklist_item = Gtk.MenuItem(label=_("Toggle Checklist"), visible=True)
+        self.checklist_item = Gtk.MenuItem(label=_("☑ Toggle Checklist"), visible=True)
         self.checklist_item.connect('activate', self.buffer.toggle_checklist)
         menu.append(self.checklist_item)
 
-        self.bullet_item = Gtk.MenuItem(label=_("Toggle Bullets"), visible=True)
+        self.bullet_item = Gtk.MenuItem(label=_("⦁ Toggle Bullets"), visible=True)
         self.bullet_item.connect('activate', self.buffer.toggle_bullets)
         menu.append(self.bullet_item)
 
         menu.append(Gtk.SeparatorMenuItem(visible=True))
 
         bold_item = Gtk.MenuItem(label=_("Bold"), visible=True)
+        bold_item.get_child().set_markup("<b>%s</b>" % _("Bold"))
         bold_item.connect('activate', self.apply_format, 'bold')
         menu.append(bold_item)
 
         italic_item = Gtk.MenuItem(label=_("Italic"), visible=True)
+        italic_item.get_child().set_markup("<i>%s</i>" % _("Italic"))
         italic_item.connect('activate', self.apply_format, 'italic')
         menu.append(italic_item)
 
         underline_item = Gtk.MenuItem(label=_("Underline"), visible=True)
+        underline_item.get_child().set_markup("<u>%s</u>" % _("Underline"))
         underline_item.connect('activate', self.apply_format, 'underline')
         menu.append(underline_item)
 
         strikethrough_item = Gtk.MenuItem(label=_("Strikethrough"), visible=True)
+        strikethrough_item.get_child().set_markup("<s>%s</s>" % _("Strikethrough"))
         strikethrough_item.connect('activate', self.apply_format, 'strikethrough')
         menu.append(strikethrough_item)
 
         highlight_item = Gtk.MenuItem(label=_("Highlight"), visible=True)
+        highlight_item.get_child().set_markup("<span background='yellow'>%s</span>" % _("Highlight"))
         highlight_item.connect('activate', self.apply_format, 'highlight')
         menu.append(highlight_item)
 
         header_item = Gtk.MenuItem(label=_("Header"), visible=True)
+        header_item.get_child().set_markup("<span size='large'>%s</span>" % _("Header"))
         header_item.connect('activate', self.apply_format, 'header')
         menu.append(header_item)
 
