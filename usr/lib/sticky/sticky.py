@@ -279,11 +279,8 @@ class Note(Gtk.Window):
         return Gdk.EVENT_PROPAGATE
 
     def restore(self, time=0):
-        self.present_with_time(time)
+        self.present_with_time(Gtk.get_current_event_time())
         self.move(self.x, self.y)
-        # For some reason, present_with_time doesn't seem to focus the notes, so the tray needs an extra click to hide
-        # the notes after showing them. Focusing the Gdk window fixes it.
-        self.get_window().focus(time)
 
     def changed(self, *args):
         self.emit('update')
@@ -632,14 +629,13 @@ class Application(Gtk.Application):
                                window=self.dummy_window)
 
                 if resp:
+                    coordinates = 20
                     for file in import_notes:
                         (group_name, info, is_template) = gnote_to_internal_format(file)
                         if not is_template:
-                            color = self.settings.get_string('default-color')
-                            if color == 'random':
-                                info['color'] = random.choice(list(COLORS.keys()))
-                            else:
-                                info['color'] = color
+                            info['color'] = 'yellow'
+                            info['x'] = coordinates
+                            info['y'] = coordinates
 
                             if group_name not in self.file_handler.get_note_group_names():
                                 self.file_handler.new_group(group_name)
@@ -648,9 +644,11 @@ class Application(Gtk.Application):
                             group_list.append(info)
                             self.file_handler.update_note_list(group_list, group_name)
 
+                            coordinates += coordinates
+
         # Create a default group
         if len(self.file_handler.get_note_group_names()) == 0:
-            self.file_handler.update_note_list([{'text':'', 'color':'yellow'}], _("Group 1"))
+            self.file_handler.update_note_list([{'text':'', 'color':'yellow', 'x': 20, 'y': 20}], _("Group 1"))
 
         self.settings.set_boolean('first-run', False)
 
@@ -741,8 +739,22 @@ class Application(Gtk.Application):
         self.update_dummy_window()
 
     def new_note(self, *args):
-        note = self.generate_note()
-        note.present()
+        x = 20
+        y = 20
+        while(True):
+            found = False
+            for note_info in self.file_handler.get_note_list(self.note_group):
+                if note_info['x'] == x and note_info['y'] == y:
+                    found = True
+                    break
+            if not found:
+                break
+            x += 20
+            y += 20
+        info = {'x': x, 'y': y}
+        note = self.generate_note(info)
+        note.present_with_time(Gtk.get_current_event_time())
+        note.changed()
 
     def generate_note(self, info={}):
         note = Note(self, self.dummy_window, info)
@@ -798,7 +810,7 @@ class Application(Gtk.Application):
 
     def open_manager(self, *args):
         if self.manager:
-            self.manager.window.present()
+            self.manager.window.present_with_time(Gtk.get_current_event_time())
             return
 
         self.manager = NotesManager(self, self.file_handler)
@@ -811,7 +823,7 @@ class Application(Gtk.Application):
 
     def open_settings_window(self, *args):
         if self.settings_window:
-            self.settings_window.present()
+            self.settings_window.present_with_time(Gtk.get_current_event_time())
             return
 
         self.settings_window = SettingsWindow(self)
@@ -852,12 +864,11 @@ class Application(Gtk.Application):
 
     def open_keyboard_shortcuts(self, *args):
         if self.keyboard_shortcuts:
-            self.keyboard_shortcuts.present()
+            self.keyboard_shortcuts.present_with_time(Gtk.get_current_event_time())
             return
 
         self.keyboard_shortcuts = ShortcutsWindow()
         self.keyboard_shortcuts.connect('destroy', self.keyboard_shortcuts_closed)
-
         self.keyboard_shortcuts.show_all()
 
     def keyboard_shortcuts_closed(self, *args):
