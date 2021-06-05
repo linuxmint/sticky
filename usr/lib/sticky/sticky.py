@@ -717,16 +717,13 @@ class Application(Gtk.Application):
             self.dummy_window.stick()
 
     def activate_notes(self, time):
-        for note in self.notes:
-            if note.is_active():
-                self.hide_notes()
-                return
-
-        for note in self.notes:
-            note.restore(time)
-
-        self.notes_hidden = False
-        self.update_dummy_window()
+        if self.notes_hidden:
+            for note in self.notes:
+                note.restore(time)
+            self.notes_hidden = False
+            self.update_dummy_window()
+        else:
+            self.hide_notes()
 
     def hide_notes(self):
         for note in self.notes:
