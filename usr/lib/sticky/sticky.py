@@ -814,6 +814,33 @@ class Application(Gtk.Application):
 
         self.settings_window.show_all()
 
+    def open_about(self, widget):
+        dlg = Gtk.AboutDialog()
+        dlg.set_transient_for(self.manager.window)
+        dlg.set_title(_("About"))
+        dlg.set_program_name(_("Sticky Notes"))
+        dlg.set_comments(_("Manage your sticky notes"))
+        try:
+            h = open('/usr/share/common-licenses/GPL', encoding="utf-8")
+            s = h.readlines()
+            gpl = ""
+            for line in s:
+                gpl += line
+            h.close()
+            dlg.set_license(gpl)
+        except Exception as e:
+            print (e)
+
+        dlg.set_version("__DEB_VERSION__")
+        dlg.set_icon_name("sticky")
+        dlg.set_logo_icon_name("sticky")
+        dlg.set_website("https://www.github.com/linuxmint/sticky")
+        def close(w, res):
+            if res == Gtk.ResponseType.CANCEL or res == Gtk.ResponseType.DELETE_EVENT:
+                w.destroy()
+        dlg.connect("response", close)
+        dlg.show()
+
     def settings_window_closed(self, *args):
         self.settings_window = None
 

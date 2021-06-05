@@ -264,6 +264,15 @@ class NotesManager(object):
         item.connect('activate', self.app.open_keyboard_shortcuts)
         main_menu.append(item)
 
+        item = Gtk.MenuItem()
+        item.set_label(_("About"))
+        item.connect("activate", self.app.open_about)
+        key, mod = Gtk.accelerator_parse("F1")
+        accel_group = Gtk.AccelGroup()
+        self.window.add_accel_group(accel_group)
+        item.add_accelerator("activate", accel_group, key, mod, Gtk.AccelFlags.VISIBLE)
+        main_menu.append(item)
+
         main_menu.show_all()
 
         self.builder.get_object('menu_button').set_popup(main_menu)
