@@ -264,7 +264,7 @@ class NotesManager(object):
 
         main_menu.append(Gtk.SeparatorMenuItem(visible=True))
 
-        item = Gtk.MenuItem(label=_("Settings"))
+        item = Gtk.MenuItem(label=_("Preferences"))
         item.connect('activate', self.app.open_settings_window)
         main_menu.append(item)
 
