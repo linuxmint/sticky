@@ -136,7 +136,7 @@ class FileHandler(GObject.Object):
         self.check_backup()
 
     def backup_to_file(self, *args):
-        file_dialog = Gtk.FileChooserDialog(title=_("Save Backup"), action=Gtk.FileChooserAction.SAVE, transient_for=window)
+        file_dialog = Gtk.FileChooserDialog(title=_("Save Backup"), action=Gtk.FileChooserAction.SAVE, transient_for=self.window)
         file_dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.OK)
         file_dialog.set_current_folder(GLib.get_home_dir())
         file_dialog.set_current_name('backup.json')
@@ -160,7 +160,7 @@ class FileHandler(GObject.Object):
         file_dialog.destroy()
 
     def restore_backup(self, *args):
-        dialog = Gtk.Dialog(title=_("Restore Backup"), transient_for=window)
+        dialog = Gtk.Dialog(title=_("Restore Backup"), transient_for=self.window)
         dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
         dialog.add_button(_("From File"), 20)
         restore_button = dialog.add_button(_("Restore"), Gtk.ResponseType.OK)
