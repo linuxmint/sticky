@@ -170,7 +170,7 @@ class GroupEntry(Gtk.ListBoxRow):
         if event.keyval != Gdk.KEY_Escape:
             return Gdk.EVENT_PROPAGATE
 
-        self.clean_up(self.entry)
+        self.clean_up()
 
         return Gdk.EVENT_STOP
 
