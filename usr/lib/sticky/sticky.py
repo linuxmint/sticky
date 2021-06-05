@@ -507,7 +507,7 @@ class SettingsWindow(XApp.PreferencesWindow):
         # backups
         page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
-        page.pack_start(GSettingsSwitch(_("Create periodic backups"), SCHEMA, 'automatic-backups'), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Automatic backups"), SCHEMA, 'automatic-backups'), False, False, 0)
         page.pack_start(GSettingsSpinButton(_("Time between backups"), SCHEMA, 'backup-interval', units=_("hours")), False, False, 0)
         obm_tooltip = _("Set this to zero if you wish to keep all backups indefinitely")
         page.pack_start(GSettingsSpinButton(_("Number to keep"), SCHEMA, 'old-backups-max', tooltip=obm_tooltip), False, False, 0)

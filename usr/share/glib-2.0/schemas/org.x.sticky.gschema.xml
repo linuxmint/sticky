@@ -122,7 +122,7 @@
     </key>
 
     <key name='automatic-backups' type='b'>
-      <default>true</default>
+      <default>false</default>
       <summary>Auto Backup</summary>
       <description>
         Whether to back up all notes periodically to a separate file.
