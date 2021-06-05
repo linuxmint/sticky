@@ -481,7 +481,8 @@ class SettingsWindow(XApp.PreferencesWindow):
         general_page.pack_start(GSettingsSwitch(_("Show Notes on all Desktops"), SCHEMA, 'desktop-window-state'), False, False, 0)
         general_page.pack_start(GSettingsSwitch(_("Show Status Icon in Tray"), SCHEMA, 'show-in-tray'), False, False, 0)
         dep = SCHEMA + '/show-in-tray'
-        general_page.pack_start(GSettingsSwitch(_("Show Manager on Start"), SCHEMA, 'show-manager-on-start', dep_key=dep), False, False, 0)
+        general_page.pack_start(GSettingsSwitch(_("Start automatically"), SCHEMA, 'autostart'), False, False, 0)
+        general_page.pack_start(GSettingsSwitch(_("Show notes on the screen"), SCHEMA, 'autostart-notes-visible', dep_key=SCHEMA+'/autostart'), False, False, 0)
         general_page.pack_start(GSettingsSwitch(_("Show in Taskbar"), SCHEMA, 'show-in-taskbar', dep_key=dep), False, False, 0)
 
         self.add_page(general_page, 'general', _("General"))
@@ -552,13 +553,13 @@ class Application(Gtk.Application):
         self.keyboard_shortcuts = None
         self.manager = None
         self.notes_hidden = False
-        self.show_manager = False # indicates if we need to show the manager next time we activate
+        self.autostart_mode = False # indicates if we're in autostart mode
 
     def do_activate(self):
         if self.has_activated:
             for note in self.notes:
                 note.restore()
-
+            self.open_manager()
             return
 
         Gtk.Application.do_activate(self)
@@ -577,17 +578,8 @@ class Application(Gtk.Application):
         self.group_update_id = self.file_handler.connect('group-changed', self.on_group_changed)
         self.file_handler.connect('group-name-changed', self.on_group_name_changed)
 
-        if self.show_manager:
-            self.open_manager()
-            self.show_manager = False
-
         if self.settings.get_boolean('show-in-tray'):
             self.create_status_icon()
-
-            if self.settings.get_boolean('show-manager-on-start'):
-                self.open_manager()
-        else:
-            self.open_manager()
 
         self.settings.connect('changed::show-in-tray', self.update_tray_icon)
         self.settings.connect('changed::show-in-taskbar', self.update_dummy_window)
@@ -610,6 +602,13 @@ class Application(Gtk.Application):
         self.load_notes()
 
         self.hold()
+
+        if self.autostart_mode:
+            self.autostart_mode = False
+            if not self.settings.get_boolean("autostart-notes-visible"):
+                self.hide_notes()
+        else:
+            self.open_manager()
 
         self.has_activated = True
 
@@ -854,8 +853,15 @@ class Application(Gtk.Application):
         self.quit()
 
 if __name__ == "__main__":
+    autostart_mode = False
+    if "--autostart" in sys.argv:
+        settings = Gio.Settings(schema_id=SCHEMA)
+        if not settings.get_boolean("autostart"):
+            sys.exit()
+        else:
+            autostart_mode = True
+
     sticky = Application()
-    if "--manager" in sys.argv:
-        sticky.show_manager = True
+    sticky.autostart_mode = autostart_mode
     sticky.run()
 

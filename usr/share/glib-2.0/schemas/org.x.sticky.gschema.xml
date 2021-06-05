@@ -89,11 +89,19 @@
       </description>
     </key>
 
-    <key name='show-manager-on-start' type='b'>
+    <key name='autostart' type='b'>
       <default>false</default>
-      <summary>Show Manager on Start</summary>
+      <summary>Start sticky automatically at login</summary>
       <description>
-        Whether to show the notes manager when the application first starts.
+        Whether to start sticky automatically at login.
+      </description>
+    </key>
+
+    <key name='autostart-notes-visible' type='b'>
+      <default>false</default>
+      <summary>Show notes in autostart mode</summary>
+      <description>
+        Whether to show notes when in autostart mode.
       </description>
     </key>
 
