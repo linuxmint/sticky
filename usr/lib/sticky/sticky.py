@@ -122,7 +122,7 @@ class Note(Gtk.Window):
         self.edit_title_button = Gtk.Button(image=edit_title_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         self.edit_title_button.connect('clicked', self.set_title)
         self.edit_title_button.connect('button-press-event', self.on_title_click)
-        self.edit_title_button.set_tooltip_text(_("Format"))
+        self.edit_title_button.set_tooltip_text(_("Rename"))
         self.title_box.pack_start(self.edit_title_button, False, False, 0)
         self.title_hover.set_child_widget(self.edit_title_button)
 
