@@ -37,6 +37,17 @@ COLORS = {
     'magenta': _("Magenta")
 }
 
+COLOR_CODES = {
+    'red': "#ff5561",
+    'green': "#67ff67",
+    'blue': "#3d9bff",
+    'yellow': "#f6f907",
+    'purple': "#a553ff",
+    'teal': "#41ffed",
+    'orange': "#ffa939",
+    'magenta': "#ff7ff7"
+}
+
 SHORTCUTS = [
     (_("Move selection up"), '<ctrl><shift>Up'),
     (_("Move selection down"), '<ctrl><shift>Down'),
@@ -361,8 +372,10 @@ class Note(Gtk.Window):
 
         menu = Gtk.Menu()
 
-        for color, color_name in COLORS.items():
+        for color, color_name in sorted(COLORS.items(), key=lambda item: item[1]):
+            color_code = COLOR_CODES[color]
             menu_item = Gtk.MenuItem(label=color_name, visible=True)
+            menu_item.get_child().set_markup("<span foreground='%s'>▦</span>  %s" % (color_code, color_name))
             menu_item.connect('activate', self.set_color, color)
             menu.append(menu_item)
 
