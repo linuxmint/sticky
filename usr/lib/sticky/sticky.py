@@ -375,7 +375,7 @@ class Note(Gtk.Window):
         for color, color_name in sorted(COLORS.items(), key=lambda item: item[1]):
             color_code = COLOR_CODES[color]
             menu_item = Gtk.MenuItem(label=color_name, visible=True)
-            menu_item.get_child().set_markup("<span foreground='%s'>▦</span>  %s" % (color_code, color_name))
+            menu_item.get_child().set_markup("<span foreground='%s'>\u25A6</span>  %s" % (color_code, color_name))
             menu_item.connect('activate', self.set_color, color)
             menu.append(menu_item)
 
@@ -420,11 +420,11 @@ class Note(Gtk.Window):
 
         menu.append(Gtk.SeparatorMenuItem(visible=True))
 
-        self.checklist_item = Gtk.MenuItem(label=_("☑ Toggle Checklist"), visible=True)
+        self.checklist_item = Gtk.MenuItem(label="\u25A2 %s" % _("Toggle Checklist"), visible=True)
         self.checklist_item.connect('activate', self.buffer.toggle_checklist)
         menu.append(self.checklist_item)
 
-        self.bullet_item = Gtk.MenuItem(label=_("⦁ Toggle Bullets"), visible=True)
+        self.bullet_item = Gtk.MenuItem(label="\u25CF %s" % _("Toggle Bullets"), visible=True)
         self.bullet_item.connect('activate', self.buffer.toggle_bullets)
         menu.append(self.bullet_item)
 
