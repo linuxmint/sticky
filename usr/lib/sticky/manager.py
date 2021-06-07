@@ -289,7 +289,12 @@ class NotesManager(object):
 
         self.generate_previews()
         self.group_list.connect('row-selected', self.on_group_selected)
+        self.group_list.connect('button-press-event', self.on_list_clicked)
         self.app.settings.connect('changed::active-group', self.on_active_group_changed)
+
+    def on_list_clicked(self, list, event):
+        for note in self.app.notes:
+            note.present_with_time(Gtk.get_current_event_time())
 
     def on_list_changed(self, a, group_name):
         if group_name == self.get_current_group():
