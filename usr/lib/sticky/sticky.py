@@ -46,6 +46,7 @@ SHORTCUTS = [
     (_("Toggle Bullets"), '<ctrl>l'),
     (_("Bold"), '<ctrl>b'),
     (_("Italic"), '<ctrl>i'),
+    (_("Fixed Width"), '<ctrl>f'),
     (_("Underline"), '<ctrl>u'),
     (_("Strikethrough"), '<ctrl>k'),
     (_("Highlight"), '<ctrl>g'),
@@ -247,6 +248,10 @@ class Note(Gtk.Window):
                 self.buffer.tag_selection('italic')
                 return Gdk.EVENT_STOP
 
+            elif event.get_keyval()[1] == Gdk.KEY_f:
+                self.buffer.tag_selection('monospace')
+                return Gdk.EVENT_STOP
+
             elif event.get_keyval()[1] == Gdk.KEY_u:
                 self.buffer.tag_selection('underline')
                 return Gdk.EVENT_STOP
@@ -374,6 +379,11 @@ class Note(Gtk.Window):
         italic_item.get_child().set_markup("<i>%s</i>" % _("Italic"))
         italic_item.connect('activate', self.apply_format, 'italic')
         menu.append(italic_item)
+
+        monospace_item = Gtk.MenuItem(label=_("Fixed Width"), visible=True)
+        monospace_item.get_child().set_markup("<tt>%s</tt>" % _("Fixed Width"))
+        monospace_item.connect('activate', self.apply_format, 'monospace')
+        menu.append(monospace_item)
 
         underline_item = Gtk.MenuItem(label=_("Underline"), visible=True)
         underline_item.get_child().set_markup("<u>%s</u>" % _("Underline"))

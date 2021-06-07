@@ -6,6 +6,7 @@ from util import ends_with_url, get_url_start
 TAG_DEFINITIONS = {
     'bold': {'weight': Pango.Weight.BOLD},
     'italic': {'style': Pango.Style.ITALIC},
+    'monospace': {'family': 'Monospace'},
     'underline': {'underline': Pango.Underline.SINGLE},
     'strikethrough': {'strikethrough': True},
     'highlight': {'background': 'yellow'},
