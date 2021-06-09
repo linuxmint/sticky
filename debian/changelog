@@ -1,3 +1,95 @@
+sticky (1.0) uma; urgency=medium
+
+  [ Stephen Collins ]
+  * factor out the on-hover event box for re-use elsewhere
+  * Manager: allow the user to change the group name by clicking a button
+  * file handler: make sure to save when creating a new group
+  * Don't crash when the default and/or visible group is deleted.
+  * Manager: add context menu to the group items and some simplification.
+  * Add setting for default font (family and size)
+  * manager: remove border from the edit button
+  * Don't show dummy window in the wl when notes are hidden via status icon
+  * App: always use the dummy window as the transient parent for the notes.
+  * hoverbox: fix 'stuck' child when window is partly obstructed & simplify
+  * Don't ever hide the dummy window
+  * app: move a couple class variable inits to __init__() for consistency.
+  * Settings: show an entry in the window list for the settings window.
+  * notes: fix inconsistent titlebar context menu
+  * buffer: when inserting, don't try to extend tags that don't have a name.
+  * Notes: make the format menu button a Gtk.MenuButton and attach the menu.
+
+  [ Clement Lefebvre ]
+  * Depend on Xapp 2.2.0
+  * confirm: Use YES/NO buttons
+  * Dialogs: Don't use Gtk.STOCK
+  * Add project files to facilitate translations and testing
+  * Fix exception in generate_previews()
+  * gnote: Don't import templates
+  * Switch default color to Yellow
+  * tray: Replace Exit with Quit
+  * Keyboard shortcuts: Remove group title
+  * Enable tray by default
+  * tray: Remove management features
+  * Fix missing l18n
+  * Remove unused function
+  * tray: Move groups in main menu, show active group with a radio button.
+
+  [ Stephen Collins ]
+  * manager.py: remove unused import
+  * Make all dialogs transient for the dummy window to prevent warnings.
+  * Remove some print statements that are no longer needed
+  * Notes: Make deleting more explicit
+  * Fix wrong argument from commit 87cecfe
+  * first run: don't create a new note and group when importing from gnote.
+  * Don't show notes in taskbar by default.
+  * note: always use present_with_time to raise the notes instead of raise_
+  * buffer: don't extend the header tag across a newline
+
+  [ Clement Lefebvre ]
+  * Show the manager when run from the menu
+  * Rework autostart and manager mode
+  * Rework preferences
+  * Rework group selection
+  * Edit msgids
+  * Fix argument error in clean_up()
+  * manager: remove obsolete menu items
+  * backup: Fix wrong variable
+  * backup: Change default filename
+  * Add an about dialog
+  * tray: Fix hiding/showing notes on first click
+  * Add a setting to hide the main window
+  * Use a generic name
+  * Always show the manager when tray is disabled
+  * settings: Separate autostart into its own section
+  * Disable automatic backups by default
+  * Rework backups
+  * backups: Add a scrolledwindow
+
+  [ Stephen Collins ]
+  * update .gitignore: add .log file
+
+  [ Clement Lefebvre ]
+  * Fix window mapping
+  * note: Fix rename tooltip
+  * note: Style formatting items
+  * note: Fix highlight menu item style on hover
+  * note: Separate text-format and note colors into different menus
+
+  [ Stephen Collins ]
+  * Format: add Fixed width (monospace) format tag w/ shortcut and menu item
+
+  [ Clement Lefebvre ]
+  * manager: Focus notes when the tree is clicked
+  * note: Add little color squares in front of color name
+  * Don't put unicode in the source code
+  * l10n: Update POT
+  * l10n: Update POT
+  * note: Fix icons
+  * l10n: Update translations
+  * l10n: Generate files
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 09 Jun 2021 15:44:23 +0100
+
 sticky (0.0.1) ulyana; urgency=medium
 
   * Initial version
