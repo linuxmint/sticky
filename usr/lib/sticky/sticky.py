@@ -113,7 +113,7 @@ class Note(Gtk.Window):
         self.title_bar = Gtk.Box(height_request=30, name='title-bar')
         self.title_bar.connect('button-press-event', self.on_title_click)
 
-        color_icon = Gtk.Image.new_from_icon_name('color-picker', Gtk.IconSize.BUTTON)
+        color_icon = Gtk.Image.new_from_icon_name('sticky-color', Gtk.IconSize.BUTTON)
         color_button = Gtk.MenuButton(image=color_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         color_button.connect('button-press-event', self.on_title_click)
         color_button.set_tooltip_text(_("Format"))
@@ -129,7 +129,7 @@ class Note(Gtk.Window):
         self.title_box.pack_start(self.title, False, False, 0)
         self.title_style_manager = XApp.StyleManager(widget=self.title_box)
 
-        edit_title_icon = Gtk.Image.new_from_icon_name('edit', Gtk.IconSize.BUTTON)
+        edit_title_icon = Gtk.Image.new_from_icon_name('sticky-edit', Gtk.IconSize.BUTTON)
         self.edit_title_button = Gtk.Button(image=edit_title_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         self.edit_title_button.connect('clicked', self.set_title)
         self.edit_title_button.connect('button-press-event', self.on_title_click)
@@ -137,31 +137,25 @@ class Note(Gtk.Window):
         self.title_box.pack_start(self.edit_title_button, False, False, 0)
         self.title_hover.set_child_widget(self.edit_title_button)
 
-        close_icon = Gtk.Image.new_from_icon_name('edit-delete', Gtk.IconSize.BUTTON)
+        close_icon = Gtk.Image.new_from_icon_name('sticky-delete', Gtk.IconSize.BUTTON)
         close_button = Gtk.Button(image=close_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         close_button.connect('clicked', self.remove)
         close_button.connect('button-press-event', self.on_title_click)
         close_button.set_tooltip_text(_("Delete Note"))
         self.title_bar.pack_end(close_button, False, False, 0)
 
-        add_icon = Gtk.Image.new_from_icon_name('add', Gtk.IconSize.BUTTON)
+        add_icon = Gtk.Image.new_from_icon_name('sticky-add', Gtk.IconSize.BUTTON)
         add_button = Gtk.Button(image=add_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         add_button.connect('clicked', self.app.new_note)
         add_button.connect('button-press-event', self.on_title_click)
         add_button.set_tooltip_text(_("New Note"))
         self.title_bar.pack_end(add_button, False, False, 0)
 
-        text_icon = Gtk.Image.new_from_icon_name('insert-text', Gtk.IconSize.BUTTON)
+        text_icon = Gtk.Image.new_from_icon_name('sticky-text', Gtk.IconSize.BUTTON)
         text_button = Gtk.MenuButton(image=text_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         text_button.connect('button-press-event', self.on_title_click)
         text_button.set_tooltip_text(_("Format"))
         self.title_bar.pack_end(text_button, False, False, 20)
-
-        # test_icon = Gtk.Image.new_from_icon_name('system-run-symbolic', Gtk.IconSize.BUTTON)
-        # test_button = Gtk.Button(image=test_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
-        # test_button.connect('clicked', self.test)
-        # test_button.connect('button-press-event', self.on_title_click)
-        # self.title_bar.pack_end(test_button, False, False, 0)
 
         self.set_titlebar(self.title_bar)
 
