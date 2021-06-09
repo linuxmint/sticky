@@ -4,7 +4,6 @@ from gi.repository import Gdk, Gio, GLib, GObject, Gtk, Pango
 from note_buffer import NoteBuffer
 from common import HoverBox
 
-
 NOTE_TARGETS = [Gtk.TargetEntry.new('note-entry', Gtk.TargetFlags.SAME_APP, 1)]
 
 class NoteEntry(Gtk.Container):
@@ -206,7 +205,9 @@ class NotesManager(object):
         self.file_handler.connect('group-changed', self.on_list_changed)
         self.file_handler.connect('lists-changed', self.generate_group_list)
 
-        self.builder = Gtk.Builder.new_from_file('/usr/share/sticky/manager.ui')
+        self.builder = Gtk.Builder()
+        self.builder.set_translation_domain("sticky")
+        self.builder.add_from_file('/usr/share/sticky/manager.ui')
 
         self.window = self.builder.get_object('main_window')
         self.group_list = self.builder.get_object('group_list')

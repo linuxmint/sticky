@@ -1,0 +1,391 @@
+# Serbian translation for linuxmint
+# Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
+# This file is distributed under the same license as the linuxmint package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: linuxmint\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2021-06-07 18:00+0100\n"
+"PO-Revision-Date: 2021-06-08 22:36+0000\n"
+"Last-Translator: Saša Marjanović <Unknown>\n"
+"Language-Team: Serbian <sr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2021-06-09 14:22+0000\n"
+"X-Generator: Launchpad (build b45bdbe3a00b6b668fa7f2069bd545c35c41f7f4)\n"
+
+#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:259
+msgid "Export..."
+msgstr "Извези…"
+
+#: usr/lib/sticky/common.py:145 usr/lib/sticky/common.py:169
+#: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:318
+msgid "Cancel"
+msgstr "Откажи"
+
+#: usr/lib/sticky/common.py:145
+msgid "Save"
+msgstr "Сачувај"
+
+#: usr/lib/sticky/common.py:156 usr/lib/sticky/common.py:178
+msgid "Plain Text"
+msgstr "Неформатирани текст"
+
+#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:255
+msgid "Import..."
+msgstr "Увези..."
+
+#: usr/lib/sticky/common.py:169
+msgid "Open"
+msgstr "Отвори"
+
+#: usr/lib/sticky/common.py:191
+msgid "Restore Backup"
+msgstr "Врати сигурносну копију"
+
+#: usr/lib/sticky/common.py:193
+msgid "Clear"
+msgstr "Обриши"
+
+#: usr/lib/sticky/common.py:194
+msgid "Restore"
+msgstr "Врати"
+
+#: usr/lib/sticky/common.py:249
+msgid "Unable to restore: invalid or corrupted backup file"
+msgstr ""
+"Не могу да вратим: неисправна или оштећена датотека сигурносне копије"
+
+#: usr/lib/sticky/common.py:267 usr/lib/sticky/manager.py:239
+msgid "Remove Group"
+msgstr "Уклони групу"
+
+#: usr/lib/sticky/common.py:267
+#, python-format
+msgid "Are you sure you want to remove the group %s?"
+msgstr "Да ли сте сигурни да желите да уклоните групу %s?"
+
+#: usr/lib/sticky/common.py:319
+msgid "OK"
+msgstr "У реду"
+
+#: usr/lib/sticky/common.py:341
+msgid "No"
+msgstr "Не"
+
+#: usr/lib/sticky/common.py:342
+msgid "Yes"
+msgstr "Да"
+
+#: usr/lib/sticky/common.py:352
+msgid "Don't ask me again"
+msgstr "Не питај ме поново"
+
+#: usr/lib/sticky/manager.py:84
+msgid "New"
+msgstr "Ново"
+
+#: usr/lib/sticky/manager.py:89
+msgid "Edit"
+msgstr "Уреди"
+
+#: usr/lib/sticky/manager.py:93
+msgid "Remove"
+msgstr "Уклони"
+
+#: usr/lib/sticky/manager.py:196
+msgid "Untitled"
+msgstr "Без наслова"
+
+#: usr/lib/sticky/manager.py:235
+msgid "New Group"
+msgstr "Нова група"
+
+#: usr/lib/sticky/manager.py:245
+msgid "Back Up"
+msgstr "Направи сигурносну копију"
+
+#: usr/lib/sticky/manager.py:249
+msgid "Restore Backups..."
+msgstr "Врати сигурносне копије..."
+
+#: usr/lib/sticky/manager.py:265 usr/lib/sticky/sticky.py:506
+msgid "Preferences"
+msgstr "Жељене поставке"
+
+#: usr/lib/sticky/manager.py:269
+msgid "Keyboard Shortcuts"
+msgstr "Пречице са тастатуре"
+
+#: usr/lib/sticky/manager.py:274 usr/lib/sticky/sticky.py:871
+msgid "About"
+msgstr "О програму"
+
+#: usr/lib/sticky/sticky.py:30
+msgid "Red"
+msgstr "Црвена"
+
+#: usr/lib/sticky/sticky.py:31
+msgid "Green"
+msgstr "Зелена"
+
+#: usr/lib/sticky/sticky.py:32
+msgid "Blue"
+msgstr "Плава"
+
+#: usr/lib/sticky/sticky.py:33
+msgid "Yellow"
+msgstr "Жута"
+
+#: usr/lib/sticky/sticky.py:34
+msgid "Purple"
+msgstr "Љубичаста"
+
+#: usr/lib/sticky/sticky.py:35
+msgid "Teal"
+msgstr "Плаво-зелена"
+
+#: usr/lib/sticky/sticky.py:36
+msgid "Orange"
+msgstr "Наранџаста"
+
+#: usr/lib/sticky/sticky.py:37
+msgid "Magenta"
+msgstr "Светло љубичаста"
+
+#: usr/lib/sticky/sticky.py:52
+msgid "Move selection up"
+msgstr "Помери избор нагоре"
+
+#: usr/lib/sticky/sticky.py:53
+msgid "Move selection down"
+msgstr "Помери избор надоле"
+
+#: usr/lib/sticky/sticky.py:54
+msgid "Undo"
+msgstr "Опозови"
+
+#: usr/lib/sticky/sticky.py:55
+msgid "Redo"
+msgstr "Понови"
+
+#: usr/lib/sticky/sticky.py:56 usr/lib/sticky/sticky.py:423
+msgid "Toggle Checklist"
+msgstr "Замени стање избора у листи"
+
+#: usr/lib/sticky/sticky.py:57 usr/lib/sticky/sticky.py:427
+msgid "Toggle Bullets"
+msgstr "Замени стање избора ставки у листи"
+
+#: usr/lib/sticky/sticky.py:58 usr/lib/sticky/sticky.py:386
+#: usr/lib/sticky/sticky.py:387
+msgid "Bold"
+msgstr "Подебљано"
+
+#: usr/lib/sticky/sticky.py:59 usr/lib/sticky/sticky.py:391
+#: usr/lib/sticky/sticky.py:392
+msgid "Italic"
+msgstr "Курзив"
+
+#: usr/lib/sticky/sticky.py:60 usr/lib/sticky/sticky.py:396
+#: usr/lib/sticky/sticky.py:397
+msgid "Fixed Width"
+msgstr "Фиксна ширина"
+
+#: usr/lib/sticky/sticky.py:61 usr/lib/sticky/sticky.py:401
+#: usr/lib/sticky/sticky.py:402
+msgid "Underline"
+msgstr "Подвучено"
+
+#: usr/lib/sticky/sticky.py:62 usr/lib/sticky/sticky.py:406
+#: usr/lib/sticky/sticky.py:407
+msgid "Strikethrough"
+msgstr "Прецртано"
+
+#: usr/lib/sticky/sticky.py:63 usr/lib/sticky/sticky.py:411
+#: usr/lib/sticky/sticky.py:412
+msgid "Highlight"
+msgstr "istaknuto"
+
+#: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:416
+#: usr/lib/sticky/sticky.py:417
+msgid "Header"
+msgstr "Заглавље"
+
+#: usr/lib/sticky/sticky.py:119 usr/lib/sticky/sticky.py:157
+msgid "Format"
+msgstr "Формат"
+
+#: usr/lib/sticky/sticky.py:136
+msgid "Rename"
+msgstr "Преименуј"
+
+#: usr/lib/sticky/sticky.py:144 usr/lib/sticky/sticky.py:343
+#: usr/lib/sticky/sticky.py:453
+msgid "Delete Note"
+msgstr "Избриши белешку"
+
+#: usr/lib/sticky/sticky.py:151 usr/lib/sticky/sticky.py:704
+msgid "New Note"
+msgstr "Нова белешка"
+
+#: usr/lib/sticky/sticky.py:328
+msgid "undo"
+msgstr "опозови"
+
+#: usr/lib/sticky/sticky.py:332
+msgid "redo"
+msgstr "понови"
+
+#: usr/lib/sticky/sticky.py:338
+msgid "Set Title"
+msgstr "Поставите наслов"
+
+#: usr/lib/sticky/sticky.py:338
+msgid "Edit Title"
+msgstr "Уредите наслов"
+
+#: usr/lib/sticky/sticky.py:351
+msgid "Only on This Workspace"
+msgstr "Само на овом радном простору"
+
+#: usr/lib/sticky/sticky.py:355
+msgid "Always on Visible Workspace"
+msgstr "Увек на видљивом радном простору"
+
+#: usr/lib/sticky/sticky.py:367
+msgid "Always on Top"
+msgstr "Увек у првом плану"
+
+#: usr/lib/sticky/sticky.py:453
+msgid "Are you sure you want to remove this note?"
+msgstr "Да ли сте сигурни да желите да уклоните ову белешку?"
+
+#: usr/lib/sticky/sticky.py:510
+msgid "Show notes on all desktops"
+msgstr "Прикажи белешке на свим радним површинама"
+
+#: usr/lib/sticky/sticky.py:511
+msgid "Show in taskbar"
+msgstr "Покажи у траци задатка"
+
+#: usr/lib/sticky/sticky.py:512
+msgid "Tray icon"
+msgstr "Иконица фиоке"
+
+#: usr/lib/sticky/sticky.py:513
+msgid "Show the main window automatically"
+msgstr "Прикажи главни прозор аутоматски"
+
+#: usr/lib/sticky/sticky.py:514
+msgid "General"
+msgstr "Опште"
+
+#: usr/lib/sticky/sticky.py:518
+msgid "Default height"
+msgstr "Подразумевана висина"
+
+#: usr/lib/sticky/sticky.py:519
+msgid "Default width"
+msgstr "Подразумевана ширина"
+
+#: usr/lib/sticky/sticky.py:523 usr/lib/sticky/sticky.py:528
+msgid "Random"
+msgstr "Насумично"
+
+#: usr/lib/sticky/sticky.py:525 usr/lib/sticky/sticky.py:530
+msgid "Default color"
+msgstr "Подразумевана боја"
+
+#: usr/lib/sticky/sticky.py:532
+msgid "Font"
+msgstr "Словни лик"
+
+#: usr/lib/sticky/sticky.py:533
+msgid "Show spelling mistakes"
+msgstr "Покажи грешке у писању"
+
+#: usr/lib/sticky/sticky.py:535 usr/lib/sticky/sticky.py:596
+#: usr/lib/sticky/sticky.py:660 usr/lib/sticky/sticky.py:692
+#: usr/lib/sticky/sticky.py:872 generate_desktop_files:13
+#: usr/share/sticky/manager.ui.h:1
+msgid "Notes"
+msgstr "Белешке"
+
+#: usr/lib/sticky/sticky.py:540
+msgid "Automatic backups"
+msgstr "Аутоматско прављење сигурносних копија"
+
+#: usr/lib/sticky/sticky.py:541
+msgid "Time between backups"
+msgstr "Време између прављења сигурносних копија"
+
+#: usr/lib/sticky/sticky.py:541
+msgid "hours"
+msgstr "часова"
+
+#: usr/lib/sticky/sticky.py:542
+msgid "Set this to zero if you wish to keep all backups indefinitely"
+msgstr ""
+"Подесите ову вредност на нула уколико желите да заувек сачувате све "
+"сигурносне копије"
+
+#: usr/lib/sticky/sticky.py:543
+msgid "Number to keep"
+msgstr "Број оних које треба чувати"
+
+#: usr/lib/sticky/sticky.py:545
+msgid "Backups"
+msgstr "Сигурносне копије"
+
+#: usr/lib/sticky/sticky.py:549
+msgid "Start automatically"
+msgstr "Покрени аутоматски"
+
+#: usr/lib/sticky/sticky.py:550
+msgid "Show notes on the screen"
+msgstr "Прикажи белешке на екрану"
+
+#: usr/lib/sticky/sticky.py:551
+msgid "Automatic start"
+msgstr "Аутоматско покретање"
+
+#: usr/lib/sticky/sticky.py:661
+msgid ""
+"Would you like to import your notes from Gnote? This will not change your "
+"Gnote notes in any way."
+msgstr ""
+"Да ли бисте желели да увезете Ваше белешке из програма Gnote? Ово неће ни на "
+"који начин променити ваше белешке у програму Gnote."
+
+#: usr/lib/sticky/sticky.py:684
+msgid "Group 1"
+msgstr "Група 1"
+
+#: usr/lib/sticky/sticky.py:708
+msgid "Manage Notes"
+msgstr "Управљајте белешкама"
+
+#: usr/lib/sticky/sticky.py:724
+msgid "Quit"
+msgstr "Изађи"
+
+#: usr/lib/sticky/sticky.py:873 generate_desktop_files:14
+#: usr/share/sticky/manager.ui.h:2
+msgid "Take notes and stay organized"
+msgstr "Водите белешке и увек будите организовани"
+
+#: usr/lib/sticky/util.py:76
+msgid "Unfiled"
+msgstr "Незаведено"
+
+#: usr/share/sticky/manager.ui.h:3
+msgid "New note"
+msgstr "Нова белешка"
+
+#: usr/share/sticky/manager.ui.h:4
+msgid "Remove selected note"
+msgstr "Уклони изабране белешке"

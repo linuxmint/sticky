@@ -1,0 +1,389 @@
+# Basque translation for linuxmint
+# Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
+# This file is distributed under the same license as the linuxmint package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: linuxmint\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2021-06-07 18:00+0100\n"
+"PO-Revision-Date: 2021-06-08 20:44+0000\n"
+"Last-Translator: Asier Iturralde Sarasola <Unknown>\n"
+"Language-Team: Basque <eu@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2021-06-09 14:22+0000\n"
+"X-Generator: Launchpad (build b45bdbe3a00b6b668fa7f2069bd545c35c41f7f4)\n"
+
+#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:259
+msgid "Export..."
+msgstr "Esportatu..."
+
+#: usr/lib/sticky/common.py:145 usr/lib/sticky/common.py:169
+#: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:318
+msgid "Cancel"
+msgstr "Utzi"
+
+#: usr/lib/sticky/common.py:145
+msgid "Save"
+msgstr "Gorde"
+
+#: usr/lib/sticky/common.py:156 usr/lib/sticky/common.py:178
+msgid "Plain Text"
+msgstr "Testu arrunta"
+
+#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:255
+msgid "Import..."
+msgstr "Inportatu..."
+
+#: usr/lib/sticky/common.py:169
+msgid "Open"
+msgstr "Ireki"
+
+#: usr/lib/sticky/common.py:191
+msgid "Restore Backup"
+msgstr "Leheneratu babeskopia"
+
+#: usr/lib/sticky/common.py:193
+msgid "Clear"
+msgstr "Garbitu"
+
+#: usr/lib/sticky/common.py:194
+msgid "Restore"
+msgstr "Leheneratu"
+
+#: usr/lib/sticky/common.py:249
+msgid "Unable to restore: invalid or corrupted backup file"
+msgstr ""
+"Ezin izan da leheneratu: babeskopia fitxategi baliogabea edo hondatua"
+
+#: usr/lib/sticky/common.py:267 usr/lib/sticky/manager.py:239
+msgid "Remove Group"
+msgstr "Kendu taldea"
+
+#: usr/lib/sticky/common.py:267
+#, python-format
+msgid "Are you sure you want to remove the group %s?"
+msgstr "Ziur zaude %s taldea kendu nahi duzula?"
+
+#: usr/lib/sticky/common.py:319
+msgid "OK"
+msgstr "Ados"
+
+#: usr/lib/sticky/common.py:341
+msgid "No"
+msgstr "Ez"
+
+#: usr/lib/sticky/common.py:342
+msgid "Yes"
+msgstr "Bai"
+
+#: usr/lib/sticky/common.py:352
+msgid "Don't ask me again"
+msgstr "Ez galdetu berriz"
+
+#: usr/lib/sticky/manager.py:84
+msgid "New"
+msgstr "Berria"
+
+#: usr/lib/sticky/manager.py:89
+msgid "Edit"
+msgstr "Editatu"
+
+#: usr/lib/sticky/manager.py:93
+msgid "Remove"
+msgstr "Kendu"
+
+#: usr/lib/sticky/manager.py:196
+msgid "Untitled"
+msgstr "Izengabea"
+
+#: usr/lib/sticky/manager.py:235
+msgid "New Group"
+msgstr "Talde berria"
+
+#: usr/lib/sticky/manager.py:245
+msgid "Back Up"
+msgstr "Egin babeskopia"
+
+#: usr/lib/sticky/manager.py:249
+msgid "Restore Backups..."
+msgstr "Leheneratu babeskopiak..."
+
+#: usr/lib/sticky/manager.py:265 usr/lib/sticky/sticky.py:506
+msgid "Preferences"
+msgstr "Hobespenak"
+
+#: usr/lib/sticky/manager.py:269
+msgid "Keyboard Shortcuts"
+msgstr "Laster-teklak"
+
+#: usr/lib/sticky/manager.py:274 usr/lib/sticky/sticky.py:871
+msgid "About"
+msgstr "Honi buruz"
+
+#: usr/lib/sticky/sticky.py:30
+msgid "Red"
+msgstr "Gorria"
+
+#: usr/lib/sticky/sticky.py:31
+msgid "Green"
+msgstr "Berdea"
+
+#: usr/lib/sticky/sticky.py:32
+msgid "Blue"
+msgstr "Urdina"
+
+#: usr/lib/sticky/sticky.py:33
+msgid "Yellow"
+msgstr "Horia"
+
+#: usr/lib/sticky/sticky.py:34
+msgid "Purple"
+msgstr "Morea"
+
+#: usr/lib/sticky/sticky.py:35
+msgid "Teal"
+msgstr "Urdin berdexka"
+
+#: usr/lib/sticky/sticky.py:36
+msgid "Orange"
+msgstr "Laranja"
+
+#: usr/lib/sticky/sticky.py:37
+msgid "Magenta"
+msgstr "Magenta"
+
+#: usr/lib/sticky/sticky.py:52
+msgid "Move selection up"
+msgstr "Eraman hautapena gora"
+
+#: usr/lib/sticky/sticky.py:53
+msgid "Move selection down"
+msgstr "Eraman hautapena behera"
+
+#: usr/lib/sticky/sticky.py:54
+msgid "Undo"
+msgstr "Desegin"
+
+#: usr/lib/sticky/sticky.py:55
+msgid "Redo"
+msgstr "Berregin"
+
+#: usr/lib/sticky/sticky.py:56 usr/lib/sticky/sticky.py:423
+msgid "Toggle Checklist"
+msgstr "Txandakatu kontrol-zerrenda"
+
+#: usr/lib/sticky/sticky.py:57 usr/lib/sticky/sticky.py:427
+msgid "Toggle Bullets"
+msgstr "Txandakatu buletak"
+
+#: usr/lib/sticky/sticky.py:58 usr/lib/sticky/sticky.py:386
+#: usr/lib/sticky/sticky.py:387
+msgid "Bold"
+msgstr "Lodia"
+
+#: usr/lib/sticky/sticky.py:59 usr/lib/sticky/sticky.py:391
+#: usr/lib/sticky/sticky.py:392
+msgid "Italic"
+msgstr "Etzana"
+
+#: usr/lib/sticky/sticky.py:60 usr/lib/sticky/sticky.py:396
+#: usr/lib/sticky/sticky.py:397
+msgid "Fixed Width"
+msgstr "Zabalera finkoa"
+
+#: usr/lib/sticky/sticky.py:61 usr/lib/sticky/sticky.py:401
+#: usr/lib/sticky/sticky.py:402
+msgid "Underline"
+msgstr "Azpimarratua"
+
+#: usr/lib/sticky/sticky.py:62 usr/lib/sticky/sticky.py:406
+#: usr/lib/sticky/sticky.py:407
+msgid "Strikethrough"
+msgstr "Marratua"
+
+#: usr/lib/sticky/sticky.py:63 usr/lib/sticky/sticky.py:411
+#: usr/lib/sticky/sticky.py:412
+msgid "Highlight"
+msgstr "Nabarmendua"
+
+#: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:416
+#: usr/lib/sticky/sticky.py:417
+msgid "Header"
+msgstr "Goiburua"
+
+#: usr/lib/sticky/sticky.py:119 usr/lib/sticky/sticky.py:157
+msgid "Format"
+msgstr "Formatua"
+
+#: usr/lib/sticky/sticky.py:136
+msgid "Rename"
+msgstr "Aldatu izena"
+
+#: usr/lib/sticky/sticky.py:144 usr/lib/sticky/sticky.py:343
+#: usr/lib/sticky/sticky.py:453
+msgid "Delete Note"
+msgstr "Ezabatu oharra"
+
+#: usr/lib/sticky/sticky.py:151 usr/lib/sticky/sticky.py:704
+msgid "New Note"
+msgstr "Ohar berria"
+
+#: usr/lib/sticky/sticky.py:328
+msgid "undo"
+msgstr "desegin"
+
+#: usr/lib/sticky/sticky.py:332
+msgid "redo"
+msgstr "berregin"
+
+#: usr/lib/sticky/sticky.py:338
+msgid "Set Title"
+msgstr "Ezarri izenburua"
+
+#: usr/lib/sticky/sticky.py:338
+msgid "Edit Title"
+msgstr "Editatu izenburua"
+
+#: usr/lib/sticky/sticky.py:351
+msgid "Only on This Workspace"
+msgstr "Laneko area honetan bakarrik"
+
+#: usr/lib/sticky/sticky.py:355
+msgid "Always on Visible Workspace"
+msgstr "Beti laneko area ikusgaian"
+
+#: usr/lib/sticky/sticky.py:367
+msgid "Always on Top"
+msgstr "Beti gainean"
+
+#: usr/lib/sticky/sticky.py:453
+msgid "Are you sure you want to remove this note?"
+msgstr "Ziur zaude ohar hau kendu nahi duzula?"
+
+#: usr/lib/sticky/sticky.py:510
+msgid "Show notes on all desktops"
+msgstr "Erakutsi oharrak mahaigain guztietan"
+
+#: usr/lib/sticky/sticky.py:511
+msgid "Show in taskbar"
+msgstr "Erakutsi ataza-barran"
+
+#: usr/lib/sticky/sticky.py:512
+msgid "Tray icon"
+msgstr "Erretiluko ikonoa"
+
+#: usr/lib/sticky/sticky.py:513
+msgid "Show the main window automatically"
+msgstr "Erakutsi leiho nagusia automatikoki"
+
+#: usr/lib/sticky/sticky.py:514
+msgid "General"
+msgstr "Orokorra"
+
+#: usr/lib/sticky/sticky.py:518
+msgid "Default height"
+msgstr "Altuera lehenetsia"
+
+#: usr/lib/sticky/sticky.py:519
+msgid "Default width"
+msgstr "Zabalera lehenetsia"
+
+#: usr/lib/sticky/sticky.py:523 usr/lib/sticky/sticky.py:528
+msgid "Random"
+msgstr "Ausazkoa"
+
+#: usr/lib/sticky/sticky.py:525 usr/lib/sticky/sticky.py:530
+msgid "Default color"
+msgstr "Kolore lehenetsia"
+
+#: usr/lib/sticky/sticky.py:532
+msgid "Font"
+msgstr "Letra-tipoa"
+
+#: usr/lib/sticky/sticky.py:533
+msgid "Show spelling mistakes"
+msgstr "Erakutsi akats ortografikoak"
+
+#: usr/lib/sticky/sticky.py:535 usr/lib/sticky/sticky.py:596
+#: usr/lib/sticky/sticky.py:660 usr/lib/sticky/sticky.py:692
+#: usr/lib/sticky/sticky.py:872 generate_desktop_files:13
+#: usr/share/sticky/manager.ui.h:1
+msgid "Notes"
+msgstr "Oharrak"
+
+#: usr/lib/sticky/sticky.py:540
+msgid "Automatic backups"
+msgstr "Babeskopia automatikoak"
+
+#: usr/lib/sticky/sticky.py:541
+msgid "Time between backups"
+msgstr "Babeskopien arteko denbora"
+
+#: usr/lib/sticky/sticky.py:541
+msgid "hours"
+msgstr "ordu"
+
+#: usr/lib/sticky/sticky.py:542
+msgid "Set this to zero if you wish to keep all backups indefinitely"
+msgstr "Ezarri zerora babeskopia guztiak behin betiko gorde nahi badituzu"
+
+#: usr/lib/sticky/sticky.py:543
+msgid "Number to keep"
+msgstr "Gorde beharreko kopurua"
+
+#: usr/lib/sticky/sticky.py:545
+msgid "Backups"
+msgstr "Babeskopiak"
+
+#: usr/lib/sticky/sticky.py:549
+msgid "Start automatically"
+msgstr "Hasi automatikoki"
+
+#: usr/lib/sticky/sticky.py:550
+msgid "Show notes on the screen"
+msgstr "Erakutsi oharrak pantailan"
+
+#: usr/lib/sticky/sticky.py:551
+msgid "Automatic start"
+msgstr "Hasiera automatikoa"
+
+#: usr/lib/sticky/sticky.py:661
+msgid ""
+"Would you like to import your notes from Gnote? This will not change your "
+"Gnote notes in any way."
+msgstr ""
+"Oharrak Gnotetik inportatu nahi dituzu? Honek ez du zure Gnote oharretan "
+"aldaketarik eragingo."
+
+#: usr/lib/sticky/sticky.py:684
+msgid "Group 1"
+msgstr "1. taldea"
+
+#: usr/lib/sticky/sticky.py:708
+msgid "Manage Notes"
+msgstr "Kudeatu oharrak"
+
+#: usr/lib/sticky/sticky.py:724
+msgid "Quit"
+msgstr "Irten"
+
+#: usr/lib/sticky/sticky.py:873 generate_desktop_files:14
+#: usr/share/sticky/manager.ui.h:2
+msgid "Take notes and stay organized"
+msgstr "Idatzi oharrak eta antolatu gauzak"
+
+#: usr/lib/sticky/util.py:76
+msgid "Unfiled"
+msgstr "Artxibatu gabea"
+
+#: usr/share/sticky/manager.ui.h:3
+msgid "New note"
+msgstr "Ohar berria"
+
+#: usr/share/sticky/manager.ui.h:4
+msgid "Remove selected note"
+msgstr "Kendu hautatutako oharra"

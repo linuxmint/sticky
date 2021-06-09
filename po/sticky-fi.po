@@ -1,0 +1,389 @@
+# Finnish translation for linuxmint
+# Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
+# This file is distributed under the same license as the linuxmint package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: linuxmint\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2021-06-07 18:00+0100\n"
+"PO-Revision-Date: 2021-06-08 12:17+0000\n"
+"Last-Translator: Kimmo Kujansuu <Unknown>\n"
+"Language-Team: Finnish <fi@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2021-06-09 14:22+0000\n"
+"X-Generator: Launchpad (build b45bdbe3a00b6b668fa7f2069bd545c35c41f7f4)\n"
+
+#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:259
+msgid "Export..."
+msgstr "Vie..."
+
+#: usr/lib/sticky/common.py:145 usr/lib/sticky/common.py:169
+#: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:318
+msgid "Cancel"
+msgstr "Peru"
+
+#: usr/lib/sticky/common.py:145
+msgid "Save"
+msgstr "Tallenna"
+
+#: usr/lib/sticky/common.py:156 usr/lib/sticky/common.py:178
+msgid "Plain Text"
+msgstr "Pelkkä teksti"
+
+#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:255
+msgid "Import..."
+msgstr "Tuo..."
+
+#: usr/lib/sticky/common.py:169
+msgid "Open"
+msgstr "Avaa"
+
+#: usr/lib/sticky/common.py:191
+msgid "Restore Backup"
+msgstr "Palauta varmuuskopio"
+
+#: usr/lib/sticky/common.py:193
+msgid "Clear"
+msgstr "Tyhjennä"
+
+#: usr/lib/sticky/common.py:194
+msgid "Restore"
+msgstr "Palauta"
+
+#: usr/lib/sticky/common.py:249
+msgid "Unable to restore: invalid or corrupted backup file"
+msgstr "Ei voi palauttaa: virheellinen tai vioittunut varmuuskopio"
+
+#: usr/lib/sticky/common.py:267 usr/lib/sticky/manager.py:239
+msgid "Remove Group"
+msgstr "Poista ryhmä"
+
+#: usr/lib/sticky/common.py:267
+#, python-format
+msgid "Are you sure you want to remove the group %s?"
+msgstr "Haluatko varmasti poistaa ryhmän %s?"
+
+#: usr/lib/sticky/common.py:319
+msgid "OK"
+msgstr "OK"
+
+#: usr/lib/sticky/common.py:341
+msgid "No"
+msgstr "Ei"
+
+#: usr/lib/sticky/common.py:342
+msgid "Yes"
+msgstr "Kyllä"
+
+#: usr/lib/sticky/common.py:352
+msgid "Don't ask me again"
+msgstr "Älä kysy uudelleen"
+
+#: usr/lib/sticky/manager.py:84
+msgid "New"
+msgstr "Uusi"
+
+#: usr/lib/sticky/manager.py:89
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: usr/lib/sticky/manager.py:93
+msgid "Remove"
+msgstr "Poista"
+
+#: usr/lib/sticky/manager.py:196
+msgid "Untitled"
+msgstr "Nimetön"
+
+#: usr/lib/sticky/manager.py:235
+msgid "New Group"
+msgstr "Uusi ryhmä"
+
+#: usr/lib/sticky/manager.py:245
+msgid "Back Up"
+msgstr "Varmuuskopiointi"
+
+#: usr/lib/sticky/manager.py:249
+msgid "Restore Backups..."
+msgstr "Palauta varmuuskopiot..."
+
+#: usr/lib/sticky/manager.py:265 usr/lib/sticky/sticky.py:506
+msgid "Preferences"
+msgstr "Ominaisuudet"
+
+#: usr/lib/sticky/manager.py:269
+msgid "Keyboard Shortcuts"
+msgstr "Pikanäppäimet"
+
+#: usr/lib/sticky/manager.py:274 usr/lib/sticky/sticky.py:871
+msgid "About"
+msgstr "Tietoja"
+
+#: usr/lib/sticky/sticky.py:30
+msgid "Red"
+msgstr "Punainen"
+
+#: usr/lib/sticky/sticky.py:31
+msgid "Green"
+msgstr "Vihreä"
+
+#: usr/lib/sticky/sticky.py:32
+msgid "Blue"
+msgstr "Sininen"
+
+#: usr/lib/sticky/sticky.py:33
+msgid "Yellow"
+msgstr "Keltainen"
+
+#: usr/lib/sticky/sticky.py:34
+msgid "Purple"
+msgstr "Violetti"
+
+#: usr/lib/sticky/sticky.py:35
+msgid "Teal"
+msgstr "Sinivihreä"
+
+#: usr/lib/sticky/sticky.py:36
+msgid "Orange"
+msgstr "Oranssi"
+
+#: usr/lib/sticky/sticky.py:37
+msgid "Magenta"
+msgstr "Magenta"
+
+#: usr/lib/sticky/sticky.py:52
+msgid "Move selection up"
+msgstr "Siirrä valintaa ylöspäin"
+
+#: usr/lib/sticky/sticky.py:53
+msgid "Move selection down"
+msgstr "Siirrä valintaa alaspäin"
+
+#: usr/lib/sticky/sticky.py:54
+msgid "Undo"
+msgstr "Kumoa"
+
+#: usr/lib/sticky/sticky.py:55
+msgid "Redo"
+msgstr "Uudelleen"
+
+#: usr/lib/sticky/sticky.py:56 usr/lib/sticky/sticky.py:423
+msgid "Toggle Checklist"
+msgstr "Vaihda tarkistuslistaa"
+
+#: usr/lib/sticky/sticky.py:57 usr/lib/sticky/sticky.py:427
+msgid "Toggle Bullets"
+msgstr "Vaihda luettelomerkit"
+
+#: usr/lib/sticky/sticky.py:58 usr/lib/sticky/sticky.py:386
+#: usr/lib/sticky/sticky.py:387
+msgid "Bold"
+msgstr "Lihavoi"
+
+#: usr/lib/sticky/sticky.py:59 usr/lib/sticky/sticky.py:391
+#: usr/lib/sticky/sticky.py:392
+msgid "Italic"
+msgstr "Kursiivi"
+
+#: usr/lib/sticky/sticky.py:60 usr/lib/sticky/sticky.py:396
+#: usr/lib/sticky/sticky.py:397
+msgid "Fixed Width"
+msgstr "Tasalevyinen"
+
+#: usr/lib/sticky/sticky.py:61 usr/lib/sticky/sticky.py:401
+#: usr/lib/sticky/sticky.py:402
+msgid "Underline"
+msgstr "Alleviivaus"
+
+#: usr/lib/sticky/sticky.py:62 usr/lib/sticky/sticky.py:406
+#: usr/lib/sticky/sticky.py:407
+msgid "Strikethrough"
+msgstr "Yliviivaus"
+
+#: usr/lib/sticky/sticky.py:63 usr/lib/sticky/sticky.py:411
+#: usr/lib/sticky/sticky.py:412
+msgid "Highlight"
+msgstr "Korostus"
+
+#: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:416
+#: usr/lib/sticky/sticky.py:417
+msgid "Header"
+msgstr "Otsikko"
+
+#: usr/lib/sticky/sticky.py:119 usr/lib/sticky/sticky.py:157
+msgid "Format"
+msgstr "Muoto"
+
+#: usr/lib/sticky/sticky.py:136
+msgid "Rename"
+msgstr "Nimeä"
+
+#: usr/lib/sticky/sticky.py:144 usr/lib/sticky/sticky.py:343
+#: usr/lib/sticky/sticky.py:453
+msgid "Delete Note"
+msgstr "Poista muistiinpano"
+
+#: usr/lib/sticky/sticky.py:151 usr/lib/sticky/sticky.py:704
+msgid "New Note"
+msgstr "Uusi muistiinpano"
+
+#: usr/lib/sticky/sticky.py:328
+msgid "undo"
+msgstr "kumoa"
+
+#: usr/lib/sticky/sticky.py:332
+msgid "redo"
+msgstr "uudelleen"
+
+#: usr/lib/sticky/sticky.py:338
+msgid "Set Title"
+msgstr "Aseta otsikko"
+
+#: usr/lib/sticky/sticky.py:338
+msgid "Edit Title"
+msgstr "Muokkaa otsikkoa"
+
+#: usr/lib/sticky/sticky.py:351
+msgid "Only on This Workspace"
+msgstr "Vain tässä työtilassa"
+
+#: usr/lib/sticky/sticky.py:355
+msgid "Always on Visible Workspace"
+msgstr "Aina aktiivisessa työtilassa"
+
+#: usr/lib/sticky/sticky.py:367
+msgid "Always on Top"
+msgstr "Aina päällimmäisenä"
+
+#: usr/lib/sticky/sticky.py:453
+msgid "Are you sure you want to remove this note?"
+msgstr "Haluatko varmasti poistaa muistiinpanon?"
+
+#: usr/lib/sticky/sticky.py:510
+msgid "Show notes on all desktops"
+msgstr "Näytä muistiinpanot kaikilla näytöillä"
+
+#: usr/lib/sticky/sticky.py:511
+msgid "Show in taskbar"
+msgstr "Näytä tehtäväpalkissa"
+
+#: usr/lib/sticky/sticky.py:512
+msgid "Tray icon"
+msgstr "Ilmoitusalueen kuvake"
+
+#: usr/lib/sticky/sticky.py:513
+msgid "Show the main window automatically"
+msgstr "Näytä oletusnäytöllä automaattisesti"
+
+#: usr/lib/sticky/sticky.py:514
+msgid "General"
+msgstr "Yleisasetukset"
+
+#: usr/lib/sticky/sticky.py:518
+msgid "Default height"
+msgstr "Oletuskorkeus"
+
+#: usr/lib/sticky/sticky.py:519
+msgid "Default width"
+msgstr "Oletusleveys"
+
+#: usr/lib/sticky/sticky.py:523 usr/lib/sticky/sticky.py:528
+msgid "Random"
+msgstr "Satunnainen"
+
+#: usr/lib/sticky/sticky.py:525 usr/lib/sticky/sticky.py:530
+msgid "Default color"
+msgstr "Oletusväri"
+
+#: usr/lib/sticky/sticky.py:532
+msgid "Font"
+msgstr "Fontti"
+
+#: usr/lib/sticky/sticky.py:533
+msgid "Show spelling mistakes"
+msgstr "Näytä kirjoitusvirheet"
+
+#: usr/lib/sticky/sticky.py:535 usr/lib/sticky/sticky.py:596
+#: usr/lib/sticky/sticky.py:660 usr/lib/sticky/sticky.py:692
+#: usr/lib/sticky/sticky.py:872 generate_desktop_files:13
+#: usr/share/sticky/manager.ui.h:1
+msgid "Notes"
+msgstr "Muistilaput"
+
+#: usr/lib/sticky/sticky.py:540
+msgid "Automatic backups"
+msgstr "Automaattinen varmuuskopiointi"
+
+#: usr/lib/sticky/sticky.py:541
+msgid "Time between backups"
+msgstr "Aika varmuuskopioiden välillä"
+
+#: usr/lib/sticky/sticky.py:541
+msgid "hours"
+msgstr "tuntia"
+
+#: usr/lib/sticky/sticky.py:542
+msgid "Set this to zero if you wish to keep all backups indefinitely"
+msgstr ""
+"Aseta nollaksi, jos haluat säilyttää kaikki varmuuskopiot loputtomiin"
+
+#: usr/lib/sticky/sticky.py:543
+msgid "Number to keep"
+msgstr "Säilytetään"
+
+#: usr/lib/sticky/sticky.py:545
+msgid "Backups"
+msgstr "Varmuuskopiot"
+
+#: usr/lib/sticky/sticky.py:549
+msgid "Start automatically"
+msgstr "Käynnistä automaattisesti"
+
+#: usr/lib/sticky/sticky.py:550
+msgid "Show notes on the screen"
+msgstr "Näytä muistiinpanot näytöllä"
+
+#: usr/lib/sticky/sticky.py:551
+msgid "Automatic start"
+msgstr "Automaattinen käynnistys"
+
+#: usr/lib/sticky/sticky.py:661
+msgid ""
+"Would you like to import your notes from Gnote? This will not change your "
+"Gnote notes in any way."
+msgstr ""
+"Haluatko tuoda muistiinpanosi Gnotesta? Tämä ei muuta Gnote-muistiinpanojasi "
+"millään tavalla."
+
+#: usr/lib/sticky/sticky.py:684
+msgid "Group 1"
+msgstr "Ryhmä 1"
+
+#: usr/lib/sticky/sticky.py:708
+msgid "Manage Notes"
+msgstr "Hallitse muistiinpanoja"
+
+#: usr/lib/sticky/sticky.py:724
+msgid "Quit"
+msgstr "Lopeta"
+
+#: usr/lib/sticky/sticky.py:873 generate_desktop_files:14
+#: usr/share/sticky/manager.ui.h:2
+msgid "Take notes and stay organized"
+msgstr "Tee muistiinpanoja ja pysy ajan tasalla"
+
+#: usr/lib/sticky/util.py:76
+msgid "Unfiled"
+msgstr "Määrittämätön"
+
+#: usr/share/sticky/manager.ui.h:3
+msgid "New note"
+msgstr "Uusi muistiinpano"
+
+#: usr/share/sticky/manager.ui.h:4
+msgid "Remove selected note"
+msgstr "Poista valittu muistiinpano"
