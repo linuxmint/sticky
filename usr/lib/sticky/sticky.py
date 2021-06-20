@@ -294,6 +294,7 @@ class Note(Gtk.Window):
         return Gdk.EVENT_PROPAGATE
 
     def restore(self, time=0):
+        self.show()
         self.present_with_time(Gtk.get_current_event_time())
         self.move(self.x, self.y)
 
