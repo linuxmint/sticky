@@ -756,6 +756,8 @@ class Application(Gtk.Application):
                 self.hide_notes()
                 return
 
+        self.dummy_window.present_with_time(time)
+
         for note in self.notes:
             note.restore(time)
 
