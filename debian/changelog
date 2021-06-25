@@ -1,3 +1,17 @@
+sticky (1.1) uma; urgency=medium
+
+  [ Stephen Collins ]
+  * Revert "tray: Fix hiding/showing notes on first click"
+  * Make sure the notes are visible before calling present_with_time()
+  * gitignore: add generated .mo files
+  * Tray: fix notes getting 'stuck' in unraised state (I hope)
+
+  [ Clement Lefebvre ]
+  * l10n: Update translations
+  * l10n: Generate files
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 25 Jun 2021 14:31:37 +0100
+
 sticky (1.0) uma; urgency=medium
 
   [ Stephen Collins ]
