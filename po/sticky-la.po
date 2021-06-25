@@ -1,4 +1,4 @@
-# Belarusian translation for linuxmint
+# Latin translation for linuxmint
 # Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
 # This file is distributed under the same license as the linuxmint package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
@@ -8,382 +8,381 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-06-07 18:00+0100\n"
-"PO-Revision-Date: 2021-06-09 15:37+0000\n"
-"Last-Translator: Anton Hryb <Unknown>\n"
-"Language-Team: Belarusian <be@li.org>\n"
+"PO-Revision-Date: 2021-06-16 11:09+0000\n"
+"Last-Translator: Davide Novemila <Unknown>\n"
+"Language-Team: Latin <la@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2021-06-25 10:43+0000\n"
 "X-Generator: Launchpad (build 40cc6dba4163ba9ca785b26ad91f43c87d70ba4d)\n"
+"Language: la\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:259
 msgid "Export..."
-msgstr "Экспартаваць..."
+msgstr "Exporta ..."
 
 #: usr/lib/sticky/common.py:145 usr/lib/sticky/common.py:169
 #: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:318
 msgid "Cancel"
-msgstr "Скасаваць"
+msgstr "Interrumpe"
 
 #: usr/lib/sticky/common.py:145
 msgid "Save"
-msgstr "Захаваць"
+msgstr "Serva"
 
 #: usr/lib/sticky/common.py:156 usr/lib/sticky/common.py:178
 msgid "Plain Text"
-msgstr "Просты тэкст"
+msgstr "Scriptura Simplex"
 
 #: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:255
 msgid "Import..."
-msgstr "Імпартаваць..."
+msgstr "Importa ..."
 
 #: usr/lib/sticky/common.py:169
 msgid "Open"
-msgstr "Адкрыць"
+msgstr "Aperi"
 
 #: usr/lib/sticky/common.py:191
 msgid "Restore Backup"
-msgstr "Аднавіць рэзервовую копію"
+msgstr "Tutum Restitue"
 
 #: usr/lib/sticky/common.py:193
 msgid "Clear"
-msgstr "Ачысціць"
+msgstr "Dele"
 
 #: usr/lib/sticky/common.py:194
 msgid "Restore"
-msgstr "Аднавіць"
+msgstr "Restitue"
 
 #: usr/lib/sticky/common.py:249
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr "Немагчыма аднавіць: няправільны або пашкоджаны файл рэзервовай копіі"
+msgstr "Restitui non potest: plica tuti mendosa aut corrupta"
 
 #: usr/lib/sticky/common.py:267 usr/lib/sticky/manager.py:239
 msgid "Remove Group"
-msgstr "Выдаліць групу"
+msgstr "Collectionem Remove"
 
 #: usr/lib/sticky/common.py:267
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
-msgstr "Вы сапраўды жадаеце выдаліць групу %s?"
+msgstr "Collectionem %s removere visne?"
 
 #: usr/lib/sticky/common.py:319
 msgid "OK"
-msgstr "Добра"
+msgstr "Bene"
 
 #: usr/lib/sticky/common.py:341
 msgid "No"
-msgstr "Не"
+msgstr "Non"
 
 #: usr/lib/sticky/common.py:342
 msgid "Yes"
-msgstr "Так"
+msgstr "Sic"
 
 #: usr/lib/sticky/common.py:352
 msgid "Don't ask me again"
-msgstr "Болей не пытаць"
+msgstr "Rursum quaerere noli"
 
 #: usr/lib/sticky/manager.py:84
 msgid "New"
-msgstr "Стварыць"
+msgstr "Novum"
 
 #: usr/lib/sticky/manager.py:89
 msgid "Edit"
-msgstr "Змяніць"
+msgstr "Muta"
 
 #: usr/lib/sticky/manager.py:93
 msgid "Remove"
-msgstr "Выдаліць"
+msgstr "Remove"
 
 #: usr/lib/sticky/manager.py:196
 msgid "Untitled"
-msgstr "Без назвы"
+msgstr "Sine Titulo"
 
 #: usr/lib/sticky/manager.py:235
 msgid "New Group"
-msgstr "Новая група"
+msgstr "Nova Collectio"
 
 #: usr/lib/sticky/manager.py:245
 msgid "Back Up"
-msgstr "Рэзервовая копія"
+msgstr "In Tutum Repone"
 
 #: usr/lib/sticky/manager.py:249
 msgid "Restore Backups..."
-msgstr "Аднавіць рэзервовыя копіі..."
+msgstr "E Tutis Restitue ..."
 
 #: usr/lib/sticky/manager.py:265 usr/lib/sticky/sticky.py:506
 msgid "Preferences"
-msgstr "Параметры"
+msgstr "Praepositiones"
 
 #: usr/lib/sticky/manager.py:269
 msgid "Keyboard Shortcuts"
-msgstr "Спалучэнні клавіш"
+msgstr "Claves Ardentes"
 
 #: usr/lib/sticky/manager.py:274 usr/lib/sticky/sticky.py:871
 msgid "About"
-msgstr "Аб праграме"
+msgstr "Circa"
 
 #: usr/lib/sticky/sticky.py:30
 msgid "Red"
-msgstr "Чырвоны"
+msgstr "Ruber"
 
 #: usr/lib/sticky/sticky.py:31
 msgid "Green"
-msgstr "Зялёны"
+msgstr "Viridis"
 
 #: usr/lib/sticky/sticky.py:32
 msgid "Blue"
-msgstr "Сіні"
+msgstr "Caeruleus"
 
 #: usr/lib/sticky/sticky.py:33
 msgid "Yellow"
-msgstr "Жоўты"
+msgstr "Flavus"
 
 #: usr/lib/sticky/sticky.py:34
 msgid "Purple"
-msgstr "Фіялетавы"
+msgstr "Violaceus"
 
 #: usr/lib/sticky/sticky.py:35
 msgid "Teal"
-msgstr "Бірузовы"
+msgstr "Caesius"
 
 #: usr/lib/sticky/sticky.py:36
 msgid "Orange"
-msgstr "Аранжавы"
+msgstr "Flammeus"
 
 #: usr/lib/sticky/sticky.py:37
 msgid "Magenta"
-msgstr "Пурпурны"
+msgstr "Rubropurpureus"
 
 #: usr/lib/sticky/sticky.py:52
 msgid "Move selection up"
-msgstr "Падняць вылучанае"
+msgstr "Selectionem sursum move"
 
 #: usr/lib/sticky/sticky.py:53
 msgid "Move selection down"
-msgstr "Апусціць вылучанае"
+msgstr "Selectionem deorsum move"
 
 #: usr/lib/sticky/sticky.py:54
 msgid "Undo"
-msgstr "Адрабіць"
+msgstr "Regredere"
 
 #: usr/lib/sticky/sticky.py:55
 msgid "Redo"
-msgstr "Узнавіць"
+msgstr "Refice"
 
 #: usr/lib/sticky/sticky.py:56 usr/lib/sticky/sticky.py:423
 msgid "Toggle Checklist"
-msgstr "Кантрольны спіс"
+msgstr "Indicem Probationis Alterna"
 
 #: usr/lib/sticky/sticky.py:57 usr/lib/sticky/sticky.py:427
 msgid "Toggle Bullets"
-msgstr "Маркерны спіс"
+msgstr "Puncta Alterna"
 
 #: usr/lib/sticky/sticky.py:58 usr/lib/sticky/sticky.py:386
 #: usr/lib/sticky/sticky.py:387
 msgid "Bold"
-msgstr "Тлусты"
+msgstr "Negritus"
 
 #: usr/lib/sticky/sticky.py:59 usr/lib/sticky/sticky.py:391
 #: usr/lib/sticky/sticky.py:392
 msgid "Italic"
-msgstr "Курсіўны"
+msgstr "Italicus"
 
 #: usr/lib/sticky/sticky.py:60 usr/lib/sticky/sticky.py:396
 #: usr/lib/sticky/sticky.py:397
 msgid "Fixed Width"
-msgstr "Нязменная шырыня"
+msgstr "Laxitas Constans"
 
 #: usr/lib/sticky/sticky.py:61 usr/lib/sticky/sticky.py:401
 #: usr/lib/sticky/sticky.py:402
 msgid "Underline"
-msgstr "Падкрэслены"
+msgstr "Sublineatus"
 
 #: usr/lib/sticky/sticky.py:62 usr/lib/sticky/sticky.py:406
 #: usr/lib/sticky/sticky.py:407
 msgid "Strikethrough"
-msgstr "Закрэслены"
+msgstr "Barratus"
 
 #: usr/lib/sticky/sticky.py:63 usr/lib/sticky/sticky.py:411
 #: usr/lib/sticky/sticky.py:412
 msgid "Highlight"
-msgstr "Падсвятліць"
+msgstr "In Evidentia"
 
 #: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:416
 #: usr/lib/sticky/sticky.py:417
 msgid "Header"
-msgstr "Загаловак"
+msgstr "Praescriptio"
 
 #: usr/lib/sticky/sticky.py:119 usr/lib/sticky/sticky.py:157
 msgid "Format"
-msgstr "Фармат"
+msgstr "Forma"
 
 #: usr/lib/sticky/sticky.py:136
 msgid "Rename"
-msgstr "Пераназваць"
+msgstr "Nomen muta"
 
 #: usr/lib/sticky/sticky.py:144 usr/lib/sticky/sticky.py:343
 #: usr/lib/sticky/sticky.py:453
 msgid "Delete Note"
-msgstr "Выдаліць нататку"
+msgstr "Notam Dele"
 
 #: usr/lib/sticky/sticky.py:151 usr/lib/sticky/sticky.py:704
 msgid "New Note"
-msgstr "Новая нататка"
+msgstr "Nova Nota"
 
 #: usr/lib/sticky/sticky.py:328
 msgid "undo"
-msgstr "адрабіць"
+msgstr "regredere"
 
 #: usr/lib/sticky/sticky.py:332
 msgid "redo"
-msgstr "узнавіць"
+msgstr "refice"
 
 #: usr/lib/sticky/sticky.py:338
 msgid "Set Title"
-msgstr "Вызначыць загаловак"
+msgstr "Titulum Pone"
 
 #: usr/lib/sticky/sticky.py:338
 msgid "Edit Title"
-msgstr "Змяніць загаловак"
+msgstr "Titulum Muta"
 
 #: usr/lib/sticky/sticky.py:351
 msgid "Only on This Workspace"
-msgstr "Толькі на гэтай прасторы"
+msgstr "In Hac Area Laboris Modo"
 
 #: usr/lib/sticky/sticky.py:355
 msgid "Always on Visible Workspace"
-msgstr "Заўсёды на бачнай прасторы"
+msgstr "Semper in Area Laboris Visibile"
 
 #: usr/lib/sticky/sticky.py:367
 msgid "Always on Top"
-msgstr "Заўсёды зверху"
+msgstr "Semper in Summo"
 
 #: usr/lib/sticky/sticky.py:453
 msgid "Are you sure you want to remove this note?"
-msgstr "Вы сапраўды жадаеце выдаліць гэту нататку?"
+msgstr "Hanc notam removere visne?"
 
 #: usr/lib/sticky/sticky.py:510
 msgid "Show notes on all desktops"
-msgstr "Паказваць нататкі на ўсіх працоўных сталах"
+msgstr "Notas in omnibus scriptoriis ostende"
 
 #: usr/lib/sticky/sticky.py:511
 msgid "Show in taskbar"
-msgstr "Паказаць на панэлі задач"
+msgstr "Ostende in septo actionum"
 
 #: usr/lib/sticky/sticky.py:512
 msgid "Tray icon"
-msgstr "Іконка ў трэі"
+msgstr "Icon lancis"
 
 #: usr/lib/sticky/sticky.py:513
 msgid "Show the main window automatically"
-msgstr "Паказваць галоўнае акно аўтаматычна"
+msgstr "Fenestram praecipuam automatice ostende"
 
 #: usr/lib/sticky/sticky.py:514
 msgid "General"
-msgstr "Асноўнае"
+msgstr "Generalia"
 
 #: usr/lib/sticky/sticky.py:518
 msgid "Default height"
-msgstr "Перадвызначаная вышыня"
+msgstr "Altitudo predesignata"
 
 #: usr/lib/sticky/sticky.py:519
 msgid "Default width"
-msgstr "Перадвызначаная шырыня"
+msgstr "Laxita praedesignata"
 
 #: usr/lib/sticky/sticky.py:523 usr/lib/sticky/sticky.py:528
 msgid "Random"
-msgstr "Выпадкова"
+msgstr "Fortuitum"
 
 #: usr/lib/sticky/sticky.py:525 usr/lib/sticky/sticky.py:530
 msgid "Default color"
-msgstr "Перадвызначаны колер"
+msgstr "Color praedesignatus"
 
 #: usr/lib/sticky/sticky.py:532
 msgid "Font"
-msgstr "Шрыфт"
+msgstr "Typus"
 
 #: usr/lib/sticky/sticky.py:533
 msgid "Show spelling mistakes"
-msgstr "Паказаць арфаграфічныя памылкі"
+msgstr "Menda orthographiae ostende"
 
 #: usr/lib/sticky/sticky.py:535 usr/lib/sticky/sticky.py:596
 #: usr/lib/sticky/sticky.py:660 usr/lib/sticky/sticky.py:692
 #: usr/lib/sticky/sticky.py:872 generate_desktop_files:13
 #: usr/share/sticky/manager.ui.h:1
 msgid "Notes"
-msgstr "Нататкі"
+msgstr "Notae"
 
 #: usr/lib/sticky/sticky.py:540
 msgid "Automatic backups"
-msgstr "Аўтаматычныя рэзервовыя копіі"
+msgstr "Tota automatica"
 
 #: usr/lib/sticky/sticky.py:541
 msgid "Time between backups"
-msgstr "Час паміж рэзервовымі копіямі"
+msgstr "Spatium inter tota"
 
 #: usr/lib/sticky/sticky.py:541
 msgid "hours"
-msgstr "гадзін"
+msgstr "horae"
 
 #: usr/lib/sticky/sticky.py:542
 msgid "Set this to zero if you wish to keep all backups indefinitely"
-msgstr ""
-"Задаць нуль, калі жадаеце захоўваць усе рэзервовыя копіі безтэрмінова"
+msgstr "Ad zerum mitte ut tuta infinite serventur"
 
 #: usr/lib/sticky/sticky.py:543
 msgid "Number to keep"
-msgstr "Колькі будзе захавана"
+msgstr "Quot retinenda"
 
 #: usr/lib/sticky/sticky.py:545
 msgid "Backups"
-msgstr "Рэзервовыя копіі"
+msgstr "Tuta"
 
 #: usr/lib/sticky/sticky.py:549
 msgid "Start automatically"
-msgstr "Стартаваць аўтаматычна"
+msgstr "Automatice pellere"
 
 #: usr/lib/sticky/sticky.py:550
 msgid "Show notes on the screen"
-msgstr "Паказаць нататкі на экране"
+msgstr "Notas in scrinio ostende"
 
 #: usr/lib/sticky/sticky.py:551
 msgid "Automatic start"
-msgstr "Аўтаматычны старт"
+msgstr "Initus automaticus"
 
 #: usr/lib/sticky/sticky.py:661
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
 msgstr ""
-"Ці жадаеце імпартаваць вашы нататкі з Gnote? Гэта ніяк не зменіць вашы "
-"нататкі ў Gnote."
+"E Gnote notas importare vis? Tuae notae in Gnote in nullo modo mutabuntur."
 
 #: usr/lib/sticky/sticky.py:684
 msgid "Group 1"
-msgstr "Група 1"
+msgstr "Collectio I"
 
 #: usr/lib/sticky/sticky.py:708
 msgid "Manage Notes"
-msgstr "Кіраваць нататкамі"
+msgstr "Notas Cura"
 
 #: usr/lib/sticky/sticky.py:724
 msgid "Quit"
-msgstr "Выйсці"
+msgstr "Relinque"
 
 #: usr/lib/sticky/sticky.py:873 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr "Рабіце нататкі і будзьце арганізаванымі"
+msgstr "Notas scribe ut bene te instruas"
 
 #: usr/lib/sticky/util.py:76
 msgid "Unfiled"
-msgstr "Не вызначана"
+msgstr "Non in tuto"
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
-msgstr "Новая нататка"
+msgstr "Nova nota"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr "Выдаліць вылучаную нататку"
+msgstr "Notam electam remove"

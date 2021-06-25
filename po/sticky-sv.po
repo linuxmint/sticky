@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-06-07 18:00+0100\n"
-"PO-Revision-Date: 2021-06-08 22:53+0000\n"
+"PO-Revision-Date: 2021-06-10 21:41+0000\n"
 "Last-Translator: Jan-Olof Svensson <jan-olof.svensson@abc.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-06-09 14:22+0000\n"
-"X-Generator: Launchpad (build b45bdbe3a00b6b668fa7f2069bd545c35c41f7f4)\n"
+"X-Launchpad-Export-Date: 2021-06-25 10:43+0000\n"
+"X-Generator: Launchpad (build 40cc6dba4163ba9ca785b26ad91f43c87d70ba4d)\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:259
 msgid "Export..."
@@ -153,7 +153,7 @@ msgstr "Orange"
 
 #: usr/lib/sticky/sticky.py:37
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
 #: usr/lib/sticky/sticky.py:52
 msgid "Move selection up"
@@ -182,27 +182,27 @@ msgstr ""
 #: usr/lib/sticky/sticky.py:58 usr/lib/sticky/sticky.py:386
 #: usr/lib/sticky/sticky.py:387
 msgid "Bold"
-msgstr ""
+msgstr "Fet"
 
 #: usr/lib/sticky/sticky.py:59 usr/lib/sticky/sticky.py:391
 #: usr/lib/sticky/sticky.py:392
 msgid "Italic"
-msgstr ""
+msgstr "Kursiv"
 
 #: usr/lib/sticky/sticky.py:60 usr/lib/sticky/sticky.py:396
 #: usr/lib/sticky/sticky.py:397
 msgid "Fixed Width"
-msgstr ""
+msgstr "Fast bredd"
 
 #: usr/lib/sticky/sticky.py:61 usr/lib/sticky/sticky.py:401
 #: usr/lib/sticky/sticky.py:402
 msgid "Underline"
-msgstr ""
+msgstr "Understrykning"
 
 #: usr/lib/sticky/sticky.py:62 usr/lib/sticky/sticky.py:406
 #: usr/lib/sticky/sticky.py:407
 msgid "Strikethrough"
-msgstr ""
+msgstr "Genomstrykning"
 
 #: usr/lib/sticky/sticky.py:63 usr/lib/sticky/sticky.py:411
 #: usr/lib/sticky/sticky.py:412
@@ -212,11 +212,11 @@ msgstr ""
 #: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:416
 #: usr/lib/sticky/sticky.py:417
 msgid "Header"
-msgstr ""
+msgstr "Sidhuvud"
 
 #: usr/lib/sticky/sticky.py:119 usr/lib/sticky/sticky.py:157
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: usr/lib/sticky/sticky.py:136
 msgid "Rename"
@@ -241,11 +241,11 @@ msgstr "gör om"
 
 #: usr/lib/sticky/sticky.py:338
 msgid "Set Title"
-msgstr ""
+msgstr "Ange titel"
 
 #: usr/lib/sticky/sticky.py:338
 msgid "Edit Title"
-msgstr ""
+msgstr "Redigera titel"
 
 #: usr/lib/sticky/sticky.py:351
 msgid "Only on This Workspace"
@@ -355,6 +355,8 @@ msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
 msgstr ""
+"Vill du importera dina anteckningar från Gnote? Anteckningarna i Gnote "
+"kommer att förbli oförändrade."
 
 #: usr/lib/sticky/sticky.py:684
 msgid "Group 1"
@@ -366,12 +368,12 @@ msgstr "Hantera anteckningar"
 
 #: usr/lib/sticky/sticky.py:724
 msgid "Quit"
-msgstr ""
+msgstr "Avsluta"
 
 #: usr/lib/sticky/sticky.py:873 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr ""
+msgstr "Gör anteckningar och håll dig organiserad"
 
 #: usr/lib/sticky/util.py:76
 msgid "Unfiled"
@@ -379,8 +381,8 @@ msgstr ""
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
-msgstr ""
+msgstr "Ny anteckning"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr ""
+msgstr "Ta bort markerad anteckning"

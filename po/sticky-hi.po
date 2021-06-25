@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-06-07 18:00+0100\n"
-"PO-Revision-Date: 2021-06-08 05:36+0000\n"
+"PO-Revision-Date: 2021-06-10 16:59+0000\n"
 "Last-Translator: Panwar <Unknown>\n"
 "Language-Team: Hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-06-09 14:22+0000\n"
-"X-Generator: Launchpad (build b45bdbe3a00b6b668fa7f2069bd545c35c41f7f4)\n"
+"X-Launchpad-Export-Date: 2021-06-25 10:43+0000\n"
+"X-Generator: Launchpad (build 40cc6dba4163ba9ca785b26ad91f43c87d70ba4d)\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:259
 msgid "Export..."
-msgstr ""
+msgstr "निर्यात..."
 
 #: usr/lib/sticky/common.py:145 usr/lib/sticky/common.py:169
 #: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:318
@@ -44,19 +44,19 @@ msgstr "खोलें"
 
 #: usr/lib/sticky/common.py:191
 msgid "Restore Backup"
-msgstr ""
+msgstr "बैकअप पुनःस्थापना"
 
 #: usr/lib/sticky/common.py:193
 msgid "Clear"
-msgstr ""
+msgstr "रिक्त करें"
 
 #: usr/lib/sticky/common.py:194
 msgid "Restore"
-msgstr ""
+msgstr "पुनःस्थापित करें"
 
 #: usr/lib/sticky/common.py:249
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr ""
+msgstr "पुनःस्थापना विफल : अमान्य या विकृत डेस्कटॉप फाइल"
 
 #: usr/lib/sticky/common.py:267 usr/lib/sticky/manager.py:239
 msgid "Remove Group"
@@ -65,7 +65,7 @@ msgstr "समूह हटाएँ"
 #: usr/lib/sticky/common.py:267
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
-msgstr ""
+msgstr "क्या आप निश्चित ही %s समूह हटाना चाहते हैं?"
 
 #: usr/lib/sticky/common.py:319
 msgid "OK"
@@ -81,11 +81,11 @@ msgstr "हाँ"
 
 #: usr/lib/sticky/common.py:352
 msgid "Don't ask me again"
-msgstr ""
+msgstr "पुनः न पूछें"
 
 #: usr/lib/sticky/manager.py:84
 msgid "New"
-msgstr ""
+msgstr "नवीन"
 
 #: usr/lib/sticky/manager.py:89
 msgid "Edit"
@@ -97,19 +97,19 @@ msgstr "हटाएँ"
 
 #: usr/lib/sticky/manager.py:196
 msgid "Untitled"
-msgstr ""
+msgstr "शीर्षक रहित"
 
 #: usr/lib/sticky/manager.py:235
 msgid "New Group"
-msgstr ""
+msgstr "नवीन समूह"
 
 #: usr/lib/sticky/manager.py:245
 msgid "Back Up"
-msgstr ""
+msgstr "बैकअप"
 
 #: usr/lib/sticky/manager.py:249
 msgid "Restore Backups..."
-msgstr ""
+msgstr "बैकअप पुनःस्थापना..."
 
 #: usr/lib/sticky/manager.py:265 usr/lib/sticky/sticky.py:506
 msgid "Preferences"
@@ -153,15 +153,15 @@ msgstr "नारंगी"
 
 #: usr/lib/sticky/sticky.py:37
 msgid "Magenta"
-msgstr ""
+msgstr "गहरा गुलाबी"
 
 #: usr/lib/sticky/sticky.py:52
 msgid "Move selection up"
-msgstr ""
+msgstr "वर्तमान चयन ऊपर करें"
 
 #: usr/lib/sticky/sticky.py:53
 msgid "Move selection down"
-msgstr ""
+msgstr "वर्तमान चयन नीचे लाएं"
 
 #: usr/lib/sticky/sticky.py:54
 msgid "Undo"
@@ -173,26 +173,26 @@ msgstr "पुनः करें"
 
 #: usr/lib/sticky/sticky.py:56 usr/lib/sticky/sticky.py:423
 msgid "Toggle Checklist"
-msgstr ""
+msgstr "चयन सूची चालू/बंद"
 
 #: usr/lib/sticky/sticky.py:57 usr/lib/sticky/sticky.py:427
 msgid "Toggle Bullets"
-msgstr ""
+msgstr "बुलेट सूची चालू/बंद"
 
 #: usr/lib/sticky/sticky.py:58 usr/lib/sticky/sticky.py:386
 #: usr/lib/sticky/sticky.py:387
 msgid "Bold"
-msgstr ""
+msgstr "बोल्ड"
 
 #: usr/lib/sticky/sticky.py:59 usr/lib/sticky/sticky.py:391
 #: usr/lib/sticky/sticky.py:392
 msgid "Italic"
-msgstr ""
+msgstr "इटैलिक"
 
 #: usr/lib/sticky/sticky.py:60 usr/lib/sticky/sticky.py:396
 #: usr/lib/sticky/sticky.py:397
 msgid "Fixed Width"
-msgstr ""
+msgstr "नियत चौड़ाई"
 
 #: usr/lib/sticky/sticky.py:61 usr/lib/sticky/sticky.py:401
 #: usr/lib/sticky/sticky.py:402
@@ -202,7 +202,7 @@ msgstr "रेखांकन"
 #: usr/lib/sticky/sticky.py:62 usr/lib/sticky/sticky.py:406
 #: usr/lib/sticky/sticky.py:407
 msgid "Strikethrough"
-msgstr ""
+msgstr "स्ट्राइकथ्रू"
 
 #: usr/lib/sticky/sticky.py:63 usr/lib/sticky/sticky.py:411
 #: usr/lib/sticky/sticky.py:412
@@ -212,7 +212,7 @@ msgstr "चिन्हित"
 #: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:416
 #: usr/lib/sticky/sticky.py:417
 msgid "Header"
-msgstr ""
+msgstr "शीर्ष लेख"
 
 #: usr/lib/sticky/sticky.py:119 usr/lib/sticky/sticky.py:157
 msgid "Format"
@@ -220,64 +220,64 @@ msgstr "प्रारूप"
 
 #: usr/lib/sticky/sticky.py:136
 msgid "Rename"
-msgstr ""
+msgstr "नाम परिवर्तन"
 
 #: usr/lib/sticky/sticky.py:144 usr/lib/sticky/sticky.py:343
 #: usr/lib/sticky/sticky.py:453
 msgid "Delete Note"
-msgstr ""
+msgstr "टिप्पणी हटाएँ"
 
 #: usr/lib/sticky/sticky.py:151 usr/lib/sticky/sticky.py:704
 msgid "New Note"
-msgstr ""
+msgstr "नवीन टिप्पणी"
 
 #: usr/lib/sticky/sticky.py:328
 msgid "undo"
-msgstr ""
+msgstr "पूर्ववत करें"
 
 #: usr/lib/sticky/sticky.py:332
 msgid "redo"
-msgstr ""
+msgstr "पुनः करें"
 
 #: usr/lib/sticky/sticky.py:338
 msgid "Set Title"
-msgstr ""
+msgstr "शीर्षक प्रदान करें"
 
 #: usr/lib/sticky/sticky.py:338
 msgid "Edit Title"
-msgstr ""
+msgstr "शीर्षक संपादित करें"
 
 #: usr/lib/sticky/sticky.py:351
 msgid "Only on This Workspace"
-msgstr ""
+msgstr "केवल इस कार्यस्थल हेतु"
 
 #: usr/lib/sticky/sticky.py:355
 msgid "Always on Visible Workspace"
-msgstr ""
+msgstr "सदैव दृश्यमान कार्यस्थल पर"
 
 #: usr/lib/sticky/sticky.py:367
 msgid "Always on Top"
-msgstr ""
+msgstr "सदैव शीर्ष पर"
 
 #: usr/lib/sticky/sticky.py:453
 msgid "Are you sure you want to remove this note?"
-msgstr ""
+msgstr "क्या आप निश्चित यह टिप्पणी हटाना चाहते हैं?"
 
 #: usr/lib/sticky/sticky.py:510
 msgid "Show notes on all desktops"
-msgstr ""
+msgstr "सभी डेस्कटॉप पर टिप्पणियाँ प्रदर्शित करें"
 
 #: usr/lib/sticky/sticky.py:511
 msgid "Show in taskbar"
-msgstr ""
+msgstr "कार्य-पट्टी में दिखाएँ"
 
 #: usr/lib/sticky/sticky.py:512
 msgid "Tray icon"
-msgstr ""
+msgstr "ट्रे आइकन"
 
 #: usr/lib/sticky/sticky.py:513
 msgid "Show the main window automatically"
-msgstr ""
+msgstr "मुख्य विंडो स्वतः ही प्रदर्शित करें"
 
 #: usr/lib/sticky/sticky.py:514
 msgid "General"
@@ -285,11 +285,11 @@ msgstr "सामान्य"
 
 #: usr/lib/sticky/sticky.py:518
 msgid "Default height"
-msgstr ""
+msgstr "डिफ़ॉल्ट ऊँचाई"
 
 #: usr/lib/sticky/sticky.py:519
 msgid "Default width"
-msgstr ""
+msgstr "डिफ़ॉल्ट चौड़ाई"
 
 #: usr/lib/sticky/sticky.py:523 usr/lib/sticky/sticky.py:528
 msgid "Random"
@@ -297,7 +297,7 @@ msgstr "क्रमरहित"
 
 #: usr/lib/sticky/sticky.py:525 usr/lib/sticky/sticky.py:530
 msgid "Default color"
-msgstr ""
+msgstr "डिफ़ॉल्ट रंग"
 
 #: usr/lib/sticky/sticky.py:532
 msgid "Font"
@@ -312,15 +312,15 @@ msgstr "वर्तनी त्रुटियाँ दिखाएँ"
 #: usr/lib/sticky/sticky.py:872 generate_desktop_files:13
 #: usr/share/sticky/manager.ui.h:1
 msgid "Notes"
-msgstr ""
+msgstr "टिप्पणियाँ"
 
 #: usr/lib/sticky/sticky.py:540
 msgid "Automatic backups"
-msgstr ""
+msgstr "स्वतः बैकअप"
 
 #: usr/lib/sticky/sticky.py:541
 msgid "Time between backups"
-msgstr ""
+msgstr "बैकअप हेतु अवधि"
 
 #: usr/lib/sticky/sticky.py:541
 msgid "hours"
@@ -329,10 +329,12 @@ msgstr "घंटे"
 #: usr/lib/sticky/sticky.py:542
 msgid "Set this to zero if you wish to keep all backups indefinitely"
 msgstr ""
+"यदि आप सभी बैकअप अनिश्चित काल तक संचित करना चाहते हैं तो इसे शून्य पर सेट "
+"करें"
 
 #: usr/lib/sticky/sticky.py:543
 msgid "Number to keep"
-msgstr ""
+msgstr "संचय हेतु बैकअप संख्या"
 
 #: usr/lib/sticky/sticky.py:545
 msgid "Backups"
@@ -344,7 +346,7 @@ msgstr "स्वतः आरंभ करें"
 
 #: usr/lib/sticky/sticky.py:550
 msgid "Show notes on the screen"
-msgstr ""
+msgstr "स्क्रीन पर टिप्पणियाँ प्रदर्शित करें"
 
 #: usr/lib/sticky/sticky.py:551
 msgid "Automatic start"
@@ -355,6 +357,8 @@ msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
 msgstr ""
+"क्या आप Gnote से अपनी टिप्पणियाँ आयात करना चाहते हैं? इससे आपकी Gnote "
+"टिप्पणियों पर कोई प्रभाव नहीं पड़ेगा।"
 
 #: usr/lib/sticky/sticky.py:684
 msgid "Group 1"
@@ -362,7 +366,7 @@ msgstr "समूह 1"
 
 #: usr/lib/sticky/sticky.py:708
 msgid "Manage Notes"
-msgstr ""
+msgstr "टिप्पणी प्रबंधन"
 
 #: usr/lib/sticky/sticky.py:724
 msgid "Quit"
@@ -371,16 +375,16 @@ msgstr "बंद करें"
 #: usr/lib/sticky/sticky.py:873 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr ""
+msgstr "टिप्पणी संचित कर व्यवस्थित रहें"
 
 #: usr/lib/sticky/util.py:76
 msgid "Unfiled"
-msgstr ""
+msgstr "असंचित"
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
-msgstr ""
+msgstr "नवीन टिप्पणी"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr ""
+msgstr "चयनित टिप्पणी हटाएँ"

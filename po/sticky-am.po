@@ -1,4 +1,4 @@
-# Belarusian translation for linuxmint
+# Amharic translation for linuxmint
 # Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
 # This file is distributed under the same license as the linuxmint package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-06-07 18:00+0100\n"
-"PO-Revision-Date: 2021-06-09 15:37+0000\n"
-"Last-Translator: Anton Hryb <Unknown>\n"
-"Language-Team: Belarusian <be@li.org>\n"
+"PO-Revision-Date: 2021-06-20 16:34+0000\n"
+"Last-Translator: samson <Unknown>\n"
+"Language-Team: Amharic <am@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,371 +19,368 @@ msgstr ""
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:259
 msgid "Export..."
-msgstr "Экспартаваць..."
+msgstr "መላኪያ..."
 
 #: usr/lib/sticky/common.py:145 usr/lib/sticky/common.py:169
 #: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:318
 msgid "Cancel"
-msgstr "Скасаваць"
+msgstr "መሰረዣ"
 
 #: usr/lib/sticky/common.py:145
 msgid "Save"
-msgstr "Захаваць"
+msgstr "ማስቀመጫ"
 
 #: usr/lib/sticky/common.py:156 usr/lib/sticky/common.py:178
 msgid "Plain Text"
-msgstr "Просты тэкст"
+msgstr "መደበኛ ጽሁፍ"
 
 #: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:255
 msgid "Import..."
-msgstr "Імпартаваць..."
+msgstr "ማምጫ..."
 
 #: usr/lib/sticky/common.py:169
 msgid "Open"
-msgstr "Адкрыць"
+msgstr "መክፈቻ"
 
 #: usr/lib/sticky/common.py:191
 msgid "Restore Backup"
-msgstr "Аднавіць рэзервовую копію"
+msgstr "ተተኪ እንደ ነበር መመለሻ"
 
 #: usr/lib/sticky/common.py:193
 msgid "Clear"
-msgstr "Ачысціць"
+msgstr "ማጽጃ"
 
 #: usr/lib/sticky/common.py:194
 msgid "Restore"
-msgstr "Аднавіць"
+msgstr "እንደ ነበር መመለሻ"
 
 #: usr/lib/sticky/common.py:249
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr "Немагчыма аднавіць: няправільны або пашкоджаны файл рэзервовай копіі"
+msgstr "ተተኪ እንደ ነበር መመለስ አልተቻለም: ተተኪው ፋይል ዋጋ የሌለው ወይንም የ ተበላሸ ነው"
 
 #: usr/lib/sticky/common.py:267 usr/lib/sticky/manager.py:239
 msgid "Remove Group"
-msgstr "Выдаліць групу"
+msgstr "ቡድን ማስወገጃ"
 
 #: usr/lib/sticky/common.py:267
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
-msgstr "Вы сапраўды жадаеце выдаліць групу %s?"
+msgstr "እርስዎ በ እርግጥ ቡድኑን ማስወገድ ይፈልጋሉ %s?"
 
 #: usr/lib/sticky/common.py:319
 msgid "OK"
-msgstr "Добра"
+msgstr "እሺ"
 
 #: usr/lib/sticky/common.py:341
 msgid "No"
-msgstr "Не"
+msgstr "አይ"
 
 #: usr/lib/sticky/common.py:342
 msgid "Yes"
-msgstr "Так"
+msgstr "አዎ"
 
 #: usr/lib/sticky/common.py:352
 msgid "Don't ask me again"
-msgstr "Болей не пытаць"
+msgstr "በ ድጋሚ አትጠይቀኝ"
 
 #: usr/lib/sticky/manager.py:84
 msgid "New"
-msgstr "Стварыць"
+msgstr "አዲስ"
 
 #: usr/lib/sticky/manager.py:89
 msgid "Edit"
-msgstr "Змяніць"
+msgstr "ማረሚያ"
 
 #: usr/lib/sticky/manager.py:93
 msgid "Remove"
-msgstr "Выдаліць"
+msgstr "ማስወገጃ"
 
 #: usr/lib/sticky/manager.py:196
 msgid "Untitled"
-msgstr "Без назвы"
+msgstr "ያልተሰየመ"
 
 #: usr/lib/sticky/manager.py:235
 msgid "New Group"
-msgstr "Новая група"
+msgstr "አዲስ ቡድን"
 
 #: usr/lib/sticky/manager.py:245
 msgid "Back Up"
-msgstr "Рэзервовая копія"
+msgstr "ተተኪ"
 
 #: usr/lib/sticky/manager.py:249
 msgid "Restore Backups..."
-msgstr "Аднавіць рэзервовыя копіі..."
+msgstr "ተተኪ እንደ ነበር መመለሻ..."
 
 #: usr/lib/sticky/manager.py:265 usr/lib/sticky/sticky.py:506
 msgid "Preferences"
-msgstr "Параметры"
+msgstr "ምርጫዎች"
 
 #: usr/lib/sticky/manager.py:269
 msgid "Keyboard Shortcuts"
-msgstr "Спалучэнні клавіш"
+msgstr "የ ፊደል ገበታ አቋራጮች"
 
 #: usr/lib/sticky/manager.py:274 usr/lib/sticky/sticky.py:871
 msgid "About"
-msgstr "Аб праграме"
+msgstr "ስለ"
 
 #: usr/lib/sticky/sticky.py:30
 msgid "Red"
-msgstr "Чырвоны"
+msgstr "ቀይ"
 
 #: usr/lib/sticky/sticky.py:31
 msgid "Green"
-msgstr "Зялёны"
+msgstr "አረንጓዴ"
 
 #: usr/lib/sticky/sticky.py:32
 msgid "Blue"
-msgstr "Сіні"
+msgstr "ሰማያዊ"
 
 #: usr/lib/sticky/sticky.py:33
 msgid "Yellow"
-msgstr "Жоўты"
+msgstr "ቢጫ"
 
 #: usr/lib/sticky/sticky.py:34
 msgid "Purple"
-msgstr "Фіялетавы"
+msgstr "ወይን ጠጅ"
 
 #: usr/lib/sticky/sticky.py:35
 msgid "Teal"
-msgstr "Бірузовы"
+msgstr "ሰማያዊ አረንጓዴ"
 
 #: usr/lib/sticky/sticky.py:36
 msgid "Orange"
-msgstr "Аранжавы"
+msgstr "ብርቱካን"
 
 #: usr/lib/sticky/sticky.py:37
 msgid "Magenta"
-msgstr "Пурпурны"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:52
 msgid "Move selection up"
-msgstr "Падняць вылучанае"
+msgstr "የ ተመረጠውን ወደ ላይ ማንቀሳቀሻ"
 
 #: usr/lib/sticky/sticky.py:53
 msgid "Move selection down"
-msgstr "Апусціць вылучанае"
+msgstr "የ ተመረጠውን ወደ ታች ማንቀሳቀሻ"
 
 #: usr/lib/sticky/sticky.py:54
 msgid "Undo"
-msgstr "Адрабіць"
+msgstr "መተው"
 
 #: usr/lib/sticky/sticky.py:55
 msgid "Redo"
-msgstr "Узнавіць"
+msgstr "እንደገና መስሪያ"
 
 #: usr/lib/sticky/sticky.py:56 usr/lib/sticky/sticky.py:423
 msgid "Toggle Checklist"
-msgstr "Кантрольны спіс"
+msgstr "ምልክት ማድረጊያ መቀያየሪያ"
 
 #: usr/lib/sticky/sticky.py:57 usr/lib/sticky/sticky.py:427
 msgid "Toggle Bullets"
-msgstr "Маркерны спіс"
+msgstr "ነጥቦች መቀያየሪያ"
 
 #: usr/lib/sticky/sticky.py:58 usr/lib/sticky/sticky.py:386
 #: usr/lib/sticky/sticky.py:387
 msgid "Bold"
-msgstr "Тлусты"
+msgstr "ማድመቂያ"
 
 #: usr/lib/sticky/sticky.py:59 usr/lib/sticky/sticky.py:391
 #: usr/lib/sticky/sticky.py:392
 msgid "Italic"
-msgstr "Курсіўны"
+msgstr "ማዝመሚያ"
 
 #: usr/lib/sticky/sticky.py:60 usr/lib/sticky/sticky.py:396
 #: usr/lib/sticky/sticky.py:397
 msgid "Fixed Width"
-msgstr "Нязменная шырыня"
+msgstr "የ ተወሰን ስፋት"
 
 #: usr/lib/sticky/sticky.py:61 usr/lib/sticky/sticky.py:401
 #: usr/lib/sticky/sticky.py:402
 msgid "Underline"
-msgstr "Падкрэслены"
+msgstr "ከ ስሩ ማስመሪያ"
 
 #: usr/lib/sticky/sticky.py:62 usr/lib/sticky/sticky.py:406
 #: usr/lib/sticky/sticky.py:407
 msgid "Strikethrough"
-msgstr "Закрэслены"
+msgstr "በ ላዩ ላይ መሰረዣ"
 
 #: usr/lib/sticky/sticky.py:63 usr/lib/sticky/sticky.py:411
 #: usr/lib/sticky/sticky.py:412
 msgid "Highlight"
-msgstr "Падсвятліць"
+msgstr "ማድመቂያ"
 
 #: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:416
 #: usr/lib/sticky/sticky.py:417
 msgid "Header"
-msgstr "Загаловак"
+msgstr "ራስጌ"
 
 #: usr/lib/sticky/sticky.py:119 usr/lib/sticky/sticky.py:157
 msgid "Format"
-msgstr "Фармат"
+msgstr "አቀራረብ"
 
 #: usr/lib/sticky/sticky.py:136
 msgid "Rename"
-msgstr "Пераназваць"
+msgstr "እንደገና መሰየሚያ"
 
 #: usr/lib/sticky/sticky.py:144 usr/lib/sticky/sticky.py:343
 #: usr/lib/sticky/sticky.py:453
 msgid "Delete Note"
-msgstr "Выдаліць нататку"
+msgstr "ማስታወሻ ማጥፊያ"
 
 #: usr/lib/sticky/sticky.py:151 usr/lib/sticky/sticky.py:704
 msgid "New Note"
-msgstr "Новая нататка"
+msgstr "አዲስ ማስታወሻ"
 
 #: usr/lib/sticky/sticky.py:328
 msgid "undo"
-msgstr "адрабіць"
+msgstr "መተው"
 
 #: usr/lib/sticky/sticky.py:332
 msgid "redo"
-msgstr "узнавіць"
+msgstr "እንደገና መስሪያ"
 
 #: usr/lib/sticky/sticky.py:338
 msgid "Set Title"
-msgstr "Вызначыць загаловак"
+msgstr "አርእስት ማሰናጃ"
 
 #: usr/lib/sticky/sticky.py:338
 msgid "Edit Title"
-msgstr "Змяніць загаловак"
+msgstr "አርእስት ማረሚያ"
 
 #: usr/lib/sticky/sticky.py:351
 msgid "Only on This Workspace"
-msgstr "Толькі на гэтай прасторы"
+msgstr "በ እዚህ የ መስሪያ ቦታ ብቻ"
 
 #: usr/lib/sticky/sticky.py:355
 msgid "Always on Visible Workspace"
-msgstr "Заўсёды на бачнай прасторы"
+msgstr "ሁልጊዜ በሚታይ የ ስራ ቦታ"
 
 #: usr/lib/sticky/sticky.py:367
 msgid "Always on Top"
-msgstr "Заўсёды зверху"
+msgstr "ሁልጊዜ ከ ላይ"
 
 #: usr/lib/sticky/sticky.py:453
 msgid "Are you sure you want to remove this note?"
-msgstr "Вы сапраўды жадаеце выдаліць гэту нататку?"
+msgstr "እርስዎ በ እርግጥ ይህን ማስታወሻ ማጥፋት ይፈልጋሉ?"
 
 #: usr/lib/sticky/sticky.py:510
 msgid "Show notes on all desktops"
-msgstr "Паказваць нататкі на ўсіх працоўных сталах"
+msgstr "በሁሉም ዴስክቶፕ ላይ ማስታወሻ ማሳያ"
 
 #: usr/lib/sticky/sticky.py:511
 msgid "Show in taskbar"
-msgstr "Паказаць на панэлі задач"
+msgstr "በ ስራ መደርደሪያው ላይ ማሳያ"
 
 #: usr/lib/sticky/sticky.py:512
 msgid "Tray icon"
-msgstr "Іконка ў трэі"
+msgstr "የ ትሪ ምልክት"
 
 #: usr/lib/sticky/sticky.py:513
 msgid "Show the main window automatically"
-msgstr "Паказваць галоўнае акно аўтаматычна"
+msgstr "ራሱ በራሱ ዋናውን መስኮት ማሳያ"
 
 #: usr/lib/sticky/sticky.py:514
 msgid "General"
-msgstr "Асноўнае"
+msgstr "ባጠቃላይ"
 
 #: usr/lib/sticky/sticky.py:518
 msgid "Default height"
-msgstr "Перадвызначаная вышыня"
+msgstr "ነባር እርዝመት"
 
 #: usr/lib/sticky/sticky.py:519
 msgid "Default width"
-msgstr "Перадвызначаная шырыня"
+msgstr "ነባር ስፋት"
 
 #: usr/lib/sticky/sticky.py:523 usr/lib/sticky/sticky.py:528
 msgid "Random"
-msgstr "Выпадкова"
+msgstr "በ ነሲብ"
 
 #: usr/lib/sticky/sticky.py:525 usr/lib/sticky/sticky.py:530
 msgid "Default color"
-msgstr "Перадвызначаны колер"
+msgstr "ነባር ቀለም"
 
 #: usr/lib/sticky/sticky.py:532
 msgid "Font"
-msgstr "Шрыфт"
+msgstr "ፊደል"
 
 #: usr/lib/sticky/sticky.py:533
 msgid "Show spelling mistakes"
-msgstr "Паказаць арфаграфічныя памылкі"
+msgstr "የ ፊደል ግድፈት ማሳያ"
 
 #: usr/lib/sticky/sticky.py:535 usr/lib/sticky/sticky.py:596
 #: usr/lib/sticky/sticky.py:660 usr/lib/sticky/sticky.py:692
 #: usr/lib/sticky/sticky.py:872 generate_desktop_files:13
 #: usr/share/sticky/manager.ui.h:1
 msgid "Notes"
-msgstr "Нататкі"
+msgstr "ማስታወሻዎች"
 
 #: usr/lib/sticky/sticky.py:540
 msgid "Automatic backups"
-msgstr "Аўтаматычныя рэзервовыя копіі"
+msgstr "ራሱ በራሱ ተተኪ መስሪያ"
 
 #: usr/lib/sticky/sticky.py:541
 msgid "Time between backups"
-msgstr "Час паміж рэзервовымі копіямі"
+msgstr "በ ተተኪ መካከል ያለው ጊዜ"
 
 #: usr/lib/sticky/sticky.py:541
 msgid "hours"
-msgstr "гадзін"
+msgstr "ሰአቶች"
 
 #: usr/lib/sticky/sticky.py:542
 msgid "Set this to zero if you wish to keep all backups indefinitely"
 msgstr ""
-"Задаць нуль, калі жадаеце захоўваць усе рэзервовыя копіі безтэрмінова"
 
 #: usr/lib/sticky/sticky.py:543
 msgid "Number to keep"
-msgstr "Колькі будзе захавана"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:545
 msgid "Backups"
-msgstr "Рэзервовыя копіі"
+msgstr "ተተኪ"
 
 #: usr/lib/sticky/sticky.py:549
 msgid "Start automatically"
-msgstr "Стартаваць аўтаматычна"
+msgstr "ራሱ በራሱ ማስጀመሪያ"
 
 #: usr/lib/sticky/sticky.py:550
 msgid "Show notes on the screen"
-msgstr "Паказаць нататкі на экране"
+msgstr "ማስታወሻ በ መመልከቻ ላይ ማሳያ"
 
 #: usr/lib/sticky/sticky.py:551
 msgid "Automatic start"
-msgstr "Аўтаматычны старт"
+msgstr "ራሱ በራሱ ማስጀመሪያ"
 
 #: usr/lib/sticky/sticky.py:661
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
 msgstr ""
-"Ці жадаеце імпартаваць вашы нататкі з Gnote? Гэта ніяк не зменіць вашы "
-"нататкі ў Gnote."
 
 #: usr/lib/sticky/sticky.py:684
 msgid "Group 1"
-msgstr "Група 1"
+msgstr "ቡድን 1"
 
 #: usr/lib/sticky/sticky.py:708
 msgid "Manage Notes"
-msgstr "Кіраваць нататкамі"
+msgstr "የ ማስታወሻ አስተዳዳሪ"
 
 #: usr/lib/sticky/sticky.py:724
 msgid "Quit"
-msgstr "Выйсці"
+msgstr "ማጥፊያ"
 
 #: usr/lib/sticky/sticky.py:873 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr "Рабіце нататкі і будзьце арганізаванымі"
+msgstr "ማስታወሻ መውሰጃ እና ማደራጃ"
 
 #: usr/lib/sticky/util.py:76
 msgid "Unfiled"
-msgstr "Не вызначана"
+msgstr "ያልተሞላ"
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
-msgstr "Новая нататка"
+msgstr "አዲስ ማስታወሻ"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr "Выдаліць вылучаную нататку"
+msgstr "የ ተመረጠውን ማስታወሻ ማስወገጃ"

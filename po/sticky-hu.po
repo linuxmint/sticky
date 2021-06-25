@@ -1,389 +1,385 @@
-# Belarusian translation for linuxmint
-# Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
-# This file is distributed under the same license as the linuxmint package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: linuxmint\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-07 18:00+0100\n"
-"PO-Revision-Date: 2021-06-09 15:37+0000\n"
-"Last-Translator: Anton Hryb <Unknown>\n"
-"Language-Team: Belarusian <be@li.org>\n"
+"PO-Revision-Date: 2021-06-25 08:19+0000\n"
+"Last-Translator: KAMI <kami911@gmail.com>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2021-06-25 10:43+0000\n"
 "X-Generator: Launchpad (build 40cc6dba4163ba9ca785b26ad91f43c87d70ba4d)\n"
+"Language: hu\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:259
 msgid "Export..."
-msgstr "Экспартаваць..."
+msgstr "Exportálás…"
 
 #: usr/lib/sticky/common.py:145 usr/lib/sticky/common.py:169
 #: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:318
 msgid "Cancel"
-msgstr "Скасаваць"
+msgstr "Mégse"
 
 #: usr/lib/sticky/common.py:145
 msgid "Save"
-msgstr "Захаваць"
+msgstr "Mentés"
 
 #: usr/lib/sticky/common.py:156 usr/lib/sticky/common.py:178
 msgid "Plain Text"
-msgstr "Просты тэкст"
+msgstr "Egyszerű szöveg"
 
 #: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:255
 msgid "Import..."
-msgstr "Імпартаваць..."
+msgstr "Importálás…"
 
 #: usr/lib/sticky/common.py:169
 msgid "Open"
-msgstr "Адкрыць"
+msgstr "Nyitott"
 
 #: usr/lib/sticky/common.py:191
 msgid "Restore Backup"
-msgstr "Аднавіць рэзервовую копію"
+msgstr "Visszaállítás mentésből"
 
 #: usr/lib/sticky/common.py:193
 msgid "Clear"
-msgstr "Ачысціць"
+msgstr "Törlés"
 
 #: usr/lib/sticky/common.py:194
 msgid "Restore"
-msgstr "Аднавіць"
+msgstr "Visszaállítás"
 
 #: usr/lib/sticky/common.py:249
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr "Немагчыма аднавіць: няправільны або пашкоджаны файл рэзервовай копіі"
+msgstr "Nem állítható vissza a mentés: érvénytelen vagy hibás fájl"
 
 #: usr/lib/sticky/common.py:267 usr/lib/sticky/manager.py:239
 msgid "Remove Group"
-msgstr "Выдаліць групу"
+msgstr "Csoport törlése"
 
 #: usr/lib/sticky/common.py:267
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
-msgstr "Вы сапраўды жадаеце выдаліць групу %s?"
+msgstr "Valóban el kívánja távolítani a(z) %s csoportot?"
 
 #: usr/lib/sticky/common.py:319
 msgid "OK"
-msgstr "Добра"
+msgstr "OK"
 
 #: usr/lib/sticky/common.py:341
 msgid "No"
-msgstr "Не"
+msgstr "Nem"
 
 #: usr/lib/sticky/common.py:342
 msgid "Yes"
-msgstr "Так"
+msgstr "Igen"
 
 #: usr/lib/sticky/common.py:352
 msgid "Don't ask me again"
-msgstr "Болей не пытаць"
+msgstr "Ne kérdezzen többször"
 
 #: usr/lib/sticky/manager.py:84
 msgid "New"
-msgstr "Стварыць"
+msgstr "Új"
 
 #: usr/lib/sticky/manager.py:89
 msgid "Edit"
-msgstr "Змяніць"
+msgstr "Szerkesztés"
 
 #: usr/lib/sticky/manager.py:93
 msgid "Remove"
-msgstr "Выдаліць"
+msgstr "Eltávolítás"
 
 #: usr/lib/sticky/manager.py:196
 msgid "Untitled"
-msgstr "Без назвы"
+msgstr "Névtelen"
 
 #: usr/lib/sticky/manager.py:235
 msgid "New Group"
-msgstr "Новая група"
+msgstr "Új csoport"
 
 #: usr/lib/sticky/manager.py:245
 msgid "Back Up"
-msgstr "Рэзервовая копія"
+msgstr "Biztonsági mentés készítése"
 
 #: usr/lib/sticky/manager.py:249
 msgid "Restore Backups..."
-msgstr "Аднавіць рэзервовыя копіі..."
+msgstr "Biztonsági mentés visszállítása"
 
 #: usr/lib/sticky/manager.py:265 usr/lib/sticky/sticky.py:506
 msgid "Preferences"
-msgstr "Параметры"
+msgstr "Beállítások"
 
 #: usr/lib/sticky/manager.py:269
 msgid "Keyboard Shortcuts"
-msgstr "Спалучэнні клавіш"
+msgstr "Gyorsbillentyűk"
 
 #: usr/lib/sticky/manager.py:274 usr/lib/sticky/sticky.py:871
 msgid "About"
-msgstr "Аб праграме"
+msgstr "Névjegy"
 
 #: usr/lib/sticky/sticky.py:30
 msgid "Red"
-msgstr "Чырвоны"
+msgstr "Vörös"
 
 #: usr/lib/sticky/sticky.py:31
 msgid "Green"
-msgstr "Зялёны"
+msgstr "Zöld"
 
 #: usr/lib/sticky/sticky.py:32
 msgid "Blue"
-msgstr "Сіні"
+msgstr "Kék"
 
 #: usr/lib/sticky/sticky.py:33
 msgid "Yellow"
-msgstr "Жоўты"
+msgstr "Sárga"
 
 #: usr/lib/sticky/sticky.py:34
 msgid "Purple"
-msgstr "Фіялетавы"
+msgstr "Bíbor"
 
 #: usr/lib/sticky/sticky.py:35
 msgid "Teal"
-msgstr "Бірузовы"
+msgstr "Kékeszöld"
 
 #: usr/lib/sticky/sticky.py:36
 msgid "Orange"
-msgstr "Аранжавы"
+msgstr "Narancssárga"
 
 #: usr/lib/sticky/sticky.py:37
 msgid "Magenta"
-msgstr "Пурпурны"
+msgstr "Bíborvörös"
 
 #: usr/lib/sticky/sticky.py:52
 msgid "Move selection up"
-msgstr "Падняць вылучанае"
+msgstr "Kiválasztás mozgatása felfelé"
 
 #: usr/lib/sticky/sticky.py:53
 msgid "Move selection down"
-msgstr "Апусціць вылучанае"
+msgstr "Kiválasztás mozgatása lefelé"
 
 #: usr/lib/sticky/sticky.py:54
 msgid "Undo"
-msgstr "Адрабіць"
+msgstr "Visszavonás"
 
 #: usr/lib/sticky/sticky.py:55
 msgid "Redo"
-msgstr "Узнавіць"
+msgstr "Mégis"
 
 #: usr/lib/sticky/sticky.py:56 usr/lib/sticky/sticky.py:423
 msgid "Toggle Checklist"
-msgstr "Кантрольны спіс"
+msgstr "Jelölőnégyzet váltása"
 
 #: usr/lib/sticky/sticky.py:57 usr/lib/sticky/sticky.py:427
 msgid "Toggle Bullets"
-msgstr "Маркерны спіс"
+msgstr "Felsorolás váltása"
 
 #: usr/lib/sticky/sticky.py:58 usr/lib/sticky/sticky.py:386
 #: usr/lib/sticky/sticky.py:387
 msgid "Bold"
-msgstr "Тлусты"
+msgstr "Félkövér"
 
 #: usr/lib/sticky/sticky.py:59 usr/lib/sticky/sticky.py:391
 #: usr/lib/sticky/sticky.py:392
 msgid "Italic"
-msgstr "Курсіўны"
+msgstr "Dőlt"
 
 #: usr/lib/sticky/sticky.py:60 usr/lib/sticky/sticky.py:396
 #: usr/lib/sticky/sticky.py:397
 msgid "Fixed Width"
-msgstr "Нязменная шырыня"
+msgstr "Rögzített szélességű"
 
 #: usr/lib/sticky/sticky.py:61 usr/lib/sticky/sticky.py:401
 #: usr/lib/sticky/sticky.py:402
 msgid "Underline"
-msgstr "Падкрэслены"
+msgstr "Aláhúzás"
 
 #: usr/lib/sticky/sticky.py:62 usr/lib/sticky/sticky.py:406
 #: usr/lib/sticky/sticky.py:407
 msgid "Strikethrough"
-msgstr "Закрэслены"
+msgstr "Áthúzott"
 
 #: usr/lib/sticky/sticky.py:63 usr/lib/sticky/sticky.py:411
 #: usr/lib/sticky/sticky.py:412
 msgid "Highlight"
-msgstr "Падсвятліць"
+msgstr "Kiemelés"
 
 #: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:416
 #: usr/lib/sticky/sticky.py:417
 msgid "Header"
-msgstr "Загаловак"
+msgstr "Fejléc"
 
 #: usr/lib/sticky/sticky.py:119 usr/lib/sticky/sticky.py:157
 msgid "Format"
-msgstr "Фармат"
+msgstr "Formázás"
 
 #: usr/lib/sticky/sticky.py:136
 msgid "Rename"
-msgstr "Пераназваць"
+msgstr "Átnevezés"
 
 #: usr/lib/sticky/sticky.py:144 usr/lib/sticky/sticky.py:343
 #: usr/lib/sticky/sticky.py:453
 msgid "Delete Note"
-msgstr "Выдаліць нататку"
+msgstr "Jegyzet törlése"
 
 #: usr/lib/sticky/sticky.py:151 usr/lib/sticky/sticky.py:704
 msgid "New Note"
-msgstr "Новая нататка"
+msgstr "Új jegyzet"
 
 #: usr/lib/sticky/sticky.py:328
 msgid "undo"
-msgstr "адрабіць"
+msgstr "visszavonás"
 
 #: usr/lib/sticky/sticky.py:332
 msgid "redo"
-msgstr "узнавіць"
+msgstr "ismétlés"
 
 #: usr/lib/sticky/sticky.py:338
 msgid "Set Title"
-msgstr "Вызначыць загаловак"
+msgstr "Cím beállítása"
 
 #: usr/lib/sticky/sticky.py:338
 msgid "Edit Title"
-msgstr "Змяніць загаловак"
+msgstr "Cím szerkesztése"
 
 #: usr/lib/sticky/sticky.py:351
 msgid "Only on This Workspace"
-msgstr "Толькі на гэтай прасторы"
+msgstr "Csak ezen a munkaterületen"
 
 #: usr/lib/sticky/sticky.py:355
 msgid "Always on Visible Workspace"
-msgstr "Заўсёды на бачнай прасторы"
+msgstr "Mindig a látható munkaterületen"
 
 #: usr/lib/sticky/sticky.py:367
 msgid "Always on Top"
-msgstr "Заўсёды зверху"
+msgstr "Mindig felül"
 
 #: usr/lib/sticky/sticky.py:453
 msgid "Are you sure you want to remove this note?"
-msgstr "Вы сапраўды жадаеце выдаліць гэту нататку?"
+msgstr "Valóban el kívánja távolítani ezt a jegyzetet?"
 
 #: usr/lib/sticky/sticky.py:510
 msgid "Show notes on all desktops"
-msgstr "Паказваць нататкі на ўсіх працоўных сталах"
+msgstr "Jegyzetek megjelenítése az összes asztalon"
 
 #: usr/lib/sticky/sticky.py:511
 msgid "Show in taskbar"
-msgstr "Паказаць на панэлі задач"
+msgstr "Megjelenítés a panelen"
 
 #: usr/lib/sticky/sticky.py:512
 msgid "Tray icon"
-msgstr "Іконка ў трэі"
+msgstr "Értesítési panel ikon"
 
 #: usr/lib/sticky/sticky.py:513
 msgid "Show the main window automatically"
-msgstr "Паказваць галоўнае акно аўтаматычна"
+msgstr "Alkalmazás ablak megjelenítése"
 
 #: usr/lib/sticky/sticky.py:514
 msgid "General"
-msgstr "Асноўнае"
+msgstr "Általános"
 
 #: usr/lib/sticky/sticky.py:518
 msgid "Default height"
-msgstr "Перадвызначаная вышыня"
+msgstr "Alapértelmezett magasság"
 
 #: usr/lib/sticky/sticky.py:519
 msgid "Default width"
-msgstr "Перадвызначаная шырыня"
+msgstr "Alapértelmezett szélesség"
 
 #: usr/lib/sticky/sticky.py:523 usr/lib/sticky/sticky.py:528
 msgid "Random"
-msgstr "Выпадкова"
+msgstr "Véletlenszerű"
 
 #: usr/lib/sticky/sticky.py:525 usr/lib/sticky/sticky.py:530
 msgid "Default color"
-msgstr "Перадвызначаны колер"
+msgstr "Alapértelmezett szín"
 
 #: usr/lib/sticky/sticky.py:532
 msgid "Font"
-msgstr "Шрыфт"
+msgstr "Betűkészlet"
 
 #: usr/lib/sticky/sticky.py:533
 msgid "Show spelling mistakes"
-msgstr "Паказаць арфаграфічныя памылкі"
+msgstr "Helyesírási hibák megjelenítése"
 
 #: usr/lib/sticky/sticky.py:535 usr/lib/sticky/sticky.py:596
 #: usr/lib/sticky/sticky.py:660 usr/lib/sticky/sticky.py:692
 #: usr/lib/sticky/sticky.py:872 generate_desktop_files:13
 #: usr/share/sticky/manager.ui.h:1
 msgid "Notes"
-msgstr "Нататкі"
+msgstr "Megjegyzések"
 
 #: usr/lib/sticky/sticky.py:540
 msgid "Automatic backups"
-msgstr "Аўтаматычныя рэзервовыя копіі"
+msgstr "Automatikus mentés"
 
 #: usr/lib/sticky/sticky.py:541
 msgid "Time between backups"
-msgstr "Час паміж рэзервовымі копіямі"
+msgstr "Mentések közötti időköz"
 
 #: usr/lib/sticky/sticky.py:541
 msgid "hours"
-msgstr "гадзін"
+msgstr "óra"
 
 #: usr/lib/sticky/sticky.py:542
 msgid "Set this to zero if you wish to keep all backups indefinitely"
 msgstr ""
-"Задаць нуль, калі жадаеце захоўваць усе рэзервовыя копіі безтэрмінова"
+"Állítsa be ezt az értéket nullára, ha az összes mentést meg kívánja tartani"
 
 #: usr/lib/sticky/sticky.py:543
 msgid "Number to keep"
-msgstr "Колькі будзе захавана"
+msgstr "Megtartandó mentések száma"
 
 #: usr/lib/sticky/sticky.py:545
 msgid "Backups"
-msgstr "Рэзервовыя копіі"
+msgstr "Biztonsági mentések"
 
 #: usr/lib/sticky/sticky.py:549
 msgid "Start automatically"
-msgstr "Стартаваць аўтаматычна"
+msgstr "Automatikus indítás"
 
 #: usr/lib/sticky/sticky.py:550
 msgid "Show notes on the screen"
-msgstr "Паказаць нататкі на экране"
+msgstr "Jegyzetek megjelenítése"
 
 #: usr/lib/sticky/sticky.py:551
 msgid "Automatic start"
-msgstr "Аўтаматычны старт"
+msgstr "Automatikus indítás"
 
 #: usr/lib/sticky/sticky.py:661
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
 msgstr ""
-"Ці жадаеце імпартаваць вашы нататкі з Gnote? Гэта ніяк не зменіць вашы "
-"нататкі ў Gnote."
+"Be szeretné importálni a jegyzeteket a Gnote alkalmazásból? Ez a művelet "
+"semmilyen módon nem változtatja meg a Gnote jegyzeteket."
 
 #: usr/lib/sticky/sticky.py:684
 msgid "Group 1"
-msgstr "Група 1"
+msgstr "Csoport 1"
 
 #: usr/lib/sticky/sticky.py:708
 msgid "Manage Notes"
-msgstr "Кіраваць нататкамі"
+msgstr "Jegyzetek kezelése"
 
 #: usr/lib/sticky/sticky.py:724
 msgid "Quit"
-msgstr "Выйсці"
+msgstr "Kilépés"
 
 #: usr/lib/sticky/sticky.py:873 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr "Рабіце нататкі і будзьце арганізаванымі"
+msgstr "Írjon jegyezeteket és tárolja őket rendezetten"
 
 #: usr/lib/sticky/util.py:76
 msgid "Unfiled"
-msgstr "Не вызначана"
+msgstr "Üres"
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
-msgstr "Новая нататка"
+msgstr "Új jegyzet"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr "Выдаліць вылучаную нататку"
+msgstr "Kijelölt jegyzet eltávolítása"
