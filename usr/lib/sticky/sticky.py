@@ -746,9 +746,10 @@ class Application(Gtk.Application):
     def update_dummy_window(self, *args):
         if self.settings.get_boolean('show-in-taskbar') and not self.notes_hidden:
             self.dummy_window.set_skip_taskbar_hint(False)
-            self.dummy_window.move(-1, -1)
         else:
             self.dummy_window.set_skip_taskbar_hint(True)
+
+        self.dummy_window.move(-2, -2)
 
         if self.settings.get_boolean('desktop-window-state'):
             self.dummy_window.stick()
