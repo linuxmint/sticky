@@ -660,7 +660,7 @@ class Application(Gtk.Application):
                                window=self.dummy_window)
 
                 if resp:
-                    coordinates = 20
+                    coordinates = 40
                     for file in import_notes:
                         (group_name, info, is_template) = gnote_to_internal_format(file)
                         if not is_template:
@@ -675,7 +675,7 @@ class Application(Gtk.Application):
                             group_list.append(info)
                             self.file_handler.update_note_list(group_list, group_name)
 
-                            coordinates += coordinates
+                            coordinates += 20
 
         # Create a default group
         if len(self.file_handler.get_note_group_names()) == 0:
@@ -775,8 +775,8 @@ class Application(Gtk.Application):
         self.update_dummy_window()
 
     def new_note(self, *args):
-        x = 20
-        y = 20
+        x = 40
+        y = 40
         while(True):
             found = False
             for note_info in self.file_handler.get_note_list(self.note_group):
