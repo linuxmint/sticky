@@ -523,6 +523,10 @@ class NoteBuffer(Gtk.TextBuffer):
                         open_tags[tag_name] = self.create_mark(None, self.get_end_iter(), True)
 
                     current_index = next_index + 6 + len(tag_name)
+                else:
+                    print('formatting error detected - attempting to fix')
+                    self.insert(self.get_end_iter(), '#')
+                    current_index = next_index + 1
 
     def undo(self, *args):
         if len(self.undo_actions) == 0:
