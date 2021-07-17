@@ -46,7 +46,7 @@ def gnote_to_internal_format(file_path):
             internal_tag = ''
 
         if element.text:
-            text += element.text
+            text += element.text.replace('#', '##')
 
         for child in element:
             text += process_element(child)
@@ -54,7 +54,7 @@ def gnote_to_internal_format(file_path):
         text += internal_tag
 
         if element.tail:
-            text += element.tail
+            text += element.tail.replace('#', '##')
 
         return text
 
