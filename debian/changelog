@@ -1,3 +1,19 @@
+sticky (1.2) uma; urgency=medium
+
+  [ Stephen Collins ]
+  * Notes: if a time is provided, pass that to present_with_time() instead.
+
+  [ Michael Webster ]
+  * sticky.py: Fix a couple of positioning problems.
+
+  [ Stephen Collins ]
+  * Dummy window: always make sure it's moved off the edge of the screen.
+  * Gnote import: escape the '#' character during the import process.
+  * Buffer: attempt to detect and fix unescaped '#' characters.
+  * buffer: don't check the inserted text for a link on an idle callback.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 20 Jul 2021 11:34:42 +0100
+
 sticky (1.1) uma; urgency=medium
 
   [ Stephen Collins ]
