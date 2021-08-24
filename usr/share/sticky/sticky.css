@@ -126,6 +126,10 @@ textview text {
     border-radius: 12px;
 }
 
+#dummy-window {
+    background: transparent;
+}
+
 /* red */
 .red textview text,
 button.red {
