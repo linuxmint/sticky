@@ -591,7 +591,7 @@ class Application(Gtk.Application):
 
         self.settings = Gio.Settings(schema_id=SCHEMA)
 
-        self.dummy_window = Gtk.Window(title=_("Notes"), default_height=1, default_width=1, decorated=False, deletable=False)
+        self.dummy_window = Gtk.Window(title=_("Notes"), default_height=1, default_width=1, decorated=False, deletable=False, name='dummy-window')
         self.dummy_window.show()
 
         self.file_handler = FileHandler(self.settings, self.dummy_window)
