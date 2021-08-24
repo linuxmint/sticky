@@ -818,6 +818,11 @@ class Application(Gtk.Application):
         for note_info in self.file_handler.get_note_list(self.note_group):
             self.generate_note(note_info)
 
+    def focus_note(self, note_info):
+        for note in self.notes:
+            if note.get_info() == note_info:
+                note.present_with_time(0)
+
     def on_lists_changed(self, *args):
         if not self.note_group in self.file_handler.get_note_group_names():
             self.change_visible_note_group()

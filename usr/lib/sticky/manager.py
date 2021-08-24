@@ -187,9 +187,10 @@ class Group(GObject.Object):
         self.model = model
 
 class Note(GObject.Object):
-    def __init__(self, info):
+    def __init__(self, info, group_name):
         super(Note, self).__init__()
         self.info = info
+        self.group_name = group_name
         self.text = info['text']
         if not 'title'in info or info['title'] in [None, '']:
             self.title = _("Untitled")
@@ -200,6 +201,7 @@ class NotesManager(object):
     def __init__(self, app, file_handler):
         self.app = app
         self.dragged_note = None
+        self.search_model = Gio.ListStore()
 
         self.file_handler = file_handler
         self.file_handler.connect('group-changed', self.on_list_changed)
@@ -212,6 +214,7 @@ class NotesManager(object):
         self.window = self.builder.get_object('main_window')
         self.group_list = self.builder.get_object('group_list')
         self.note_view = self.builder.get_object('note_view')
+        self.note_view.connect('child-activated', self.on_note_activated)
 
         def create_group_entry(item):
             widget = GroupEntry(item)
@@ -226,6 +229,9 @@ class NotesManager(object):
 
         self.builder.get_object('new_note').connect('clicked', self.new_note)
         self.builder.get_object('remove_note').connect('clicked', self.remove_note)
+
+        self.search_box = self.builder.get_object('search_box')
+        self.search_box.connect('search-changed', self.on_search_changed)
 
         self.entry_box = self.builder.get_object('group_name_entry_box')
         self.entry_box.drag_dest_set(Gtk.DestDefaults.MOTION | Gtk.DestDefaults.HIGHLIGHT, NOTE_TARGETS, Gdk.DragAction.MOVE)
@@ -334,6 +340,57 @@ class NotesManager(object):
                 self.app.settings.set_string('active-group', group_name)
             self.generate_previews()
 
+    def on_search_changed(self, *args):
+        search_text = self.search_box.get_text()
+        if search_text.strip() == '':
+            self.generate_previews()
+
+        else:
+            self.search_model.remove_all()
+
+            for group_name in self.file_handler.get_note_group_names():
+                for note_info in self.file_handler.get_note_list(group_name):
+                    if note_info['title'].find(search_text) != -1 or note_info['text'].find(search_text) != -1:
+                        self.search_model.append(Note(note_info, group_name))
+
+            self.note_view.bind_model(self.search_model, self.create_note_entry)
+
+    def on_note_activated(self, *args):
+        activated = self.note_view.get_selected_children()[0].item
+        activated_group = activated.group_name
+        self.select_group(activated_group)
+
+        self.app.focus_note(activated.info)
+
+    def create_note_entry(self, item):
+        widget = Gtk.FlowBoxChild()
+        widget.item = item
+
+        dnd_wrapper = Gtk.EventBox(above_child=True)
+        dnd_wrapper.drag_source_set(Gdk.ModifierType.BUTTON1_MASK, NOTE_TARGETS, Gdk.DragAction.MOVE)
+        dnd_wrapper.connect('drag-begin', self.on_drag_begin)
+        widget.add(dnd_wrapper)
+
+        outer_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, margin=10, spacing=10)
+        outer_box.set_receives_default(True)
+        dnd_wrapper.add(outer_box)
+
+        wrapper = Gtk.Box(halign=Gtk.Align.CENTER)
+        context = wrapper.get_style_context()
+        context.add_class(item.info['color'])
+        context.add_class('note-preview')
+        outer_box.pack_start(wrapper, False, False, 0)
+
+        entry = NoteEntry(item)
+        wrapper.pack_start(entry, False, False, 0)
+
+        label = Gtk.Label(label=item.title, visible=True)
+        outer_box.pack_start(label, False, False, 0)
+
+        widget.show_all()
+
+        return widget
+
     def generate_previews(self, *args):
         selected_row = self.group_list.get_selected_row()
         if selected_row is None:
@@ -346,38 +403,9 @@ class NotesManager(object):
         model.remove_all()
 
         for note in self.file_handler.get_note_list(group_name):
-            model.append(Note(note))
+            model.append(Note(note, group_name))
 
-        def create_note_entry(item):
-            widget = Gtk.FlowBoxChild()
-            widget.item = item
-
-            dnd_wrapper = Gtk.EventBox(above_child=True)
-            dnd_wrapper.drag_source_set(Gdk.ModifierType.BUTTON1_MASK, NOTE_TARGETS, Gdk.DragAction.MOVE)
-            dnd_wrapper.connect('drag-begin', self.on_drag_begin)
-            widget.add(dnd_wrapper)
-
-            outer_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, margin=10, spacing=10)
-            outer_box.set_receives_default(True)
-            dnd_wrapper.add(outer_box)
-
-            wrapper = Gtk.Box(halign=Gtk.Align.CENTER)
-            context = wrapper.get_style_context()
-            context.add_class(item.info['color'])
-            context.add_class('note-preview')
-            outer_box.pack_start(wrapper, False, False, 0)
-
-            entry = NoteEntry(item)
-            wrapper.pack_start(entry, False, False, 0)
-
-            label = Gtk.Label(label=item.title, visible=True)
-            outer_box.pack_start(label, False, False, 0)
-
-            widget.show_all()
-
-            return widget
-
-        self.note_view.bind_model(model, create_note_entry)
+        self.note_view.bind_model(model, self.create_note_entry)
 
     def get_current_group(self):
         row = self.group_list.get_selected_row()
