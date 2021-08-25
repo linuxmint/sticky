@@ -695,6 +695,8 @@ class Application(Gtk.Application):
     def on_tray_button_pressed(self, icon, x, y , button, time, panel_position):
         if button == 1:
             self.activate_notes(time)
+        elif button == 2:
+            self.open_manager()
 
     def on_tray_button_released(self, icon, x, y , button, time, panel_position):
       if button == 3:
