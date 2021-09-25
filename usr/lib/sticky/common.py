@@ -41,17 +41,25 @@ class FileHandler(GObject.Object):
         self.notes_lists = {}
 
         if os.path.exists(CONFIG_PATH):
-            self.load_notes()
+            self.load_notes(window)
 
         self.settings.connect('changed::automatic-backups', self.check_backup)
         self.settings.connect('changed::backup-interval', self.check_backup)
         self.check_backup()
 
-    def load_notes(self, *args):
-        with open(CONFIG_PATH, 'r') as file:
-            info = json.loads(file.read())
+    def load_notes(self, window):
+        try:
+            with open(CONFIG_PATH, 'r') as file:
+                info = json.loads(file.read())
 
-        self.notes_lists = info
+            self.check_json(info)
+            self.notes_lists = info
+
+        except Exception as e:
+            message = Gtk.MessageDialog(text=_("Unable to load: invalid or corrupted file, exception: {}".format(e)),
+                                        buttons=Gtk.ButtonsType.CLOSE, transient_for=window)
+            message.run()
+            message.destroy()
 
     def get_note_list(self, group_name):
         return self.notes_lists[group_name]
@@ -233,20 +241,33 @@ class FileHandler(GObject.Object):
 
         dialog.destroy()
 
+    def check_json(self,file):
+        for group in file:
+            for note in file[group]:
+                if 'x' not in note or 'y' not in note:
+                    raise ValueError("No coordinate value found (x,y)")
+                if 'height' not in note or 'width' not in note:
+                    raise ValueError("No height or width value found")
+                if 'color' not in note:
+                    raise ValueError("No color value found")
+                if 'title' not in note:
+                    raise ValueError("No title value found")
+                if 'text' not in note:
+                    raise ValueError("No text value found")
+
     def load_notes_from_path(self, path, window):
         try:
             with open(path, 'r') as file:
                 info = json.loads(file.read())
 
-            # todo: needs validation here to ensure the file type is correct, and while we're at it, the validation
-            # should really be added to load_notes() as well
+            self.check_json(info)
 
             self.notes_lists = info
             self.save_note_list()
 
             self.emit('lists-changed')
         except Exception as e:
-            message = Gtk.MessageDialog(text=_("Unable to restore: invalid or corrupted backup file"),
+            message = Gtk.MessageDialog(text=_("Unable to restore: invalid or corrupted backup file, exception: {}".format(e)),
                                         buttons=Gtk.ButtonsType.CLOSE, transient_for=window)
             message.run()
             message.destroy()
