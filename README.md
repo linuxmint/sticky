@@ -1,5 +1,5 @@
-# Sticky Notes
-Sticky Notes replaces GNote as the default application for taking notes. Similar to GNote, Sticky is developed in GTK3, supports HiDPI and integrates very well in the desktop environment. In addition to the features which were present in GNote, Sticky also lets you place the notes on the desktop and quickly access them from the icon tray.
+# Sticky
+Sticky is a note-taking app for the Linux desktop, that simulates traditional "sticky note" style stationary on your desktop. Some of it's features include basic text formatting (bold, italics, etc), spell-checking, a tray icon for controlling note visibility, manual and automatic backups, and a manager to organize your notes into groups. Sticky is written in Python, and uses the GTK3 toolkit
 
 ![img](https://linuxmint.com/pictures/screenshots/uma/sticky.png)
 
