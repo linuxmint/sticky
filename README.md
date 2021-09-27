@@ -43,7 +43,7 @@ sudo cp etc/xdg/autostart/sticky.desktop /etc/xdg/autostart/
 - python3-xapp (>= 1.6.0)
 
 ## Translations
-Please use Launchpad to translate Mintbackup: https://translations.launchpad.net/linuxmint/latest/.
+Please use Launchpad to translate Sticky Notes: https://translations.launchpad.net/linuxmint/latest/.
 
 The PO files in this project are imported from there.
 
