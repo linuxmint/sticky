@@ -200,6 +200,7 @@ class NotesManager(object):
     def __init__(self, app, file_handler):
         self.app = app
         self.dragged_note = None
+        self.on_activate = False
 
         self.file_handler = file_handler
         self.file_handler.connect('group-changed', self.on_list_changed)
@@ -405,12 +406,17 @@ class NotesManager(object):
             self.generate_group_list()
 
         def maybe_done(entry, *args):
+            if self.on_activate:
+                return
+            self.on_activate = True
+            
             group_name = entry.get_text()
             if group_name == '':
                 group_name = None
             else:
                 self.file_handler.new_group(group_name)
 
+            self.on_activate = False
             clean_up(entry)
             callback(group_name)
 
