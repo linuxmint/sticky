@@ -576,6 +576,9 @@ class Application(Gtk.Application):
         self.notes = []
         self.settings_window = None
         self.keyboard_shortcuts = None
+        # There's no use creating the manager if a user is never going to use it, so we don't until it's asked for.
+        # Therefore, we should never assume that the manager already exists, and handle the situation gracefully if it
+        # is none.
         self.manager = None
         self.notes_hidden = False
         self.autostart_mode = False # indicates if we're in autostart mode
@@ -696,7 +699,7 @@ class Application(Gtk.Application):
         if button == 1:
             self.activate_notes(time)
         elif button == 2:
-            self.open_manager()
+            self.toggle_manager(time)
 
     def on_tray_button_released(self, icon, x, y , button, time, panel_position):
       if button == 3:
@@ -847,18 +850,29 @@ class Application(Gtk.Application):
 
         self.load_notes()
 
-    def open_manager(self, *args):
+    def open_manager(self, *args, time=0):
         if self.manager:
-            self.manager.window.present_with_time(Gtk.get_current_event_time())
+            if time == 0:
+                time = Gtk.get_current_event_time()
+            self.manager.window.present_with_time(time)
             return
 
         self.manager = NotesManager(self, self.file_handler)
-        self.manager.window.connect('destroy', self.manager_closed)
+        self.manager.window.connect('delete-event', self.manager_closed)
+
+    def toggle_manager(self, time):
+        if self.manager.window.is_active() and self.manager.window.is_visible():
+            self.manager.window.hide()
+        else:
+            self.open_manager(time=time)
 
     def manager_closed(self, *args):
-        self.manager = None
         if self.status_icon is None:
             self.quit_app()
+
+        self.manager.window.hide()
+
+        return Gdk.EVENT_STOP
 
     def open_settings_window(self, *args):
         if self.settings_window:
