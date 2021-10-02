@@ -314,7 +314,7 @@ class HoverBox(Gtk.EventBox):
             self.child_widget.hide()
 
 def prompt(title, message, window):
-    dialog = Gtk.Dialog(title=title, transient_for=window)
+    dialog = Gtk.Dialog(title=title, transient_for=window, window_position=Gtk.WindowPosition.CENTER)
     dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
     dialog.add_button(_("OK"), Gtk.ResponseType.OK)
     dialog.set_default_response(Gtk.ResponseType.OK)
@@ -337,7 +337,7 @@ def prompt(title, message, window):
     return (response == Gtk.ResponseType.OK, value)
 
 def confirm(title, message, window=None, settings=None, disable_key=None, disable_inverted=False):
-    dialog = Gtk.Dialog(title=title, transient_for=window)
+    dialog = Gtk.Dialog(title=title, transient_for=window, window_position=Gtk.WindowPosition.CENTER)
     dialog.add_button(_("No"), Gtk.ResponseType.NO)
     dialog.add_button(_("Yes"), Gtk.ResponseType.YES)
     dialog.set_default_response(Gtk.ResponseType.YES)
