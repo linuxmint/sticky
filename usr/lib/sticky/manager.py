@@ -200,7 +200,6 @@ class NotesManager(object):
     def __init__(self, app, file_handler):
         self.app = app
         self.dragged_note = None
-        self.on_activate = False
 
         self.file_handler = file_handler
         self.file_handler.connect('group-changed', self.on_list_changed)
@@ -400,32 +399,30 @@ class NotesManager(object):
         def clean_up(entry):
             entry.disconnect(activate_id)
             entry.disconnect(focus_id)
+            entry.disconnect(key_id)
 
             self.entry_box.remove(entry)
 
-            self.generate_group_list()
-
         def maybe_done(entry, *args):
-            if self.on_activate:
-                return
-            self.on_activate = True
-            
             group_name = entry.get_text()
-            if group_name == '':
-                group_name = None
-            else:
-                self.file_handler.new_group(group_name)
 
-            self.on_activate = False
             clean_up(entry)
-            callback(group_name)
+
+            success = False
+            if group_name != '':
+                success = self.file_handler.new_group(group_name)
+
+            if success:
+                self.generate_group_list()
+
+            callback(group_name, success)
 
         def key_pressed(entry, event):
             if event.keyval != Gdk.KEY_Escape:
                 return Gdk.EVENT_PROPAGATE
 
             clean_up(entry)
-            callback(None)
+            callback(None, False)
 
         entry.grab_focus()
         activate_id = entry.connect('activate', maybe_done)
@@ -435,8 +432,8 @@ class NotesManager(object):
     def new_group(self, *args):
         old_group = self.get_current_group()
 
-        def on_complete(group_name):
-            if group_name is None:
+        def on_complete(group_name, success):
+            if not success:
                 group_name = old_group
 
             for row in self.group_list.get_children():
@@ -483,8 +480,8 @@ class NotesManager(object):
         old_group = self.get_current_group()
         old_list = self.file_handler.get_note_list(old_group)
 
-        def on_created(group_name):
-            if group_name is None:
+        def on_created(group_name, success):
+            if not success:
                 group_name = old_group
             else:
                 old_list.remove(self.dragged_note)

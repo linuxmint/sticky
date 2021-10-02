@@ -260,12 +260,14 @@ class FileHandler(GObject.Object):
     def new_group(self, group_name):
         if group_name in self.notes_lists:
             if not confirm(_("Overwrite to Existing Group"), _("Are you sure you want to overwrite the group %s?") % group_name, self.window):
-                return
+                return False
 
         self.notes_lists[group_name] = []
 
         self.save_note_list()
         self.emit('lists-changed')
+
+        return True
 
     def remove_group(self, group_name):
         if not confirm(_("Remove Group"), _("Are you sure you want to remove the group %s?") % group_name, self.window):
