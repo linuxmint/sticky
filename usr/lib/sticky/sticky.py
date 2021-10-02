@@ -690,7 +690,9 @@ class Application(Gtk.Application):
         self.status_icon = XApp.StatusIcon()
         self.status_icon.set_name('sticky')
         self.status_icon.set_icon_name('sticky-symbolic')
-        self.status_icon.set_tooltip_text(_('Notes'))
+        self.status_icon.set_tooltip_text('%s\n<i>%s</i>\n<i>%s</i>' % (_("Notes"),
+                                                                        _("Left click to toggle notes"),
+                                                                        _("Middle click to toggle the manager")))
         self.status_icon.set_visible(True)
         self.status_icon.connect('button-press-event', self.on_tray_button_pressed)
         self.status_icon.connect('button-release-event', self.on_tray_button_released)
