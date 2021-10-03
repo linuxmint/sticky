@@ -291,7 +291,7 @@ class NotesManager(object):
         item.add_accelerator("activate", accel_group, key, mod, Gtk.AccelFlags.VISIBLE)
         main_menu.append(item)
 
-        key, mod = Gtk.accelerator_parse("F1")
+        key, mod = Gtk.accelerator_parse('<Control>f')
         accel_group.connect(key, mod, Gtk.AccelFlags.VISIBLE, self.open_search)
 
         main_menu.show_all()
