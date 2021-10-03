@@ -66,6 +66,13 @@
 }
 
 /* common */
+#sticky-note decoration,
+#sticky-note decoration:backdrop,
+#sticky-note .titlebar,
+#sticky-note .titlebar:backdrop {
+    border-radius: 0;
+}
+
 #title-bar {
     padding-left: 10px;
     padding-right: 10px;
