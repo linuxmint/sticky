@@ -55,8 +55,14 @@
 @define-color magenta5 #9d1094; /* selection */
 
 /* manager */
-#manager-group-edit-button {
+#manager-group-edit-button,
+#manager-group-edit-button:hover,
+#manager-group-edit-button:checked,
+#manager-group-edit-button:backdrop {
     border: none;
+    background: none;
+    color: inherit;
+    padding: 0 5px;
 }
 
 /* common */

@@ -76,6 +76,8 @@ class GroupEntry(Gtk.ListBoxRow):
         self.item = item
         self.file_handler = self.item.file_handler
 
+        self.props.height_request = 35
+
         self.hoverbox = HoverBox()
         self.add(self.hoverbox)
 
@@ -116,15 +118,13 @@ class GroupEntry(Gtk.ListBoxRow):
         return Gdk.EVENT_PROPAGATE
 
     def generate_content(self):
-        self.box = Gtk.Box(height_request=34)
+        self.box = Gtk.Box()
         self.hoverbox.add(self.box)
 
-        self.box.pack_start(Gtk.Box(height_request=16, width_request=16), False, False, 2)
-
-        label = Gtk.Label(label=self.item.name, halign=Gtk.Align.START, margin=5)
+        label = Gtk.Label(label=self.item.name, halign=Gtk.Align.START, margin_start=5)
         self.box.pack_start(label, True, True, 5)
 
-        image = Gtk.Image.new_from_icon_name('edit', Gtk.IconSize.BUTTON)
+        image = Gtk.Image.new_from_icon_name('document-edit-symbolic', Gtk.IconSize.BUTTON)
         button = Gtk.Button(image=image, relief=Gtk.ReliefStyle.NONE, name='manager-group-edit-button')
         self.box.pack_end(button, False, False, 2)
         button.connect('clicked', self.edit_group_name)
