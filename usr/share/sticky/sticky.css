@@ -73,6 +73,15 @@
     border-radius: 0;
 }
 
+#sticky-note decoration {
+    box-shadow: 0 3px 9px 1px transparent, 0 2px 6px 2px rgba(0, 0, 0, 0.5);
+}
+
+#sticky-note decoration:backdrop {
+    box-shadow: 0 3px 9px 1px transparent, 0 2px 6px 2px rgba(0, 0, 0, 0.2);
+}
+
+
 #title-bar {
     padding-left: 10px;
     padding-right: 10px;
