@@ -219,6 +219,7 @@ class NotesManager(object):
         self.group_list = self.builder.get_object('group_list')
         self.note_view = self.builder.get_object('note_view')
         self.note_view.connect('child-activated', self.on_note_activated)
+        self.note_view.connect('selected-children-changed', self.on_selected_notes_changed)
 
         def create_group_entry(item):
             widget = GroupEntry(item)
@@ -236,7 +237,8 @@ class NotesManager(object):
         GObject.Object.bind_property(search_toggle, 'active', self.search_bar, 'search_mode_enabled', GObject.BindingFlags.BIDIRECTIONAL)
 
         self.builder.get_object('new_note').connect('clicked', self.new_note)
-        self.builder.get_object('remove_note').connect('clicked', self.remove_note)
+        self.remove_note_button = self.builder.get_object('remove_note')
+        self.remove_note_button.connect('clicked', self.remove_note)
 
         self.search_box = self.builder.get_object('search_box')
         self.search_box.connect('search-changed', self.on_search_changed)
@@ -381,6 +383,9 @@ class NotesManager(object):
         self.select_group(activated_group)
 
         self.app.focus_note(activated.info)
+
+    def on_selected_notes_changed(self, *args):
+        self.remove_note_button.set_sensitive(len(self.note_view.get_selected_children()) != 0)
 
     def create_note_entry(self, item):
         widget = Gtk.FlowBoxChild()
