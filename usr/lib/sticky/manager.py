@@ -228,6 +228,10 @@ class NotesManager(object):
         self.group_model = Gio.ListStore()
         self.group_list.bind_model(self.group_model, create_group_entry)
 
+        search_toggle = self.builder.get_object('search_toggle_button')
+        self.search_bar = self.builder.get_object('search_bar')
+        GObject.Object.bind_property(search_toggle, 'active', self.search_bar, 'search_mode_enabled', GObject.BindingFlags.BIDIRECTIONAL)
+
         self.builder.get_object('new_note').connect('clicked', self.new_note)
         self.builder.get_object('remove_note').connect('clicked', self.remove_note)
 
