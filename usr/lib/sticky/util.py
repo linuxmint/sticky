@@ -76,3 +76,25 @@ def gnote_to_internal_format(file_path):
         category = _("Unfiled")
 
     return (category, info, is_template)
+
+def clean_text(text):
+    current_index = 0
+    new_text = ''
+    while True:
+        next_index = text.find('#', current_index)
+        new_text += text[current_index:next_index]
+
+        if next_index == -1:
+            return new_text.lower()
+
+        if text[next_index:next_index+2] == '##':
+            new_text += '#'
+            current_index = next_index + 2
+        elif text[next_index:next_index+6] == '#check':
+            current_index = next_index + 8
+        elif text[next_index:next_index+7] == '#bullet':
+            current_index = next_index + 8
+        elif text[next_index:next_index+4] == '#tag':
+            current_index = text.find(':', next_index+6) + 1
+        else:
+            current_index += 1

@@ -3,6 +3,7 @@
 from gi.repository import Gdk, Gio, GLib, GObject, Gtk, Pango
 from note_buffer import NoteBuffer
 from common import HoverBox
+from util import clean_text
 
 NOTE_TARGETS = [Gtk.TargetEntry.new('note-entry', Gtk.TargetFlags.SAME_APP, 1)]
 
@@ -341,8 +342,8 @@ class NotesManager(object):
             self.generate_previews()
 
     def on_search_changed(self, *args):
-        search_text = self.search_box.get_text()
-        if search_text.strip() == '':
+        search_text = self.search_box.get_text().lower().strip()
+        if search_text == '':
             self.generate_previews()
 
         else:
@@ -350,7 +351,7 @@ class NotesManager(object):
 
             for group_name in self.file_handler.get_note_group_names():
                 for note_info in self.file_handler.get_note_list(group_name):
-                    if note_info['title'].find(search_text) != -1 or note_info['text'].find(search_text) != -1:
+                    if note_info['title'].lower().find(search_text) != -1 or clean_text(note_info['text']).find(search_text) != -1:
                         self.search_model.append(Note(note_info, group_name))
 
             self.note_view.bind_model(self.search_model, self.create_note_entry)
