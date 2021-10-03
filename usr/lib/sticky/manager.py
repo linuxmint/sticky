@@ -92,9 +92,9 @@ class GroupEntry(Gtk.ListBoxRow):
         item.connect('activate', self.edit_group_name)
         self.menu.append(item)
 
-        item = Gtk.MenuItem(label=_("Remove"), visible=True)
-        item.connect('activate', self.remove_group)
-        self.menu.append(item)
+        self.remove_item = Gtk.MenuItem(label=_("Remove"), visible=True)
+        self.remove_item.connect('activate', self.remove_group)
+        self.menu.append(self.remove_item)
 
         self.connect('popup-menu', self.on_popup)
         self.connect('button-press-event', self.on_button_press)
@@ -180,6 +180,9 @@ class GroupEntry(Gtk.ListBoxRow):
         self.generate_content()
         self.hoverbox.enable()
 
+    def set_can_remove(self, can_remove):
+        self.remove_item.set_sensitive(can_remove)
+
 class Group(GObject.Object):
     def __init__(self, name, file_handler, model):
         super(Group, self).__init__()
@@ -248,9 +251,9 @@ class NotesManager(object):
         item.connect('activate', self.new_group)
         main_menu.append(item)
 
-        item = Gtk.MenuItem(label=_("Remove Group"))
-        item.connect('activate', self.remove_group)
-        main_menu.append(item)
+        self.remove_group_item = Gtk.MenuItem(label=_("Remove Group"))
+        self.remove_group_item.connect('activate', self.remove_group)
+        main_menu.append(self.remove_group_item)
 
         main_menu.append(Gtk.SeparatorMenuItem(visible=True))
 
@@ -330,6 +333,12 @@ class NotesManager(object):
 
         if name != None:
             self.select_group(name)
+
+        children = self.group_list.get_children()
+        for item in children:
+            item.set_can_remove(len(children) != 1)
+
+        self.remove_group_item.set_sensitive(len(children) != 1)
 
     def select_group(self, name):
         for row in self.group_list.get_children():
