@@ -291,6 +291,9 @@ class NotesManager(object):
         item.add_accelerator("activate", accel_group, key, mod, Gtk.AccelFlags.VISIBLE)
         main_menu.append(item)
 
+        key, mod = Gtk.accelerator_parse("F1")
+        accel_group.connect(key, mod, Gtk.AccelFlags.VISIBLE, self.open_search)
+
         main_menu.show_all()
 
         self.builder.get_object('menu_button').set_popup(main_menu)
@@ -359,6 +362,10 @@ class NotesManager(object):
                         self.search_model.append(Note(note_info, group_name))
 
             self.note_view.bind_model(self.search_model, self.create_note_entry)
+
+    def open_search(self, *args):
+        self.search_bar.set_search_mode(True)
+        # self.search_box.grab_focus()
 
     def on_note_activated(self, *args):
         activated = self.note_view.get_selected_children()[0].item
