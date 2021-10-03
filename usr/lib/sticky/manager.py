@@ -365,7 +365,6 @@ class NotesManager(object):
 
     def open_search(self, *args):
         self.search_bar.set_search_mode(True)
-        # self.search_box.grab_focus()
 
     def on_note_activated(self, *args):
         activated = self.note_view.get_selected_children()[0].item
