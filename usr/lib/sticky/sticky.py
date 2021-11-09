@@ -116,7 +116,7 @@ class Note(Gtk.Window):
         color_icon = Gtk.Image.new_from_icon_name('sticky-color', Gtk.IconSize.BUTTON)
         color_button = Gtk.MenuButton(image=color_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         color_button.connect('button-press-event', self.on_title_click)
-        color_button.set_tooltip_text(_("Format"))
+        color_button.set_tooltip_text(_("Note Color"))
         self.title_bar.pack_start(color_button, False, False, 0)
 
         # used to show the edit title icon when the title is hovered
