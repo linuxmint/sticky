@@ -868,7 +868,7 @@ class Application(Gtk.Application):
         self.manager.window.connect('delete-event', self.manager_closed)
 
     def toggle_manager(self, time):
-        if self.manager.window.is_active() and self.manager.window.is_visible():
+        if self.manager and self.manager.window.is_active() and self.manager.window.is_visible():
             self.manager.window.hide()
         else:
             self.open_manager(time=time)
