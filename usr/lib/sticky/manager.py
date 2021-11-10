@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from gi.repository import Gdk, Gio, GLib, GObject, Gtk, Pango
+from gi.repository import Gdk, Gio, GLib, GObject, Gtk, Pango, XApp
 from note_buffer import NoteBuffer
 from common import HoverBox
 from util import clean_text
@@ -10,24 +10,33 @@ NOTE_TARGETS = [Gtk.TargetEntry.new('note-entry', Gtk.TargetFlags.SAME_APP, 1)]
 class NoteEntry(Gtk.Container):
     initialized = False
 
-    def __init__(self, item):
+    def __init__(self, item, settings):
         super(NoteEntry, self).__init__(height_request=150,
                                         width_request=150,
                                         valign=Gtk.Align.START,
-                                        halign=Gtk.Align.CENTER,
-                                        margin=10)
+                                        halign=Gtk.Align.CENTER)
 
         self.item = item
+        self.settings = settings
 
         self.set_has_window(False)
+        self.style_manager = XApp.StyleManager(widget=self)
+
+        self.title_bar = Gtk.Box(name='title-bar', visible=True)
+        self.title_bar.pack_start(Gtk.Label(label=item.title, name='title', visible=True, margin_top=5, margin_bottom=5, ellipsize=Pango.EllipsizeMode.END), False, False, 0)
+        self.title_bar.set_parent(self)
 
         self.buffer = NoteBuffer()
         self.text = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, populate_all=True, buffer=self.buffer, visible=True, sensitive=False)
+        self.text.set_parent(self)
 
         self.buffer.set_view(self.text)
         self.buffer.set_from_internal_markup(item.text)
 
-        self.text.set_parent(self)
+        self.settings.connect('changed::font', self.set_font)
+        self.set_font()
+
+        self.set_tooltip_text(item.title)
 
         self.initialized = True
 
@@ -36,13 +45,22 @@ class NoteEntry(Gtk.Container):
     def do_size_allocate(self, allocation):
         Gtk.Widget.do_size_allocate(self, allocation)
 
-        rect = Gdk.Rectangle()
-        rect.x = allocation.x + 10
-        rect.y = allocation.y + 10
-        rect.width = allocation.width - 20
-        rect.height = allocation.height - 20
+        title_bar_height = self.title_bar.get_preferred_height()[1]
 
-        self.text.size_allocate(rect)
+        title_rect = Gdk.Rectangle()
+        title_rect.x = allocation.x
+        title_rect.y = allocation.y
+        title_rect.width = allocation.width
+        title_rect.height = title_bar_height
+        self.title_bar.size_allocate(title_rect)
+
+        content_rect = Gdk.Rectangle()
+        content_rect.x = allocation.x + 10
+        content_rect.y = allocation.y + title_bar_height + 10
+        content_rect.width = allocation.width - 20
+        content_rect.height = allocation.height - title_bar_height - 20
+        self.text.size_allocate(content_rect)
+
         self.set_clip(allocation)
 
     def do_get_preferred_height(self):
@@ -68,7 +86,11 @@ class NoteEntry(Gtk.Container):
 
     def do_forall(self, include_internals, callback, *args):
         if include_internals:
+            callback(self.title_bar, *args)
             callback(self.text, *args)
+
+    def set_font(self, *args):
+        self.style_manager.set_from_pango_font_string(self.settings.get_string('font'))
 
 class GroupEntry(Gtk.ListBoxRow):
     def __init__(self, item):
@@ -406,11 +428,8 @@ class NotesManager(object):
         context.add_class('note-preview')
         outer_box.pack_start(wrapper, False, False, 0)
 
-        entry = NoteEntry(item)
+        entry = NoteEntry(item, self.app.settings)
         wrapper.pack_start(entry, False, False, 0)
-
-        label = Gtk.Label(label=item.title, visible=True)
-        outer_box.pack_start(label, False, False, 0)
 
         widget.show_all()
 
