@@ -55,21 +55,25 @@ COLOR_CODES = {
     'magenta': "#ff7ff7"
 }
 
-SHORTCUTS = [
-    (_("Move selection up"), '<ctrl><shift>Up'),
-    (_("Move selection down"), '<ctrl><shift>Down'),
-    (_("Undo"), '<ctrl>z'),
-    (_("Redo"), '<ctrl>y'),
-    (_("Toggle Checklist"), '<ctrl>e'),
-    (_("Toggle Bullets"), '<ctrl>l'),
-    (_("Bold"), '<ctrl>b'),
-    (_("Italic"), '<ctrl>i'),
-    (_("Fixed Width"), '<ctrl>f'),
-    (_("Underline"), '<ctrl>u'),
-    (_("Strikethrough"), '<ctrl>k'),
-    (_("Highlight"), '<ctrl>g'),
-    (_("Header"), '<ctrl>h')
-]
+SHORTCUTS = {
+    _("Operations"): [
+        (_("Move selection up"), '<ctrl><shift>Up'),
+        (_("Move selection down"), '<ctrl><shift>Down'),
+        (_("Undo"), '<ctrl>z'),
+        (_("Redo"), '<ctrl>y'),
+        (_("Toggle Checklist"), '<ctrl>e'),
+        (_("Toggle Bullets"), '<ctrl>l')
+    ],
+    _("Formatting"): [
+        (_("Bold"), '<ctrl>b'),
+        (_("Italic"), '<ctrl>i'),
+        (_("Fixed Width"), '<ctrl>f'),
+        (_("Underline"), '<ctrl>u'),
+        (_("Strikethrough"), '<ctrl>k'),
+        (_("Highlight"), '<ctrl>g'),
+        (_("Header"), '<ctrl>h')
+    ]
+}
 
 class Note(Gtk.Window):
     @GObject.Signal(flags=GObject.SignalFlags.RUN_LAST, return_type=bool,
@@ -587,11 +591,18 @@ class ShortcutsWindow(Gtk.ShortcutsWindow):
 
         section = Gtk.ShortcutsSection(visible=True)
 
-        group = Gtk.ShortcutsGroup(title='', visible=False)
-        section.add(group)
+        for group, items in SHORTCUTS.items():
+            group = Gtk.ShortcutsGroup(title=group, visible=False)
+            section.add(group)
 
-        for shortcut in SHORTCUTS:
-            shortcut_item = Gtk.ShortcutsShortcut(title=shortcut[0], accelerator=shortcut[1], visible=True)
+            for shortcut in items:
+                shortcut_item = Gtk.ShortcutsShortcut(title=shortcut[0], accelerator=shortcut[1], visible=True)
+                group.add(shortcut_item)
+
+        group = Gtk.ShortcutsGroup(title=_("Text Size"), visible=False)
+        section.add(group)
+        for i in range(len(FONT_SCALES)):
+            shortcut_item = Gtk.ShortcutsShortcut(title=FONT_SCALES[i][1], accelerator='<ctrl>%d' % (i + 2), visible=True)
             group.add(shortcut_item)
 
         self.add(section)
