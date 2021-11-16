@@ -24,6 +24,9 @@ GNOTE_TO_INTERNAL_MAP = {
     'strikethrough': 'strikethrough',
     'highlight': 'highlight',
     'url': 'link',
+    'small': 'small',
+    'large': 'large',
+    'huge': 'larger',
 }
 
 GNOTE_NS_PREFIX = '{http://beatniksoftware.com/tomboy}'

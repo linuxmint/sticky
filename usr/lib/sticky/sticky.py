@@ -26,6 +26,13 @@ APPLICATION_ID = 'org.x.sticky'
 STYLE_SHEET_PATH = '/usr/share/sticky/sticky.css'
 SCHEMA = 'org.x.sticky'
 
+FONT_SCALES = [
+    ('small', _("Small Text"), 'small'),
+    ('normal', _("Normal Text"), 'medium'),
+    ('large', _("Large Text"), 'large'),
+    ('larger', _("Larger Text"), 'x-large')
+]
+
 COLORS = {
     'red': _("Red"),
     'green': _("Green"),
@@ -273,6 +280,22 @@ class Note(Gtk.Window):
                 self.buffer.tag_selection('highlight')
                 return Gdk.EVENT_STOP
 
+            elif event.get_keyval()[1] == Gdk.KEY_2:
+                self.buffer.tag_selection('small')
+                return Gdk.EVENT_STOP
+
+            elif event.get_keyval()[1] == Gdk.KEY_3:
+                self.buffer.tag_selection('normal')
+                return Gdk.EVENT_STOP
+
+            elif event.get_keyval()[1] == Gdk.KEY_4:
+                self.buffer.tag_selection('large')
+                return Gdk.EVENT_STOP
+
+            elif event.get_keyval()[1] == Gdk.KEY_5:
+                self.buffer.tag_selection('larger')
+                return Gdk.EVENT_STOP
+
         elif event.keyval in (Gdk.KEY_Return, Gdk.KEY_ISO_Enter, Gdk.KEY_KP_Enter):
             return self.buffer.on_return()
 
@@ -415,6 +438,14 @@ class Note(Gtk.Window):
         header_item.get_child().set_markup("<span size='large'>%s</span>" % _("Header"))
         header_item.connect('activate', self.apply_format, 'header')
         menu.append(header_item)
+
+        menu.append(Gtk.SeparatorMenuItem(visible=True))
+
+        for (scale_id, scale_name, scale_value) in FONT_SCALES:
+            font_scale_item = Gtk.MenuItem(label=scale_name, visible=True)
+            font_scale_item.get_child().set_markup("<span size='%s'>%s</span>" % (scale_value, scale_name))
+            font_scale_item.connect('activate', self.apply_format, scale_id)
+            menu.append(font_scale_item)
 
         menu.append(Gtk.SeparatorMenuItem(visible=True))
 

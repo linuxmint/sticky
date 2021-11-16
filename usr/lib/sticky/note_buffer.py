@@ -11,8 +11,13 @@ TAG_DEFINITIONS = {
     'strikethrough': {'strikethrough': True},
     'highlight': {'background': 'yellow'},
     'link': {'underline': Pango.Underline.SINGLE, 'foreground': 'blue'},
-    'header': {'scale': 1.5, 'weight': 500, 'pixels-above-lines': 14, 'pixels-below-lines': 4}
+    'header': {'scale': 1.5, 'weight': 500, 'pixels-above-lines': 14, 'pixels-below-lines': 4},
+    'small': {'scale': .8333333333333},
+    'large': {'scale': 1.2},
+    'larger': {'scale': 1.44}
 }
+
+FONT_SCALES = ['small', 'normal', 'large', 'larger']
 
 class GenericAction(object):
     def maybe_join(self, new_action):
@@ -709,16 +714,20 @@ class NoteBuffer(Gtk.TextBuffer):
             (start, end) = self.get_selection_bounds()
 
             current_iter = start.copy()
-            all_has_tag = True
-            while current_iter.compare(end) < 0:
-                if not current_iter.has_tag(self.get_tag_table().lookup(tag_name)):
-                    all_has_tag = False
-                    break
+            remove_tag = True
+            if tag_name in FONT_SCALES:
+                remove_tag = False
+            else:
+                tag = self.get_tag_table().lookup(tag_name)
+                while current_iter.compare(end) < 0:
+                    if not current_iter.has_tag(tag):
+                        remove_tag = False
+                        break
 
-                current_iter.forward_char()
+                    current_iter.forward_char()
 
-            # remove the tag if the whole selection already has it
-            if all_has_tag:
+            # remove the tag if the whole selection already has it (unless it's a font scale tag)
+            if remove_tag:
                 self.add_undo_action(self.strip_tag(tag_name, start, end))
             else:
                 self.add_undo_action(self.add_tag(tag_name, start, end))
@@ -729,11 +738,24 @@ class NoteBuffer(Gtk.TextBuffer):
                 self.tag_toggles.append(tag_name)
 
     def add_tag(self, tag_name, start, end):
-        action = TagAction(self, tag_name, start, end)
-        self.apply_tag_by_name(tag_name, start, end)
-        self.trigger_changed()
+        actions = []
+        if tag_name in FONT_SCALES:
+            for font_tag_name in FONT_SCALES:
+                if font_tag_name == tag_name or font_tag_name == 'normal':
+                    continue
 
-        return action
+                action = self.strip_tag(font_tag_name, start, end)
+                if len(action.ranges) > 0:
+                    actions.append(action)
+
+        if tag_name != 'normal':
+            actions.append(TagAction(self, tag_name, start, end))
+            self.apply_tag_by_name(tag_name, start, end)
+        self.trigger_changed()
+        if len(actions) == 1:
+            return actions[0]
+        else:
+            return CompositeAction(*actions)
 
     def strip_tag(self, tag_name, start, end):
         action = TagAction(self, tag_name, start, end, False)
