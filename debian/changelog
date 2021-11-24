@@ -1,3 +1,54 @@
+sticky (1.3) una; urgency=medium
+
+  [ Stephen Collins ]
+  * Make the dummy window transparent
+
+  [ Musa Ünal ]
+  * Update README.md (#37)
+
+  [ Stephen Collins ]
+  * Tray: open the manager on middle click
+  * manager: toggle rather than open on tray middle click
+  * Tray: add descriptions of the left- and middle-click actions to tooltip
+
+  [ Musa Unal ]
+  * Add overwrite consent
+
+  [ Stephen Collins ]
+  * manager: simplify new group creation process a little
+  * new group confirm dialog: reword slightly
+  * common.py: center dialogs on the screen.
+  * Remove unused file
+  * Manager: add the ability to search notes and focus them by double-click.
+  * search: use lowercase to match and remove tags from the text
+
+  [ JosephMcc ]
+  * manager: Move the search into a GtkSearchBar
+
+  [ Stephen Collins ]
+  * manager: add ctrl+f keybinding to begin a search
+
+  [ JosephMcc ]
+  * manager: Clean up some styling in the sidebar
+  * notes: Add some css to style the note decorations
+
+  [ Stephen Collins ]
+  * remove commented line that accidentally made it into a previous commit
+  * manager: use the correct keybinding for opening the search
+  * Notes: prevent ugly border in some themes
+  * manager: disable the remove group menu items when only 1 group exists
+  * manager: set remove note button insensitive when no notes are selected
+  * Notes: correct color button tooltip text
+  * Manager: display title at top of the note preview rather than below it
+  * manager: fix error when manager is not initialized
+  * Add a few text size formatting tags.
+  * Shortcuts window: Split into groups and add text size shortcuts
+
+  [ Clement Lefebvre ]
+  * l10n: Update POT
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 24 Nov 2021 12:14:58 +0000
+
 sticky (1.2) uma; urgency=medium
 
   [ Stephen Collins ]
