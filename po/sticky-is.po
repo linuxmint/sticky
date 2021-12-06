@@ -1,4 +1,4 @@
-# Korean translation for linuxmint
+# Icelandic translation for linuxmint
 # Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
 # This file is distributed under the same license as the linuxmint package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-11-24 12:13+0000\n"
-"PO-Revision-Date: 2021-11-28 19:51+0000\n"
-"Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
-"Language-Team: Korean <ko@li.org>\n"
+"PO-Revision-Date: 2021-10-16 11:16+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic <is@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,419 +19,423 @@ msgstr ""
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:298
 msgid "Export..."
-msgstr "내보내기..."
+msgstr "Flytja út…"
 
 #: usr/lib/sticky/common.py:145 usr/lib/sticky/common.py:169
 #: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:324
 msgid "Cancel"
-msgstr "취소"
+msgstr "Hætta við"
 
 #: usr/lib/sticky/common.py:145
 msgid "Save"
-msgstr "저장"
+msgstr "Vista"
 
 #: usr/lib/sticky/common.py:156 usr/lib/sticky/common.py:178
 msgid "Plain Text"
-msgstr "일반 텍스트"
+msgstr "Hreinn texti"
 
 #: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:294
 msgid "Import..."
-msgstr "가져오기..."
+msgstr "Flytja inn…"
 
 #: usr/lib/sticky/common.py:169
 msgid "Open"
-msgstr "열기"
+msgstr "Opna"
 
 #: usr/lib/sticky/common.py:191
 msgid "Restore Backup"
-msgstr "백업 복원"
+msgstr "Endurheimta öryggisafrit"
 
 #: usr/lib/sticky/common.py:193
 msgid "Clear"
-msgstr "지우기"
+msgstr "Hreinsa"
 
 #: usr/lib/sticky/common.py:194
 msgid "Restore"
-msgstr "복원"
+msgstr "Endurheimta"
 
 #: usr/lib/sticky/common.py:249
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr "백업 파일이 올바르지 않거나 손상되어 복원할 수 없습니다"
+msgstr "Tekst ekki að endurheimta: ógild eða skemmd skrá öryggisafrits"
 
 #: usr/lib/sticky/common.py:262
 msgid "Overwrite Existing Group"
-msgstr "현재 그룹 덮어쓰기"
+msgstr ""
 
 #: usr/lib/sticky/common.py:262
 #, python-format
 msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
-msgstr "이미 '%s' 그룹이 있습니다. 실행하면 이 그룹을 덮어씁니다. 덮어쓸까요?"
+msgstr ""
 
 #: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:278
 msgid "Remove Group"
-msgstr "그룹 제거"
+msgstr "Fjarlægja hóp"
 
 #: usr/lib/sticky/common.py:273
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
-msgstr "그룹 %s을(를) 제거하시겠습니까?"
+msgstr "Ertu viss um að þú viljir fjarlægja hópinn %s?"
 
 #: usr/lib/sticky/common.py:325
 msgid "OK"
-msgstr "확인"
+msgstr "Í lagi"
 
 #: usr/lib/sticky/common.py:347
 msgid "No"
-msgstr "아니요"
+msgstr "Nei"
 
 #: usr/lib/sticky/common.py:348
 msgid "Yes"
-msgstr "예"
+msgstr "Já"
 
 #: usr/lib/sticky/common.py:358
 msgid "Don't ask me again"
-msgstr "다시 묻지 않음"
+msgstr "Ekki spyrja mig aftur"
 
 #: usr/lib/sticky/manager.py:108
 msgid "New"
-msgstr "새 파일"
+msgstr "Nýtt"
 
 #: usr/lib/sticky/manager.py:113
 msgid "Edit"
-msgstr "편집"
+msgstr "Breyta"
 
 #: usr/lib/sticky/manager.py:117
 msgid "Remove"
-msgstr "제거"
+msgstr "Fjarlægja"
 
 #: usr/lib/sticky/manager.py:222
 msgid "Untitled"
-msgstr "제목없음"
+msgstr "Ónefnt"
 
 #: usr/lib/sticky/manager.py:274
 msgid "New Group"
-msgstr "새 그룹"
+msgstr "Nýr hópur"
 
 #: usr/lib/sticky/manager.py:284
 msgid "Back Up"
-msgstr "백업"
+msgstr "Taka öryggisafrit"
 
 #: usr/lib/sticky/manager.py:288
 msgid "Restore Backups..."
-msgstr "백업 복원..."
+msgstr "Endurheimta öryggisafrit..."
 
 #: usr/lib/sticky/manager.py:304 usr/lib/sticky/sticky.py:539
 msgid "Preferences"
-msgstr "환경설정"
+msgstr "Kjörstillingar"
 
 #: usr/lib/sticky/manager.py:308
 msgid "Keyboard Shortcuts"
-msgstr "키보드 단축키"
+msgstr "Flýtilyklar"
 
 #: usr/lib/sticky/manager.py:313 usr/lib/sticky/sticky.py:940
 msgid "About"
-msgstr "소개"
+msgstr "Um hugbúnaðinn"
 
 #: usr/lib/sticky/sticky.py:30
 msgid "Small Text"
-msgstr "작은 글씨"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:31
 msgid "Normal Text"
-msgstr "보통 글씨"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:32
 msgid "Large Text"
-msgstr "큰 글씨"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:33
 msgid "Larger Text"
-msgstr "아주 큰 글씨"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:37
 msgid "Red"
-msgstr "빨간색"
+msgstr "Rautt"
 
 #: usr/lib/sticky/sticky.py:38
 msgid "Green"
-msgstr "녹색"
+msgstr "Grænt"
 
 #: usr/lib/sticky/sticky.py:39
 msgid "Blue"
-msgstr "파란색"
+msgstr "Blátt"
 
 #: usr/lib/sticky/sticky.py:40
 msgid "Yellow"
-msgstr "노란색"
+msgstr "Gult"
 
 #: usr/lib/sticky/sticky.py:41
 msgid "Purple"
-msgstr "보라색"
+msgstr "Fjólublátt"
 
 #: usr/lib/sticky/sticky.py:42
 msgid "Teal"
-msgstr "청록색"
+msgstr "Grænblátt"
 
 #: usr/lib/sticky/sticky.py:43
 msgid "Orange"
-msgstr "주황색"
+msgstr "Appelsínugult"
 
 #: usr/lib/sticky/sticky.py:44
 msgid "Magenta"
-msgstr "자홍색"
+msgstr "Blárautt (magenta)"
 
 #: usr/lib/sticky/sticky.py:59
 msgid "Operations"
-msgstr "작업"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Move selection up"
-msgstr "선택 항목 위로 이동"
+msgstr "Færa valið upp"
 
 #: usr/lib/sticky/sticky.py:61
 msgid "Move selection down"
-msgstr "선택 항목 아래로 이동"
+msgstr "Færa valið niður"
 
 #: usr/lib/sticky/sticky.py:62
 msgid "Undo"
-msgstr "실행 취소"
+msgstr "Afturkalla"
 
 #: usr/lib/sticky/sticky.py:63
 msgid "Redo"
-msgstr "다시 실행"
+msgstr "Endurtaka"
 
 #: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:456
 msgid "Toggle Checklist"
-msgstr "체크리스트 토글"
+msgstr "Víxla gátlista af/á"
 
 #: usr/lib/sticky/sticky.py:65 usr/lib/sticky/sticky.py:460
 msgid "Toggle Bullets"
-msgstr "글머리표 토글"
+msgstr "Víxla áherslumerkjum af/á"
 
 #: usr/lib/sticky/sticky.py:67
 msgid "Formatting"
-msgstr "포맷하기"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:68 usr/lib/sticky/sticky.py:411
 #: usr/lib/sticky/sticky.py:412
 msgid "Bold"
-msgstr "굵게"
+msgstr "Feitletrað"
 
 #: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:416
 #: usr/lib/sticky/sticky.py:417
 msgid "Italic"
-msgstr "이탤릭체"
+msgstr "Skáletrað"
 
 #: usr/lib/sticky/sticky.py:70 usr/lib/sticky/sticky.py:421
 #: usr/lib/sticky/sticky.py:422
 msgid "Fixed Width"
-msgstr "고정폭"
+msgstr "Jafnbreitt"
 
 #: usr/lib/sticky/sticky.py:71 usr/lib/sticky/sticky.py:426
 #: usr/lib/sticky/sticky.py:427
 msgid "Underline"
-msgstr "밑줄"
+msgstr "Undirstrikað"
 
 #: usr/lib/sticky/sticky.py:72 usr/lib/sticky/sticky.py:431
 #: usr/lib/sticky/sticky.py:432
 msgid "Strikethrough"
-msgstr "취소선"
+msgstr "Gegnumstrikað"
 
 #: usr/lib/sticky/sticky.py:73 usr/lib/sticky/sticky.py:436
 #: usr/lib/sticky/sticky.py:437
 msgid "Highlight"
-msgstr "강조"
+msgstr "Áherslulita"
 
 #: usr/lib/sticky/sticky.py:74 usr/lib/sticky/sticky.py:441
 #: usr/lib/sticky/sticky.py:442
 msgid "Header"
-msgstr "머리글"
+msgstr "Haus"
 
 #: usr/lib/sticky/sticky.py:130
 msgid "Note Color"
-msgstr "노트 색"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:147
 msgid "Rename"
-msgstr "이름 바꾸기"
+msgstr "Endurnefna"
 
 #: usr/lib/sticky/sticky.py:155 usr/lib/sticky/sticky.py:368
 #: usr/lib/sticky/sticky.py:486
 msgid "Delete Note"
-msgstr "노트 삭제"
+msgstr "Eyða minnismiða"
 
 #: usr/lib/sticky/sticky.py:162 usr/lib/sticky/sticky.py:751
 msgid "New Note"
-msgstr "새 노트"
+msgstr "Nýr minnismiði"
 
 #: usr/lib/sticky/sticky.py:168
 msgid "Format"
-msgstr "포맷"
+msgstr "Forsníða"
 
 #: usr/lib/sticky/sticky.py:353
 msgid "undo"
-msgstr "실행 취소"
+msgstr "afturkalla"
 
 #: usr/lib/sticky/sticky.py:357
 msgid "redo"
-msgstr "다시 실행"
+msgstr "endurtaka"
 
 #: usr/lib/sticky/sticky.py:363
 msgid "Set Title"
-msgstr "제목 설정"
+msgstr "Setja titil"
 
 #: usr/lib/sticky/sticky.py:363
 msgid "Edit Title"
-msgstr "제목 편집"
+msgstr "Breyta titli"
 
 #: usr/lib/sticky/sticky.py:376
 msgid "Only on This Workspace"
-msgstr "이 작업 공간에만 놓기"
+msgstr "Einungis á þessu vinnusvæði"
 
 #: usr/lib/sticky/sticky.py:380
 msgid "Always on Visible Workspace"
-msgstr "항상 현재 작업 공간에 놓기"
+msgstr "Alltaf á sýnilegu vinnusvæði"
 
 #: usr/lib/sticky/sticky.py:392
 msgid "Always on Top"
-msgstr "항상 위"
+msgstr "Alltaf efst"
 
 #: usr/lib/sticky/sticky.py:486
 msgid "Are you sure you want to remove this note?"
-msgstr "이 노트를 삭제하시겠습니까?"
+msgstr "Ertu viss um að þú viljir eyða þessum minnismiða?"
 
 #: usr/lib/sticky/sticky.py:543
 msgid "Show notes on all desktops"
-msgstr "모든 데스크탑에 노트 표시"
+msgstr "Birta minnismiða á öllum vinnusvæðum"
 
 #: usr/lib/sticky/sticky.py:544
 msgid "Show in taskbar"
-msgstr "작업 표시줄에 보이기"
+msgstr "Sýna í verkefnastiku"
 
 #: usr/lib/sticky/sticky.py:545
 msgid "Tray icon"
-msgstr "트레이 아이콘"
+msgstr "Tákn í kerfisbakka"
 
 #: usr/lib/sticky/sticky.py:546
 msgid "Show the main window automatically"
-msgstr "메인 창 자동으로 표시"
+msgstr "Birta aðalgluggann sjálfkrafa"
 
 #: usr/lib/sticky/sticky.py:547
 msgid "General"
-msgstr "일반"
+msgstr "Almennt"
 
 #: usr/lib/sticky/sticky.py:551
 msgid "Default height"
-msgstr "기본 높이"
+msgstr "Sjálfgefin hæð"
 
 #: usr/lib/sticky/sticky.py:552
 msgid "Default width"
-msgstr "기본 너비"
+msgstr "Sjálfgefin breidd"
 
 #: usr/lib/sticky/sticky.py:556 usr/lib/sticky/sticky.py:561
 msgid "Random"
-msgstr "임의"
+msgstr "Slembið"
 
 #: usr/lib/sticky/sticky.py:558 usr/lib/sticky/sticky.py:563
 msgid "Default color"
-msgstr "기본 색"
+msgstr "Sjálfgefinn litur"
 
 #: usr/lib/sticky/sticky.py:565
 msgid "Font"
-msgstr "글꼴"
+msgstr "Letur"
 
 #: usr/lib/sticky/sticky.py:566
 msgid "Show spelling mistakes"
-msgstr "맞춤법 오류 표시"
+msgstr "Sýna stafsetningarvillur"
 
 #: usr/lib/sticky/sticky.py:568 usr/lib/sticky/sticky.py:639
 #: usr/lib/sticky/sticky.py:703 usr/lib/sticky/sticky.py:735
 #: usr/lib/sticky/sticky.py:941 generate_desktop_files:13
 #: usr/share/sticky/manager.ui.h:1
 msgid "Notes"
-msgstr "노트"
+msgstr "Minnismiðar"
 
 #: usr/lib/sticky/sticky.py:573
 msgid "Automatic backups"
-msgstr "자동 백업"
+msgstr "Sjálfvirk öryggisafrit"
 
 #: usr/lib/sticky/sticky.py:574
 msgid "Time between backups"
-msgstr "자동 백업 간격"
+msgstr "Tími milli öryggisafrita"
 
 #: usr/lib/sticky/sticky.py:574
 msgid "hours"
-msgstr "시간"
+msgstr "klukkustundir"
 
 #: usr/lib/sticky/sticky.py:575
 msgid "Set this to zero if you wish to keep all backups indefinitely"
-msgstr "0으로 설정하면 모든 백업을 영구 보관합니다"
+msgstr ""
+"Settu þetta á núll ef þú vilt halda öllum öryggisafritum um ófyrirséða "
+"framtíð"
 
 #: usr/lib/sticky/sticky.py:576
 msgid "Number to keep"
-msgstr "보관할 개수"
+msgstr "Fjöldi sem á að halda eftir"
 
 #: usr/lib/sticky/sticky.py:578
 msgid "Backups"
-msgstr "백업"
+msgstr "Öryggisafrit"
 
 #: usr/lib/sticky/sticky.py:582
 msgid "Start automatically"
-msgstr "자동으로 시작하기"
+msgstr "Ræsa sjálfvirkt"
 
 #: usr/lib/sticky/sticky.py:583
 msgid "Show notes on the screen"
-msgstr "화면에 노트 표시"
+msgstr "Birta minnismiða á skjánum"
 
 #: usr/lib/sticky/sticky.py:584
 msgid "Automatic start"
-msgstr "자동 시작"
+msgstr "Sjálfvirk ræsing"
 
 #: usr/lib/sticky/sticky.py:602
 msgid "Text Size"
-msgstr "글꼴 크기"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:704
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
-msgstr "지노트에서 작성한 노트를 가져오시겠습니까? 지노트에 작성된 노트는 수정되지 않습니다."
+msgstr ""
+"Myndirðu vilja flytja inn minnismiðana þína úr Gnote? Þetta mun ekki hafa "
+"nein áhrif á Gnote-minnismiðana þína."
 
 #: usr/lib/sticky/sticky.py:727
 msgid "Group 1"
-msgstr "그룹 1"
+msgstr "Flokkur 1"
 
 #: usr/lib/sticky/sticky.py:736
 msgid "Left click to toggle notes"
-msgstr "왼쪽 클릭하면 노트로 갑니다"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:737
 msgid "Middle click to toggle the manager"
-msgstr "가운데 클릭하면 매니저로 바뀝니다"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:755
 msgid "Manage Notes"
-msgstr "노트 관리"
+msgstr "Sýsla með minnismiða"
 
 #: usr/lib/sticky/sticky.py:771
 msgid "Quit"
-msgstr "종료"
+msgstr "Hætta"
 
 #: usr/lib/sticky/sticky.py:942 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr "메모하고 정돈하기"
+msgstr "Hafðu skipulag á hlutunum og taktu glósur"
 
 #: usr/lib/sticky/util.py:79
 msgid "Unfiled"
-msgstr "기타"
+msgstr "Óskráð"
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
-msgstr "새 노트"
+msgstr "Nýr minnismiði"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr "선택된 노트 삭제"
+msgstr "Fjarlægja valinn minnismiða"

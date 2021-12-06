@@ -7,22 +7,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-06-07 18:00+0100\n"
-"PO-Revision-Date: 2021-06-08 13:08+0000\n"
+"POT-Creation-Date: 2021-11-24 12:13+0000\n"
+"PO-Revision-Date: 2021-12-04 12:31+0000\n"
 "Last-Translator: Yacine Bouklif <yacinebouklif@gmail.com>\n"
 "Language-Team: Kabyle <kab@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-06-25 10:43+0000\n"
-"X-Generator: Launchpad (build 40cc6dba4163ba9ca785b26ad91f43c87d70ba4d)\n"
+"X-Launchpad-Export-Date: 2021-12-06 15:07+0000\n"
+"X-Generator: Launchpad (build f92b6e0bb2624f8a9125e3f45b7621c6e230c5ff)\n"
 
-#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:259
+#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:298
 msgid "Export..."
 msgstr "Sifeḍ..."
 
 #: usr/lib/sticky/common.py:145 usr/lib/sticky/common.py:169
-#: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:318
+#: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:324
 msgid "Cancel"
 msgstr "Sefsex"
 
@@ -34,7 +34,7 @@ msgstr "Sekles"
 msgid "Plain Text"
 msgstr "Aḍris amsari"
 
-#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:255
+#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:294
 msgid "Import..."
 msgstr "Kter"
 
@@ -58,299 +58,342 @@ msgstr "Err-d"
 msgid "Unable to restore: invalid or corrupted backup file"
 msgstr "Ulamek tiririt: afaylu d armeɣtu neɣ yerreẓ"
 
-#: usr/lib/sticky/common.py:267 usr/lib/sticky/manager.py:239
+#: usr/lib/sticky/common.py:262
+msgid "Overwrite Existing Group"
+msgstr ""
+
+#: usr/lib/sticky/common.py:262
+#, python-format
+msgid ""
+"There is already a group named '%s'. This action will overwrite it. Continue "
+"anyway?"
+msgstr ""
+
+#: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:278
 msgid "Remove Group"
 msgstr "Kkes agraw"
 
-#: usr/lib/sticky/common.py:267
+#: usr/lib/sticky/common.py:273
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
 msgstr "D tidet tebɣiḍ ad tekkseḍ agraw %s?"
 
-#: usr/lib/sticky/common.py:319
+#: usr/lib/sticky/common.py:325
 msgid "OK"
 msgstr "Ih"
 
-#: usr/lib/sticky/common.py:341
+#: usr/lib/sticky/common.py:347
 msgid "No"
 msgstr "Ala"
 
-#: usr/lib/sticky/common.py:342
+#: usr/lib/sticky/common.py:348
 msgid "Yes"
 msgstr "Ih"
 
-#: usr/lib/sticky/common.py:352
+#: usr/lib/sticky/common.py:358
 msgid "Don't ask me again"
 msgstr "Ur steqsay ara tikkelt-nniḍen"
 
-#: usr/lib/sticky/manager.py:84
+#: usr/lib/sticky/manager.py:108
 msgid "New"
 msgstr "Amaynut"
 
-#: usr/lib/sticky/manager.py:89
+#: usr/lib/sticky/manager.py:113
 msgid "Edit"
 msgstr "Ẓreg"
 
-#: usr/lib/sticky/manager.py:93
+#: usr/lib/sticky/manager.py:117
 msgid "Remove"
 msgstr "Kkes"
 
-#: usr/lib/sticky/manager.py:196
+#: usr/lib/sticky/manager.py:222
 msgid "Untitled"
 msgstr "War azwel"
 
-#: usr/lib/sticky/manager.py:235
+#: usr/lib/sticky/manager.py:274
 msgid "New Group"
 msgstr "Agraw amaynut"
 
-#: usr/lib/sticky/manager.py:245
+#: usr/lib/sticky/manager.py:284
 msgid "Back Up"
 msgstr "Tiririt"
 
-#: usr/lib/sticky/manager.py:249
+#: usr/lib/sticky/manager.py:288
 msgid "Restore Backups..."
 msgstr "Err-d tiririt..."
 
-#: usr/lib/sticky/manager.py:265 usr/lib/sticky/sticky.py:506
+#: usr/lib/sticky/manager.py:304 usr/lib/sticky/sticky.py:539
 msgid "Preferences"
 msgstr "Ismenyifen"
 
-#: usr/lib/sticky/manager.py:269
+#: usr/lib/sticky/manager.py:308
 msgid "Keyboard Shortcuts"
 msgstr "Inegzumen n unasiw"
 
-#: usr/lib/sticky/manager.py:274 usr/lib/sticky/sticky.py:871
+#: usr/lib/sticky/manager.py:313 usr/lib/sticky/sticky.py:940
 msgid "About"
 msgstr "Ɣef"
 
 #: usr/lib/sticky/sticky.py:30
+msgid "Small Text"
+msgstr "Aḍris amecṭuḥ"
+
+#: usr/lib/sticky/sticky.py:31
+msgid "Normal Text"
+msgstr "Aḍris amagnu"
+
+#: usr/lib/sticky/sticky.py:32
+msgid "Large Text"
+msgstr "Aḍris ameqqran"
+
+#: usr/lib/sticky/sticky.py:33
+msgid "Larger Text"
+msgstr "Asebter hrawen nezzeh"
+
+#: usr/lib/sticky/sticky.py:37
 msgid "Red"
 msgstr "Azeggaɣ"
 
-#: usr/lib/sticky/sticky.py:31
+#: usr/lib/sticky/sticky.py:38
 msgid "Green"
 msgstr "Azegzaw"
 
-#: usr/lib/sticky/sticky.py:32
+#: usr/lib/sticky/sticky.py:39
 msgid "Blue"
 msgstr "Anili"
 
-#: usr/lib/sticky/sticky.py:33
+#: usr/lib/sticky/sticky.py:40
 msgid "Yellow"
 msgstr "Awraɣ"
 
-#: usr/lib/sticky/sticky.py:34
+#: usr/lib/sticky/sticky.py:41
 msgid "Purple"
 msgstr "Agadaw"
 
-#: usr/lib/sticky/sticky.py:35
+#: usr/lib/sticky/sticky.py:42
 msgid "Teal"
 msgstr ""
 
-#: usr/lib/sticky/sticky.py:36
+#: usr/lib/sticky/sticky.py:43
 msgid "Orange"
 msgstr "Aččinawi"
 
-#: usr/lib/sticky/sticky.py:37
+#: usr/lib/sticky/sticky.py:44
 msgid "Magenta"
 msgstr ""
 
-#: usr/lib/sticky/sticky.py:52
+#: usr/lib/sticky/sticky.py:59
+msgid "Operations"
+msgstr "Timhalin"
+
+#: usr/lib/sticky/sticky.py:60
 msgid "Move selection up"
 msgstr "Smutti tafrayt d asawen"
 
-#: usr/lib/sticky/sticky.py:53
+#: usr/lib/sticky/sticky.py:61
 msgid "Move selection down"
 msgstr "Smutti tafrayt d akessar"
 
-#: usr/lib/sticky/sticky.py:54
+#: usr/lib/sticky/sticky.py:62
 msgid "Undo"
 msgstr "Sefsex"
 
-#: usr/lib/sticky/sticky.py:55
+#: usr/lib/sticky/sticky.py:63
 msgid "Redo"
 msgstr "Err-d"
 
-#: usr/lib/sticky/sticky.py:56 usr/lib/sticky/sticky.py:423
+#: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:456
 msgid "Toggle Checklist"
 msgstr "Quqel tixxamin n ufran"
 
-#: usr/lib/sticky/sticky.py:57 usr/lib/sticky/sticky.py:427
+#: usr/lib/sticky/sticky.py:65 usr/lib/sticky/sticky.py:460
 msgid "Toggle Bullets"
 msgstr "Qluqel tililac"
 
-#: usr/lib/sticky/sticky.py:58 usr/lib/sticky/sticky.py:386
-#: usr/lib/sticky/sticky.py:387
+#: usr/lib/sticky/sticky.py:67
+msgid "Formatting"
+msgstr "Amsal"
+
+#: usr/lib/sticky/sticky.py:68 usr/lib/sticky/sticky.py:411
+#: usr/lib/sticky/sticky.py:412
 msgid "Bold"
 msgstr "Azuran"
 
-#: usr/lib/sticky/sticky.py:59 usr/lib/sticky/sticky.py:391
-#: usr/lib/sticky/sticky.py:392
+#: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:416
+#: usr/lib/sticky/sticky.py:417
 msgid "Italic"
 msgstr "Tira yeknan"
 
-#: usr/lib/sticky/sticky.py:60 usr/lib/sticky/sticky.py:396
-#: usr/lib/sticky/sticky.py:397
+#: usr/lib/sticky/sticky.py:70 usr/lib/sticky/sticky.py:421
+#: usr/lib/sticky/sticky.py:422
 msgid "Fixed Width"
 msgstr "Tehri tusbiḍt"
 
-#: usr/lib/sticky/sticky.py:61 usr/lib/sticky/sticky.py:401
-#: usr/lib/sticky/sticky.py:402
+#: usr/lib/sticky/sticky.py:71 usr/lib/sticky/sticky.py:426
+#: usr/lib/sticky/sticky.py:427
 msgid "Underline"
 msgstr "Aderrer"
 
-#: usr/lib/sticky/sticky.py:62 usr/lib/sticky/sticky.py:406
-#: usr/lib/sticky/sticky.py:407
+#: usr/lib/sticky/sticky.py:72 usr/lib/sticky/sticky.py:431
+#: usr/lib/sticky/sticky.py:432
 msgid "Strikethrough"
 msgstr "Yettujerreḍ"
 
-#: usr/lib/sticky/sticky.py:63 usr/lib/sticky/sticky.py:411
-#: usr/lib/sticky/sticky.py:412
+#: usr/lib/sticky/sticky.py:73 usr/lib/sticky/sticky.py:436
+#: usr/lib/sticky/sticky.py:437
 msgid "Highlight"
 msgstr "Sebrureq"
 
-#: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:416
-#: usr/lib/sticky/sticky.py:417
+#: usr/lib/sticky/sticky.py:74 usr/lib/sticky/sticky.py:441
+#: usr/lib/sticky/sticky.py:442
 msgid "Header"
 msgstr "Azwel"
 
-#: usr/lib/sticky/sticky.py:119 usr/lib/sticky/sticky.py:157
-msgid "Format"
-msgstr "Amasal"
+#: usr/lib/sticky/sticky.py:130
+msgid "Note Color"
+msgstr ""
 
-#: usr/lib/sticky/sticky.py:136
+#: usr/lib/sticky/sticky.py:147
 msgid "Rename"
 msgstr "Snifel isem"
 
-#: usr/lib/sticky/sticky.py:144 usr/lib/sticky/sticky.py:343
-#: usr/lib/sticky/sticky.py:453
+#: usr/lib/sticky/sticky.py:155 usr/lib/sticky/sticky.py:368
+#: usr/lib/sticky/sticky.py:486
 msgid "Delete Note"
 msgstr "Kkes tazmilt"
 
-#: usr/lib/sticky/sticky.py:151 usr/lib/sticky/sticky.py:704
+#: usr/lib/sticky/sticky.py:162 usr/lib/sticky/sticky.py:751
 msgid "New Note"
 msgstr "Tazmilt tamaynutt"
 
-#: usr/lib/sticky/sticky.py:328
+#: usr/lib/sticky/sticky.py:168
+msgid "Format"
+msgstr "Amasal"
+
+#: usr/lib/sticky/sticky.py:353
 msgid "undo"
 msgstr "Semmet"
 
-#: usr/lib/sticky/sticky.py:332
+#: usr/lib/sticky/sticky.py:357
 msgid "redo"
 msgstr "err-d"
 
-#: usr/lib/sticky/sticky.py:338
+#: usr/lib/sticky/sticky.py:363
 msgid "Set Title"
 msgstr "Sbadu azwel"
 
-#: usr/lib/sticky/sticky.py:338
+#: usr/lib/sticky/sticky.py:363
 msgid "Edit Title"
 msgstr "Ẓreg azwel"
 
-#: usr/lib/sticky/sticky.py:351
+#: usr/lib/sticky/sticky.py:376
 msgid "Only on This Workspace"
 msgstr "Tallunt-agi n umahil kan"
 
-#: usr/lib/sticky/sticky.py:355
+#: usr/lib/sticky/sticky.py:380
 msgid "Always on Visible Workspace"
 msgstr "Yalass ɣef tallun n umahil yettbanen"
 
-#: usr/lib/sticky/sticky.py:367
+#: usr/lib/sticky/sticky.py:392
 msgid "Always on Top"
 msgstr "Yalass nnig"
 
-#: usr/lib/sticky/sticky.py:453
+#: usr/lib/sticky/sticky.py:486
 msgid "Are you sure you want to remove this note?"
 msgstr "D tidet tebɣiḍ ad tekkseḍ tazmilt-agi?"
 
-#: usr/lib/sticky/sticky.py:510
+#: usr/lib/sticky/sticky.py:543
 msgid "Show notes on all desktops"
 msgstr "Beqqeḍ tizmilin ɣef meṛṛa tallunin n umahil"
 
-#: usr/lib/sticky/sticky.py:511
+#: usr/lib/sticky/sticky.py:544
 msgid "Show in taskbar"
 msgstr "Beqqeḍ deg ufeggag n tiwura"
 
-#: usr/lib/sticky/sticky.py:512
+#: usr/lib/sticky/sticky.py:545
 msgid "Tray icon"
 msgstr "Tignit n telɣut"
 
-#: usr/lib/sticky/sticky.py:513
+#: usr/lib/sticky/sticky.py:546
 msgid "Show the main window automatically"
 msgstr "Sken asfaylu agejdan s wudem awurman"
 
-#: usr/lib/sticky/sticky.py:514
+#: usr/lib/sticky/sticky.py:547
 msgid "General"
 msgstr "Amatu"
 
-#: usr/lib/sticky/sticky.py:518
+#: usr/lib/sticky/sticky.py:551
 msgid "Default height"
 msgstr "Tattayt n lexṣas"
 
-#: usr/lib/sticky/sticky.py:519
+#: usr/lib/sticky/sticky.py:552
 msgid "Default width"
 msgstr "Tehri n lexṣas"
 
-#: usr/lib/sticky/sticky.py:523 usr/lib/sticky/sticky.py:528
+#: usr/lib/sticky/sticky.py:556 usr/lib/sticky/sticky.py:561
 msgid "Random"
 msgstr "Agacuran"
 
-#: usr/lib/sticky/sticky.py:525 usr/lib/sticky/sticky.py:530
+#: usr/lib/sticky/sticky.py:558 usr/lib/sticky/sticky.py:563
 msgid "Default color"
 msgstr "Ini n lexṣas"
 
-#: usr/lib/sticky/sticky.py:532
+#: usr/lib/sticky/sticky.py:565
 msgid "Font"
 msgstr "Tasefsit"
 
-#: usr/lib/sticky/sticky.py:533
+#: usr/lib/sticky/sticky.py:566
 msgid "Show spelling mistakes"
 msgstr "B‎eqqeḍ tuccḍiwin n tira"
 
-#: usr/lib/sticky/sticky.py:535 usr/lib/sticky/sticky.py:596
-#: usr/lib/sticky/sticky.py:660 usr/lib/sticky/sticky.py:692
-#: usr/lib/sticky/sticky.py:872 generate_desktop_files:13
+#: usr/lib/sticky/sticky.py:568 usr/lib/sticky/sticky.py:639
+#: usr/lib/sticky/sticky.py:703 usr/lib/sticky/sticky.py:735
+#: usr/lib/sticky/sticky.py:941 generate_desktop_files:13
 #: usr/share/sticky/manager.ui.h:1
 msgid "Notes"
 msgstr "Tizmilin"
 
-#: usr/lib/sticky/sticky.py:540
+#: usr/lib/sticky/sticky.py:573
 msgid "Automatic backups"
 msgstr "Iḥrazen iwurmanen"
 
-#: usr/lib/sticky/sticky.py:541
+#: usr/lib/sticky/sticky.py:574
 msgid "Time between backups"
 msgstr "Akud gar yiḥrazen"
 
-#: usr/lib/sticky/sticky.py:541
+#: usr/lib/sticky/sticky.py:574
 msgid "hours"
 msgstr "Isragen"
 
-#: usr/lib/sticky/sticky.py:542
+#: usr/lib/sticky/sticky.py:575
 msgid "Set this to zero if you wish to keep all backups indefinitely"
 msgstr "Fren azal ilem ma tebɣid ur tettili ara talast i umḍan n yiḥrazen"
 
-#: usr/lib/sticky/sticky.py:543
+#: usr/lib/sticky/sticky.py:576
 msgid "Number to keep"
 msgstr "Amḍan ara teṭṭfeḍ"
 
-#: usr/lib/sticky/sticky.py:545
+#: usr/lib/sticky/sticky.py:578
 msgid "Backups"
 msgstr "Iḥrazen"
 
-#: usr/lib/sticky/sticky.py:549
+#: usr/lib/sticky/sticky.py:582
 msgid "Start automatically"
 msgstr "Bdu s wudem awurman"
 
-#: usr/lib/sticky/sticky.py:550
+#: usr/lib/sticky/sticky.py:583
 msgid "Show notes on the screen"
 msgstr "Sken tizmilin ɣef ugdil"
 
-#: usr/lib/sticky/sticky.py:551
+#: usr/lib/sticky/sticky.py:584
 msgid "Automatic start"
 msgstr "Tanekra tawurmant"
 
-#: usr/lib/sticky/sticky.py:661
+#: usr/lib/sticky/sticky.py:602
+msgid "Text Size"
+msgstr "Tiddi n uḍris"
+
+#: usr/lib/sticky/sticky.py:704
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
@@ -358,24 +401,32 @@ msgstr ""
 "Tebɣiḍ ad tketreḍ tizmilin-inek inem si Gnote? Ayagi ur ittbeddil ara "
 "tizmilin n Gnote inek inem."
 
-#: usr/lib/sticky/sticky.py:684
+#: usr/lib/sticky/sticky.py:727
 msgid "Group 1"
 msgstr "Agraw 1"
 
-#: usr/lib/sticky/sticky.py:708
+#: usr/lib/sticky/sticky.py:736
+msgid "Left click to toggle notes"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:737
+msgid "Middle click to toggle the manager"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:755
 msgid "Manage Notes"
 msgstr "Sefrek tizmilin"
 
-#: usr/lib/sticky/sticky.py:724
+#: usr/lib/sticky/sticky.py:771
 msgid "Quit"
 msgstr "Ffeɣ"
 
-#: usr/lib/sticky/sticky.py:873 generate_desktop_files:14
+#: usr/lib/sticky/sticky.py:942 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
 msgstr "Ṭṭef tilɣa yerna suddes iman-ik im"
 
-#: usr/lib/sticky/util.py:76
+#: usr/lib/sticky/util.py:79
 msgid "Unfiled"
 msgstr ""
 

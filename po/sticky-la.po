@@ -7,23 +7,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-06-07 18:00+0100\n"
+"POT-Creation-Date: 2021-11-24 12:13+0000\n"
 "PO-Revision-Date: 2021-06-16 11:09+0000\n"
 "Last-Translator: Davide Novemila <Unknown>\n"
 "Language-Team: Latin <la@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-06-25 10:43+0000\n"
-"X-Generator: Launchpad (build 40cc6dba4163ba9ca785b26ad91f43c87d70ba4d)\n"
+"X-Launchpad-Export-Date: 2021-12-06 15:07+0000\n"
+"X-Generator: Launchpad (build f92b6e0bb2624f8a9125e3f45b7621c6e230c5ff)\n"
 "Language: la\n"
 
-#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:259
+#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:298
 msgid "Export..."
 msgstr "Exporta ..."
 
 #: usr/lib/sticky/common.py:145 usr/lib/sticky/common.py:169
-#: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:318
+#: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:324
 msgid "Cancel"
 msgstr "Interrumpe"
 
@@ -35,7 +35,7 @@ msgstr "Serva"
 msgid "Plain Text"
 msgstr "Scriptura Simplex"
 
-#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:255
+#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:294
 msgid "Import..."
 msgstr "Importa ..."
 
@@ -59,323 +59,374 @@ msgstr "Restitue"
 msgid "Unable to restore: invalid or corrupted backup file"
 msgstr "Restitui non potest: plica tuti mendosa aut corrupta"
 
-#: usr/lib/sticky/common.py:267 usr/lib/sticky/manager.py:239
+#: usr/lib/sticky/common.py:262
+msgid "Overwrite Existing Group"
+msgstr ""
+
+#: usr/lib/sticky/common.py:262
+#, python-format
+msgid ""
+"There is already a group named '%s'. This action will overwrite it. Continue "
+"anyway?"
+msgstr ""
+
+#: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:278
 msgid "Remove Group"
 msgstr "Collectionem Remove"
 
-#: usr/lib/sticky/common.py:267
+#: usr/lib/sticky/common.py:273
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
 msgstr "Collectionem %s removere visne?"
 
-#: usr/lib/sticky/common.py:319
+#: usr/lib/sticky/common.py:325
 msgid "OK"
 msgstr "Bene"
 
-#: usr/lib/sticky/common.py:341
+#: usr/lib/sticky/common.py:347
 msgid "No"
 msgstr "Non"
 
-#: usr/lib/sticky/common.py:342
+#: usr/lib/sticky/common.py:348
 msgid "Yes"
 msgstr "Sic"
 
-#: usr/lib/sticky/common.py:352
+#: usr/lib/sticky/common.py:358
 msgid "Don't ask me again"
 msgstr "Rursum quaerere noli"
 
-#: usr/lib/sticky/manager.py:84
+#: usr/lib/sticky/manager.py:108
 msgid "New"
 msgstr "Novum"
 
-#: usr/lib/sticky/manager.py:89
+#: usr/lib/sticky/manager.py:113
 msgid "Edit"
 msgstr "Muta"
 
-#: usr/lib/sticky/manager.py:93
+#: usr/lib/sticky/manager.py:117
 msgid "Remove"
 msgstr "Remove"
 
-#: usr/lib/sticky/manager.py:196
+#: usr/lib/sticky/manager.py:222
 msgid "Untitled"
 msgstr "Sine Titulo"
 
-#: usr/lib/sticky/manager.py:235
+#: usr/lib/sticky/manager.py:274
 msgid "New Group"
 msgstr "Nova Collectio"
 
-#: usr/lib/sticky/manager.py:245
+#: usr/lib/sticky/manager.py:284
 msgid "Back Up"
 msgstr "In Tutum Repone"
 
-#: usr/lib/sticky/manager.py:249
+#: usr/lib/sticky/manager.py:288
 msgid "Restore Backups..."
 msgstr "E Tutis Restitue ..."
 
-#: usr/lib/sticky/manager.py:265 usr/lib/sticky/sticky.py:506
+#: usr/lib/sticky/manager.py:304 usr/lib/sticky/sticky.py:539
 msgid "Preferences"
 msgstr "Praepositiones"
 
-#: usr/lib/sticky/manager.py:269
+#: usr/lib/sticky/manager.py:308
 msgid "Keyboard Shortcuts"
 msgstr "Claves Ardentes"
 
-#: usr/lib/sticky/manager.py:274 usr/lib/sticky/sticky.py:871
+#: usr/lib/sticky/manager.py:313 usr/lib/sticky/sticky.py:940
 msgid "About"
 msgstr "Circa"
 
 #: usr/lib/sticky/sticky.py:30
+msgid "Small Text"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:31
+msgid "Normal Text"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:32
+msgid "Large Text"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:33
+msgid "Larger Text"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:37
 msgid "Red"
 msgstr "Ruber"
 
-#: usr/lib/sticky/sticky.py:31
+#: usr/lib/sticky/sticky.py:38
 msgid "Green"
 msgstr "Viridis"
 
-#: usr/lib/sticky/sticky.py:32
+#: usr/lib/sticky/sticky.py:39
 msgid "Blue"
 msgstr "Caeruleus"
 
-#: usr/lib/sticky/sticky.py:33
+#: usr/lib/sticky/sticky.py:40
 msgid "Yellow"
 msgstr "Flavus"
 
-#: usr/lib/sticky/sticky.py:34
+#: usr/lib/sticky/sticky.py:41
 msgid "Purple"
 msgstr "Violaceus"
 
-#: usr/lib/sticky/sticky.py:35
+#: usr/lib/sticky/sticky.py:42
 msgid "Teal"
 msgstr "Caesius"
 
-#: usr/lib/sticky/sticky.py:36
+#: usr/lib/sticky/sticky.py:43
 msgid "Orange"
 msgstr "Flammeus"
 
-#: usr/lib/sticky/sticky.py:37
+#: usr/lib/sticky/sticky.py:44
 msgid "Magenta"
 msgstr "Rubropurpureus"
 
-#: usr/lib/sticky/sticky.py:52
+#: usr/lib/sticky/sticky.py:59
+msgid "Operations"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:60
 msgid "Move selection up"
 msgstr "Selectionem sursum move"
 
-#: usr/lib/sticky/sticky.py:53
+#: usr/lib/sticky/sticky.py:61
 msgid "Move selection down"
 msgstr "Selectionem deorsum move"
 
-#: usr/lib/sticky/sticky.py:54
+#: usr/lib/sticky/sticky.py:62
 msgid "Undo"
 msgstr "Regredere"
 
-#: usr/lib/sticky/sticky.py:55
+#: usr/lib/sticky/sticky.py:63
 msgid "Redo"
 msgstr "Refice"
 
-#: usr/lib/sticky/sticky.py:56 usr/lib/sticky/sticky.py:423
+#: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:456
 msgid "Toggle Checklist"
 msgstr "Indicem Probationis Alterna"
 
-#: usr/lib/sticky/sticky.py:57 usr/lib/sticky/sticky.py:427
+#: usr/lib/sticky/sticky.py:65 usr/lib/sticky/sticky.py:460
 msgid "Toggle Bullets"
 msgstr "Puncta Alterna"
 
-#: usr/lib/sticky/sticky.py:58 usr/lib/sticky/sticky.py:386
-#: usr/lib/sticky/sticky.py:387
+#: usr/lib/sticky/sticky.py:67
+msgid "Formatting"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:68 usr/lib/sticky/sticky.py:411
+#: usr/lib/sticky/sticky.py:412
 msgid "Bold"
 msgstr "Negritus"
 
-#: usr/lib/sticky/sticky.py:59 usr/lib/sticky/sticky.py:391
-#: usr/lib/sticky/sticky.py:392
+#: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:416
+#: usr/lib/sticky/sticky.py:417
 msgid "Italic"
 msgstr "Italicus"
 
-#: usr/lib/sticky/sticky.py:60 usr/lib/sticky/sticky.py:396
-#: usr/lib/sticky/sticky.py:397
+#: usr/lib/sticky/sticky.py:70 usr/lib/sticky/sticky.py:421
+#: usr/lib/sticky/sticky.py:422
 msgid "Fixed Width"
 msgstr "Laxitas Constans"
 
-#: usr/lib/sticky/sticky.py:61 usr/lib/sticky/sticky.py:401
-#: usr/lib/sticky/sticky.py:402
+#: usr/lib/sticky/sticky.py:71 usr/lib/sticky/sticky.py:426
+#: usr/lib/sticky/sticky.py:427
 msgid "Underline"
 msgstr "Sublineatus"
 
-#: usr/lib/sticky/sticky.py:62 usr/lib/sticky/sticky.py:406
-#: usr/lib/sticky/sticky.py:407
+#: usr/lib/sticky/sticky.py:72 usr/lib/sticky/sticky.py:431
+#: usr/lib/sticky/sticky.py:432
 msgid "Strikethrough"
 msgstr "Barratus"
 
-#: usr/lib/sticky/sticky.py:63 usr/lib/sticky/sticky.py:411
-#: usr/lib/sticky/sticky.py:412
+#: usr/lib/sticky/sticky.py:73 usr/lib/sticky/sticky.py:436
+#: usr/lib/sticky/sticky.py:437
 msgid "Highlight"
 msgstr "In Evidentia"
 
-#: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:416
-#: usr/lib/sticky/sticky.py:417
+#: usr/lib/sticky/sticky.py:74 usr/lib/sticky/sticky.py:441
+#: usr/lib/sticky/sticky.py:442
 msgid "Header"
 msgstr "Praescriptio"
 
-#: usr/lib/sticky/sticky.py:119 usr/lib/sticky/sticky.py:157
-msgid "Format"
-msgstr "Forma"
+#: usr/lib/sticky/sticky.py:130
+msgid "Note Color"
+msgstr ""
 
-#: usr/lib/sticky/sticky.py:136
+#: usr/lib/sticky/sticky.py:147
 msgid "Rename"
 msgstr "Nomen muta"
 
-#: usr/lib/sticky/sticky.py:144 usr/lib/sticky/sticky.py:343
-#: usr/lib/sticky/sticky.py:453
+#: usr/lib/sticky/sticky.py:155 usr/lib/sticky/sticky.py:368
+#: usr/lib/sticky/sticky.py:486
 msgid "Delete Note"
 msgstr "Notam Dele"
 
-#: usr/lib/sticky/sticky.py:151 usr/lib/sticky/sticky.py:704
+#: usr/lib/sticky/sticky.py:162 usr/lib/sticky/sticky.py:751
 msgid "New Note"
 msgstr "Nova Nota"
 
-#: usr/lib/sticky/sticky.py:328
+#: usr/lib/sticky/sticky.py:168
+msgid "Format"
+msgstr "Forma"
+
+#: usr/lib/sticky/sticky.py:353
 msgid "undo"
 msgstr "regredere"
 
-#: usr/lib/sticky/sticky.py:332
+#: usr/lib/sticky/sticky.py:357
 msgid "redo"
 msgstr "refice"
 
-#: usr/lib/sticky/sticky.py:338
+#: usr/lib/sticky/sticky.py:363
 msgid "Set Title"
 msgstr "Titulum Pone"
 
-#: usr/lib/sticky/sticky.py:338
+#: usr/lib/sticky/sticky.py:363
 msgid "Edit Title"
 msgstr "Titulum Muta"
 
-#: usr/lib/sticky/sticky.py:351
+#: usr/lib/sticky/sticky.py:376
 msgid "Only on This Workspace"
 msgstr "In Hac Area Laboris Modo"
 
-#: usr/lib/sticky/sticky.py:355
+#: usr/lib/sticky/sticky.py:380
 msgid "Always on Visible Workspace"
 msgstr "Semper in Area Laboris Visibile"
 
-#: usr/lib/sticky/sticky.py:367
+#: usr/lib/sticky/sticky.py:392
 msgid "Always on Top"
 msgstr "Semper in Summo"
 
-#: usr/lib/sticky/sticky.py:453
+#: usr/lib/sticky/sticky.py:486
 msgid "Are you sure you want to remove this note?"
 msgstr "Hanc notam removere visne?"
 
-#: usr/lib/sticky/sticky.py:510
+#: usr/lib/sticky/sticky.py:543
 msgid "Show notes on all desktops"
 msgstr "Notas in omnibus scriptoriis ostende"
 
-#: usr/lib/sticky/sticky.py:511
+#: usr/lib/sticky/sticky.py:544
 msgid "Show in taskbar"
 msgstr "Ostende in septo actionum"
 
-#: usr/lib/sticky/sticky.py:512
+#: usr/lib/sticky/sticky.py:545
 msgid "Tray icon"
 msgstr "Icon lancis"
 
-#: usr/lib/sticky/sticky.py:513
+#: usr/lib/sticky/sticky.py:546
 msgid "Show the main window automatically"
 msgstr "Fenestram praecipuam automatice ostende"
 
-#: usr/lib/sticky/sticky.py:514
+#: usr/lib/sticky/sticky.py:547
 msgid "General"
 msgstr "Generalia"
 
-#: usr/lib/sticky/sticky.py:518
+#: usr/lib/sticky/sticky.py:551
 msgid "Default height"
 msgstr "Altitudo predesignata"
 
-#: usr/lib/sticky/sticky.py:519
+#: usr/lib/sticky/sticky.py:552
 msgid "Default width"
 msgstr "Laxita praedesignata"
 
-#: usr/lib/sticky/sticky.py:523 usr/lib/sticky/sticky.py:528
+#: usr/lib/sticky/sticky.py:556 usr/lib/sticky/sticky.py:561
 msgid "Random"
 msgstr "Fortuitum"
 
-#: usr/lib/sticky/sticky.py:525 usr/lib/sticky/sticky.py:530
+#: usr/lib/sticky/sticky.py:558 usr/lib/sticky/sticky.py:563
 msgid "Default color"
 msgstr "Color praedesignatus"
 
-#: usr/lib/sticky/sticky.py:532
+#: usr/lib/sticky/sticky.py:565
 msgid "Font"
 msgstr "Typus"
 
-#: usr/lib/sticky/sticky.py:533
+#: usr/lib/sticky/sticky.py:566
 msgid "Show spelling mistakes"
 msgstr "Menda orthographiae ostende"
 
-#: usr/lib/sticky/sticky.py:535 usr/lib/sticky/sticky.py:596
-#: usr/lib/sticky/sticky.py:660 usr/lib/sticky/sticky.py:692
-#: usr/lib/sticky/sticky.py:872 generate_desktop_files:13
+#: usr/lib/sticky/sticky.py:568 usr/lib/sticky/sticky.py:639
+#: usr/lib/sticky/sticky.py:703 usr/lib/sticky/sticky.py:735
+#: usr/lib/sticky/sticky.py:941 generate_desktop_files:13
 #: usr/share/sticky/manager.ui.h:1
 msgid "Notes"
 msgstr "Notae"
 
-#: usr/lib/sticky/sticky.py:540
+#: usr/lib/sticky/sticky.py:573
 msgid "Automatic backups"
 msgstr "Tota automatica"
 
-#: usr/lib/sticky/sticky.py:541
+#: usr/lib/sticky/sticky.py:574
 msgid "Time between backups"
 msgstr "Spatium inter tota"
 
-#: usr/lib/sticky/sticky.py:541
+#: usr/lib/sticky/sticky.py:574
 msgid "hours"
 msgstr "horae"
 
-#: usr/lib/sticky/sticky.py:542
+#: usr/lib/sticky/sticky.py:575
 msgid "Set this to zero if you wish to keep all backups indefinitely"
 msgstr "Ad zerum mitte ut tuta infinite serventur"
 
-#: usr/lib/sticky/sticky.py:543
+#: usr/lib/sticky/sticky.py:576
 msgid "Number to keep"
 msgstr "Quot retinenda"
 
-#: usr/lib/sticky/sticky.py:545
+#: usr/lib/sticky/sticky.py:578
 msgid "Backups"
 msgstr "Tuta"
 
-#: usr/lib/sticky/sticky.py:549
+#: usr/lib/sticky/sticky.py:582
 msgid "Start automatically"
 msgstr "Automatice pellere"
 
-#: usr/lib/sticky/sticky.py:550
+#: usr/lib/sticky/sticky.py:583
 msgid "Show notes on the screen"
 msgstr "Notas in scrinio ostende"
 
-#: usr/lib/sticky/sticky.py:551
+#: usr/lib/sticky/sticky.py:584
 msgid "Automatic start"
 msgstr "Initus automaticus"
 
-#: usr/lib/sticky/sticky.py:661
+#: usr/lib/sticky/sticky.py:602
+msgid "Text Size"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:704
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
 msgstr ""
 "E Gnote notas importare vis? Tuae notae in Gnote in nullo modo mutabuntur."
 
-#: usr/lib/sticky/sticky.py:684
+#: usr/lib/sticky/sticky.py:727
 msgid "Group 1"
 msgstr "Collectio I"
 
-#: usr/lib/sticky/sticky.py:708
+#: usr/lib/sticky/sticky.py:736
+msgid "Left click to toggle notes"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:737
+msgid "Middle click to toggle the manager"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:755
 msgid "Manage Notes"
 msgstr "Notas Cura"
 
-#: usr/lib/sticky/sticky.py:724
+#: usr/lib/sticky/sticky.py:771
 msgid "Quit"
 msgstr "Relinque"
 
-#: usr/lib/sticky/sticky.py:873 generate_desktop_files:14
+#: usr/lib/sticky/sticky.py:942 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
 msgstr "Notas scribe ut bene te instruas"
 
-#: usr/lib/sticky/util.py:76
+#: usr/lib/sticky/util.py:79
 msgid "Unfiled"
 msgstr "Non in tuto"
 

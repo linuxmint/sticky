@@ -2,23 +2,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 18:00+0100\n"
-"PO-Revision-Date: 2021-06-25 08:19+0000\n"
+"POT-Creation-Date: 2021-11-24 12:13+0000\n"
+"PO-Revision-Date: 2021-12-05 07:52+0000\n"
 "Last-Translator: KAMI <kami911@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-06-25 10:43+0000\n"
-"X-Generator: Launchpad (build 40cc6dba4163ba9ca785b26ad91f43c87d70ba4d)\n"
+"X-Launchpad-Export-Date: 2021-12-06 15:07+0000\n"
+"X-Generator: Launchpad (build f92b6e0bb2624f8a9125e3f45b7621c6e230c5ff)\n"
 "Language: hu\n"
 
-#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:259
+#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:298
 msgid "Export..."
 msgstr "Exportálás…"
 
 #: usr/lib/sticky/common.py:145 usr/lib/sticky/common.py:169
-#: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:318
+#: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:324
 msgid "Cancel"
 msgstr "Mégse"
 
@@ -30,7 +30,7 @@ msgstr "Mentés"
 msgid "Plain Text"
 msgstr "Egyszerű szöveg"
 
-#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:255
+#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:294
 msgid "Import..."
 msgstr "Importálás…"
 
@@ -54,300 +54,345 @@ msgstr "Visszaállítás"
 msgid "Unable to restore: invalid or corrupted backup file"
 msgstr "Nem állítható vissza a mentés: érvénytelen vagy hibás fájl"
 
-#: usr/lib/sticky/common.py:267 usr/lib/sticky/manager.py:239
+#: usr/lib/sticky/common.py:262
+msgid "Overwrite Existing Group"
+msgstr "Meglévő csoport felülírása"
+
+#: usr/lib/sticky/common.py:262
+#, python-format
+msgid ""
+"There is already a group named '%s'. This action will overwrite it. Continue "
+"anyway?"
+msgstr ""
+"Már létezik „%s” nevű csoport. A művelet folytatásával felülírja  a már "
+"meglévő csoportot. Biztos benne, hogy folytatni kívánja?"
+
+#: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:278
 msgid "Remove Group"
 msgstr "Csoport törlése"
 
-#: usr/lib/sticky/common.py:267
+#: usr/lib/sticky/common.py:273
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
 msgstr "Valóban el kívánja távolítani a(z) %s csoportot?"
 
-#: usr/lib/sticky/common.py:319
+#: usr/lib/sticky/common.py:325
 msgid "OK"
 msgstr "OK"
 
-#: usr/lib/sticky/common.py:341
+#: usr/lib/sticky/common.py:347
 msgid "No"
 msgstr "Nem"
 
-#: usr/lib/sticky/common.py:342
+#: usr/lib/sticky/common.py:348
 msgid "Yes"
 msgstr "Igen"
 
-#: usr/lib/sticky/common.py:352
+#: usr/lib/sticky/common.py:358
 msgid "Don't ask me again"
 msgstr "Ne kérdezzen többször"
 
-#: usr/lib/sticky/manager.py:84
+#: usr/lib/sticky/manager.py:108
 msgid "New"
 msgstr "Új"
 
-#: usr/lib/sticky/manager.py:89
+#: usr/lib/sticky/manager.py:113
 msgid "Edit"
 msgstr "Szerkesztés"
 
-#: usr/lib/sticky/manager.py:93
+#: usr/lib/sticky/manager.py:117
 msgid "Remove"
 msgstr "Eltávolítás"
 
-#: usr/lib/sticky/manager.py:196
+#: usr/lib/sticky/manager.py:222
 msgid "Untitled"
 msgstr "Névtelen"
 
-#: usr/lib/sticky/manager.py:235
+#: usr/lib/sticky/manager.py:274
 msgid "New Group"
 msgstr "Új csoport"
 
-#: usr/lib/sticky/manager.py:245
+#: usr/lib/sticky/manager.py:284
 msgid "Back Up"
 msgstr "Biztonsági mentés készítése"
 
-#: usr/lib/sticky/manager.py:249
+#: usr/lib/sticky/manager.py:288
 msgid "Restore Backups..."
 msgstr "Biztonsági mentés visszállítása"
 
-#: usr/lib/sticky/manager.py:265 usr/lib/sticky/sticky.py:506
+#: usr/lib/sticky/manager.py:304 usr/lib/sticky/sticky.py:539
 msgid "Preferences"
 msgstr "Beállítások"
 
-#: usr/lib/sticky/manager.py:269
+#: usr/lib/sticky/manager.py:308
 msgid "Keyboard Shortcuts"
 msgstr "Gyorsbillentyűk"
 
-#: usr/lib/sticky/manager.py:274 usr/lib/sticky/sticky.py:871
+#: usr/lib/sticky/manager.py:313 usr/lib/sticky/sticky.py:940
 msgid "About"
 msgstr "Névjegy"
 
 #: usr/lib/sticky/sticky.py:30
+msgid "Small Text"
+msgstr "Kisméretű szöveg"
+
+#: usr/lib/sticky/sticky.py:31
+msgid "Normal Text"
+msgstr "Normál méretű szöveg"
+
+#: usr/lib/sticky/sticky.py:32
+msgid "Large Text"
+msgstr "Nagyméretű szöveg"
+
+#: usr/lib/sticky/sticky.py:33
+msgid "Larger Text"
+msgstr "Nagyobb méretű szöveg"
+
+#: usr/lib/sticky/sticky.py:37
 msgid "Red"
 msgstr "Vörös"
 
-#: usr/lib/sticky/sticky.py:31
+#: usr/lib/sticky/sticky.py:38
 msgid "Green"
 msgstr "Zöld"
 
-#: usr/lib/sticky/sticky.py:32
+#: usr/lib/sticky/sticky.py:39
 msgid "Blue"
 msgstr "Kék"
 
-#: usr/lib/sticky/sticky.py:33
+#: usr/lib/sticky/sticky.py:40
 msgid "Yellow"
 msgstr "Sárga"
 
-#: usr/lib/sticky/sticky.py:34
+#: usr/lib/sticky/sticky.py:41
 msgid "Purple"
 msgstr "Bíbor"
 
-#: usr/lib/sticky/sticky.py:35
+#: usr/lib/sticky/sticky.py:42
 msgid "Teal"
 msgstr "Kékeszöld"
 
-#: usr/lib/sticky/sticky.py:36
+#: usr/lib/sticky/sticky.py:43
 msgid "Orange"
 msgstr "Narancssárga"
 
-#: usr/lib/sticky/sticky.py:37
+#: usr/lib/sticky/sticky.py:44
 msgid "Magenta"
 msgstr "Bíborvörös"
 
-#: usr/lib/sticky/sticky.py:52
+#: usr/lib/sticky/sticky.py:59
+msgid "Operations"
+msgstr "Műveletek"
+
+#: usr/lib/sticky/sticky.py:60
 msgid "Move selection up"
 msgstr "Kiválasztás mozgatása felfelé"
 
-#: usr/lib/sticky/sticky.py:53
+#: usr/lib/sticky/sticky.py:61
 msgid "Move selection down"
 msgstr "Kiválasztás mozgatása lefelé"
 
-#: usr/lib/sticky/sticky.py:54
+#: usr/lib/sticky/sticky.py:62
 msgid "Undo"
 msgstr "Visszavonás"
 
-#: usr/lib/sticky/sticky.py:55
+#: usr/lib/sticky/sticky.py:63
 msgid "Redo"
 msgstr "Mégis"
 
-#: usr/lib/sticky/sticky.py:56 usr/lib/sticky/sticky.py:423
+#: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:456
 msgid "Toggle Checklist"
 msgstr "Jelölőnégyzet váltása"
 
-#: usr/lib/sticky/sticky.py:57 usr/lib/sticky/sticky.py:427
+#: usr/lib/sticky/sticky.py:65 usr/lib/sticky/sticky.py:460
 msgid "Toggle Bullets"
 msgstr "Felsorolás váltása"
 
-#: usr/lib/sticky/sticky.py:58 usr/lib/sticky/sticky.py:386
-#: usr/lib/sticky/sticky.py:387
+#: usr/lib/sticky/sticky.py:67
+msgid "Formatting"
+msgstr "Formázás"
+
+#: usr/lib/sticky/sticky.py:68 usr/lib/sticky/sticky.py:411
+#: usr/lib/sticky/sticky.py:412
 msgid "Bold"
 msgstr "Félkövér"
 
-#: usr/lib/sticky/sticky.py:59 usr/lib/sticky/sticky.py:391
-#: usr/lib/sticky/sticky.py:392
+#: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:416
+#: usr/lib/sticky/sticky.py:417
 msgid "Italic"
 msgstr "Dőlt"
 
-#: usr/lib/sticky/sticky.py:60 usr/lib/sticky/sticky.py:396
-#: usr/lib/sticky/sticky.py:397
+#: usr/lib/sticky/sticky.py:70 usr/lib/sticky/sticky.py:421
+#: usr/lib/sticky/sticky.py:422
 msgid "Fixed Width"
 msgstr "Rögzített szélességű"
 
-#: usr/lib/sticky/sticky.py:61 usr/lib/sticky/sticky.py:401
-#: usr/lib/sticky/sticky.py:402
+#: usr/lib/sticky/sticky.py:71 usr/lib/sticky/sticky.py:426
+#: usr/lib/sticky/sticky.py:427
 msgid "Underline"
 msgstr "Aláhúzás"
 
-#: usr/lib/sticky/sticky.py:62 usr/lib/sticky/sticky.py:406
-#: usr/lib/sticky/sticky.py:407
+#: usr/lib/sticky/sticky.py:72 usr/lib/sticky/sticky.py:431
+#: usr/lib/sticky/sticky.py:432
 msgid "Strikethrough"
 msgstr "Áthúzott"
 
-#: usr/lib/sticky/sticky.py:63 usr/lib/sticky/sticky.py:411
-#: usr/lib/sticky/sticky.py:412
+#: usr/lib/sticky/sticky.py:73 usr/lib/sticky/sticky.py:436
+#: usr/lib/sticky/sticky.py:437
 msgid "Highlight"
 msgstr "Kiemelés"
 
-#: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:416
-#: usr/lib/sticky/sticky.py:417
+#: usr/lib/sticky/sticky.py:74 usr/lib/sticky/sticky.py:441
+#: usr/lib/sticky/sticky.py:442
 msgid "Header"
 msgstr "Fejléc"
 
-#: usr/lib/sticky/sticky.py:119 usr/lib/sticky/sticky.py:157
-msgid "Format"
-msgstr "Formázás"
+#: usr/lib/sticky/sticky.py:130
+msgid "Note Color"
+msgstr "Jegyzet színe"
 
-#: usr/lib/sticky/sticky.py:136
+#: usr/lib/sticky/sticky.py:147
 msgid "Rename"
 msgstr "Átnevezés"
 
-#: usr/lib/sticky/sticky.py:144 usr/lib/sticky/sticky.py:343
-#: usr/lib/sticky/sticky.py:453
+#: usr/lib/sticky/sticky.py:155 usr/lib/sticky/sticky.py:368
+#: usr/lib/sticky/sticky.py:486
 msgid "Delete Note"
 msgstr "Jegyzet törlése"
 
-#: usr/lib/sticky/sticky.py:151 usr/lib/sticky/sticky.py:704
+#: usr/lib/sticky/sticky.py:162 usr/lib/sticky/sticky.py:751
 msgid "New Note"
 msgstr "Új jegyzet"
 
-#: usr/lib/sticky/sticky.py:328
+#: usr/lib/sticky/sticky.py:168
+msgid "Format"
+msgstr "Formázás"
+
+#: usr/lib/sticky/sticky.py:353
 msgid "undo"
 msgstr "visszavonás"
 
-#: usr/lib/sticky/sticky.py:332
+#: usr/lib/sticky/sticky.py:357
 msgid "redo"
 msgstr "ismétlés"
 
-#: usr/lib/sticky/sticky.py:338
+#: usr/lib/sticky/sticky.py:363
 msgid "Set Title"
 msgstr "Cím beállítása"
 
-#: usr/lib/sticky/sticky.py:338
+#: usr/lib/sticky/sticky.py:363
 msgid "Edit Title"
 msgstr "Cím szerkesztése"
 
-#: usr/lib/sticky/sticky.py:351
+#: usr/lib/sticky/sticky.py:376
 msgid "Only on This Workspace"
 msgstr "Csak ezen a munkaterületen"
 
-#: usr/lib/sticky/sticky.py:355
+#: usr/lib/sticky/sticky.py:380
 msgid "Always on Visible Workspace"
 msgstr "Mindig a látható munkaterületen"
 
-#: usr/lib/sticky/sticky.py:367
+#: usr/lib/sticky/sticky.py:392
 msgid "Always on Top"
 msgstr "Mindig felül"
 
-#: usr/lib/sticky/sticky.py:453
+#: usr/lib/sticky/sticky.py:486
 msgid "Are you sure you want to remove this note?"
 msgstr "Valóban el kívánja távolítani ezt a jegyzetet?"
 
-#: usr/lib/sticky/sticky.py:510
+#: usr/lib/sticky/sticky.py:543
 msgid "Show notes on all desktops"
 msgstr "Jegyzetek megjelenítése az összes asztalon"
 
-#: usr/lib/sticky/sticky.py:511
+#: usr/lib/sticky/sticky.py:544
 msgid "Show in taskbar"
 msgstr "Megjelenítés a panelen"
 
-#: usr/lib/sticky/sticky.py:512
+#: usr/lib/sticky/sticky.py:545
 msgid "Tray icon"
 msgstr "Értesítési panel ikon"
 
-#: usr/lib/sticky/sticky.py:513
+#: usr/lib/sticky/sticky.py:546
 msgid "Show the main window automatically"
 msgstr "Alkalmazás ablak megjelenítése"
 
-#: usr/lib/sticky/sticky.py:514
+#: usr/lib/sticky/sticky.py:547
 msgid "General"
 msgstr "Általános"
 
-#: usr/lib/sticky/sticky.py:518
+#: usr/lib/sticky/sticky.py:551
 msgid "Default height"
 msgstr "Alapértelmezett magasság"
 
-#: usr/lib/sticky/sticky.py:519
+#: usr/lib/sticky/sticky.py:552
 msgid "Default width"
 msgstr "Alapértelmezett szélesség"
 
-#: usr/lib/sticky/sticky.py:523 usr/lib/sticky/sticky.py:528
+#: usr/lib/sticky/sticky.py:556 usr/lib/sticky/sticky.py:561
 msgid "Random"
 msgstr "Véletlenszerű"
 
-#: usr/lib/sticky/sticky.py:525 usr/lib/sticky/sticky.py:530
+#: usr/lib/sticky/sticky.py:558 usr/lib/sticky/sticky.py:563
 msgid "Default color"
 msgstr "Alapértelmezett szín"
 
-#: usr/lib/sticky/sticky.py:532
+#: usr/lib/sticky/sticky.py:565
 msgid "Font"
 msgstr "Betűkészlet"
 
-#: usr/lib/sticky/sticky.py:533
+#: usr/lib/sticky/sticky.py:566
 msgid "Show spelling mistakes"
 msgstr "Helyesírási hibák megjelenítése"
 
-#: usr/lib/sticky/sticky.py:535 usr/lib/sticky/sticky.py:596
-#: usr/lib/sticky/sticky.py:660 usr/lib/sticky/sticky.py:692
-#: usr/lib/sticky/sticky.py:872 generate_desktop_files:13
+#: usr/lib/sticky/sticky.py:568 usr/lib/sticky/sticky.py:639
+#: usr/lib/sticky/sticky.py:703 usr/lib/sticky/sticky.py:735
+#: usr/lib/sticky/sticky.py:941 generate_desktop_files:13
 #: usr/share/sticky/manager.ui.h:1
 msgid "Notes"
-msgstr "Megjegyzések"
+msgstr "Jegyzetek"
 
-#: usr/lib/sticky/sticky.py:540
+#: usr/lib/sticky/sticky.py:573
 msgid "Automatic backups"
 msgstr "Automatikus mentés"
 
-#: usr/lib/sticky/sticky.py:541
+#: usr/lib/sticky/sticky.py:574
 msgid "Time between backups"
 msgstr "Mentések közötti időköz"
 
-#: usr/lib/sticky/sticky.py:541
+#: usr/lib/sticky/sticky.py:574
 msgid "hours"
 msgstr "óra"
 
-#: usr/lib/sticky/sticky.py:542
+#: usr/lib/sticky/sticky.py:575
 msgid "Set this to zero if you wish to keep all backups indefinitely"
 msgstr ""
 "Állítsa be ezt az értéket nullára, ha az összes mentést meg kívánja tartani"
 
-#: usr/lib/sticky/sticky.py:543
+#: usr/lib/sticky/sticky.py:576
 msgid "Number to keep"
 msgstr "Megtartandó mentések száma"
 
-#: usr/lib/sticky/sticky.py:545
+#: usr/lib/sticky/sticky.py:578
 msgid "Backups"
 msgstr "Biztonsági mentések"
 
-#: usr/lib/sticky/sticky.py:549
+#: usr/lib/sticky/sticky.py:582
 msgid "Start automatically"
 msgstr "Automatikus indítás"
 
-#: usr/lib/sticky/sticky.py:550
+#: usr/lib/sticky/sticky.py:583
 msgid "Show notes on the screen"
 msgstr "Jegyzetek megjelenítése"
 
-#: usr/lib/sticky/sticky.py:551
+#: usr/lib/sticky/sticky.py:584
 msgid "Automatic start"
 msgstr "Automatikus indítás"
 
-#: usr/lib/sticky/sticky.py:661
+#: usr/lib/sticky/sticky.py:602
+msgid "Text Size"
+msgstr "Betűméret"
+
+#: usr/lib/sticky/sticky.py:704
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
@@ -355,24 +400,32 @@ msgstr ""
 "Be szeretné importálni a jegyzeteket a Gnote alkalmazásból? Ez a művelet "
 "semmilyen módon nem változtatja meg a Gnote jegyzeteket."
 
-#: usr/lib/sticky/sticky.py:684
+#: usr/lib/sticky/sticky.py:727
 msgid "Group 1"
 msgstr "Csoport 1"
 
-#: usr/lib/sticky/sticky.py:708
+#: usr/lib/sticky/sticky.py:736
+msgid "Left click to toggle notes"
+msgstr "Jegyzetek váltása a jobb egérgombbal"
+
+#: usr/lib/sticky/sticky.py:737
+msgid "Middle click to toggle the manager"
+msgstr "Szerkesztésre váltás a közepső egérgombbal"
+
+#: usr/lib/sticky/sticky.py:755
 msgid "Manage Notes"
 msgstr "Jegyzetek kezelése"
 
-#: usr/lib/sticky/sticky.py:724
+#: usr/lib/sticky/sticky.py:771
 msgid "Quit"
 msgstr "Kilépés"
 
-#: usr/lib/sticky/sticky.py:873 generate_desktop_files:14
+#: usr/lib/sticky/sticky.py:942 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
 msgstr "Írjon jegyezeteket és tárolja őket rendezetten"
 
-#: usr/lib/sticky/util.py:76
+#: usr/lib/sticky/util.py:79
 msgid "Unfiled"
 msgstr "Üres"
 

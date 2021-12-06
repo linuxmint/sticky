@@ -7,22 +7,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-06-07 18:00+0100\n"
-"PO-Revision-Date: 2021-06-10 21:41+0000\n"
+"POT-Creation-Date: 2021-11-24 12:13+0000\n"
+"PO-Revision-Date: 2021-12-01 19:35+0000\n"
 "Last-Translator: Jan-Olof Svensson <jan-olof.svensson@abc.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-06-25 10:43+0000\n"
-"X-Generator: Launchpad (build 40cc6dba4163ba9ca785b26ad91f43c87d70ba4d)\n"
+"X-Launchpad-Export-Date: 2021-12-06 15:07+0000\n"
+"X-Generator: Launchpad (build f92b6e0bb2624f8a9125e3f45b7621c6e230c5ff)\n"
 
-#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:259
+#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:298
 msgid "Export..."
 msgstr "Exportera..."
 
 #: usr/lib/sticky/common.py:145 usr/lib/sticky/common.py:169
-#: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:318
+#: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:324
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -34,7 +34,7 @@ msgstr "Spara"
 msgid "Plain Text"
 msgstr "Vanlig text"
 
-#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:255
+#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:294
 msgid "Import..."
 msgstr "Importera..."
 
@@ -58,299 +58,344 @@ msgstr "Återställ"
 msgid "Unable to restore: invalid or corrupted backup file"
 msgstr "Kunde inte återställa - ogiltig eller skadad säkerhetskopia"
 
-#: usr/lib/sticky/common.py:267 usr/lib/sticky/manager.py:239
+#: usr/lib/sticky/common.py:262
+msgid "Overwrite Existing Group"
+msgstr "Skriv över existerande grupp"
+
+#: usr/lib/sticky/common.py:262
+#, python-format
+msgid ""
+"There is already a group named '%s'. This action will overwrite it. Continue "
+"anyway?"
+msgstr ""
+"Det finns redan en grupp med namnet '%s'. Detta val kommer att ersätta den. "
+"Vill du fortsätta ändå?"
+
+#: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:278
 msgid "Remove Group"
 msgstr "Ta bort grupp"
 
-#: usr/lib/sticky/common.py:267
+#: usr/lib/sticky/common.py:273
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
 msgstr "Är du säker på att du vill ta bort gruppen %s?"
 
-#: usr/lib/sticky/common.py:319
+#: usr/lib/sticky/common.py:325
 msgid "OK"
 msgstr "OK"
 
-#: usr/lib/sticky/common.py:341
+#: usr/lib/sticky/common.py:347
 msgid "No"
 msgstr "Nej"
 
-#: usr/lib/sticky/common.py:342
+#: usr/lib/sticky/common.py:348
 msgid "Yes"
 msgstr "Ja"
 
-#: usr/lib/sticky/common.py:352
+#: usr/lib/sticky/common.py:358
 msgid "Don't ask me again"
 msgstr "Fråga mig inte igen"
 
-#: usr/lib/sticky/manager.py:84
+#: usr/lib/sticky/manager.py:108
 msgid "New"
 msgstr "Ny"
 
-#: usr/lib/sticky/manager.py:89
+#: usr/lib/sticky/manager.py:113
 msgid "Edit"
 msgstr "Redigera"
 
-#: usr/lib/sticky/manager.py:93
+#: usr/lib/sticky/manager.py:117
 msgid "Remove"
 msgstr "Ta bort"
 
-#: usr/lib/sticky/manager.py:196
+#: usr/lib/sticky/manager.py:222
 msgid "Untitled"
 msgstr "Namnlös"
 
-#: usr/lib/sticky/manager.py:235
+#: usr/lib/sticky/manager.py:274
 msgid "New Group"
 msgstr "Ny grupp"
 
-#: usr/lib/sticky/manager.py:245
+#: usr/lib/sticky/manager.py:284
 msgid "Back Up"
 msgstr "Säkerhetskopiera"
 
-#: usr/lib/sticky/manager.py:249
+#: usr/lib/sticky/manager.py:288
 msgid "Restore Backups..."
 msgstr "Läs in säkerhetskopior..."
 
-#: usr/lib/sticky/manager.py:265 usr/lib/sticky/sticky.py:506
+#: usr/lib/sticky/manager.py:304 usr/lib/sticky/sticky.py:539
 msgid "Preferences"
 msgstr "Inställningar"
 
-#: usr/lib/sticky/manager.py:269
+#: usr/lib/sticky/manager.py:308
 msgid "Keyboard Shortcuts"
 msgstr "Snabbkommandon"
 
-#: usr/lib/sticky/manager.py:274 usr/lib/sticky/sticky.py:871
+#: usr/lib/sticky/manager.py:313 usr/lib/sticky/sticky.py:940
 msgid "About"
 msgstr "Om programmet"
 
 #: usr/lib/sticky/sticky.py:30
+msgid "Small Text"
+msgstr "Liten text"
+
+#: usr/lib/sticky/sticky.py:31
+msgid "Normal Text"
+msgstr "Normal text"
+
+#: usr/lib/sticky/sticky.py:32
+msgid "Large Text"
+msgstr "Stor text"
+
+#: usr/lib/sticky/sticky.py:33
+msgid "Larger Text"
+msgstr "Större text"
+
+#: usr/lib/sticky/sticky.py:37
 msgid "Red"
 msgstr "Rött"
 
-#: usr/lib/sticky/sticky.py:31
+#: usr/lib/sticky/sticky.py:38
 msgid "Green"
 msgstr "Grönt"
 
-#: usr/lib/sticky/sticky.py:32
+#: usr/lib/sticky/sticky.py:39
 msgid "Blue"
 msgstr "Blått"
 
-#: usr/lib/sticky/sticky.py:33
+#: usr/lib/sticky/sticky.py:40
 msgid "Yellow"
 msgstr "Gult"
 
-#: usr/lib/sticky/sticky.py:34
+#: usr/lib/sticky/sticky.py:41
 msgid "Purple"
 msgstr "Lila"
 
-#: usr/lib/sticky/sticky.py:35
+#: usr/lib/sticky/sticky.py:42
 msgid "Teal"
-msgstr ""
+msgstr "Blågrön"
 
-#: usr/lib/sticky/sticky.py:36
+#: usr/lib/sticky/sticky.py:43
 msgid "Orange"
 msgstr "Orange"
 
-#: usr/lib/sticky/sticky.py:37
+#: usr/lib/sticky/sticky.py:44
 msgid "Magenta"
 msgstr "Magenta"
 
-#: usr/lib/sticky/sticky.py:52
+#: usr/lib/sticky/sticky.py:59
+msgid "Operations"
+msgstr "Åtgärder"
+
+#: usr/lib/sticky/sticky.py:60
 msgid "Move selection up"
 msgstr "Flytta upp det markerade"
 
-#: usr/lib/sticky/sticky.py:53
+#: usr/lib/sticky/sticky.py:61
 msgid "Move selection down"
 msgstr "Flytta ned det markerade"
 
-#: usr/lib/sticky/sticky.py:54
+#: usr/lib/sticky/sticky.py:62
 msgid "Undo"
 msgstr "Ångra"
 
-#: usr/lib/sticky/sticky.py:55
+#: usr/lib/sticky/sticky.py:63
 msgid "Redo"
 msgstr "Gör om"
 
-#: usr/lib/sticky/sticky.py:56 usr/lib/sticky/sticky.py:423
+#: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:456
 msgid "Toggle Checklist"
-msgstr ""
+msgstr "Checklista till/från"
 
-#: usr/lib/sticky/sticky.py:57 usr/lib/sticky/sticky.py:427
+#: usr/lib/sticky/sticky.py:65 usr/lib/sticky/sticky.py:460
 msgid "Toggle Bullets"
-msgstr ""
+msgstr "Punkttecken till/från"
 
-#: usr/lib/sticky/sticky.py:58 usr/lib/sticky/sticky.py:386
-#: usr/lib/sticky/sticky.py:387
+#: usr/lib/sticky/sticky.py:67
+msgid "Formatting"
+msgstr "Formatera"
+
+#: usr/lib/sticky/sticky.py:68 usr/lib/sticky/sticky.py:411
+#: usr/lib/sticky/sticky.py:412
 msgid "Bold"
 msgstr "Fet"
 
-#: usr/lib/sticky/sticky.py:59 usr/lib/sticky/sticky.py:391
-#: usr/lib/sticky/sticky.py:392
+#: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:416
+#: usr/lib/sticky/sticky.py:417
 msgid "Italic"
 msgstr "Kursiv"
 
-#: usr/lib/sticky/sticky.py:60 usr/lib/sticky/sticky.py:396
-#: usr/lib/sticky/sticky.py:397
+#: usr/lib/sticky/sticky.py:70 usr/lib/sticky/sticky.py:421
+#: usr/lib/sticky/sticky.py:422
 msgid "Fixed Width"
 msgstr "Fast bredd"
 
-#: usr/lib/sticky/sticky.py:61 usr/lib/sticky/sticky.py:401
-#: usr/lib/sticky/sticky.py:402
+#: usr/lib/sticky/sticky.py:71 usr/lib/sticky/sticky.py:426
+#: usr/lib/sticky/sticky.py:427
 msgid "Underline"
 msgstr "Understrykning"
 
-#: usr/lib/sticky/sticky.py:62 usr/lib/sticky/sticky.py:406
-#: usr/lib/sticky/sticky.py:407
+#: usr/lib/sticky/sticky.py:72 usr/lib/sticky/sticky.py:431
+#: usr/lib/sticky/sticky.py:432
 msgid "Strikethrough"
 msgstr "Genomstrykning"
 
-#: usr/lib/sticky/sticky.py:63 usr/lib/sticky/sticky.py:411
-#: usr/lib/sticky/sticky.py:412
+#: usr/lib/sticky/sticky.py:73 usr/lib/sticky/sticky.py:436
+#: usr/lib/sticky/sticky.py:437
 msgid "Highlight"
-msgstr ""
+msgstr "Markering"
 
-#: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:416
-#: usr/lib/sticky/sticky.py:417
+#: usr/lib/sticky/sticky.py:74 usr/lib/sticky/sticky.py:441
+#: usr/lib/sticky/sticky.py:442
 msgid "Header"
 msgstr "Sidhuvud"
 
-#: usr/lib/sticky/sticky.py:119 usr/lib/sticky/sticky.py:157
-msgid "Format"
-msgstr "Format"
+#: usr/lib/sticky/sticky.py:130
+msgid "Note Color"
+msgstr "Anteckningsfärg"
 
-#: usr/lib/sticky/sticky.py:136
+#: usr/lib/sticky/sticky.py:147
 msgid "Rename"
 msgstr "Byt namn"
 
-#: usr/lib/sticky/sticky.py:144 usr/lib/sticky/sticky.py:343
-#: usr/lib/sticky/sticky.py:453
+#: usr/lib/sticky/sticky.py:155 usr/lib/sticky/sticky.py:368
+#: usr/lib/sticky/sticky.py:486
 msgid "Delete Note"
 msgstr "Ta bort anteckning"
 
-#: usr/lib/sticky/sticky.py:151 usr/lib/sticky/sticky.py:704
+#: usr/lib/sticky/sticky.py:162 usr/lib/sticky/sticky.py:751
 msgid "New Note"
 msgstr "Ny anteckning"
 
-#: usr/lib/sticky/sticky.py:328
+#: usr/lib/sticky/sticky.py:168
+msgid "Format"
+msgstr "Format"
+
+#: usr/lib/sticky/sticky.py:353
 msgid "undo"
 msgstr "ångra"
 
-#: usr/lib/sticky/sticky.py:332
+#: usr/lib/sticky/sticky.py:357
 msgid "redo"
 msgstr "gör om"
 
-#: usr/lib/sticky/sticky.py:338
+#: usr/lib/sticky/sticky.py:363
 msgid "Set Title"
 msgstr "Ange titel"
 
-#: usr/lib/sticky/sticky.py:338
+#: usr/lib/sticky/sticky.py:363
 msgid "Edit Title"
 msgstr "Redigera titel"
 
-#: usr/lib/sticky/sticky.py:351
+#: usr/lib/sticky/sticky.py:376
 msgid "Only on This Workspace"
 msgstr "Endast på denna arbetsyta"
 
-#: usr/lib/sticky/sticky.py:355
+#: usr/lib/sticky/sticky.py:380
 msgid "Always on Visible Workspace"
 msgstr "Alltid på synlig arbetsyta"
 
-#: usr/lib/sticky/sticky.py:367
+#: usr/lib/sticky/sticky.py:392
 msgid "Always on Top"
 msgstr "Alltid överst"
 
-#: usr/lib/sticky/sticky.py:453
+#: usr/lib/sticky/sticky.py:486
 msgid "Are you sure you want to remove this note?"
 msgstr "Är du säker på att du vill ta bort denna anteckning?"
 
-#: usr/lib/sticky/sticky.py:510
+#: usr/lib/sticky/sticky.py:543
 msgid "Show notes on all desktops"
 msgstr "Visa anteckningar på alla skrivbord"
 
-#: usr/lib/sticky/sticky.py:511
+#: usr/lib/sticky/sticky.py:544
 msgid "Show in taskbar"
 msgstr "Visa i aktivitetsfältet"
 
-#: usr/lib/sticky/sticky.py:512
+#: usr/lib/sticky/sticky.py:545
 msgid "Tray icon"
 msgstr "Aktivitetsikon"
 
-#: usr/lib/sticky/sticky.py:513
+#: usr/lib/sticky/sticky.py:546
 msgid "Show the main window automatically"
 msgstr "Visa huvudfönstret automatiskt"
 
-#: usr/lib/sticky/sticky.py:514
+#: usr/lib/sticky/sticky.py:547
 msgid "General"
 msgstr "Allmänt"
 
-#: usr/lib/sticky/sticky.py:518
+#: usr/lib/sticky/sticky.py:551
 msgid "Default height"
 msgstr "Standardhöjd"
 
-#: usr/lib/sticky/sticky.py:519
+#: usr/lib/sticky/sticky.py:552
 msgid "Default width"
 msgstr "Standardvidd"
 
-#: usr/lib/sticky/sticky.py:523 usr/lib/sticky/sticky.py:528
+#: usr/lib/sticky/sticky.py:556 usr/lib/sticky/sticky.py:561
 msgid "Random"
 msgstr "Slumpmässig"
 
-#: usr/lib/sticky/sticky.py:525 usr/lib/sticky/sticky.py:530
+#: usr/lib/sticky/sticky.py:558 usr/lib/sticky/sticky.py:563
 msgid "Default color"
 msgstr "Standardfärg"
 
-#: usr/lib/sticky/sticky.py:532
+#: usr/lib/sticky/sticky.py:565
 msgid "Font"
 msgstr "Teckensnitt"
 
-#: usr/lib/sticky/sticky.py:533
+#: usr/lib/sticky/sticky.py:566
 msgid "Show spelling mistakes"
 msgstr "Visa stavfel"
 
-#: usr/lib/sticky/sticky.py:535 usr/lib/sticky/sticky.py:596
-#: usr/lib/sticky/sticky.py:660 usr/lib/sticky/sticky.py:692
-#: usr/lib/sticky/sticky.py:872 generate_desktop_files:13
+#: usr/lib/sticky/sticky.py:568 usr/lib/sticky/sticky.py:639
+#: usr/lib/sticky/sticky.py:703 usr/lib/sticky/sticky.py:735
+#: usr/lib/sticky/sticky.py:941 generate_desktop_files:13
 #: usr/share/sticky/manager.ui.h:1
 msgid "Notes"
 msgstr "Anteckningar"
 
-#: usr/lib/sticky/sticky.py:540
+#: usr/lib/sticky/sticky.py:573
 msgid "Automatic backups"
 msgstr "Automatisk säkerhetskopiering"
 
-#: usr/lib/sticky/sticky.py:541
+#: usr/lib/sticky/sticky.py:574
 msgid "Time between backups"
 msgstr "Tid mellan varje säkerhetskopiering"
 
-#: usr/lib/sticky/sticky.py:541
+#: usr/lib/sticky/sticky.py:574
 msgid "hours"
 msgstr "timmar"
 
-#: usr/lib/sticky/sticky.py:542
+#: usr/lib/sticky/sticky.py:575
 msgid "Set this to zero if you wish to keep all backups indefinitely"
 msgstr "Sätt detta värde till noll om du vill spara alla kopior för alltid"
 
-#: usr/lib/sticky/sticky.py:543
+#: usr/lib/sticky/sticky.py:576
 msgid "Number to keep"
 msgstr "Antal att spara"
 
-#: usr/lib/sticky/sticky.py:545
+#: usr/lib/sticky/sticky.py:578
 msgid "Backups"
 msgstr "Säkerhetskopior"
 
-#: usr/lib/sticky/sticky.py:549
+#: usr/lib/sticky/sticky.py:582
 msgid "Start automatically"
 msgstr "Starta automatiskt"
 
-#: usr/lib/sticky/sticky.py:550
+#: usr/lib/sticky/sticky.py:583
 msgid "Show notes on the screen"
 msgstr "Visa anteckningar på skärmen"
 
-#: usr/lib/sticky/sticky.py:551
+#: usr/lib/sticky/sticky.py:584
 msgid "Automatic start"
 msgstr "Automatisk start"
 
-#: usr/lib/sticky/sticky.py:661
+#: usr/lib/sticky/sticky.py:602
+msgid "Text Size"
+msgstr "Textstorlek"
+
+#: usr/lib/sticky/sticky.py:704
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
@@ -358,26 +403,34 @@ msgstr ""
 "Vill du importera dina anteckningar från Gnote? Anteckningarna i Gnote "
 "kommer att förbli oförändrade."
 
-#: usr/lib/sticky/sticky.py:684
+#: usr/lib/sticky/sticky.py:727
 msgid "Group 1"
 msgstr "Grupp 1"
 
-#: usr/lib/sticky/sticky.py:708
+#: usr/lib/sticky/sticky.py:736
+msgid "Left click to toggle notes"
+msgstr "Vänsterklicka för att växla anteckningar"
+
+#: usr/lib/sticky/sticky.py:737
+msgid "Middle click to toggle the manager"
+msgstr "Mittenklicka för att växla hanterare"
+
+#: usr/lib/sticky/sticky.py:755
 msgid "Manage Notes"
 msgstr "Hantera anteckningar"
 
-#: usr/lib/sticky/sticky.py:724
+#: usr/lib/sticky/sticky.py:771
 msgid "Quit"
 msgstr "Avsluta"
 
-#: usr/lib/sticky/sticky.py:873 generate_desktop_files:14
+#: usr/lib/sticky/sticky.py:942 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
 msgstr "Gör anteckningar och håll dig organiserad"
 
-#: usr/lib/sticky/util.py:76
+#: usr/lib/sticky/util.py:79
 msgid "Unfiled"
-msgstr ""
+msgstr "Inte lagrad"
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
