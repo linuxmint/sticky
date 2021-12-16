@@ -609,8 +609,19 @@ class NoteBuffer(Gtk.TextBuffer):
 
             # check tag toggles
             if length == 1:
+                font_scale_changed = False
                 for tag_name in self.tag_toggles:
-                    if location.has_tag(self.get_tag_table().lookup(tag_name)):
+                    # if the tag is a font scale, remove all other font scales
+                    if tag_name in FONT_SCALES:
+                        font_scale_changed = True
+                        for scale_tag_name in FONT_SCALES:
+                            if scale_tag_name != 'normal':
+                                action = CompositeAction(action, self.strip_tag(scale_tag_name, start, location))
+
+                    if tag_name == 'normal':
+                        # the normal tag doesn't really exist but we still use it for removing other font scale tags
+                        pass
+                    elif location.has_tag(self.get_tag_table().lookup(tag_name)):
                         action = CompositeAction(action, self.strip_tag(tag_name, start, location))
                     else:
                         action = CompositeAction(action, self.add_tag(tag_name, start, location))
@@ -620,10 +631,13 @@ class NoteBuffer(Gtk.TextBuffer):
                     if tag_name is None:
                         continue
 
+                    # don't continue header tag onto new line
                     if text == '\n' and tag_name == 'header':
                         continue
 
-                    if tag_name not in self.tag_toggles:
+                    # don't continue the tag if it was toggled off
+                    # also don't continue if it's a font scale tag and another was just applied
+                    if tag_name not in self.tag_toggles and (tag_name not in FONT_SCALES or not font_scale_changed):
                         action = CompositeAction(action, self.add_tag(tag_name, start, location))
 
             if not self.props.can_undo or not self.undo_actions[-1].maybe_join(action):
@@ -732,6 +746,13 @@ class NoteBuffer(Gtk.TextBuffer):
             else:
                 self.add_undo_action(self.add_tag(tag_name, start, end))
         else:
+            # if it's a font scale, we want to remove any existing font scale first
+            # this has the side effect that font scales don't toggle like everything else, which is exactly what we want
+            if tag_name in FONT_SCALES:
+                for name in self.tag_toggles:
+                    if name in FONT_SCALES:
+                        self.tag_toggles.remove(name)
+
             if tag_name in self.tag_toggles:
                 self.tag_toggles.remove(tag_name)
             else:
