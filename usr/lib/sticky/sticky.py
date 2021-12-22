@@ -840,6 +840,13 @@ class Application(Gtk.Application):
         info = {'x': x, 'y': y}
         note = self.generate_note(info)
         note.present_with_time(Gtk.get_current_event_time())
+
+        # Note is Gdk.WindowType.UTILITY - these don't get raised automatically
+        # (see muffin: window.c:window_state_on_map)
+        if not note.get_realized():
+            note.realize()
+        note.get_window().raise_()
+
         note.changed()
 
     def generate_note(self, info={}):
