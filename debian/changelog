@@ -1,3 +1,13 @@
+sticky (1.6) una; urgency=medium
+
+  [ haggen88 ]
+  * update sticky.svg (#48)
+
+  [ Michael Webster ]
+  * Make sure new notes get raised as well as focused. (#52)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 27 Dec 2021 12:46:07 +0000
+
 sticky (1.5) una; urgency=medium
 
   [ Stephen Collins ]
