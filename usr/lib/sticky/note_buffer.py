@@ -618,10 +618,11 @@ class NoteBuffer(Gtk.TextBuffer):
                             if scale_tag_name != 'normal':
                                 action = CompositeAction(action, self.strip_tag(scale_tag_name, start, location))
 
+                    prev = start.copy()
                     if tag_name == 'normal':
-                        # the normal tag doesn't really exist but we still use it for removing other font scale tags
+                        # the 'normal' tag doesn't really exist but we still use it for removing other font scale tags
                         pass
-                    elif location.has_tag(self.get_tag_table().lookup(tag_name)):
+                    elif prev.backward_char() & prev.has_tag(self.get_tag_table().lookup(tag_name)):
                         action = CompositeAction(action, self.strip_tag(tag_name, start, location))
                     else:
                         action = CompositeAction(action, self.add_tag(tag_name, start, location))
@@ -639,6 +640,8 @@ class NoteBuffer(Gtk.TextBuffer):
                     # also don't continue if it's a font scale tag and another was just applied
                     if tag_name not in self.tag_toggles and (tag_name not in FONT_SCALES or not font_scale_changed):
                         action = CompositeAction(action, self.add_tag(tag_name, start, location))
+
+                self.tag_toggles = []
 
             if not self.props.can_undo or not self.undo_actions[-1].maybe_join(action):
                 self.add_undo_action(action)
