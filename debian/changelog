@@ -1,3 +1,10 @@
+sticky (1.7) una; urgency=medium
+
+  [ Stephen Collins ]
+  * buffer: fix the condition for disabling a format tag when inserting text
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 31 Dec 2021 11:02:01 +0000
+
 sticky (1.6) una; urgency=medium
 
   [ haggen88 ]
