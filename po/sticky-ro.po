@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-11-24 12:13+0000\n"
-"PO-Revision-Date: 2021-06-27 23:21+0000\n"
-"Last-Translator: Nicolae Crefelean <Unknown>\n"
+"PO-Revision-Date: 2021-12-14 20:00+0000\n"
+"Last-Translator: Vladm <Unknown>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-12-06 15:07+0000\n"
-"X-Generator: Launchpad (build f92b6e0bb2624f8a9125e3f45b7621c6e230c5ff)\n"
+"X-Launchpad-Export-Date: 2021-12-31 12:26+0000\n"
+"X-Generator: Launchpad (build adb364d6a74a28e7b95d51cd30446ec16160de6c)\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:298
 msgid "Export..."
@@ -60,7 +60,7 @@ msgstr "Restaurare imposibilă: fișierul de salvare este corupt sau nevalid"
 
 #: usr/lib/sticky/common.py:262
 msgid "Overwrite Existing Group"
-msgstr ""
+msgstr "Suprascrie grupul existent"
 
 #: usr/lib/sticky/common.py:262
 #, python-format
@@ -68,6 +68,8 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
+"Există deja un grup numit '%s'. Această acțiune îl va suprascrie. Continuă "
+"oricum?"
 
 #: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:278
 msgid "Remove Group"
@@ -136,19 +138,19 @@ msgstr "Despre"
 
 #: usr/lib/sticky/sticky.py:30
 msgid "Small Text"
-msgstr ""
+msgstr "Text mic"
 
 #: usr/lib/sticky/sticky.py:31
 msgid "Normal Text"
-msgstr ""
+msgstr "Text normal"
 
 #: usr/lib/sticky/sticky.py:32
 msgid "Large Text"
-msgstr ""
+msgstr "Text mare"
 
 #: usr/lib/sticky/sticky.py:33
 msgid "Larger Text"
-msgstr ""
+msgstr "Text mai mare"
 
 #: usr/lib/sticky/sticky.py:37
 msgid "Red"
@@ -184,7 +186,7 @@ msgstr "Purpuriu"
 
 #: usr/lib/sticky/sticky.py:59
 msgid "Operations"
-msgstr ""
+msgstr "Operațiuni"
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Move selection up"
@@ -212,7 +214,7 @@ msgstr "Comută punctele"
 
 #: usr/lib/sticky/sticky.py:67
 msgid "Formatting"
-msgstr ""
+msgstr "Formatare"
 
 #: usr/lib/sticky/sticky.py:68 usr/lib/sticky/sticky.py:411
 #: usr/lib/sticky/sticky.py:412
@@ -251,7 +253,7 @@ msgstr "Antet"
 
 #: usr/lib/sticky/sticky.py:130
 msgid "Note Color"
-msgstr ""
+msgstr "Culoare notiță"
 
 #: usr/lib/sticky/sticky.py:147
 msgid "Rename"
@@ -391,7 +393,7 @@ msgstr "Pornire automată"
 
 #: usr/lib/sticky/sticky.py:602
 msgid "Text Size"
-msgstr ""
+msgstr "Dimensiunea textului"
 
 #: usr/lib/sticky/sticky.py:704
 msgid ""
@@ -407,11 +409,11 @@ msgstr "Grupul 1"
 
 #: usr/lib/sticky/sticky.py:736
 msgid "Left click to toggle notes"
-msgstr ""
+msgstr "Clic stânga pentru a comuta notițele"
 
 #: usr/lib/sticky/sticky.py:737
 msgid "Middle click to toggle the manager"
-msgstr ""
+msgstr "Clic dreapta pentru a comuta managerul"
 
 #: usr/lib/sticky/sticky.py:755
 msgid "Manage Notes"

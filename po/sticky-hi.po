@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-11-24 12:13+0000\n"
-"PO-Revision-Date: 2021-11-27 18:00+0000\n"
+"PO-Revision-Date: 2021-12-14 18:13+0000\n"
 "Last-Translator: Panwar <Unknown>\n"
 "Language-Team: Hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-12-06 15:07+0000\n"
-"X-Generator: Launchpad (build f92b6e0bb2624f8a9125e3f45b7621c6e230c5ff)\n"
+"X-Launchpad-Export-Date: 2021-12-31 12:26+0000\n"
+"X-Generator: Launchpad (build adb364d6a74a28e7b95d51cd30446ec16160de6c)\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:298
 msgid "Export..."
@@ -60,7 +60,7 @@ msgstr "पुनःस्थापना विफल : अमान्य य�
 
 #: usr/lib/sticky/common.py:262
 msgid "Overwrite Existing Group"
-msgstr ""
+msgstr "मौजूदा समूह को अधिलेखित करें"
 
 #: usr/lib/sticky/common.py:262
 #, python-format
@@ -68,6 +68,8 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
+"'%s' नामक समूह पहले से मौजूद है। इस कार्य से वह अधिलेखित हो जाएगा। फिर भी "
+"जारी रखें?"
 
 #: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:278
 msgid "Remove Group"
@@ -136,19 +138,19 @@ msgstr "बारे में"
 
 #: usr/lib/sticky/sticky.py:30
 msgid "Small Text"
-msgstr ""
+msgstr "छोटे अक्षर"
 
 #: usr/lib/sticky/sticky.py:31
 msgid "Normal Text"
-msgstr ""
+msgstr "सामान्य अक्षर"
 
 #: usr/lib/sticky/sticky.py:32
 msgid "Large Text"
-msgstr ""
+msgstr "बड़े अक्षर"
 
 #: usr/lib/sticky/sticky.py:33
 msgid "Larger Text"
-msgstr ""
+msgstr "अधिक बड़े अक्षर"
 
 #: usr/lib/sticky/sticky.py:37
 msgid "Red"
@@ -184,7 +186,7 @@ msgstr "गहरा गुलाबी"
 
 #: usr/lib/sticky/sticky.py:59
 msgid "Operations"
-msgstr ""
+msgstr "कार्य"
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Move selection up"
@@ -212,7 +214,7 @@ msgstr "बुलेट सूची चालू/बंद"
 
 #: usr/lib/sticky/sticky.py:67
 msgid "Formatting"
-msgstr ""
+msgstr "स्वरूपण"
 
 #: usr/lib/sticky/sticky.py:68 usr/lib/sticky/sticky.py:411
 #: usr/lib/sticky/sticky.py:412
@@ -251,7 +253,7 @@ msgstr "शीर्ष लेख"
 
 #: usr/lib/sticky/sticky.py:130
 msgid "Note Color"
-msgstr ""
+msgstr "टिप्पणी का रंग"
 
 #: usr/lib/sticky/sticky.py:147
 msgid "Rename"
@@ -393,7 +395,7 @@ msgstr "स्वतः आरंभ"
 
 #: usr/lib/sticky/sticky.py:602
 msgid "Text Size"
-msgstr "लेख आकार"
+msgstr "अक्षर आकार"
 
 #: usr/lib/sticky/sticky.py:704
 msgid ""
@@ -409,11 +411,11 @@ msgstr "समूह 1"
 
 #: usr/lib/sticky/sticky.py:736
 msgid "Left click to toggle notes"
-msgstr ""
+msgstr "बाएँ क्लिक द्वारा टिप्पणियाँ चालू/बंद करें"
 
 #: usr/lib/sticky/sticky.py:737
 msgid "Middle click to toggle the manager"
-msgstr ""
+msgstr "मध्य क्लिक द्वारा प्रबंधक चालू/बंद करें"
 
 #: usr/lib/sticky/sticky.py:755
 msgid "Manage Notes"

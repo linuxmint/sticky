@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-11-24 12:13+0000\n"
-"PO-Revision-Date: 2021-11-05 20:06+0000\n"
+"PO-Revision-Date: 2021-12-07 15:43+0000\n"
 "Last-Translator: Quentin PAGÈS <Unknown>\n"
 "Language-Team: Occitan (post 1500) <oc@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-12-06 15:07+0000\n"
-"X-Generator: Launchpad (build f92b6e0bb2624f8a9125e3f45b7621c6e230c5ff)\n"
+"X-Launchpad-Export-Date: 2021-12-31 12:26+0000\n"
+"X-Generator: Launchpad (build adb364d6a74a28e7b95d51cd30446ec16160de6c)\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:298
 msgid "Export..."
@@ -60,7 +60,7 @@ msgstr "Restauracion impossibla : fichièr de salvagarda invalid o corromput"
 
 #: usr/lib/sticky/common.py:262
 msgid "Overwrite Existing Group"
-msgstr ""
+msgstr "Espotir lo grop existent"
 
 #: usr/lib/sticky/common.py:262
 #, python-format
@@ -68,6 +68,8 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
+"I a ja un grop apelat « %s ». Aquesta accion l'espotirà. Contunhar malgrat "
+"tot ?"
 
 #: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:278
 msgid "Remove Group"
@@ -136,19 +138,19 @@ msgstr "A prepaus"
 
 #: usr/lib/sticky/sticky.py:30
 msgid "Small Text"
-msgstr ""
+msgstr "Tèxte pichon"
 
 #: usr/lib/sticky/sticky.py:31
 msgid "Normal Text"
-msgstr ""
+msgstr "Tèxte normal"
 
 #: usr/lib/sticky/sticky.py:32
 msgid "Large Text"
-msgstr ""
+msgstr "Tèxte grand"
 
 #: usr/lib/sticky/sticky.py:33
 msgid "Larger Text"
-msgstr ""
+msgstr "Tèxte mai grand"
 
 #: usr/lib/sticky/sticky.py:37
 msgid "Red"
@@ -184,7 +186,7 @@ msgstr "Magenta"
 
 #: usr/lib/sticky/sticky.py:59
 msgid "Operations"
-msgstr ""
+msgstr "Operacions"
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Move selection up"
@@ -212,7 +214,7 @@ msgstr "Bascular la lista a piuses"
 
 #: usr/lib/sticky/sticky.py:67
 msgid "Formatting"
-msgstr ""
+msgstr "Formatatge"
 
 #: usr/lib/sticky/sticky.py:68 usr/lib/sticky/sticky.py:411
 #: usr/lib/sticky/sticky.py:412
@@ -251,7 +253,7 @@ msgstr "Entèsta"
 
 #: usr/lib/sticky/sticky.py:130
 msgid "Note Color"
-msgstr ""
+msgstr "Color de la nòta"
 
 #: usr/lib/sticky/sticky.py:147
 msgid "Rename"
@@ -391,7 +393,7 @@ msgstr "Aviada automatica"
 
 #: usr/lib/sticky/sticky.py:602
 msgid "Text Size"
-msgstr ""
+msgstr "Talha del tèxte"
 
 #: usr/lib/sticky/sticky.py:704
 msgid ""

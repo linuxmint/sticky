@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-11-24 12:13+0000\n"
-"PO-Revision-Date: 2021-10-28 15:45+0000\n"
+"PO-Revision-Date: 2021-12-09 12:27+0000\n"
 "Last-Translator: Rhoslyn Prys <Unknown>\n"
 "Language-Team: Welsh <cy@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-12-06 15:07+0000\n"
-"X-Generator: Launchpad (build f92b6e0bb2624f8a9125e3f45b7621c6e230c5ff)\n"
+"X-Launchpad-Export-Date: 2021-12-31 12:26+0000\n"
+"X-Generator: Launchpad (build adb364d6a74a28e7b95d51cd30446ec16160de6c)\n"
 "Language: cy\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:298
@@ -61,7 +61,7 @@ msgstr "Methu adfer: ffeil wrth gefn annilys neu lygredig"
 
 #: usr/lib/sticky/common.py:262
 msgid "Overwrite Existing Group"
-msgstr ""
+msgstr "Tros ysgrifennu'r Grŵp Presennol"
 
 #: usr/lib/sticky/common.py:262
 #, python-format
@@ -69,6 +69,8 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
+"Mae eisoes grŵp o'r enw '%s'. Bydd y weithred hon yn ei dros ysgrifennu. "
+"Parhau beth bynnag?"
 
 #: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:278
 msgid "Remove Group"
@@ -137,19 +139,19 @@ msgstr "Ynghylch"
 
 #: usr/lib/sticky/sticky.py:30
 msgid "Small Text"
-msgstr ""
+msgstr "Testun Bach"
 
 #: usr/lib/sticky/sticky.py:31
 msgid "Normal Text"
-msgstr ""
+msgstr "Testun Arferol"
 
 #: usr/lib/sticky/sticky.py:32
 msgid "Large Text"
-msgstr ""
+msgstr "Testun Mawr"
 
 #: usr/lib/sticky/sticky.py:33
 msgid "Larger Text"
-msgstr ""
+msgstr "Testun Mwy"
 
 #: usr/lib/sticky/sticky.py:37
 msgid "Red"
@@ -185,7 +187,7 @@ msgstr "Magenta"
 
 #: usr/lib/sticky/sticky.py:59
 msgid "Operations"
-msgstr ""
+msgstr "Gweithrediadau"
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Move selection up"
@@ -213,7 +215,7 @@ msgstr "Toglo Bwledi"
 
 #: usr/lib/sticky/sticky.py:67
 msgid "Formatting"
-msgstr ""
+msgstr "Yn fformatio"
 
 #: usr/lib/sticky/sticky.py:68 usr/lib/sticky/sticky.py:411
 #: usr/lib/sticky/sticky.py:412
@@ -252,7 +254,7 @@ msgstr "Pennyn"
 
 #: usr/lib/sticky/sticky.py:130
 msgid "Note Color"
-msgstr ""
+msgstr "Lliw nodyn"
 
 #: usr/lib/sticky/sticky.py:147
 msgid "Rename"
@@ -394,7 +396,7 @@ msgstr "Cychwyn awtomatig"
 
 #: usr/lib/sticky/sticky.py:602
 msgid "Text Size"
-msgstr ""
+msgstr "Maint Testun"
 
 #: usr/lib/sticky/sticky.py:704
 msgid ""
@@ -410,11 +412,11 @@ msgstr "Grŵp 1"
 
 #: usr/lib/sticky/sticky.py:736
 msgid "Left click to toggle notes"
-msgstr ""
+msgstr "Clicio i'r chwith i doglo nodiadau"
 
 #: usr/lib/sticky/sticky.py:737
 msgid "Middle click to toggle the manager"
-msgstr ""
+msgstr "Clic canol i doglo'r rheolwr"
 
 #: usr/lib/sticky/sticky.py:755
 msgid "Manage Notes"

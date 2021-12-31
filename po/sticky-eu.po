@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-11-24 12:13+0000\n"
-"PO-Revision-Date: 2021-06-08 20:44+0000\n"
+"PO-Revision-Date: 2021-12-08 11:51+0000\n"
 "Last-Translator: Asier Iturralde Sarasola <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-12-06 15:07+0000\n"
-"X-Generator: Launchpad (build f92b6e0bb2624f8a9125e3f45b7621c6e230c5ff)\n"
+"X-Launchpad-Export-Date: 2021-12-31 12:26+0000\n"
+"X-Generator: Launchpad (build adb364d6a74a28e7b95d51cd30446ec16160de6c)\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:298
 msgid "Export..."
@@ -61,7 +61,7 @@ msgstr ""
 
 #: usr/lib/sticky/common.py:262
 msgid "Overwrite Existing Group"
-msgstr ""
+msgstr "Gainidatzi existitzen den taldea"
 
 #: usr/lib/sticky/common.py:262
 #, python-format
@@ -69,6 +69,8 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
+"'%s' izeneko talde bat badago dagoeneko. Ekintza honek gainidatzi egingo du. "
+"Jarraitu dena den?"
 
 #: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:278
 msgid "Remove Group"
@@ -137,19 +139,19 @@ msgstr "Honi buruz"
 
 #: usr/lib/sticky/sticky.py:30
 msgid "Small Text"
-msgstr ""
+msgstr "Testu txikia"
 
 #: usr/lib/sticky/sticky.py:31
 msgid "Normal Text"
-msgstr ""
+msgstr "Testu arrunta"
 
 #: usr/lib/sticky/sticky.py:32
 msgid "Large Text"
-msgstr ""
+msgstr "Testu handia"
 
 #: usr/lib/sticky/sticky.py:33
 msgid "Larger Text"
-msgstr ""
+msgstr "Testu handiagoa"
 
 #: usr/lib/sticky/sticky.py:37
 msgid "Red"
@@ -185,7 +187,7 @@ msgstr "Magenta"
 
 #: usr/lib/sticky/sticky.py:59
 msgid "Operations"
-msgstr ""
+msgstr "Eragiketak"
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Move selection up"
@@ -213,7 +215,7 @@ msgstr "Txandakatu buletak"
 
 #: usr/lib/sticky/sticky.py:67
 msgid "Formatting"
-msgstr ""
+msgstr "Formatua"
 
 #: usr/lib/sticky/sticky.py:68 usr/lib/sticky/sticky.py:411
 #: usr/lib/sticky/sticky.py:412
@@ -252,7 +254,7 @@ msgstr "Goiburua"
 
 #: usr/lib/sticky/sticky.py:130
 msgid "Note Color"
-msgstr ""
+msgstr "Oharraren kolorea"
 
 #: usr/lib/sticky/sticky.py:147
 msgid "Rename"
@@ -392,7 +394,7 @@ msgstr "Hasiera automatikoa"
 
 #: usr/lib/sticky/sticky.py:602
 msgid "Text Size"
-msgstr ""
+msgstr "Testuaren tamaina"
 
 #: usr/lib/sticky/sticky.py:704
 msgid ""
@@ -408,11 +410,11 @@ msgstr "1. taldea"
 
 #: usr/lib/sticky/sticky.py:736
 msgid "Left click to toggle notes"
-msgstr ""
+msgstr "Ezker klik oharrak txandakatzeko"
 
 #: usr/lib/sticky/sticky.py:737
 msgid "Middle click to toggle the manager"
-msgstr ""
+msgstr "Erdiko klik kudeatzailea txandakatzeko"
 
 #: usr/lib/sticky/sticky.py:755
 msgid "Manage Notes"

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-11-24 12:13+0000\n"
-"PO-Revision-Date: 2021-08-20 20:16+0000\n"
+"PO-Revision-Date: 2021-12-24 21:22+0000\n"
 "Last-Translator: Piet Coppens <Unknown>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-12-06 15:07+0000\n"
-"X-Generator: Launchpad (build f92b6e0bb2624f8a9125e3f45b7621c6e230c5ff)\n"
+"X-Launchpad-Export-Date: 2021-12-31 12:26+0000\n"
+"X-Generator: Launchpad (build adb364d6a74a28e7b95d51cd30446ec16160de6c)\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:298
 msgid "Export..."
@@ -60,7 +60,7 @@ msgstr "Ne eblas restaŭri: nevalida aŭ difektita savdosiero"
 
 #: usr/lib/sticky/common.py:262
 msgid "Overwrite Existing Group"
-msgstr ""
+msgstr "Anstataŭigi ekzistantan grupon"
 
 #: usr/lib/sticky/common.py:262
 #, python-format
@@ -68,6 +68,7 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
+"Estas jam grupo nomita '%s'. Ĉi tiu ago anstataŭigos ĝin. Ĉu tamen daŭrigi?"
 
 #: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:278
 msgid "Remove Group"
@@ -136,19 +137,19 @@ msgstr "Pri"
 
 #: usr/lib/sticky/sticky.py:30
 msgid "Small Text"
-msgstr ""
+msgstr "Malgranda teksto"
 
 #: usr/lib/sticky/sticky.py:31
 msgid "Normal Text"
-msgstr ""
+msgstr "Normala teksto"
 
 #: usr/lib/sticky/sticky.py:32
 msgid "Large Text"
-msgstr ""
+msgstr "Granda teksto"
 
 #: usr/lib/sticky/sticky.py:33
 msgid "Larger Text"
-msgstr ""
+msgstr "Pli granda teksto"
 
 #: usr/lib/sticky/sticky.py:37
 msgid "Red"
@@ -184,7 +185,7 @@ msgstr "Malva"
 
 #: usr/lib/sticky/sticky.py:59
 msgid "Operations"
-msgstr ""
+msgstr "Operacioj"
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Move selection up"
@@ -212,7 +213,7 @@ msgstr "Baskuligi bulojn"
 
 #: usr/lib/sticky/sticky.py:67
 msgid "Formatting"
-msgstr ""
+msgstr "Aranĝo"
 
 #: usr/lib/sticky/sticky.py:68 usr/lib/sticky/sticky.py:411
 #: usr/lib/sticky/sticky.py:412
@@ -251,7 +252,7 @@ msgstr "Kapo"
 
 #: usr/lib/sticky/sticky.py:130
 msgid "Note Color"
-msgstr ""
+msgstr "Nota koloro"
 
 #: usr/lib/sticky/sticky.py:147
 msgid "Rename"
@@ -391,7 +392,7 @@ msgstr "Aŭtomata starto"
 
 #: usr/lib/sticky/sticky.py:602
 msgid "Text Size"
-msgstr ""
+msgstr "Teksta grando"
 
 #: usr/lib/sticky/sticky.py:704
 msgid ""
@@ -407,11 +408,11 @@ msgstr "Grupo 1"
 
 #: usr/lib/sticky/sticky.py:736
 msgid "Left click to toggle notes"
-msgstr ""
+msgstr "Maldekstre alklaki por baskuligi komentojn"
 
 #: usr/lib/sticky/sticky.py:737
 msgid "Middle click to toggle the manager"
-msgstr ""
+msgstr "Meze alklaki por baskuligi la mastrumilon"
 
 #: usr/lib/sticky/sticky.py:755
 msgid "Manage Notes"
