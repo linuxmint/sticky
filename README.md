@@ -29,7 +29,8 @@ sudo dpkg -i sticky*.deb
 ```
 ### Otherwise (and this is valid anywhere if you want to avoid packaging):
 ```
-sudo cp -r usr/ /usr/
+sudo cp -r usr/* /usr/
+chmod +x /usr/bin/sticky
 sudo cp etc/xdg/autostart/sticky.desktop /etc/xdg/autostart/
 ```
 
