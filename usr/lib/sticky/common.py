@@ -343,7 +343,8 @@ def prompt(title, message, window):
     return (response == Gtk.ResponseType.OK, value)
 
 def confirm(title, message, window=None, settings=None, disable_key=None, disable_inverted=False):
-    dialog = Gtk.Dialog(title=title, transient_for=window, window_position=Gtk.WindowPosition.CENTER)
+    dialog = Gtk.Dialog(title=title, transient_for=window,
+        window_position=(Gtk.WindowPosition.CENTER if window is None else Gtk.WindowPosition.CENTER_ON_PARENT))
     dialog.add_button(_("No"), Gtk.ResponseType.NO)
     dialog.add_button(_("Yes"), Gtk.ResponseType.YES)
     dialog.set_default_response(Gtk.ResponseType.YES)
