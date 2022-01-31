@@ -482,7 +482,8 @@ class Note(Gtk.Window):
 
     def remove(self, *args):
         # this is ugly but I'm not sure how to make it look better :)
-        if (self.app.settings.get_boolean('disable-delete-confirm') or
+        if ((not self.title.get_text() and not self.buffer.get_internal_markup()) or
+            self.app.settings.get_boolean('disable-delete-confirm') or
             confirm(_("Delete Note"), _("Are you sure you want to remove this note?"),
                     self, self.app.settings, 'disable-delete-confirm')):
             self.emit('removed')
