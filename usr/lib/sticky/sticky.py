@@ -561,6 +561,7 @@ class SettingsWindow(XApp.PreferencesWindow):
             colors.append(('random', _('Random')))
 
             page.pack_start(GSettingsComboBox(_("Default color"), SCHEMA, 'default-color', options=colors, valtype=str), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Cycle colors"), SCHEMA, 'cycle-colors'), False, False, 0)
 
         page.pack_start(GSettingsFontButton(_("Font"), SCHEMA, 'font', level=Gtk.FontChooserLevel.SIZE), False, False, 0)
         page.pack_start(GSettingsSwitch(_("Show spelling mistakes"), SCHEMA, 'inline-spell-check'), False, False, 0)
@@ -827,17 +828,26 @@ class Application(Gtk.Application):
     def new_note(self, *args):
         x = 40
         y = 40
-        while(True):
-            found = False
-            for note_info in self.file_handler.get_note_list(self.note_group):
-                if note_info['x'] == x and note_info['y'] == y:
-                    found = True
+        color = self.settings.get_string('default-color')
+        note_list = self.file_handler.get_note_list(self.note_group)
+        if note_list:
+            while(True):
+                found = False
+                for note_info in note_list:
+                    if note_info['x'] == x and note_info['y'] == y:
+                        found = True
+                        break
+                if not found:
                     break
-            if not found:
-                break
-            x += 20
-            y += 20
-        info = {'x': x, 'y': y}
+                x += 20
+                y += 20
+            if self.settings.get_boolean('cycle-colors'):
+                color_keys = list(COLORS)
+                try:
+                    color = color_keys[color_keys.index(note_list[-1]['color']) + 1]
+                except (ValueError, IndexError):
+                    color = color_keys[0]
+        info = {'x': x, 'y': y, 'color': color}
         note = self.generate_note(info)
         note.present_with_time(Gtk.get_current_event_time())
 
