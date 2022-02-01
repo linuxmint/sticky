@@ -49,6 +49,14 @@
       </description>
     </key>
 
+    <key name='cycle-colors' type='b'>
+      <default>false</default>
+      <summary>Cycle colors</summary>
+      <description>
+        If true, each new not will be a differnt color from the last.
+      </description>
+    </key>
+
     <key name='font' type='s'>
       <default>"Arial 14"</default>
       <summary>The note text font</summary>
