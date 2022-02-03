@@ -157,7 +157,7 @@ class Note(Gtk.Window):
 
         add_icon = Gtk.Image.new_from_icon_name('sticky-add', Gtk.IconSize.BUTTON)
         add_button = Gtk.Button(image=add_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
-        add_button.connect('clicked', self.app.new_note)
+        add_button.connect('clicked', self.app.new_note, self)
         add_button.connect('button-press-event', self.on_title_click)
         add_button.set_tooltip_text(_("New Note"))
         self.title_bar.pack_end(add_button, False, False, 0)
@@ -482,7 +482,8 @@ class Note(Gtk.Window):
 
     def remove(self, *args):
         # this is ugly but I'm not sure how to make it look better :)
-        if (self.app.settings.get_boolean('disable-delete-confirm') or
+        if ((not self.title.get_text() and not self.buffer.get_internal_markup()) or
+            self.app.settings.get_boolean('disable-delete-confirm') or
             confirm(_("Delete Note"), _("Are you sure you want to remove this note?"),
                     self, self.app.settings, 'disable-delete-confirm')):
             self.emit('removed')
@@ -561,6 +562,7 @@ class SettingsWindow(XApp.PreferencesWindow):
             colors.append(('random', _('Random')))
 
             page.pack_start(GSettingsComboBox(_("Default color"), SCHEMA, 'default-color', options=colors, valtype=str), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Cycle colors"), SCHEMA, 'cycle-colors'), False, False, 0)
 
         page.pack_start(GSettingsFontButton(_("Font"), SCHEMA, 'font', level=Gtk.FontChooserLevel.SIZE), False, False, 0)
         page.pack_start(GSettingsSwitch(_("Show spelling mistakes"), SCHEMA, 'inline-spell-check'), False, False, 0)
@@ -824,9 +826,13 @@ class Application(Gtk.Application):
         self.notes_hidden = True
         self.update_dummy_window()
 
-    def new_note(self, *args):
-        x = 40
-        y = 40
+    def new_note(self, button, parent=None):
+        if parent:
+            x = parent.x + 20
+            y = parent.y + 60
+        else:
+            x = 40
+            y = 40
         while(True):
             found = False
             for note_info in self.file_handler.get_note_list(self.note_group):
@@ -836,7 +842,7 @@ class Application(Gtk.Application):
             if not found:
                 break
             x += 20
-            y += 20
+            y += 60
         info = {'x': x, 'y': y}
         note = self.generate_note(info)
         note.present_with_time(Gtk.get_current_event_time())
