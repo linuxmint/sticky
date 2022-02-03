@@ -75,6 +75,14 @@ SHORTCUTS = {
     ]
 }
 
+
+START_POSITIONS = {
+    'top-left': _("Top Left"),
+    'top-right': _("Top Right"),
+    'bottom-left': _("Bottom Left"),
+    'bottom-right': _("Bottom Right")
+}
+
 class Note(Gtk.Window):
     @GObject.Signal(flags=GObject.SignalFlags.RUN_LAST, return_type=bool,
                     accumulator=GObject.signal_accumulator_true_handled)
@@ -551,6 +559,8 @@ class SettingsWindow(XApp.PreferencesWindow):
         page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         page.pack_start(GSettingsSpinButton(_("Default height"), SCHEMA, 'default-height', mini=50, maxi=2000, step=10), False, False, 0)
         page.pack_start(GSettingsSpinButton(_("Default width"), SCHEMA, 'default-width', mini=50, maxi=2000, step=10), False, False, 0)
+        start_posititions = [(x, y) for x, y in START_POSITIONS.items()]
+        page.pack_start(GSettingsComboBox(_("Default start position"), SCHEMA, 'default-start-position', options=start_posititions, valtype=str), False, False, 0)
         try:
             colors = [(x, y) for x, y in COLORS.items()]
             colors.append(('sep', ''))
@@ -827,12 +837,33 @@ class Application(Gtk.Application):
         self.update_dummy_window()
 
     def new_note(self, button, parent=None):
+        workarea_rect = Gdk.Monitor.get_workarea(
+            Gdk.Display.get_primary_monitor(Gdk.Display.get_default())
+            )
+        direction = [1, 1]
         if parent:
-            x = parent.x + 20
-            y = parent.y + 60
+            if parent.x > (workarea_rect.width / 2):
+                x = parent.x - 20
+                direction[0] = -1
+            else:
+                x = parent.x + 20
+            if parent.y > (workarea_rect.height / 2):
+                y = parent.y - 60
+                direction[1] = -1
+            else:
+                y = parent.y + 60
         else:
-            x = 40
-            y = 40
+            start_pos = self.settings.get_string('default-start-position').split('-')
+            if start_pos[1] == 'right':
+                x = workarea_rect.width - self.settings.get_uint('default-width') - 20
+                direction[0] = -1
+            else:
+                x = 20
+            if start_pos[0] == 'bottom':
+                y = workarea_rect.height - self.settings.get_uint('default-height') - 60
+                direction[1] = -1
+            else:
+                y = 20
         while(True):
             found = False
             for note_info in self.file_handler.get_note_list(self.note_group):
@@ -841,8 +872,8 @@ class Application(Gtk.Application):
                     break
             if not found:
                 break
-            x += 20
-            y += 60
+            x += 20 * direction[0]
+            y += 60 * direction[1]
         info = {'x': x, 'y': y}
         note = self.generate_note(info)
         note.present_with_time(Gtk.get_current_event_time())
