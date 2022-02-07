@@ -53,7 +53,7 @@
       <default>false</default>
       <summary>Cycle colors</summary>
       <description>
-        If true, each new not will be a differnt color from the last.
+        If true, each new not will be a different color from the last.
       </description>
     </key>
 
