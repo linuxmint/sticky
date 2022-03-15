@@ -315,7 +315,7 @@ class ShiftAction(GenericAction):
         else:
             self.shift_down()
 
-# Used to combine multiple actions into one single undable action. Actions should be passed in the same order in which
+# Used to combine multiple actions into one single undoable action. Actions should be passed in the same order in which
 # they were performed. Failure to do so could result in order getting mixed up in the buffer.
 class CompositeAction(GenericAction):
     def __init__(self, *args):
