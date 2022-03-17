@@ -2,7 +2,6 @@
 
 import json
 import os
-import random
 import sys
 
 import gi
@@ -119,8 +118,19 @@ class Note(Gtk.Window):
             name='sticky-note'
         )
 
-        if self.color == 'random':
-            self.color = random.choice(list(COLORS.keys()))
+        if self.color == 'cycle':
+            if self.app.settings.get_string('last-color') == '':
+                last_color = self.color
+            else:
+                last_color = self.app.settings.get_string('last-color')
+
+            color_keys = list(COLORS)
+            try:
+                self.color = color_keys[color_keys.index(last_color) + 1]
+            except (ValueError, IndexError):
+                self.color = color_keys[0]
+
+            self.app.settings.set_string('last-color', self.color)
 
         context = self.get_style_context()
         context.add_class(self.color)
@@ -490,8 +500,8 @@ class Note(Gtk.Window):
 
     def remove(self, *args):
         # this is ugly but I'm not sure how to make it look better :)
-        if ((not self.title.get_text() and not self.buffer.get_internal_markup()) or
-            self.app.settings.get_boolean('disable-delete-confirm') or
+        if (self.app.settings.get_boolean('disable-delete-confirm') or
+            (not self.title.get_text() and not self.buffer.get_internal_markup()) or
             confirm(_("Delete Note"), _("Are you sure you want to remove this note?"),
                     self, self.app.settings, 'disable-delete-confirm')):
             self.emit('removed')
@@ -564,12 +574,12 @@ class SettingsWindow(XApp.PreferencesWindow):
         try:
             colors = [(x, y) for x, y in COLORS.items()]
             colors.append(('sep', ''))
-            colors.append(('random', _('Random')))
+            colors.append(('cycle', _('Cycle Colors')))
 
             page.pack_start(GSettingsComboBox(_("Default color"), SCHEMA, 'default-color', options=colors, valtype=str, separator='sep'), False, False, 0)
         except Exception as e:
             colors = [(x, y) for x, y in COLORS.items()]
-            colors.append(('random', _('Random')))
+            colors.append(('cycle', _('Cycle Colors')))
 
             page.pack_start(GSettingsComboBox(_("Default color"), SCHEMA, 'default-color', options=colors, valtype=str), False, False, 0)
         page.pack_start(GSettingsSwitch(_("Cycle colors"), SCHEMA, 'cycle-colors'), False, False, 0)
@@ -655,6 +665,11 @@ class Application(Gtk.Application):
 
         if self.settings.get_boolean('first-run'):
             self.first_run()
+
+        # Backwards compatibility
+        # - Update random color option to cycle
+        if self.settings.get_string('default-color') == 'random':
+            self.settings.set_string('default-color', 'cycle')
 
         self.file_handler.connect('lists-changed', self.on_lists_changed)
         self.group_update_id = self.file_handler.connect('group-changed', self.on_group_changed)
@@ -1053,4 +1068,3 @@ if __name__ == "__main__":
     sticky = Application()
     sticky.autostart_mode = autostart_mode
     sticky.run()
-

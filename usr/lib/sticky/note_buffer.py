@@ -315,7 +315,7 @@ class ShiftAction(GenericAction):
         else:
             self.shift_down()
 
-# Used to combine multiple actions into one single undable action. Actions should be passed in the same order in which
+# Used to combine multiple actions into one single undoable action. Actions should be passed in the same order in which
 # they were performed. Failure to do so could result in order getting mixed up in the buffer.
 class CompositeAction(GenericAction):
     def __init__(self, *args):
@@ -329,6 +329,45 @@ class CompositeAction(GenericAction):
     def redo(self):
         for action in self.child_actions:
             action.redo()
+
+# we need to subclass the check button to add a Gdk.Window so that we can change the cursor
+class CheckBox(Gtk.CheckButton):
+    def __init__(self, **kwargs):
+        super(CheckBox, self).__init__(**kwargs)
+
+        self.set_has_window(False)
+
+    def do_realize(self):
+        Gtk.CheckButton.do_realize(self)
+
+        parent_window = self.get_parent_window()
+        self.set_window(parent_window)
+
+        allocation = self.get_allocation()
+        attributes = Gdk.WindowAttr()
+        attributes.cursor = Gdk.Cursor.new_from_name(self.get_display(), 'default')
+        attributes.window_type = Gdk.WindowType.CHILD
+        attributes.x = allocation.x
+        attributes.y = allocation.y
+        attributes.width = allocation.width
+        attributes.height = allocation.height
+        attributes.wclass = Gdk.WindowWindowClass.INPUT_ONLY
+        attributes.event_mask = self.get_events() | Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.BUTTON_RELEASE_MASK | Gdk.EventMask.TOUCH_MASK | Gdk.EventMask.ENTER_NOTIFY_MASK | Gdk.EventMask.LEAVE_NOTIFY_MASK | Gdk.EventMask.POINTER_MOTION_MASK
+
+        attributes_mask = Gdk.WindowAttributesType.X | Gdk.WindowAttributesType.Y | Gdk.WindowAttributesType.CURSOR
+
+        self.event_window = Gdk.Window.new(parent_window, attributes, attributes_mask)
+        self.register_window(self.event_window)
+
+    def do_map(self):
+        Gtk.CheckButton.do_map(self)
+
+        self.event_window.show()
+
+    def do_unmap(self):
+        Gtk.CheckButton.do_unmap(self)
+
+        self.event_window.hide()
 
 class NoteBuffer(Gtk.TextBuffer):
     # These values should not be modified directly.
@@ -791,7 +830,7 @@ class NoteBuffer(Gtk.TextBuffer):
     def add_check_button(self, a_iter, checked=False):
         with self.internal_action():
             anchor = self.create_child_anchor(a_iter)
-            check_button = Gtk.CheckButton(visible=True, active=checked, margin_right=5, margin_top=5)
+            check_button = CheckBox(visible=True, active=checked, margin_right=5, margin_top=5)
             check_button.connect('toggled', self.trigger_changed)
             self.view.add_child_at_anchor(check_button, anchor)
 
