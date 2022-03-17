@@ -32,7 +32,7 @@
         <choice value='teal'/>
         <choice value='orange'/>
         <choice value='magenta'/>
-        <choice value='random'/>
+        <choice value='cycle'/>
       </choices>
       <aliases>
         <alias value='Red' target='red'/>
@@ -168,6 +168,14 @@
       <summary>Disable delete confirmation</summary>
       <description>
         When set to true, the user is not asked to confirm before deleting a note.
+      </description>
+    </key>
+
+    <key name='last-color' type='s'>
+      <default>""</default>
+      <summary>Last used color</summary>
+      <description>
+        This is an internal setting that is used to track the last used color when cycling colors is active.
       </description>
     </key>
 
