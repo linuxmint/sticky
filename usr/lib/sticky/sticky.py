@@ -25,6 +25,8 @@ APPLICATION_ID = 'org.x.sticky'
 STYLE_SHEET_PATH = '/usr/share/sticky/sticky.css'
 SCHEMA = 'org.x.sticky'
 
+UPDATE_DELAY = 1
+
 FONT_SCALES = [
     ('small', _("Small Text"), 'small'),
     ('normal', _("Normal Text"), 'medium'),
@@ -90,6 +92,7 @@ class Note(Gtk.Window):
 
         self.showing = False
         self.is_pinned = False
+        self.changed_timer_id = 0
 
         self.x = info.get('x', 0)
         self.y = info.get('y', 0)
@@ -202,14 +205,14 @@ class Note(Gtk.Window):
         scroll.add(self.view)
 
         self.buffer.set_from_internal_markup(text)
-        self.changed_id = self.buffer.connect('content-changed', self.changed)
+        self.changed_id = self.buffer.connect('content-changed', self.queue_update)
 
         self.app.settings.connect('changed::font', self.set_font)
         self.set_font()
 
         self.create_format_menu(color_button, text_button)
 
-        self.connect('configure-event', self.handle_update)
+        self.connect('configure-event', self.on_size_position_changed)
         self.connect('show', self.on_show)
         self.connect('window-state-event', self.update_window_state)
 
@@ -220,7 +223,7 @@ class Note(Gtk.Window):
     def test(self, *args):
         self.buffer.test()
 
-    def handle_update(self, *args):
+    def on_size_position_changed(self, *args):
         if self.showing:
             self.showing = False
             return
@@ -234,7 +237,8 @@ class Note(Gtk.Window):
         self.y = new_y
         self.height = new_height
         self.width = new_width
-        self.emit('update')
+
+        self.queue_update()
 
     def on_show(self, *args):
         self.showing = True
@@ -338,7 +342,15 @@ class Note(Gtk.Window):
         self.present_with_time(time)
         self.move(self.x, self.y)
 
-    def changed(self, *args):
+    def queue_update(self, *args):
+        if self.changed_timer_id:
+            GLib.source_remove(self.changed_timer_id)
+
+        self.changed_timer_id = GLib.timeout_add_seconds(UPDATE_DELAY, self.trigger_update)
+
+    def trigger_update(self):
+        self.changed_timer_id = 0
+
         self.emit('update')
 
     def get_info(self):
