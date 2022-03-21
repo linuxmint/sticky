@@ -875,7 +875,7 @@ class Application(Gtk.Application):
             note.realize()
         note.get_window().raise_()
 
-        note.changed()
+        note.trigger_update()
 
     def generate_note(self, info={}):
         note = Note(self, self.dummy_window, info)
