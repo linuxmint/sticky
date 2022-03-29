@@ -856,13 +856,16 @@ class Application(Gtk.Application):
         for note in self.notes:
             note.restore(time)
 
+        if len(self.notes) == 0:
+            self.new_note()
+
         self.notes_hidden = False
         self.update_dummy_window()
 
     def hide_notes(self):
         for note in self.notes:
             note.hide()
-
+        
         self.notes_hidden = True
         self.update_dummy_window()
 
