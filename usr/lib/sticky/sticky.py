@@ -796,6 +796,12 @@ class Application(Gtk.Application):
 
             menu.append(Gtk.SeparatorMenuItem())
 
+            item = Gtk.MenuItem(label=_("Preferences"))
+            item.connect('activate', self.open_settings_window)
+            menu.append(item)
+
+            menu.append(Gtk.SeparatorMenuItem())
+
             item = Gtk.MenuItem(label=_("Quit"))
             item.connect('activate', self.quit_app)
             menu.append(item)
