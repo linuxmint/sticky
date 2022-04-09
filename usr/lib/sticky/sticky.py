@@ -238,8 +238,6 @@ class Note(Gtk.Window):
         self.height = new_height
         self.width = new_width
 
-        self.queue_update()
-
     def on_show(self, *args):
         self.showing = True
 
