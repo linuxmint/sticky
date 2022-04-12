@@ -335,6 +335,8 @@ class CheckBox(Gtk.CheckButton):
     def __init__(self, **kwargs):
         super(CheckBox, self).__init__(**kwargs)
 
+        self.event_window = None
+
         self.set_has_window(False)
 
     def do_realize(self):
@@ -368,6 +370,12 @@ class CheckBox(Gtk.CheckButton):
         Gtk.CheckButton.do_unmap(self)
 
         self.event_window.hide()
+
+    def do_size_allocate(self, allocation):
+        Gtk.CheckButton.do_size_allocate(self, allocation)
+
+        if self.event_window:
+            self.event_window.move(allocation.x, allocation.y)
 
 class NoteBuffer(Gtk.TextBuffer):
     # These values should not be modified directly.
