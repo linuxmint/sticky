@@ -93,13 +93,14 @@ class Note(Gtk.Window):
         self.showing = False
         self.is_pinned = False
         self.changed_timer_id = 0
+        self.invalid_cache = False
 
         self.x = info.get('x', 0)
         self.y = info.get('y', 0)
         self.height = info.get('height', self.app.settings.get_uint('default-height'))
         self.width = info.get('width', self.app.settings.get_uint('default-width'))
         title = info.get('title', '')
-        text = info.get('text', '')
+        self.cached_text = info.get('text', '')
         self.color = info.get('color', self.app.settings.get_string('default-color'))
 
         super(Note, self).__init__(
@@ -204,8 +205,8 @@ class Note(Gtk.Window):
         self.add(scroll)
         scroll.add(self.view)
 
-        self.buffer.set_from_internal_markup(text)
-        self.changed_id = self.buffer.connect('content-changed', self.queue_update)
+        self.buffer.set_from_internal_markup(self.cached_text)
+        self.changed_id = self.buffer.connect('content-changed', self.queue_update, True)
 
         self.app.settings.connect('changed::font', self.set_font)
         self.set_font()
@@ -342,7 +343,9 @@ class Note(Gtk.Window):
         self.present_with_time(time)
         self.move(self.x, self.y)
 
-    def queue_update(self, *args):
+    def queue_update(self, b=None, invalidate_cache=False):
+        self.invalid_cache = invalidate_cache
+
         if self.changed_timer_id:
             GLib.source_remove(self.changed_timer_id)
 
@@ -354,6 +357,10 @@ class Note(Gtk.Window):
         self.emit('update')
 
     def get_info(self):
+        if self.invalid_cache:
+            self.cached_text = self.buffer.get_internal_markup()
+            self.invalid_cache = False
+
         (x, y) = self.get_position()
         (width, height) = self.get_size()
         info = {
@@ -363,7 +370,7 @@ class Note(Gtk.Window):
             'width': width,
             'color': self.color,
             'title': self.title.get_text(),
-            'text': self.buffer.get_internal_markup()
+            'text': self.cached_text
         }
 
         return info
