@@ -261,6 +261,8 @@ class NotesManager(object):
         self.builder.get_object('new_note').connect('clicked', self.new_note)
         self.remove_note_button = self.builder.get_object('remove_note')
         self.remove_note_button.connect('clicked', self.remove_note)
+        self.duplicate_note_button = self.builder.get_object('duplicate_note')
+        self.duplicate_note_button.connect('clicked', self.duplicate_note)
 
         self.search_box = self.builder.get_object('search_box')
         self.search_box.connect('search-changed', self.on_search_changed)
@@ -407,7 +409,9 @@ class NotesManager(object):
         self.app.focus_note(activated.info)
 
     def on_selected_notes_changed(self, *args):
-        self.remove_note_button.set_sensitive(len(self.note_view.get_selected_children()) != 0)
+        sensitive = len(self.note_view.get_selected_children()) != 0
+        self.remove_note_button.set_sensitive(sensitive)
+        self.duplicate_note_button.set_sensitive(sensitive)
 
     def create_note_entry(self, item):
         widget = Gtk.FlowBoxChild()
@@ -528,6 +532,16 @@ class NotesManager(object):
         group_name = self.get_current_group()
 
         self.file_handler.remove_group(group_name)
+
+    def duplicate_note(self, *args):
+        selected = self.get_selected_note()
+        note_info = selected.copy()
+        note_info['x'] += 50
+        note_info['y'] += 50
+        group = self.get_current_group()
+        notes = self.file_handler.get_note_list(group)
+        notes.append(note_info)
+        self.file_handler.update_note_list(notes, group)
 
     def on_drag_begin(self, widget, *args):
         self.dragged_note = widget.get_parent().item.info

@@ -394,6 +394,10 @@ class Note(Gtk.Window):
         edit_title.connect('activate', self.set_title)
         popup.append(edit_title)
 
+        duplicate_item = Gtk.MenuItem(label=_("Duplicate Note"), visible=True)
+        duplicate_item.connect('activate', self.duplicate)
+        popup.append(duplicate_item)
+
         remove_item = Gtk.MenuItem(label=_("Delete Note"), visible=True)
         remove_item.connect('activate', self.remove)
         popup.append(remove_item)
@@ -517,6 +521,9 @@ class Note(Gtk.Window):
                     self, self.app.settings, 'disable-delete-confirm')):
             self.emit('removed')
             self.destroy()
+
+    def duplicate(self, *args):
+        self.app.duplicate_note(self)
 
     def set_title(self, *args):
         self.title_text = self.title.get_text()
@@ -873,6 +880,10 @@ class Application(Gtk.Application):
             x += 20
             y += 20
         info = {'x': x, 'y': y}
+
+        self.add_note(info)
+
+    def add_note(self, info):
         note = self.generate_note(info)
         note.present_with_time(Gtk.get_current_event_time())
 
@@ -882,7 +893,7 @@ class Application(Gtk.Application):
             note.realize()
         note.get_window().raise_()
 
-        note.trigger_update()
+        self.on_update()
 
     def generate_note(self, info={}):
         note = Note(self, self.dummy_window, info)
@@ -901,6 +912,13 @@ class Application(Gtk.Application):
 
         for note_info in self.file_handler.get_note_list(self.note_group):
             self.generate_note(note_info)
+
+    def duplicate_note(self, new_note):
+        new_note_info = new_note.get_info()
+        new_note_info['x'] += 50
+        new_note_info['y'] += 50
+
+        self.add_note(new_note_info)
 
     def focus_note(self, note_info):
         for note in self.notes:
