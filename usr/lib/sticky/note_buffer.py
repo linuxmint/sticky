@@ -335,6 +335,8 @@ class CheckBox(Gtk.CheckButton):
     def __init__(self, **kwargs):
         super(CheckBox, self).__init__(**kwargs)
 
+        self.event_window = None
+
         self.set_has_window(False)
 
     def do_realize(self):
@@ -368,6 +370,12 @@ class CheckBox(Gtk.CheckButton):
         Gtk.CheckButton.do_unmap(self)
 
         self.event_window.hide()
+
+    def do_size_allocate(self, allocation):
+        Gtk.CheckButton.do_size_allocate(self, allocation)
+
+        if self.event_window:
+            self.event_window.move(allocation.x, allocation.y)
 
 class NoteBuffer(Gtk.TextBuffer):
     # These values should not be modified directly.
@@ -407,8 +415,10 @@ class NoteBuffer(Gtk.TextBuffer):
     def __init__(self):
         super(NoteBuffer, self).__init__()
 
+        self.tags = []
+
         for name, attributes in TAG_DEFINITIONS.items():
-            self.create_tag(name, **attributes)
+            self.tags.append(self.create_tag(name, **attributes))
 
         self.connect('delete-range', self.on_delete)
         self.connect('begin-user-action', self.begin_composite_action)
@@ -465,44 +475,25 @@ class NoteBuffer(Gtk.TextBuffer):
         return InternalActionHandler()
 
     def get_internal_markup(self):
-        current_tags = []
+        on_tags = []
+        off_tags = self.tags.copy()
         text = ''
 
         current_iter = self.get_iter_at_offset(0)
         while True:
-            # if not all tags are closed, we still need to keep track of them, but leaving them in the list will
-            # cause an infinite loop, so we hold on to them in unclosed_tags and re-add them after exiting the loop
-            unclosed_tags = []
+            # first we close any open tags that don't continue on to the current character
+            for tag in on_tags:
+                if not current_iter.has_tag(tag):
+                    text += '#tag:%s:' % tag.props.name
+                    off_tags.append(tag)
+                    on_tags.remove(tag)
 
-            # end tags
-            tags = current_iter.get_toggled_tags(False)
-            while len(current_tags) and len(tags):
-                tag = current_tags.pop()
-                name = tag.props.name
-
-                if not name or name not in TAG_DEFINITIONS:
-                    continue
-
-                if len(tags) == 0 or tag not in tags:
-                    unclosed_tags.append(tag)
-                    continue
-
-                text += '#tag:%s:' % name
-                tags.remove(tag)
-
-            current_tags += unclosed_tags
-
-            # start tags
-            tags = current_iter.get_toggled_tags(True)
-            while len(tags):
-                tag = tags.pop()
-                name = tag.props.name
-
-                if not name or name not in TAG_DEFINITIONS:
-                    continue
-
-                text += '#tag:%s:' % tag.props.name
-                current_tags.append(tag)
+            # next we open any tags that start with the current character
+            for tag in off_tags:
+                if current_iter.has_tag(tag):
+                    text += '#tag:%s:' % tag.props.name
+                    on_tags.append(tag)
+                    off_tags.remove(tag)
 
             current_char = current_iter.get_char()
             if current_char == '#':
@@ -522,9 +513,8 @@ class NoteBuffer(Gtk.TextBuffer):
             if not current_iter.forward_char():
                 break
 
-        # If the tag goes to the end of the text, the 'toggle-off' point will technically be after the end of the text,
-        # so we wont pick it up above. Instead, we'll just close all tags and assume they're supposed to go to the end.
-        for tag in current_tags:
+        # If there are any open tags at this point, it means they go to the end of the text, so close them
+        for tag in on_tags:
             text += '#tag:%s:' % tag.props.name
 
         return text

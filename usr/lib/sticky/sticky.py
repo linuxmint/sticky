@@ -25,6 +25,8 @@ APPLICATION_ID = 'org.x.sticky'
 STYLE_SHEET_PATH = '/usr/share/sticky/sticky.css'
 SCHEMA = 'org.x.sticky'
 
+UPDATE_DELAY = 1
+
 FONT_SCALES = [
     ('small', _("Small Text"), 'small'),
     ('normal', _("Normal Text"), 'medium'),
@@ -98,13 +100,15 @@ class Note(Gtk.Window):
 
         self.showing = False
         self.is_pinned = False
+        self.changed_timer_id = 0
+        self.invalid_cache = False
 
         self.x = info.get('x', 0)
         self.y = info.get('y', 0)
         self.height = info.get('height', self.app.settings.get_uint('default-height'))
         self.width = info.get('width', self.app.settings.get_uint('default-width'))
         title = info.get('title', '')
-        text = info.get('text', '')
+        self.cached_text = info.get('text', '')
         self.color = info.get('color', self.app.settings.get_string('default-color'))
 
         super(Note, self).__init__(
@@ -209,15 +213,15 @@ class Note(Gtk.Window):
         self.add(scroll)
         scroll.add(self.view)
 
-        self.buffer.set_from_internal_markup(text)
-        self.changed_id = self.buffer.connect('content-changed', self.changed)
+        self.buffer.set_from_internal_markup(self.cached_text)
+        self.changed_id = self.buffer.connect('content-changed', self.queue_update, True)
 
         self.app.settings.connect('changed::font', self.set_font)
         self.set_font()
 
         self.create_format_menu(color_button, text_button)
 
-        self.connect('configure-event', self.handle_update)
+        self.connect('configure-event', self.on_size_position_changed)
         self.connect('show', self.on_show)
         self.connect('window-state-event', self.update_window_state)
 
@@ -228,7 +232,7 @@ class Note(Gtk.Window):
     def test(self, *args):
         self.buffer.test()
 
-    def handle_update(self, *args):
+    def on_size_position_changed(self, *args):
         if self.showing:
             self.showing = False
             return
@@ -242,7 +246,8 @@ class Note(Gtk.Window):
         self.y = new_y
         self.height = new_height
         self.width = new_width
-        self.emit('update')
+
+        self.queue_update()
 
     def on_show(self, *args):
         self.showing = True
@@ -346,10 +351,24 @@ class Note(Gtk.Window):
         self.present_with_time(time)
         self.move(self.x, self.y)
 
-    def changed(self, *args):
+    def queue_update(self, b=None, invalidate_cache=False):
+        self.invalid_cache = invalidate_cache
+
+        if self.changed_timer_id:
+            GLib.source_remove(self.changed_timer_id)
+
+        self.changed_timer_id = GLib.timeout_add_seconds(UPDATE_DELAY, self.trigger_update)
+
+    def trigger_update(self):
+        self.changed_timer_id = 0
+
         self.emit('update')
 
     def get_info(self):
+        if self.invalid_cache:
+            self.cached_text = self.buffer.get_internal_markup()
+            self.invalid_cache = False
+
         (x, y) = self.get_position()
         (width, height) = self.get_size()
         info = {
@@ -359,7 +378,7 @@ class Note(Gtk.Window):
             'width': width,
             'color': self.color,
             'title': self.title.get_text(),
-            'text': self.buffer.get_internal_markup()
+            'text': self.cached_text
         }
 
         return info
@@ -382,6 +401,10 @@ class Note(Gtk.Window):
         edit_title = Gtk.MenuItem(label=label, visible=True)
         edit_title.connect('activate', self.set_title)
         popup.append(edit_title)
+
+        duplicate_item = Gtk.MenuItem(label=_("Duplicate Note"), visible=True)
+        duplicate_item.connect('activate', self.duplicate)
+        popup.append(duplicate_item)
 
         remove_item = Gtk.MenuItem(label=_("Delete Note"), visible=True)
         remove_item.connect('activate', self.remove)
@@ -501,11 +524,14 @@ class Note(Gtk.Window):
     def remove(self, *args):
         # this is ugly but I'm not sure how to make it look better :)
         if (self.app.settings.get_boolean('disable-delete-confirm') or
-            (not self.title.get_text() and not self.buffer.get_internal_markup()) or
+            (not self.title.get_text() and self.buffer.get_char_count() == 0) or
             confirm(_("Delete Note"), _("Are you sure you want to remove this note?"),
                     self, self.app.settings, 'disable-delete-confirm')):
             self.emit('removed')
             self.destroy()
+
+    def duplicate(self, *args):
+        self.app.duplicate_note(self)
 
     def set_title(self, *args):
         self.title_text = self.title.get_text()
@@ -890,6 +916,10 @@ class Application(Gtk.Application):
             x += 20 * direction[0]
             y += 60 * direction[1]
         info = {'x': x, 'y': y}
+
+        self.add_note(info)
+
+    def add_note(self, info):
         note = self.generate_note(info)
         note.present_with_time(Gtk.get_current_event_time())
 
@@ -899,7 +929,7 @@ class Application(Gtk.Application):
             note.realize()
         note.get_window().raise_()
 
-        note.changed()
+        self.on_update()
 
     def generate_note(self, info={}):
         note = Note(self, self.dummy_window, info)
@@ -918,6 +948,13 @@ class Application(Gtk.Application):
 
         for note_info in self.file_handler.get_note_list(self.note_group):
             self.generate_note(note_info)
+
+    def duplicate_note(self, new_note):
+        new_note_info = new_note.get_info()
+        new_note_info['x'] += 50
+        new_note_info['y'] += 50
+
+        self.add_note(new_note_info)
 
     def focus_note(self, note_info):
         for note in self.notes:
