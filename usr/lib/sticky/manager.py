@@ -258,7 +258,7 @@ class NotesManager(object):
         self.search_bar = self.builder.get_object('search_bar')
         GObject.Object.bind_property(search_toggle, 'active', self.search_bar, 'search_mode_enabled', GObject.BindingFlags.BIDIRECTIONAL)
 
-        self.builder.get_object('new_note').connect('clicked', self.new_note)
+        self.builder.get_object('new_note').connect('clicked', self.app.new_note)
         self.remove_note_button = self.builder.get_object('remove_note')
         self.remove_note_button.connect('clicked', self.remove_note)
         self.duplicate_note_button = self.builder.get_object('duplicate_note')
@@ -461,9 +461,6 @@ class NotesManager(object):
 
     def get_selected_note(self):
         return self.note_view.get_selected_children()[0].item.info
-
-    def new_note(self, *args):
-        self.app.new_note()
 
     def create_new_group(self, callback):
         entry = Gtk.Entry(visible=True)

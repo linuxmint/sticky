@@ -171,7 +171,7 @@ class Note(Gtk.Window):
 
         add_icon = Gtk.Image.new_from_icon_name('sticky-add', Gtk.IconSize.BUTTON)
         add_button = Gtk.Button(image=add_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
-        add_button.connect('clicked', self.app.new_note)
+        add_button.connect('clicked', self.app.new_note, self)
         add_button.connect('button-press-event', self.on_title_click)
         add_button.set_tooltip_text(_("New Note"))
         self.title_bar.pack_end(add_button, False, False, 0)
@@ -866,9 +866,13 @@ class Application(Gtk.Application):
         self.notes_hidden = True
         self.update_dummy_window()
 
-    def new_note(self, *args):
-        x = 40
-        y = 40
+    def new_note(self, button, parent=None):
+        if parent is None:
+            x = 40
+            y = 40
+        else:
+            x = parent.x + 20
+            y = parent.y + 20
         while(True):
             found = False
             for note_info in self.file_handler.get_note_list(self.note_group):
