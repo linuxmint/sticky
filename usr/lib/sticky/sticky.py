@@ -361,11 +361,10 @@ class Note(Gtk.Window):
             self.cached_text = self.buffer.get_internal_markup()
             self.invalid_cache = False
 
-        (x, y) = self.get_position()
         (width, height) = self.get_size()
         info = {
-            'x': x,
-            'y': y,
+            'x': self.x,
+            'y': self.y,
             'height': height,
             'width': width,
             'color': self.color,
