@@ -365,8 +365,8 @@ class Note(Gtk.Window):
         info = {
             'x': self.x,
             'y': self.y,
-            'height': height,
-            'width': width,
+            'height': self.height,
+            'width': self.width,
             'color': self.color,
             'title': self.title.get_text(),
             'text': self.cached_text
