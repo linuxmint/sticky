@@ -1,3 +1,61 @@
+sticky (1.9) vanessa; urgency=medium
+
+  [ circuit10 ]
+  * Fix instructions for non-Debain OSes
+
+  [ SwampRabbit ]
+  * Update control
+
+  [ Stephen Collins ]
+  * buffer: change the mouse cursor when hovering a check box
+
+  [ scott@murphys.place ]
+  * Center confim dialog on parent window if set
+  * Skip confirm dialog when closing empty note.
+
+  [ 63BeetleSmurf ]
+  * Tweak conditions order
+
+  [ Scott Murphy ]
+  * Replace random color option with cycle colors
+
+  [ Stephen Collins ]
+  * note_buffer.py: Fix a typo in a comment
+  * Note: add a 1-second delay before triggering an update for some changes
+  * new note: adjust function call name for previous commit
+  * use get_char_count() not get_internal_markup() to check if note is empty
+
+  [ Secret-chest ]
+  * Fix some grammar
+  * Fix more grammar
+
+  [ Stephen Collins ]
+  * Buffer: rework get_internal_markup() to get around a memory leak in gtk.
+  * Note: cache the internal markup to increase performance on some updates.
+  * Add duplicate note functionality
+  * checkbox: make sure to move the cursor window when the checkbox moves.
+
+  [ JosephMcc ]
+  * Restyle the status icon a bit
+
+  [ 63BeetleSmurf ]
+  * Position new notes relative to their parent.
+
+  [ sulincix ]
+  * Add new note if empty on status clicked
+  * Add preferences menuitem to status icon
+
+  [ 63BeetleSmurf ]
+  * Fix new notes opening over another.
+
+  [ Stephen Collins ]
+  * note.get_info: also used cached height/width
+
+  [ Clement Lefebvre ]
+  * l10n: Update POT
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 22 Jun 2022 09:06:57 +0200
+
 sticky (1.8) una; urgency=medium
 
   * l10n: Update translations
