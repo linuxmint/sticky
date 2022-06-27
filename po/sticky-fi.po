@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-11-24 12:13+0000\n"
+"POT-Creation-Date: 2022-06-22 08:57+0200\n"
 "PO-Revision-Date: 2021-11-25 21:22+0000\n"
 "Last-Translator: Kimmo Kujansuu <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-12-31 12:26+0000\n"
-"X-Generator: Launchpad (build adb364d6a74a28e7b95d51cd30446ec16160de6c)\n"
+"X-Launchpad-Export-Date: 2022-06-26 11:30+0000\n"
+"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
 
-#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:298
+#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:300
 msgid "Export..."
 msgstr "Vie..."
 
@@ -34,7 +34,7 @@ msgstr "Tallenna"
 msgid "Plain Text"
 msgstr "Pelkkä teksti"
 
-#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:294
+#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:296
 msgid "Import..."
 msgstr "Tuo..."
 
@@ -71,7 +71,7 @@ msgstr ""
 "Ryhmä nimeltä \"%s\" on jo olemassa. Tämä toiminto korvaa sen. Jatketaanko "
 "silti?"
 
-#: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:278
+#: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
 msgstr "Poista ryhmä"
 
@@ -84,15 +84,15 @@ msgstr "Haluatko varmasti poistaa ryhmän %s?"
 msgid "OK"
 msgstr "OK"
 
-#: usr/lib/sticky/common.py:347
+#: usr/lib/sticky/common.py:348
 msgid "No"
 msgstr "Ei"
 
-#: usr/lib/sticky/common.py:348
+#: usr/lib/sticky/common.py:349
 msgid "Yes"
 msgstr "Kyllä"
 
-#: usr/lib/sticky/common.py:358
+#: usr/lib/sticky/common.py:359
 msgid "Don't ask me again"
 msgstr "Älä kysy uudelleen"
 
@@ -112,291 +112,296 @@ msgstr "Poista"
 msgid "Untitled"
 msgstr "Nimetön"
 
-#: usr/lib/sticky/manager.py:274
+#: usr/lib/sticky/manager.py:276
 msgid "New Group"
 msgstr "Uusi ryhmä"
 
-#: usr/lib/sticky/manager.py:284
+#: usr/lib/sticky/manager.py:286
 msgid "Back Up"
 msgstr "Varmuuskopiointi"
 
-#: usr/lib/sticky/manager.py:288
+#: usr/lib/sticky/manager.py:290
 msgid "Restore Backups..."
 msgstr "Palauta varmuuskopiot..."
 
-#: usr/lib/sticky/manager.py:304 usr/lib/sticky/sticky.py:539
+#: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:575
+#: usr/lib/sticky/sticky.py:812
 msgid "Preferences"
 msgstr "Ominaisuudet"
 
-#: usr/lib/sticky/manager.py:308
+#: usr/lib/sticky/manager.py:310
 msgid "Keyboard Shortcuts"
 msgstr "Pikanäppäimet"
 
-#: usr/lib/sticky/manager.py:313 usr/lib/sticky/sticky.py:940
+#: usr/lib/sticky/manager.py:315 usr/lib/sticky/sticky.py:1012
 msgid "About"
 msgstr "Tietoja"
 
-#: usr/lib/sticky/sticky.py:30
+#: usr/lib/sticky/sticky.py:31
 msgid "Small Text"
 msgstr "Pieni teksti"
 
-#: usr/lib/sticky/sticky.py:31
+#: usr/lib/sticky/sticky.py:32
 msgid "Normal Text"
 msgstr "Normaali teksti"
 
-#: usr/lib/sticky/sticky.py:32
+#: usr/lib/sticky/sticky.py:33
 msgid "Large Text"
 msgstr "Suuri teksti"
 
-#: usr/lib/sticky/sticky.py:33
+#: usr/lib/sticky/sticky.py:34
 msgid "Larger Text"
 msgstr "Isompi teksti"
 
-#: usr/lib/sticky/sticky.py:37
+#: usr/lib/sticky/sticky.py:38
 msgid "Red"
 msgstr "Punainen"
 
-#: usr/lib/sticky/sticky.py:38
+#: usr/lib/sticky/sticky.py:39
 msgid "Green"
 msgstr "Vihreä"
 
-#: usr/lib/sticky/sticky.py:39
+#: usr/lib/sticky/sticky.py:40
 msgid "Blue"
 msgstr "Sininen"
 
-#: usr/lib/sticky/sticky.py:40
+#: usr/lib/sticky/sticky.py:41
 msgid "Yellow"
 msgstr "Keltainen"
 
-#: usr/lib/sticky/sticky.py:41
+#: usr/lib/sticky/sticky.py:42
 msgid "Purple"
 msgstr "Violetti"
 
-#: usr/lib/sticky/sticky.py:42
+#: usr/lib/sticky/sticky.py:43
 msgid "Teal"
 msgstr "Sinivihreä"
 
-#: usr/lib/sticky/sticky.py:43
+#: usr/lib/sticky/sticky.py:44
 msgid "Orange"
 msgstr "Oranssi"
 
-#: usr/lib/sticky/sticky.py:44
+#: usr/lib/sticky/sticky.py:45
 msgid "Magenta"
 msgstr "Magenta"
 
-#: usr/lib/sticky/sticky.py:59
+#: usr/lib/sticky/sticky.py:60
 msgid "Operations"
 msgstr "Toiminnot"
 
-#: usr/lib/sticky/sticky.py:60
+#: usr/lib/sticky/sticky.py:61
 msgid "Move selection up"
 msgstr "Siirrä valintaa ylöspäin"
 
-#: usr/lib/sticky/sticky.py:61
+#: usr/lib/sticky/sticky.py:62
 msgid "Move selection down"
 msgstr "Siirrä valintaa alaspäin"
 
-#: usr/lib/sticky/sticky.py:62
+#: usr/lib/sticky/sticky.py:63
 msgid "Undo"
 msgstr "Kumoa"
 
-#: usr/lib/sticky/sticky.py:63
+#: usr/lib/sticky/sticky.py:64
 msgid "Redo"
 msgstr "Uudelleen"
 
-#: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:456
+#: usr/lib/sticky/sticky.py:65 usr/lib/sticky/sticky.py:488
 msgid "Toggle Checklist"
 msgstr "Vaihda tarkistuslistaa"
 
-#: usr/lib/sticky/sticky.py:65 usr/lib/sticky/sticky.py:460
+#: usr/lib/sticky/sticky.py:66 usr/lib/sticky/sticky.py:492
 msgid "Toggle Bullets"
 msgstr "Vaihda luettelomerkit"
 
-#: usr/lib/sticky/sticky.py:67
+#: usr/lib/sticky/sticky.py:68
 msgid "Formatting"
 msgstr "Muotoilu"
 
-#: usr/lib/sticky/sticky.py:68 usr/lib/sticky/sticky.py:411
-#: usr/lib/sticky/sticky.py:412
+#: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:443
+#: usr/lib/sticky/sticky.py:444
 msgid "Bold"
 msgstr "Lihavoi"
 
-#: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:416
-#: usr/lib/sticky/sticky.py:417
+#: usr/lib/sticky/sticky.py:70 usr/lib/sticky/sticky.py:448
+#: usr/lib/sticky/sticky.py:449
 msgid "Italic"
 msgstr "Kursiivi"
 
-#: usr/lib/sticky/sticky.py:70 usr/lib/sticky/sticky.py:421
-#: usr/lib/sticky/sticky.py:422
+#: usr/lib/sticky/sticky.py:71 usr/lib/sticky/sticky.py:453
+#: usr/lib/sticky/sticky.py:454
 msgid "Fixed Width"
 msgstr "Tasalevyinen"
 
-#: usr/lib/sticky/sticky.py:71 usr/lib/sticky/sticky.py:426
-#: usr/lib/sticky/sticky.py:427
+#: usr/lib/sticky/sticky.py:72 usr/lib/sticky/sticky.py:458
+#: usr/lib/sticky/sticky.py:459
 msgid "Underline"
 msgstr "Alleviivaus"
 
-#: usr/lib/sticky/sticky.py:72 usr/lib/sticky/sticky.py:431
-#: usr/lib/sticky/sticky.py:432
+#: usr/lib/sticky/sticky.py:73 usr/lib/sticky/sticky.py:463
+#: usr/lib/sticky/sticky.py:464
 msgid "Strikethrough"
 msgstr "Yliviivaus"
 
-#: usr/lib/sticky/sticky.py:73 usr/lib/sticky/sticky.py:436
-#: usr/lib/sticky/sticky.py:437
+#: usr/lib/sticky/sticky.py:74 usr/lib/sticky/sticky.py:468
+#: usr/lib/sticky/sticky.py:469
 msgid "Highlight"
 msgstr "Korostus"
 
-#: usr/lib/sticky/sticky.py:74 usr/lib/sticky/sticky.py:441
-#: usr/lib/sticky/sticky.py:442
+#: usr/lib/sticky/sticky.py:75 usr/lib/sticky/sticky.py:473
+#: usr/lib/sticky/sticky.py:474
 msgid "Header"
 msgstr "Otsikko"
 
-#: usr/lib/sticky/sticky.py:130
+#: usr/lib/sticky/sticky.py:144
 msgid "Note Color"
 msgstr "Muistilapun väri"
 
-#: usr/lib/sticky/sticky.py:147
+#: usr/lib/sticky/sticky.py:161
 msgid "Rename"
 msgstr "Nimeä"
 
-#: usr/lib/sticky/sticky.py:155 usr/lib/sticky/sticky.py:368
-#: usr/lib/sticky/sticky.py:486
+#: usr/lib/sticky/sticky.py:169 usr/lib/sticky/sticky.py:400
+#: usr/lib/sticky/sticky.py:519
 msgid "Delete Note"
 msgstr "Poista muistilappu"
 
-#: usr/lib/sticky/sticky.py:162 usr/lib/sticky/sticky.py:751
+#: usr/lib/sticky/sticky.py:176 usr/lib/sticky/sticky.py:792
 msgid "New Note"
 msgstr "Uusi muistilappu"
 
-#: usr/lib/sticky/sticky.py:168
+#: usr/lib/sticky/sticky.py:182
 msgid "Format"
 msgstr "Muoto"
 
-#: usr/lib/sticky/sticky.py:353
+#: usr/lib/sticky/sticky.py:381
 msgid "undo"
 msgstr "kumoa"
 
-#: usr/lib/sticky/sticky.py:357
+#: usr/lib/sticky/sticky.py:385
 msgid "redo"
 msgstr "uudelleen"
 
-#: usr/lib/sticky/sticky.py:363
+#: usr/lib/sticky/sticky.py:391
 msgid "Set Title"
 msgstr "Aseta otsikko"
 
-#: usr/lib/sticky/sticky.py:363
+#: usr/lib/sticky/sticky.py:391
 msgid "Edit Title"
 msgstr "Muokkaa otsikkoa"
 
-#: usr/lib/sticky/sticky.py:376
+#: usr/lib/sticky/sticky.py:396
+msgid "Duplicate Note"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:408
 msgid "Only on This Workspace"
 msgstr "Vain tässä työtilassa"
 
-#: usr/lib/sticky/sticky.py:380
+#: usr/lib/sticky/sticky.py:412
 msgid "Always on Visible Workspace"
 msgstr "Aina aktiivisessa työtilassa"
 
-#: usr/lib/sticky/sticky.py:392
+#: usr/lib/sticky/sticky.py:424
 msgid "Always on Top"
 msgstr "Aina päällimmäisenä"
 
-#: usr/lib/sticky/sticky.py:486
+#: usr/lib/sticky/sticky.py:519
 msgid "Are you sure you want to remove this note?"
 msgstr "Haluatko varmasti poistaa muistilapun?"
 
-#: usr/lib/sticky/sticky.py:543
+#: usr/lib/sticky/sticky.py:579
 msgid "Show notes on all desktops"
 msgstr "Näytä muistilaput kaikilla näytöillä"
 
-#: usr/lib/sticky/sticky.py:544
+#: usr/lib/sticky/sticky.py:580
 msgid "Show in taskbar"
 msgstr "Näytä tehtäväpalkissa"
 
-#: usr/lib/sticky/sticky.py:545
+#: usr/lib/sticky/sticky.py:581
 msgid "Tray icon"
 msgstr "Ilmoitusalueen kuvake"
 
-#: usr/lib/sticky/sticky.py:546
+#: usr/lib/sticky/sticky.py:582
 msgid "Show the main window automatically"
 msgstr "Näytä oletusnäytöllä automaattisesti"
 
-#: usr/lib/sticky/sticky.py:547
+#: usr/lib/sticky/sticky.py:583
 msgid "General"
 msgstr "Yleisasetukset"
 
-#: usr/lib/sticky/sticky.py:551
+#: usr/lib/sticky/sticky.py:587
 msgid "Default height"
 msgstr "Oletuskorkeus"
 
-#: usr/lib/sticky/sticky.py:552
+#: usr/lib/sticky/sticky.py:588
 msgid "Default width"
 msgstr "Oletusleveys"
 
-#: usr/lib/sticky/sticky.py:556 usr/lib/sticky/sticky.py:561
-msgid "Random"
-msgstr "Satunnainen"
+#: usr/lib/sticky/sticky.py:592 usr/lib/sticky/sticky.py:597
+msgid "Cycle Colors"
+msgstr ""
 
-#: usr/lib/sticky/sticky.py:558 usr/lib/sticky/sticky.py:563
+#: usr/lib/sticky/sticky.py:594 usr/lib/sticky/sticky.py:599
 msgid "Default color"
 msgstr "Oletusväri"
 
-#: usr/lib/sticky/sticky.py:565
+#: usr/lib/sticky/sticky.py:601
 msgid "Font"
 msgstr "Fontti"
 
-#: usr/lib/sticky/sticky.py:566
+#: usr/lib/sticky/sticky.py:602
 msgid "Show spelling mistakes"
 msgstr "Näytä kirjoitusvirheet"
 
-#: usr/lib/sticky/sticky.py:568 usr/lib/sticky/sticky.py:639
-#: usr/lib/sticky/sticky.py:703 usr/lib/sticky/sticky.py:735
-#: usr/lib/sticky/sticky.py:941 generate_desktop_files:13
+#: usr/lib/sticky/sticky.py:604 usr/lib/sticky/sticky.py:675
+#: usr/lib/sticky/sticky.py:744 usr/lib/sticky/sticky.py:776
+#: usr/lib/sticky/sticky.py:1013 generate_desktop_files:13
 #: usr/share/sticky/manager.ui.h:1
 msgid "Notes"
 msgstr "Muistilaput"
 
-#: usr/lib/sticky/sticky.py:573
+#: usr/lib/sticky/sticky.py:609
 msgid "Automatic backups"
 msgstr "Automaattinen varmuuskopiointi"
 
-#: usr/lib/sticky/sticky.py:574
+#: usr/lib/sticky/sticky.py:610
 msgid "Time between backups"
 msgstr "Aika varmuuskopioiden välillä"
 
-#: usr/lib/sticky/sticky.py:574
+#: usr/lib/sticky/sticky.py:610
 msgid "hours"
 msgstr "tuntia"
 
-#: usr/lib/sticky/sticky.py:575
+#: usr/lib/sticky/sticky.py:611
 msgid "Set this to zero if you wish to keep all backups indefinitely"
 msgstr ""
 "Aseta nollaksi, jos haluat säilyttää kaikki varmuuskopiot loputtomiin"
 
-#: usr/lib/sticky/sticky.py:576
+#: usr/lib/sticky/sticky.py:612
 msgid "Number to keep"
 msgstr "Säilytetään"
 
-#: usr/lib/sticky/sticky.py:578
+#: usr/lib/sticky/sticky.py:614
 msgid "Backups"
 msgstr "Varmuuskopiot"
 
-#: usr/lib/sticky/sticky.py:582
+#: usr/lib/sticky/sticky.py:618
 msgid "Start automatically"
 msgstr "Käynnistä automaattisesti"
 
-#: usr/lib/sticky/sticky.py:583
+#: usr/lib/sticky/sticky.py:619
 msgid "Show notes on the screen"
 msgstr "Näytä muistilaput näytöllä"
 
-#: usr/lib/sticky/sticky.py:584
+#: usr/lib/sticky/sticky.py:620
 msgid "Automatic start"
 msgstr "Automaattinen käynnistys"
 
-#: usr/lib/sticky/sticky.py:602
+#: usr/lib/sticky/sticky.py:638
 msgid "Text Size"
 msgstr "Tekstin koko"
 
-#: usr/lib/sticky/sticky.py:704
+#: usr/lib/sticky/sticky.py:745
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
@@ -404,27 +409,27 @@ msgstr ""
 "Haluatko tuoda muistilaput Gnotesta? Tämä ei muuta Gnote-muistilappuja "
 "millään tavalla."
 
-#: usr/lib/sticky/sticky.py:727
+#: usr/lib/sticky/sticky.py:768
 msgid "Group 1"
 msgstr "Ryhmä 1"
 
-#: usr/lib/sticky/sticky.py:736
+#: usr/lib/sticky/sticky.py:777
 msgid "Left click to toggle notes"
 msgstr "Hiiren vasen painike vaihtaa muistilappua"
 
-#: usr/lib/sticky/sticky.py:737
+#: usr/lib/sticky/sticky.py:778
 msgid "Middle click to toggle the manager"
 msgstr "Vaihtaaksesi hallintaa napsauta hiiren keskimmäistä"
 
-#: usr/lib/sticky/sticky.py:755
+#: usr/lib/sticky/sticky.py:796
 msgid "Manage Notes"
 msgstr "Hallitse muistilappuja"
 
-#: usr/lib/sticky/sticky.py:771
+#: usr/lib/sticky/sticky.py:818
 msgid "Quit"
 msgstr "Lopeta"
 
-#: usr/lib/sticky/sticky.py:942 generate_desktop_files:14
+#: usr/lib/sticky/sticky.py:1014 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
 msgstr "Tee muistilappuja ja pysy ajan tasalla"
@@ -440,3 +445,7 @@ msgstr "Uusi muistilappu"
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
 msgstr "Poista valittu muistilappu"
+
+#: usr/share/sticky/manager.ui.h:5
+msgid "Duplicate selected note"
+msgstr ""

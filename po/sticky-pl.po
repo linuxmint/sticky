@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-11-24 12:13+0000\n"
-"PO-Revision-Date: 2021-11-24 12:52+0000\n"
+"POT-Creation-Date: 2022-06-22 08:57+0200\n"
+"PO-Revision-Date: 2022-06-22 13:30+0000\n"
 "Last-Translator: Marek Adamski <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-12-31 12:26+0000\n"
-"X-Generator: Launchpad (build adb364d6a74a28e7b95d51cd30446ec16160de6c)\n"
+"X-Launchpad-Export-Date: 2022-06-26 11:30+0000\n"
+"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
 
-#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:298
+#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:300
 msgid "Export..."
 msgstr "Eksportuj..."
 
@@ -34,7 +34,7 @@ msgstr "Zapisz"
 msgid "Plain Text"
 msgstr "Zwykły tekst"
 
-#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:294
+#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:296
 msgid "Import..."
 msgstr "Importuj..."
 
@@ -72,7 +72,7 @@ msgstr ""
 "Istnieje już grupa o nazwie '%s'. Ta czynność ją zastąpi. Kontynuować mimo "
 "wszystko?"
 
-#: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:278
+#: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
 msgstr "Usuń grupę"
 
@@ -85,15 +85,15 @@ msgstr "Czy na pewno chcesz usunąć grupę %s?"
 msgid "OK"
 msgstr "OK"
 
-#: usr/lib/sticky/common.py:347
+#: usr/lib/sticky/common.py:348
 msgid "No"
 msgstr "Nie"
 
-#: usr/lib/sticky/common.py:348
+#: usr/lib/sticky/common.py:349
 msgid "Yes"
 msgstr "Tak"
 
-#: usr/lib/sticky/common.py:358
+#: usr/lib/sticky/common.py:359
 msgid "Don't ask me again"
 msgstr "Nie pytaj ponownie"
 
@@ -113,292 +113,297 @@ msgstr "Usuń"
 msgid "Untitled"
 msgstr "Bez nazwy"
 
-#: usr/lib/sticky/manager.py:274
+#: usr/lib/sticky/manager.py:276
 msgid "New Group"
 msgstr "Nowa grupa"
 
-#: usr/lib/sticky/manager.py:284
+#: usr/lib/sticky/manager.py:286
 msgid "Back Up"
 msgstr "Utwórz kopię zapasową"
 
-#: usr/lib/sticky/manager.py:288
+#: usr/lib/sticky/manager.py:290
 msgid "Restore Backups..."
 msgstr "Przywróć kopie zapasowe..."
 
-#: usr/lib/sticky/manager.py:304 usr/lib/sticky/sticky.py:539
+#: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:575
+#: usr/lib/sticky/sticky.py:812
 msgid "Preferences"
 msgstr "Preferencje"
 
-#: usr/lib/sticky/manager.py:308
+#: usr/lib/sticky/manager.py:310
 msgid "Keyboard Shortcuts"
 msgstr "Skróty klawiszowe"
 
-#: usr/lib/sticky/manager.py:313 usr/lib/sticky/sticky.py:940
+#: usr/lib/sticky/manager.py:315 usr/lib/sticky/sticky.py:1012
 msgid "About"
 msgstr "O programie"
 
-#: usr/lib/sticky/sticky.py:30
+#: usr/lib/sticky/sticky.py:31
 msgid "Small Text"
 msgstr "Mały tekst"
 
-#: usr/lib/sticky/sticky.py:31
+#: usr/lib/sticky/sticky.py:32
 msgid "Normal Text"
 msgstr "Normalny tekst"
 
-#: usr/lib/sticky/sticky.py:32
+#: usr/lib/sticky/sticky.py:33
 msgid "Large Text"
 msgstr "Duży tekst"
 
-#: usr/lib/sticky/sticky.py:33
+#: usr/lib/sticky/sticky.py:34
 msgid "Larger Text"
 msgstr "Większy tekst"
 
-#: usr/lib/sticky/sticky.py:37
+#: usr/lib/sticky/sticky.py:38
 msgid "Red"
 msgstr "Czerwony"
 
-#: usr/lib/sticky/sticky.py:38
+#: usr/lib/sticky/sticky.py:39
 msgid "Green"
 msgstr "Zielony"
 
-#: usr/lib/sticky/sticky.py:39
+#: usr/lib/sticky/sticky.py:40
 msgid "Blue"
 msgstr "Niebieski"
 
-#: usr/lib/sticky/sticky.py:40
+#: usr/lib/sticky/sticky.py:41
 msgid "Yellow"
 msgstr "Żółty"
 
-#: usr/lib/sticky/sticky.py:41
+#: usr/lib/sticky/sticky.py:42
 msgid "Purple"
 msgstr "Purpurowy"
 
-#: usr/lib/sticky/sticky.py:42
+#: usr/lib/sticky/sticky.py:43
 msgid "Teal"
 msgstr "Morski"
 
-#: usr/lib/sticky/sticky.py:43
+#: usr/lib/sticky/sticky.py:44
 msgid "Orange"
 msgstr "Pomarańczowy"
 
-#: usr/lib/sticky/sticky.py:44
+#: usr/lib/sticky/sticky.py:45
 msgid "Magenta"
 msgstr "Magenta"
 
-#: usr/lib/sticky/sticky.py:59
+#: usr/lib/sticky/sticky.py:60
 msgid "Operations"
 msgstr "Operacje"
 
-#: usr/lib/sticky/sticky.py:60
+#: usr/lib/sticky/sticky.py:61
 msgid "Move selection up"
 msgstr "Przenieś zaznaczenie w górę"
 
-#: usr/lib/sticky/sticky.py:61
+#: usr/lib/sticky/sticky.py:62
 msgid "Move selection down"
 msgstr "Przenieś zaznaczenie w dół"
 
-#: usr/lib/sticky/sticky.py:62
+#: usr/lib/sticky/sticky.py:63
 msgid "Undo"
 msgstr "Cofnij"
 
-#: usr/lib/sticky/sticky.py:63
+#: usr/lib/sticky/sticky.py:64
 msgid "Redo"
 msgstr "Ponów"
 
-#: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:456
+#: usr/lib/sticky/sticky.py:65 usr/lib/sticky/sticky.py:488
 msgid "Toggle Checklist"
 msgstr "Przełącz listę zadań"
 
-#: usr/lib/sticky/sticky.py:65 usr/lib/sticky/sticky.py:460
+#: usr/lib/sticky/sticky.py:66 usr/lib/sticky/sticky.py:492
 msgid "Toggle Bullets"
 msgstr "Przełącz punktory"
 
-#: usr/lib/sticky/sticky.py:67
+#: usr/lib/sticky/sticky.py:68
 msgid "Formatting"
 msgstr "Formatowanie"
 
-#: usr/lib/sticky/sticky.py:68 usr/lib/sticky/sticky.py:411
-#: usr/lib/sticky/sticky.py:412
+#: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:443
+#: usr/lib/sticky/sticky.py:444
 msgid "Bold"
 msgstr "Pogrubienie"
 
-#: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:416
-#: usr/lib/sticky/sticky.py:417
+#: usr/lib/sticky/sticky.py:70 usr/lib/sticky/sticky.py:448
+#: usr/lib/sticky/sticky.py:449
 msgid "Italic"
 msgstr "Kursywa"
 
-#: usr/lib/sticky/sticky.py:70 usr/lib/sticky/sticky.py:421
-#: usr/lib/sticky/sticky.py:422
+#: usr/lib/sticky/sticky.py:71 usr/lib/sticky/sticky.py:453
+#: usr/lib/sticky/sticky.py:454
 msgid "Fixed Width"
 msgstr "Stała szerokość"
 
-#: usr/lib/sticky/sticky.py:71 usr/lib/sticky/sticky.py:426
-#: usr/lib/sticky/sticky.py:427
+#: usr/lib/sticky/sticky.py:72 usr/lib/sticky/sticky.py:458
+#: usr/lib/sticky/sticky.py:459
 msgid "Underline"
 msgstr "Podkreślenie"
 
-#: usr/lib/sticky/sticky.py:72 usr/lib/sticky/sticky.py:431
-#: usr/lib/sticky/sticky.py:432
+#: usr/lib/sticky/sticky.py:73 usr/lib/sticky/sticky.py:463
+#: usr/lib/sticky/sticky.py:464
 msgid "Strikethrough"
 msgstr "Przekreślenie"
 
-#: usr/lib/sticky/sticky.py:73 usr/lib/sticky/sticky.py:436
-#: usr/lib/sticky/sticky.py:437
+#: usr/lib/sticky/sticky.py:74 usr/lib/sticky/sticky.py:468
+#: usr/lib/sticky/sticky.py:469
 msgid "Highlight"
 msgstr "Wyróżnienie"
 
-#: usr/lib/sticky/sticky.py:74 usr/lib/sticky/sticky.py:441
-#: usr/lib/sticky/sticky.py:442
+#: usr/lib/sticky/sticky.py:75 usr/lib/sticky/sticky.py:473
+#: usr/lib/sticky/sticky.py:474
 msgid "Header"
 msgstr "Nagłówek"
 
-#: usr/lib/sticky/sticky.py:130
+#: usr/lib/sticky/sticky.py:144
 msgid "Note Color"
 msgstr "Kolor notatki"
 
-#: usr/lib/sticky/sticky.py:147
+#: usr/lib/sticky/sticky.py:161
 msgid "Rename"
 msgstr "Zmień nazwę"
 
-#: usr/lib/sticky/sticky.py:155 usr/lib/sticky/sticky.py:368
-#: usr/lib/sticky/sticky.py:486
+#: usr/lib/sticky/sticky.py:169 usr/lib/sticky/sticky.py:400
+#: usr/lib/sticky/sticky.py:519
 msgid "Delete Note"
 msgstr "Usuń notatkę"
 
-#: usr/lib/sticky/sticky.py:162 usr/lib/sticky/sticky.py:751
+#: usr/lib/sticky/sticky.py:176 usr/lib/sticky/sticky.py:792
 msgid "New Note"
 msgstr "Nowa notatka"
 
-#: usr/lib/sticky/sticky.py:168
+#: usr/lib/sticky/sticky.py:182
 msgid "Format"
 msgstr "Format"
 
-#: usr/lib/sticky/sticky.py:353
+#: usr/lib/sticky/sticky.py:381
 msgid "undo"
 msgstr "cofnij"
 
-#: usr/lib/sticky/sticky.py:357
+#: usr/lib/sticky/sticky.py:385
 msgid "redo"
 msgstr "ponów"
 
-#: usr/lib/sticky/sticky.py:363
+#: usr/lib/sticky/sticky.py:391
 msgid "Set Title"
 msgstr "Ustaw tytuł"
 
-#: usr/lib/sticky/sticky.py:363
+#: usr/lib/sticky/sticky.py:391
 msgid "Edit Title"
 msgstr "Edytuj tytuł"
 
-#: usr/lib/sticky/sticky.py:376
+#: usr/lib/sticky/sticky.py:396
+msgid "Duplicate Note"
+msgstr "Powiel notatkę"
+
+#: usr/lib/sticky/sticky.py:408
 msgid "Only on This Workspace"
 msgstr "Tylko na tym obszarze roboczym"
 
-#: usr/lib/sticky/sticky.py:380
+#: usr/lib/sticky/sticky.py:412
 msgid "Always on Visible Workspace"
 msgstr "Zawsze na widocznym obszarze roboczym"
 
-#: usr/lib/sticky/sticky.py:392
+#: usr/lib/sticky/sticky.py:424
 msgid "Always on Top"
 msgstr "Zawsze na wierzchu"
 
-#: usr/lib/sticky/sticky.py:486
+#: usr/lib/sticky/sticky.py:519
 msgid "Are you sure you want to remove this note?"
 msgstr "Czy na pewno chcesz usunąć tę notatkę?"
 
-#: usr/lib/sticky/sticky.py:543
+#: usr/lib/sticky/sticky.py:579
 msgid "Show notes on all desktops"
 msgstr "Pokazuj notatki na wszystkich pulpitach"
 
-#: usr/lib/sticky/sticky.py:544
+#: usr/lib/sticky/sticky.py:580
 msgid "Show in taskbar"
 msgstr "Pokazuj na pasku zadań"
 
-#: usr/lib/sticky/sticky.py:545
+#: usr/lib/sticky/sticky.py:581
 msgid "Tray icon"
 msgstr "Ikona stanu"
 
-#: usr/lib/sticky/sticky.py:546
+#: usr/lib/sticky/sticky.py:582
 msgid "Show the main window automatically"
 msgstr "Pokaż okno główne automatycznie"
 
-#: usr/lib/sticky/sticky.py:547
+#: usr/lib/sticky/sticky.py:583
 msgid "General"
 msgstr "Ogólne"
 
-#: usr/lib/sticky/sticky.py:551
+#: usr/lib/sticky/sticky.py:587
 msgid "Default height"
 msgstr "Domyślna wysokość"
 
-#: usr/lib/sticky/sticky.py:552
+#: usr/lib/sticky/sticky.py:588
 msgid "Default width"
 msgstr "Domyślna szerokość"
 
-#: usr/lib/sticky/sticky.py:556 usr/lib/sticky/sticky.py:561
-msgid "Random"
-msgstr "Losowo"
+#: usr/lib/sticky/sticky.py:592 usr/lib/sticky/sticky.py:597
+msgid "Cycle Colors"
+msgstr "Cykliczna zmiana kolorów"
 
-#: usr/lib/sticky/sticky.py:558 usr/lib/sticky/sticky.py:563
+#: usr/lib/sticky/sticky.py:594 usr/lib/sticky/sticky.py:599
 msgid "Default color"
 msgstr "Domyślny kolor"
 
-#: usr/lib/sticky/sticky.py:565
+#: usr/lib/sticky/sticky.py:601
 msgid "Font"
 msgstr "Czcionka"
 
-#: usr/lib/sticky/sticky.py:566
+#: usr/lib/sticky/sticky.py:602
 msgid "Show spelling mistakes"
 msgstr "Pokaż błędy w pisowni"
 
-#: usr/lib/sticky/sticky.py:568 usr/lib/sticky/sticky.py:639
-#: usr/lib/sticky/sticky.py:703 usr/lib/sticky/sticky.py:735
-#: usr/lib/sticky/sticky.py:941 generate_desktop_files:13
+#: usr/lib/sticky/sticky.py:604 usr/lib/sticky/sticky.py:675
+#: usr/lib/sticky/sticky.py:744 usr/lib/sticky/sticky.py:776
+#: usr/lib/sticky/sticky.py:1013 generate_desktop_files:13
 #: usr/share/sticky/manager.ui.h:1
 msgid "Notes"
 msgstr "Notatki"
 
-#: usr/lib/sticky/sticky.py:573
+#: usr/lib/sticky/sticky.py:609
 msgid "Automatic backups"
 msgstr "Automatyczne kopie zapasowe"
 
-#: usr/lib/sticky/sticky.py:574
+#: usr/lib/sticky/sticky.py:610
 msgid "Time between backups"
 msgstr "Odstęp czasu między kopiami zapasowymi"
 
-#: usr/lib/sticky/sticky.py:574
+#: usr/lib/sticky/sticky.py:610
 msgid "hours"
 msgstr "godzin(y)"
 
-#: usr/lib/sticky/sticky.py:575
+#: usr/lib/sticky/sticky.py:611
 msgid "Set this to zero if you wish to keep all backups indefinitely"
 msgstr ""
 "Ustaw tę wartość na zero, jeśli chcesz zachowywać wszystkie kopie zapasowe "
 "na zawsze."
 
-#: usr/lib/sticky/sticky.py:576
+#: usr/lib/sticky/sticky.py:612
 msgid "Number to keep"
 msgstr "Liczba kopii do przechowywania"
 
-#: usr/lib/sticky/sticky.py:578
+#: usr/lib/sticky/sticky.py:614
 msgid "Backups"
 msgstr "Kopie zapasowe"
 
-#: usr/lib/sticky/sticky.py:582
+#: usr/lib/sticky/sticky.py:618
 msgid "Start automatically"
 msgstr "Uruchamiaj automatycznie"
 
-#: usr/lib/sticky/sticky.py:583
+#: usr/lib/sticky/sticky.py:619
 msgid "Show notes on the screen"
 msgstr "Pokaż notatki na ekranie"
 
-#: usr/lib/sticky/sticky.py:584
+#: usr/lib/sticky/sticky.py:620
 msgid "Automatic start"
 msgstr "Automatyczne uruchamianie"
 
-#: usr/lib/sticky/sticky.py:602
+#: usr/lib/sticky/sticky.py:638
 msgid "Text Size"
 msgstr "Rozmiar tekstu"
 
-#: usr/lib/sticky/sticky.py:704
+#: usr/lib/sticky/sticky.py:745
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
@@ -406,27 +411,27 @@ msgstr ""
 "Czy chcesz zaimportować swoje notatki z Gnote? Nie wpłynie to w żaden sposób "
 "na notatki w Gnote."
 
-#: usr/lib/sticky/sticky.py:727
+#: usr/lib/sticky/sticky.py:768
 msgid "Group 1"
 msgstr "Grupa 1"
 
-#: usr/lib/sticky/sticky.py:736
+#: usr/lib/sticky/sticky.py:777
 msgid "Left click to toggle notes"
 msgstr "Lewy przycisk myszy do przełączania notatek"
 
-#: usr/lib/sticky/sticky.py:737
+#: usr/lib/sticky/sticky.py:778
 msgid "Middle click to toggle the manager"
 msgstr "Środkowy przycisk myszy do przełączania menedżera"
 
-#: usr/lib/sticky/sticky.py:755
+#: usr/lib/sticky/sticky.py:796
 msgid "Manage Notes"
 msgstr "Zarządzanie notatkami"
 
-#: usr/lib/sticky/sticky.py:771
+#: usr/lib/sticky/sticky.py:818
 msgid "Quit"
 msgstr "Wyjdź"
 
-#: usr/lib/sticky/sticky.py:942 generate_desktop_files:14
+#: usr/lib/sticky/sticky.py:1014 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
 msgstr "Notuj i zachowuj organizację"
@@ -442,3 +447,7 @@ msgstr "Nowa notatka"
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
 msgstr "Usuń wybraną notatkę"
+
+#: usr/share/sticky/manager.ui.h:5
+msgid "Duplicate selected note"
+msgstr "Powiel wybraną notatkę"

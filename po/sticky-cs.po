@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-11-24 12:13+0000\n"
+"POT-Creation-Date: 2022-06-22 08:57+0200\n"
 "PO-Revision-Date: 2021-11-26 22:21+0000\n"
 "Last-Translator: Marek Hladík <mhladik@seznam.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-12-31 12:26+0000\n"
-"X-Generator: Launchpad (build adb364d6a74a28e7b95d51cd30446ec16160de6c)\n"
+"X-Launchpad-Export-Date: 2022-06-26 11:30+0000\n"
+"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
 
-#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:298
+#: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:300
 msgid "Export..."
 msgstr "Exportovat…"
 
@@ -34,7 +34,7 @@ msgstr "Uložit"
 msgid "Plain Text"
 msgstr "Neformátovaný text"
 
-#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:294
+#: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:296
 msgid "Import..."
 msgstr "Importovat…"
 
@@ -70,7 +70,7 @@ msgid ""
 msgstr ""
 "Skupina s názvem „%s“ už existuje. Tato akce ji přepíše. Přesto pokračovat?"
 
-#: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:278
+#: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
 msgstr "Odebrat skupinu"
 
@@ -83,15 +83,15 @@ msgstr "Opravdu chcete skupinu %s odebrat?"
 msgid "OK"
 msgstr "OK"
 
-#: usr/lib/sticky/common.py:347
+#: usr/lib/sticky/common.py:348
 msgid "No"
 msgstr "Ne"
 
-#: usr/lib/sticky/common.py:348
+#: usr/lib/sticky/common.py:349
 msgid "Yes"
 msgstr "Ano"
 
-#: usr/lib/sticky/common.py:358
+#: usr/lib/sticky/common.py:359
 msgid "Don't ask me again"
 msgstr "Příště se už neptat"
 
@@ -111,318 +111,323 @@ msgstr "Odebrat"
 msgid "Untitled"
 msgstr "Bez názvu"
 
-#: usr/lib/sticky/manager.py:274
+#: usr/lib/sticky/manager.py:276
 msgid "New Group"
 msgstr "Nová skupina"
 
-#: usr/lib/sticky/manager.py:284
+#: usr/lib/sticky/manager.py:286
 msgid "Back Up"
 msgstr "Zálohovat"
 
-#: usr/lib/sticky/manager.py:288
+#: usr/lib/sticky/manager.py:290
 msgid "Restore Backups..."
 msgstr "Obnovit ze zálohy…"
 
-#: usr/lib/sticky/manager.py:304 usr/lib/sticky/sticky.py:539
+#: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:575
+#: usr/lib/sticky/sticky.py:812
 msgid "Preferences"
 msgstr "Předvolby"
 
-#: usr/lib/sticky/manager.py:308
+#: usr/lib/sticky/manager.py:310
 msgid "Keyboard Shortcuts"
 msgstr "Klávesové zkratky"
 
-#: usr/lib/sticky/manager.py:313 usr/lib/sticky/sticky.py:940
+#: usr/lib/sticky/manager.py:315 usr/lib/sticky/sticky.py:1012
 msgid "About"
 msgstr "O aplikaci"
 
-#: usr/lib/sticky/sticky.py:30
+#: usr/lib/sticky/sticky.py:31
 msgid "Small Text"
 msgstr "Malé písmo"
 
-#: usr/lib/sticky/sticky.py:31
+#: usr/lib/sticky/sticky.py:32
 msgid "Normal Text"
 msgstr "Normální písmo"
 
-#: usr/lib/sticky/sticky.py:32
+#: usr/lib/sticky/sticky.py:33
 msgid "Large Text"
 msgstr "Velké písmo"
 
-#: usr/lib/sticky/sticky.py:33
+#: usr/lib/sticky/sticky.py:34
 msgid "Larger Text"
 msgstr "Větší písmo"
 
-#: usr/lib/sticky/sticky.py:37
+#: usr/lib/sticky/sticky.py:38
 msgid "Red"
 msgstr "Červená"
 
-#: usr/lib/sticky/sticky.py:38
+#: usr/lib/sticky/sticky.py:39
 msgid "Green"
 msgstr "Zelená"
 
-#: usr/lib/sticky/sticky.py:39
+#: usr/lib/sticky/sticky.py:40
 msgid "Blue"
 msgstr "Modrá"
 
-#: usr/lib/sticky/sticky.py:40
+#: usr/lib/sticky/sticky.py:41
 msgid "Yellow"
 msgstr "Žlutá"
 
-#: usr/lib/sticky/sticky.py:41
+#: usr/lib/sticky/sticky.py:42
 msgid "Purple"
 msgstr "Fialová"
 
-#: usr/lib/sticky/sticky.py:42
+#: usr/lib/sticky/sticky.py:43
 msgid "Teal"
 msgstr "Modrozelená"
 
-#: usr/lib/sticky/sticky.py:43
+#: usr/lib/sticky/sticky.py:44
 msgid "Orange"
 msgstr "Oranžová"
 
-#: usr/lib/sticky/sticky.py:44
+#: usr/lib/sticky/sticky.py:45
 msgid "Magenta"
 msgstr "Purpurová"
 
-#: usr/lib/sticky/sticky.py:59
+#: usr/lib/sticky/sticky.py:60
 msgid "Operations"
 msgstr "Úkony"
 
-#: usr/lib/sticky/sticky.py:60
+#: usr/lib/sticky/sticky.py:61
 msgid "Move selection up"
 msgstr "Posunout označené nahoru"
 
-#: usr/lib/sticky/sticky.py:61
+#: usr/lib/sticky/sticky.py:62
 msgid "Move selection down"
 msgstr "Posunout označené dolů"
 
-#: usr/lib/sticky/sticky.py:62
+#: usr/lib/sticky/sticky.py:63
 msgid "Undo"
 msgstr "Zpět"
 
-#: usr/lib/sticky/sticky.py:63
+#: usr/lib/sticky/sticky.py:64
 msgid "Redo"
 msgstr "Provést znovu"
 
-#: usr/lib/sticky/sticky.py:64 usr/lib/sticky/sticky.py:456
+#: usr/lib/sticky/sticky.py:65 usr/lib/sticky/sticky.py:488
 msgid "Toggle Checklist"
 msgstr "Zaškrtávací seznam"
 
-#: usr/lib/sticky/sticky.py:65 usr/lib/sticky/sticky.py:460
+#: usr/lib/sticky/sticky.py:66 usr/lib/sticky/sticky.py:492
 msgid "Toggle Bullets"
 msgstr "Odrážky"
 
-#: usr/lib/sticky/sticky.py:67
+#: usr/lib/sticky/sticky.py:68
 msgid "Formatting"
 msgstr "Formátování"
 
-#: usr/lib/sticky/sticky.py:68 usr/lib/sticky/sticky.py:411
-#: usr/lib/sticky/sticky.py:412
+#: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:443
+#: usr/lib/sticky/sticky.py:444
 msgid "Bold"
 msgstr "Tučné"
 
-#: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:416
-#: usr/lib/sticky/sticky.py:417
+#: usr/lib/sticky/sticky.py:70 usr/lib/sticky/sticky.py:448
+#: usr/lib/sticky/sticky.py:449
 msgid "Italic"
 msgstr "Skloněné"
 
-#: usr/lib/sticky/sticky.py:70 usr/lib/sticky/sticky.py:421
-#: usr/lib/sticky/sticky.py:422
+#: usr/lib/sticky/sticky.py:71 usr/lib/sticky/sticky.py:453
+#: usr/lib/sticky/sticky.py:454
 msgid "Fixed Width"
 msgstr "Pevná šířka"
 
-#: usr/lib/sticky/sticky.py:71 usr/lib/sticky/sticky.py:426
-#: usr/lib/sticky/sticky.py:427
+#: usr/lib/sticky/sticky.py:72 usr/lib/sticky/sticky.py:458
+#: usr/lib/sticky/sticky.py:459
 msgid "Underline"
 msgstr "Podtržené"
 
-#: usr/lib/sticky/sticky.py:72 usr/lib/sticky/sticky.py:431
-#: usr/lib/sticky/sticky.py:432
+#: usr/lib/sticky/sticky.py:73 usr/lib/sticky/sticky.py:463
+#: usr/lib/sticky/sticky.py:464
 msgid "Strikethrough"
 msgstr "Přeškrtnuté"
 
-#: usr/lib/sticky/sticky.py:73 usr/lib/sticky/sticky.py:436
-#: usr/lib/sticky/sticky.py:437
+#: usr/lib/sticky/sticky.py:74 usr/lib/sticky/sticky.py:468
+#: usr/lib/sticky/sticky.py:469
 msgid "Highlight"
 msgstr "Zvýraznění"
 
-#: usr/lib/sticky/sticky.py:74 usr/lib/sticky/sticky.py:441
-#: usr/lib/sticky/sticky.py:442
+#: usr/lib/sticky/sticky.py:75 usr/lib/sticky/sticky.py:473
+#: usr/lib/sticky/sticky.py:474
 msgid "Header"
 msgstr "Nadpis"
 
-#: usr/lib/sticky/sticky.py:130
+#: usr/lib/sticky/sticky.py:144
 msgid "Note Color"
 msgstr "Barva poznámky"
 
-#: usr/lib/sticky/sticky.py:147
+#: usr/lib/sticky/sticky.py:161
 msgid "Rename"
 msgstr "Přejmenovat"
 
-#: usr/lib/sticky/sticky.py:155 usr/lib/sticky/sticky.py:368
-#: usr/lib/sticky/sticky.py:486
+#: usr/lib/sticky/sticky.py:169 usr/lib/sticky/sticky.py:400
+#: usr/lib/sticky/sticky.py:519
 msgid "Delete Note"
 msgstr "Smazat poznámku"
 
-#: usr/lib/sticky/sticky.py:162 usr/lib/sticky/sticky.py:751
+#: usr/lib/sticky/sticky.py:176 usr/lib/sticky/sticky.py:792
 msgid "New Note"
 msgstr "Nová poznámka"
 
-#: usr/lib/sticky/sticky.py:168
+#: usr/lib/sticky/sticky.py:182
 msgid "Format"
 msgstr "Formát"
 
-#: usr/lib/sticky/sticky.py:353
+#: usr/lib/sticky/sticky.py:381
 msgid "undo"
 msgstr "zpět"
 
-#: usr/lib/sticky/sticky.py:357
+#: usr/lib/sticky/sticky.py:385
 msgid "redo"
 msgstr "provést znovu"
 
-#: usr/lib/sticky/sticky.py:363
+#: usr/lib/sticky/sticky.py:391
 msgid "Set Title"
 msgstr "Nastavit název"
 
-#: usr/lib/sticky/sticky.py:363
+#: usr/lib/sticky/sticky.py:391
 msgid "Edit Title"
 msgstr "Upravit název"
 
-#: usr/lib/sticky/sticky.py:376
+#: usr/lib/sticky/sticky.py:396
+msgid "Duplicate Note"
+msgstr ""
+
+#: usr/lib/sticky/sticky.py:408
 msgid "Only on This Workspace"
 msgstr "Pouze na této ploše"
 
-#: usr/lib/sticky/sticky.py:380
+#: usr/lib/sticky/sticky.py:412
 msgid "Always on Visible Workspace"
 msgstr "Vždy na viditelné ploše"
 
-#: usr/lib/sticky/sticky.py:392
+#: usr/lib/sticky/sticky.py:424
 msgid "Always on Top"
 msgstr "Vždy navrchu"
 
-#: usr/lib/sticky/sticky.py:486
+#: usr/lib/sticky/sticky.py:519
 msgid "Are you sure you want to remove this note?"
 msgstr "Opravdu chcete tuto poznámku smazat?"
 
-#: usr/lib/sticky/sticky.py:543
+#: usr/lib/sticky/sticky.py:579
 msgid "Show notes on all desktops"
 msgstr "Zobrazit poznámky na všech plochách"
 
-#: usr/lib/sticky/sticky.py:544
+#: usr/lib/sticky/sticky.py:580
 msgid "Show in taskbar"
 msgstr "Zobrazit v panelu úloh"
 
-#: usr/lib/sticky/sticky.py:545
+#: usr/lib/sticky/sticky.py:581
 msgid "Tray icon"
 msgstr "Ikona v oznamovací oblasti panelu"
 
-#: usr/lib/sticky/sticky.py:546
+#: usr/lib/sticky/sticky.py:582
 msgid "Show the main window automatically"
 msgstr "Automaticky zobrazit hlavní okno"
 
-#: usr/lib/sticky/sticky.py:547
+#: usr/lib/sticky/sticky.py:583
 msgid "General"
 msgstr "Obecné"
 
-#: usr/lib/sticky/sticky.py:551
+#: usr/lib/sticky/sticky.py:587
 msgid "Default height"
 msgstr "Výchozí výška"
 
-#: usr/lib/sticky/sticky.py:552
+#: usr/lib/sticky/sticky.py:588
 msgid "Default width"
 msgstr "Výchozí šířka"
 
-#: usr/lib/sticky/sticky.py:556 usr/lib/sticky/sticky.py:561
-msgid "Random"
-msgstr "Náhodně"
+#: usr/lib/sticky/sticky.py:592 usr/lib/sticky/sticky.py:597
+msgid "Cycle Colors"
+msgstr ""
 
-#: usr/lib/sticky/sticky.py:558 usr/lib/sticky/sticky.py:563
+#: usr/lib/sticky/sticky.py:594 usr/lib/sticky/sticky.py:599
 msgid "Default color"
 msgstr "Výchozí barva"
 
-#: usr/lib/sticky/sticky.py:565
+#: usr/lib/sticky/sticky.py:601
 msgid "Font"
 msgstr "Písmo"
 
-#: usr/lib/sticky/sticky.py:566
+#: usr/lib/sticky/sticky.py:602
 msgid "Show spelling mistakes"
 msgstr "Zvýraznit pravopisné chyby"
 
-#: usr/lib/sticky/sticky.py:568 usr/lib/sticky/sticky.py:639
-#: usr/lib/sticky/sticky.py:703 usr/lib/sticky/sticky.py:735
-#: usr/lib/sticky/sticky.py:941 generate_desktop_files:13
+#: usr/lib/sticky/sticky.py:604 usr/lib/sticky/sticky.py:675
+#: usr/lib/sticky/sticky.py:744 usr/lib/sticky/sticky.py:776
+#: usr/lib/sticky/sticky.py:1013 generate_desktop_files:13
 #: usr/share/sticky/manager.ui.h:1
 msgid "Notes"
 msgstr "Poznámky"
 
-#: usr/lib/sticky/sticky.py:573
+#: usr/lib/sticky/sticky.py:609
 msgid "Automatic backups"
 msgstr "Automatické zálohování"
 
-#: usr/lib/sticky/sticky.py:574
+#: usr/lib/sticky/sticky.py:610
 msgid "Time between backups"
 msgstr "Perioda záloh"
 
-#: usr/lib/sticky/sticky.py:574
+#: usr/lib/sticky/sticky.py:610
 msgid "hours"
 msgstr "hodin"
 
-#: usr/lib/sticky/sticky.py:575
+#: usr/lib/sticky/sticky.py:611
 msgid "Set this to zero if you wish to keep all backups indefinitely"
 msgstr ""
 "Tuto možnost nastavte na nulu, pokud chcete ponechat všechny zálohy "
 "neomezeně dlouho"
 
-#: usr/lib/sticky/sticky.py:576
+#: usr/lib/sticky/sticky.py:612
 msgid "Number to keep"
 msgstr "Počet ponechaných záloh"
 
-#: usr/lib/sticky/sticky.py:578
+#: usr/lib/sticky/sticky.py:614
 msgid "Backups"
 msgstr "Zálohy"
 
-#: usr/lib/sticky/sticky.py:582
+#: usr/lib/sticky/sticky.py:618
 msgid "Start automatically"
 msgstr "Spouštět automaticky"
 
-#: usr/lib/sticky/sticky.py:583
+#: usr/lib/sticky/sticky.py:619
 msgid "Show notes on the screen"
 msgstr "Zobrazit poznámky na obrazovce"
 
-#: usr/lib/sticky/sticky.py:584
+#: usr/lib/sticky/sticky.py:620
 msgid "Automatic start"
 msgstr "Automatický start"
 
-#: usr/lib/sticky/sticky.py:602
+#: usr/lib/sticky/sticky.py:638
 msgid "Text Size"
 msgstr "Velikost písma"
 
-#: usr/lib/sticky/sticky.py:704
+#: usr/lib/sticky/sticky.py:745
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
 msgstr "Chcete importovat poznámky z Gnote? Ty zůstanou i nadále nezměněné."
 
-#: usr/lib/sticky/sticky.py:727
+#: usr/lib/sticky/sticky.py:768
 msgid "Group 1"
 msgstr "Skupina 1"
 
-#: usr/lib/sticky/sticky.py:736
+#: usr/lib/sticky/sticky.py:777
 msgid "Left click to toggle notes"
 msgstr "Kliknutím levým tlačítkem přepnete poznámky"
 
-#: usr/lib/sticky/sticky.py:737
+#: usr/lib/sticky/sticky.py:778
 msgid "Middle click to toggle the manager"
 msgstr "Kliknutím prostředním tlačítkem přepnete správce"
 
-#: usr/lib/sticky/sticky.py:755
+#: usr/lib/sticky/sticky.py:796
 msgid "Manage Notes"
 msgstr "Správa poznámek"
 
-#: usr/lib/sticky/sticky.py:771
+#: usr/lib/sticky/sticky.py:818
 msgid "Quit"
 msgstr "Ukončit"
 
-#: usr/lib/sticky/sticky.py:942 generate_desktop_files:14
+#: usr/lib/sticky/sticky.py:1014 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
 msgstr "Dělejte si poznámky a buďte organizovaní"
@@ -438,3 +443,7 @@ msgstr "Nová poznámka"
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
 msgstr "Smazat vybranou poznámku"
+
+#: usr/share/sticky/manager.ui.h:5
+msgid "Duplicate selected note"
+msgstr ""
