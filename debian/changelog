@@ -1,3 +1,10 @@
+sticky (1.10) vanessa; urgency=medium
+
+  * l10n: Update translations
+  * l10n: Update files
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 27 Jun 2022 11:26:47 +0200
+
 sticky (1.9) vanessa; urgency=medium
 
   [ circuit10 ]
