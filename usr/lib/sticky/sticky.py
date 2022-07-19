@@ -783,7 +783,9 @@ class Application(Gtk.Application):
         icons.connect("changed",self.update_status_icon)
 
     def update_status_icon(self, theme=None):
-        self.status_icon.set_name('sticky')
+        # For refresh symbolic icon
+        self.status_icon.set_visible(False)
+        self.status_icon.set_visible(True)
 
     def on_tray_button_pressed(self, icon, x, y , button, time, panel_position):
         if button == 1:
