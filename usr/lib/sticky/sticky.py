@@ -779,6 +779,11 @@ class Application(Gtk.Application):
         self.status_icon.set_visible(True)
         self.status_icon.connect('button-press-event', self.on_tray_button_pressed)
         self.status_icon.connect('button-release-event', self.on_tray_button_released)
+        icons = Gtk.IconTheme.get_default()
+        icons.connect("changed",self.update_status_icon)
+
+    def update_status_icon(self, theme=None):
+        self.status_icon.set_name('sticky')
 
     def on_tray_button_pressed(self, icon, x, y , button, time, panel_position):
         if button == 1:
