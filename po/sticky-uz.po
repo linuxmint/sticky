@@ -1,66 +1,67 @@
-# French (Canada) translation for linuxmint
-# Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
+# Uzbek translation for linuxmint
+# Copyright (c) 2022 Rosetta Contributors and Canonical Ltd 2022
 # This file is distributed under the same license as the linuxmint package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2022-06-22 08:57+0200\n"
-"PO-Revision-Date: 2021-12-06 03:03+0000\n"
-"Last-Translator: guwrt <guwrt77@gmail.com>\n"
-"Language-Team: French (Canada) <fr_CA@li.org>\n"
+"PO-Revision-Date: 2022-06-22 10:57+0000\n"
+"Last-Translator: Umidjon Almasov <umidjon@almasov.uz>\n"
+"Language-Team: Uzbek <uz@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2022-06-26 11:30+0000\n"
 "X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
+"Language: uz\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:300
 msgid "Export..."
-msgstr "Exporter..."
+msgstr "Eksport qilish..."
 
 #: usr/lib/sticky/common.py:145 usr/lib/sticky/common.py:169
 #: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:324
 msgid "Cancel"
-msgstr "Annuler"
+msgstr "Bekor qilish"
 
 #: usr/lib/sticky/common.py:145
 msgid "Save"
-msgstr "Enregistrer"
+msgstr "Saqlash"
 
 #: usr/lib/sticky/common.py:156 usr/lib/sticky/common.py:178
 msgid "Plain Text"
-msgstr "Texte brut"
+msgstr "Oddiy matn"
 
 #: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:296
 msgid "Import..."
-msgstr "Importer ..."
+msgstr "Import qilish..."
 
 #: usr/lib/sticky/common.py:169
 msgid "Open"
-msgstr "Ouvrir"
+msgstr "Ochish"
 
 #: usr/lib/sticky/common.py:191
 msgid "Restore Backup"
-msgstr "Restaurer une sauvegarde"
+msgstr "Zaxira nusxasidan tiklash"
 
 #: usr/lib/sticky/common.py:193
 msgid "Clear"
-msgstr "Effacer"
+msgstr "Tozalash"
 
 #: usr/lib/sticky/common.py:194
 msgid "Restore"
-msgstr "Restaurer"
+msgstr "Tiklash"
 
 #: usr/lib/sticky/common.py:249
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr "Impossible de restaurer: fichier de sauvegarde invalide ou corrompu"
+msgstr "Tiklab bo‘lmadi: yaroqsiz yoki buzilgan zaxira fayli"
 
 #: usr/lib/sticky/common.py:262
 msgid "Overwrite Existing Group"
-msgstr "Écraser le groupe éxistant"
+msgstr "Mavjud guruhni qayta yozish"
 
 #: usr/lib/sticky/common.py:262
 #, python-format
@@ -68,384 +69,384 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
-"Il y a déjà un groupe nommé '%s'. Cette action l'écrasera. Continuer ?"
+"“%s” nomli guruh allaqachon mavjud. Bu amal uning ustiga yozadi. Baribir "
+"davom ettirilsinmi?"
 
 #: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
-msgstr "Supprimer le groupe"
+msgstr "Guruhni olib tashlash"
 
 #: usr/lib/sticky/common.py:273
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
-msgstr "Êtes-vous sur de vouloir supprimer le groupe %s ?"
+msgstr "%s guruhini olib tashlashga ishonchingiz komilmi?"
 
 #: usr/lib/sticky/common.py:325
 msgid "OK"
-msgstr "Ok"
+msgstr "OK"
 
 #: usr/lib/sticky/common.py:348
 msgid "No"
-msgstr "Non"
+msgstr "Yo‘q"
 
 #: usr/lib/sticky/common.py:349
 msgid "Yes"
-msgstr "Oui"
+msgstr "Ha"
 
 #: usr/lib/sticky/common.py:359
 msgid "Don't ask me again"
-msgstr "Ne plus me demander"
+msgstr "Mendan boshqa so‘ralmasin"
 
 #: usr/lib/sticky/manager.py:108
 msgid "New"
-msgstr "Nouveau"
+msgstr "Yangi"
 
 #: usr/lib/sticky/manager.py:113
 msgid "Edit"
-msgstr "Éditer"
+msgstr "Tahrirlash"
 
 #: usr/lib/sticky/manager.py:117
 msgid "Remove"
-msgstr "Retirer"
+msgstr "Olib tashlash"
 
 #: usr/lib/sticky/manager.py:222
 msgid "Untitled"
-msgstr "Sans titre"
+msgstr "Sarlavhasiz"
 
 #: usr/lib/sticky/manager.py:276
 msgid "New Group"
-msgstr "Nouveau groupe"
+msgstr "Yangi guruh"
 
 #: usr/lib/sticky/manager.py:286
 msgid "Back Up"
-msgstr "Sauvegarde"
+msgstr "Zaxiralash"
 
 #: usr/lib/sticky/manager.py:290
 msgid "Restore Backups..."
-msgstr "Restaurer une sauvegarde..."
+msgstr "Zaxira nusxalarini tiklash..."
 
 #: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:575
 #: usr/lib/sticky/sticky.py:812
 msgid "Preferences"
-msgstr "Préférences"
+msgstr "Parametrlar"
 
 #: usr/lib/sticky/manager.py:310
 msgid "Keyboard Shortcuts"
-msgstr "Raccourcis clavier"
+msgstr "Klaviatura yorliqlari"
 
 #: usr/lib/sticky/manager.py:315 usr/lib/sticky/sticky.py:1012
 msgid "About"
-msgstr "À propos."
+msgstr "Haqida"
 
 #: usr/lib/sticky/sticky.py:31
 msgid "Small Text"
-msgstr "Texte petit"
+msgstr "Kichik matn"
 
 #: usr/lib/sticky/sticky.py:32
 msgid "Normal Text"
-msgstr "Texte standard"
+msgstr "Normal matn"
 
 #: usr/lib/sticky/sticky.py:33
 msgid "Large Text"
-msgstr "Texte large"
+msgstr "Katta matn"
 
 #: usr/lib/sticky/sticky.py:34
 msgid "Larger Text"
-msgstr "Texte très large"
+msgstr "Kattaroq matn"
 
 #: usr/lib/sticky/sticky.py:38
 msgid "Red"
-msgstr "Rouge"
+msgstr "Qizil"
 
 #: usr/lib/sticky/sticky.py:39
 msgid "Green"
-msgstr "Vert"
+msgstr "Yashil"
 
 #: usr/lib/sticky/sticky.py:40
 msgid "Blue"
-msgstr "Bleu"
+msgstr "Ko‘k"
 
 #: usr/lib/sticky/sticky.py:41
 msgid "Yellow"
-msgstr "Jaune"
+msgstr "Sariq"
 
 #: usr/lib/sticky/sticky.py:42
 msgid "Purple"
-msgstr "Violet"
+msgstr "Siyohrang"
 
 #: usr/lib/sticky/sticky.py:43
 msgid "Teal"
-msgstr "Turquoise"
+msgstr "Firuzarang"
 
 #: usr/lib/sticky/sticky.py:44
 msgid "Orange"
-msgstr "Orange"
+msgstr "Apelsinrang"
 
 #: usr/lib/sticky/sticky.py:45
 msgid "Magenta"
-msgstr "Magenta"
+msgstr "Majenta"
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Operations"
-msgstr "Opérations"
+msgstr "Operatsiyalar"
 
 #: usr/lib/sticky/sticky.py:61
 msgid "Move selection up"
-msgstr "Déplacer la sélection vers le haut"
+msgstr "Tanlovni yuqoriga siljitish"
 
 #: usr/lib/sticky/sticky.py:62
 msgid "Move selection down"
-msgstr "Déplacer la sélection vers le bas"
+msgstr "Tanlovni pastga siljitish"
 
 #: usr/lib/sticky/sticky.py:63
 msgid "Undo"
-msgstr "Annuler l'action"
+msgstr "Ortga qaytarish"
 
 #: usr/lib/sticky/sticky.py:64
 msgid "Redo"
-msgstr "Rétablir"
+msgstr "Oldinga qaytarish"
 
 #: usr/lib/sticky/sticky.py:65 usr/lib/sticky/sticky.py:488
 msgid "Toggle Checklist"
-msgstr "Basculer les cases à cocher"
+msgstr "Tekshirish roʻyxatini almashtirish"
 
 #: usr/lib/sticky/sticky.py:66 usr/lib/sticky/sticky.py:492
 msgid "Toggle Bullets"
-msgstr "Basculer les puces"
+msgstr "Bulletlarni almashtirish"
 
 #: usr/lib/sticky/sticky.py:68
 msgid "Formatting"
-msgstr "Formattage"
+msgstr "Formatlash"
 
 #: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:443
 #: usr/lib/sticky/sticky.py:444
 msgid "Bold"
-msgstr "Gras"
+msgstr "Qalin"
 
 #: usr/lib/sticky/sticky.py:70 usr/lib/sticky/sticky.py:448
 #: usr/lib/sticky/sticky.py:449
 msgid "Italic"
-msgstr "Italique"
+msgstr "Kursiv"
 
 #: usr/lib/sticky/sticky.py:71 usr/lib/sticky/sticky.py:453
 #: usr/lib/sticky/sticky.py:454
 msgid "Fixed Width"
-msgstr "Largeur fixe"
+msgstr "Belgilangan kenglik"
 
 #: usr/lib/sticky/sticky.py:72 usr/lib/sticky/sticky.py:458
 #: usr/lib/sticky/sticky.py:459
 msgid "Underline"
-msgstr "Souligné"
+msgstr "Tagi chizilgan"
 
 #: usr/lib/sticky/sticky.py:73 usr/lib/sticky/sticky.py:463
 #: usr/lib/sticky/sticky.py:464
 msgid "Strikethrough"
-msgstr "Barré"
+msgstr "Chizilgan"
 
 #: usr/lib/sticky/sticky.py:74 usr/lib/sticky/sticky.py:468
 #: usr/lib/sticky/sticky.py:469
 msgid "Highlight"
-msgstr "Surligné"
+msgstr "Ajratilgan"
 
 #: usr/lib/sticky/sticky.py:75 usr/lib/sticky/sticky.py:473
 #: usr/lib/sticky/sticky.py:474
 msgid "Header"
-msgstr "En-tête"
+msgstr "Sarlavha"
 
 #: usr/lib/sticky/sticky.py:144
 msgid "Note Color"
-msgstr "Couleur de la note"
+msgstr "Eslatma rangi"
 
 #: usr/lib/sticky/sticky.py:161
 msgid "Rename"
-msgstr "Renommer"
+msgstr "Nomini o‘zgartirish"
 
 #: usr/lib/sticky/sticky.py:169 usr/lib/sticky/sticky.py:400
 #: usr/lib/sticky/sticky.py:519
 msgid "Delete Note"
-msgstr "Supprimer la note"
+msgstr "Eslatmani o‘chirish"
 
 #: usr/lib/sticky/sticky.py:176 usr/lib/sticky/sticky.py:792
 msgid "New Note"
-msgstr "Nouvelle note"
+msgstr "Yangi eslatma"
 
 #: usr/lib/sticky/sticky.py:182
 msgid "Format"
-msgstr "Format"
+msgstr "Formatlash"
 
 #: usr/lib/sticky/sticky.py:381
 msgid "undo"
-msgstr "annuler l'action"
+msgstr "ortga qaytarish"
 
 #: usr/lib/sticky/sticky.py:385
 msgid "redo"
-msgstr "rétablir"
+msgstr "oldinga qaytarish"
 
 #: usr/lib/sticky/sticky.py:391
 msgid "Set Title"
-msgstr "Définir le titre"
+msgstr "Sarlavha o‘rnatish"
 
 #: usr/lib/sticky/sticky.py:391
 msgid "Edit Title"
-msgstr "Éditer le titre"
+msgstr "Sarlavhani tahrirlash"
 
 #: usr/lib/sticky/sticky.py:396
 msgid "Duplicate Note"
-msgstr ""
+msgstr "Eslatmani nusxalash"
 
 #: usr/lib/sticky/sticky.py:408
 msgid "Only on This Workspace"
-msgstr "Seulement sur cet espace de travail"
+msgstr "Faqat shu ish maydonida"
 
 #: usr/lib/sticky/sticky.py:412
 msgid "Always on Visible Workspace"
-msgstr "Toujours sur l'espace de travail visible"
+msgstr "Har doim ko‘rinadigan ish maydonida"
 
 #: usr/lib/sticky/sticky.py:424
 msgid "Always on Top"
-msgstr "Toujours sur le dessus"
+msgstr "Har doim yuqorida"
 
 #: usr/lib/sticky/sticky.py:519
 msgid "Are you sure you want to remove this note?"
-msgstr "Êtes-vous certain de vouloir retirer cette note ?"
+msgstr "Ushbu qaydni olib tashlashga ishonchingiz komilmi?"
 
 #: usr/lib/sticky/sticky.py:579
 msgid "Show notes on all desktops"
-msgstr "Montrer les notes sur tous les bureaux"
+msgstr "Eslatmalarni barcha ish stollarida ko‘rsatish"
 
 #: usr/lib/sticky/sticky.py:580
 msgid "Show in taskbar"
-msgstr "Afficher dans la barre des tâches"
+msgstr "Vazifalar panelida ko‘rsatish"
 
 #: usr/lib/sticky/sticky.py:581
 msgid "Tray icon"
-msgstr "Icône de notification"
+msgstr "Trey belgisi"
 
 #: usr/lib/sticky/sticky.py:582
 msgid "Show the main window automatically"
-msgstr "Afficher la fenêtre principale automatiquement"
+msgstr "Asosiy oynani avtomatik ravishda ko‘rsatish"
 
 #: usr/lib/sticky/sticky.py:583
 msgid "General"
-msgstr "Général"
+msgstr "Umumiy"
 
 #: usr/lib/sticky/sticky.py:587
 msgid "Default height"
-msgstr "Hauteur par défaut"
+msgstr "Standart balandlik"
 
 #: usr/lib/sticky/sticky.py:588
 msgid "Default width"
-msgstr "Largeur par défaut"
+msgstr "Standart kenglik"
 
 #: usr/lib/sticky/sticky.py:592 usr/lib/sticky/sticky.py:597
 msgid "Cycle Colors"
-msgstr ""
+msgstr "Sikl ranglari"
 
 #: usr/lib/sticky/sticky.py:594 usr/lib/sticky/sticky.py:599
 msgid "Default color"
-msgstr "Couleur par défaut"
+msgstr "Standart rang"
 
 #: usr/lib/sticky/sticky.py:601
 msgid "Font"
-msgstr "Police de caractères"
+msgstr "Shrift"
 
 #: usr/lib/sticky/sticky.py:602
 msgid "Show spelling mistakes"
-msgstr "Afficher les fautes d'orthographe"
+msgstr "Imlo xatolarini ko‘rsatish"
 
 #: usr/lib/sticky/sticky.py:604 usr/lib/sticky/sticky.py:675
 #: usr/lib/sticky/sticky.py:744 usr/lib/sticky/sticky.py:776
 #: usr/lib/sticky/sticky.py:1013 generate_desktop_files:13
 #: usr/share/sticky/manager.ui.h:1
 msgid "Notes"
-msgstr "Notes"
+msgstr "Eslatmalar"
 
 #: usr/lib/sticky/sticky.py:609
 msgid "Automatic backups"
-msgstr "Sauvegardes automatiques"
+msgstr "Avtomatik zaxira nusxalari"
 
 #: usr/lib/sticky/sticky.py:610
 msgid "Time between backups"
-msgstr "Temps entre les sauvegardes"
+msgstr "Zaxiralashlar orasidagi vaqt"
 
 #: usr/lib/sticky/sticky.py:610
 msgid "hours"
-msgstr "heures"
+msgstr "soat"
 
 #: usr/lib/sticky/sticky.py:611
 msgid "Set this to zero if you wish to keep all backups indefinitely"
 msgstr ""
-"Choisissez la valeur zéro si vous souhaitez garder indéfiniment toutes les "
-"sauvegardes"
+"Agar siz barcha zahiralarni cheksiz saqlashni istasangiz, buni nolga sozlang"
 
 #: usr/lib/sticky/sticky.py:612
 msgid "Number to keep"
-msgstr "Nombre à garder"
+msgstr "Saqlash uchun raqam"
 
 #: usr/lib/sticky/sticky.py:614
 msgid "Backups"
-msgstr "Sauvegardes"
+msgstr "Zaxira nusxalari"
 
 #: usr/lib/sticky/sticky.py:618
 msgid "Start automatically"
-msgstr "Démarrer automatiquement"
+msgstr "Avtomatik ishga tushirish"
 
 #: usr/lib/sticky/sticky.py:619
 msgid "Show notes on the screen"
-msgstr "Afficher les notes à l'écran"
+msgstr "Ekranda eslatmalarni ko‘rsatish"
 
 #: usr/lib/sticky/sticky.py:620
 msgid "Automatic start"
-msgstr "Démarrage automatique"
+msgstr "Avtomatik boshlash"
 
 #: usr/lib/sticky/sticky.py:638
 msgid "Text Size"
-msgstr "Taille du texte"
+msgstr "Matn o‘lchami"
 
 #: usr/lib/sticky/sticky.py:745
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
 msgstr ""
-"Souhaitez-vous importer vos notes à partir de Gnote ? Cela ne modifiera pas "
-"vos notes Gnote."
+"Gnotedan qaydlaringizni import qilmoqchimisiz? Bu Gnote qaydlaringizni hech "
+"qanday tarzda o‘zgartirmaydi."
 
 #: usr/lib/sticky/sticky.py:768
 msgid "Group 1"
-msgstr "Groupe 1"
+msgstr "1-guruh"
 
 #: usr/lib/sticky/sticky.py:777
 msgid "Left click to toggle notes"
-msgstr "Clic gauche pour basculer les notes"
+msgstr "Eslatmalarni almashtirish uchun chap tugmasini bosing"
 
 #: usr/lib/sticky/sticky.py:778
 msgid "Middle click to toggle the manager"
-msgstr "Clic du milieu pour basculer le gestionnaire"
+msgstr "Menejerni almashtirish uchun o‘rta tugmasini bosing"
 
 #: usr/lib/sticky/sticky.py:796
 msgid "Manage Notes"
-msgstr "Gérer les notes"
+msgstr "Eslatmalarni boshqarish"
 
 #: usr/lib/sticky/sticky.py:818
 msgid "Quit"
-msgstr "Quitter"
+msgstr "Chiqish"
 
 #: usr/lib/sticky/sticky.py:1014 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr "Prenez des notes et restez organisé"
+msgstr "Eslatmalardan foydalaning va tartibli bo‘ling"
 
 #: usr/lib/sticky/util.py:79
 msgid "Unfiled"
-msgstr "Non produite"
+msgstr "Ro‘yxatga olinmagan"
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
-msgstr "Nouvelle note"
+msgstr "Yangi eslatma"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr "Supprimer la note sélectionnée"
+msgstr "Tanlangan eslatmani olib tashlash"
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
-msgstr ""
+msgstr "Tanlangan eslatmani nusxalash"

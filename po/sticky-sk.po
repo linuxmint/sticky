@@ -1,16 +1,16 @@
-# French (Canada) translation for linuxmint
-# Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
+# Slovak translation for linuxmint
+# Copyright (c) 2022 Rosetta Contributors and Canonical Ltd 2022
 # This file is distributed under the same license as the linuxmint package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2022-06-22 08:57+0200\n"
-"PO-Revision-Date: 2021-12-06 03:03+0000\n"
-"Last-Translator: guwrt <guwrt77@gmail.com>\n"
-"Language-Team: French (Canada) <fr_CA@li.org>\n"
+"PO-Revision-Date: 2022-02-10 18:50+0000\n"
+"Last-Translator: Adrián Bíro <biroadrian@protonmail.com>\n"
+"Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,48 +19,48 @@ msgstr ""
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:300
 msgid "Export..."
-msgstr "Exporter..."
+msgstr "Exportovať..."
 
 #: usr/lib/sticky/common.py:145 usr/lib/sticky/common.py:169
 #: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:324
 msgid "Cancel"
-msgstr "Annuler"
+msgstr "Zrušiť"
 
 #: usr/lib/sticky/common.py:145
 msgid "Save"
-msgstr "Enregistrer"
+msgstr "Uložiť"
 
 #: usr/lib/sticky/common.py:156 usr/lib/sticky/common.py:178
 msgid "Plain Text"
-msgstr "Texte brut"
+msgstr "Obyčajný text"
 
 #: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:296
 msgid "Import..."
-msgstr "Importer ..."
+msgstr "Importovať..."
 
 #: usr/lib/sticky/common.py:169
 msgid "Open"
-msgstr "Ouvrir"
+msgstr "Otvoriť"
 
 #: usr/lib/sticky/common.py:191
 msgid "Restore Backup"
-msgstr "Restaurer une sauvegarde"
+msgstr "Obnoviť zo zálohy"
 
 #: usr/lib/sticky/common.py:193
 msgid "Clear"
-msgstr "Effacer"
+msgstr "Zmazať"
 
 #: usr/lib/sticky/common.py:194
 msgid "Restore"
-msgstr "Restaurer"
+msgstr "Obnoviť"
 
 #: usr/lib/sticky/common.py:249
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr "Impossible de restaurer: fichier de sauvegarde invalide ou corrompu"
+msgstr "Nie je možné obnoviť zo zálohy, záloha je neplatná alebo poškodená."
 
 #: usr/lib/sticky/common.py:262
 msgid "Overwrite Existing Group"
-msgstr "Écraser le groupe éxistant"
+msgstr "Prepísať existujúcu skupinu"
 
 #: usr/lib/sticky/common.py:262
 #, python-format
@@ -68,225 +68,226 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
-"Il y a déjà un groupe nommé '%s'. Cette action l'écrasera. Continuer ?"
+"Skupina s názvom „%s“ už existuje. Tato akcia ju prepíše. Napriek tomu "
+"pokračovať?"
 
 #: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
-msgstr "Supprimer le groupe"
+msgstr "Odstrániť skupinu"
 
 #: usr/lib/sticky/common.py:273
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
-msgstr "Êtes-vous sur de vouloir supprimer le groupe %s ?"
+msgstr "Ste si istý, že chcete odstrániť túto skupinu %s?"
 
 #: usr/lib/sticky/common.py:325
 msgid "OK"
-msgstr "Ok"
+msgstr "OK"
 
 #: usr/lib/sticky/common.py:348
 msgid "No"
-msgstr "Non"
+msgstr "Nie"
 
 #: usr/lib/sticky/common.py:349
 msgid "Yes"
-msgstr "Oui"
+msgstr "Áno"
 
 #: usr/lib/sticky/common.py:359
 msgid "Don't ask me again"
-msgstr "Ne plus me demander"
+msgstr "Nabudúce sa už nepýtať"
 
 #: usr/lib/sticky/manager.py:108
 msgid "New"
-msgstr "Nouveau"
+msgstr "Vytvoriť novú"
 
 #: usr/lib/sticky/manager.py:113
 msgid "Edit"
-msgstr "Éditer"
+msgstr "Upraviť"
 
 #: usr/lib/sticky/manager.py:117
 msgid "Remove"
-msgstr "Retirer"
+msgstr "Odstrániť"
 
 #: usr/lib/sticky/manager.py:222
 msgid "Untitled"
-msgstr "Sans titre"
+msgstr "Bez mena"
 
 #: usr/lib/sticky/manager.py:276
 msgid "New Group"
-msgstr "Nouveau groupe"
+msgstr "Nová skupina"
 
 #: usr/lib/sticky/manager.py:286
 msgid "Back Up"
-msgstr "Sauvegarde"
+msgstr "Zálohovať"
 
 #: usr/lib/sticky/manager.py:290
 msgid "Restore Backups..."
-msgstr "Restaurer une sauvegarde..."
+msgstr "Obnoviť zo zálohy"
 
 #: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:575
 #: usr/lib/sticky/sticky.py:812
 msgid "Preferences"
-msgstr "Préférences"
+msgstr "Nastavenia"
 
 #: usr/lib/sticky/manager.py:310
 msgid "Keyboard Shortcuts"
-msgstr "Raccourcis clavier"
+msgstr "Klávesové skratky"
 
 #: usr/lib/sticky/manager.py:315 usr/lib/sticky/sticky.py:1012
 msgid "About"
-msgstr "À propos."
+msgstr "O aplikácii"
 
 #: usr/lib/sticky/sticky.py:31
 msgid "Small Text"
-msgstr "Texte petit"
+msgstr "Malá veľkosť písma"
 
 #: usr/lib/sticky/sticky.py:32
 msgid "Normal Text"
-msgstr "Texte standard"
+msgstr "Normálna veľkosť písma"
 
 #: usr/lib/sticky/sticky.py:33
 msgid "Large Text"
-msgstr "Texte large"
+msgstr "Veľké písmo"
 
 #: usr/lib/sticky/sticky.py:34
 msgid "Larger Text"
-msgstr "Texte très large"
+msgstr "Väčší text"
 
 #: usr/lib/sticky/sticky.py:38
 msgid "Red"
-msgstr "Rouge"
+msgstr "Červená"
 
 #: usr/lib/sticky/sticky.py:39
 msgid "Green"
-msgstr "Vert"
+msgstr "Zelená"
 
 #: usr/lib/sticky/sticky.py:40
 msgid "Blue"
-msgstr "Bleu"
+msgstr "Modrá"
 
 #: usr/lib/sticky/sticky.py:41
 msgid "Yellow"
-msgstr "Jaune"
+msgstr "Žltá"
 
 #: usr/lib/sticky/sticky.py:42
 msgid "Purple"
-msgstr "Violet"
+msgstr "Fialová"
 
 #: usr/lib/sticky/sticky.py:43
 msgid "Teal"
-msgstr "Turquoise"
+msgstr "Azúrovo zelená"
 
 #: usr/lib/sticky/sticky.py:44
 msgid "Orange"
-msgstr "Orange"
+msgstr "Oranžová"
 
 #: usr/lib/sticky/sticky.py:45
 msgid "Magenta"
-msgstr "Magenta"
+msgstr "Cyklamenová"
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Operations"
-msgstr "Opérations"
+msgstr "Operácie"
 
 #: usr/lib/sticky/sticky.py:61
 msgid "Move selection up"
-msgstr "Déplacer la sélection vers le haut"
+msgstr "Posunúť označené výššie"
 
 #: usr/lib/sticky/sticky.py:62
 msgid "Move selection down"
-msgstr "Déplacer la sélection vers le bas"
+msgstr "Posunúť označené nižšie"
 
 #: usr/lib/sticky/sticky.py:63
 msgid "Undo"
-msgstr "Annuler l'action"
+msgstr "Vráti späť"
 
 #: usr/lib/sticky/sticky.py:64
 msgid "Redo"
-msgstr "Rétablir"
+msgstr "Zopakovať"
 
 #: usr/lib/sticky/sticky.py:65 usr/lib/sticky/sticky.py:488
 msgid "Toggle Checklist"
-msgstr "Basculer les cases à cocher"
+msgstr "Zaškrtávací zoznam"
 
 #: usr/lib/sticky/sticky.py:66 usr/lib/sticky/sticky.py:492
 msgid "Toggle Bullets"
-msgstr "Basculer les puces"
+msgstr "Odrážky"
 
 #: usr/lib/sticky/sticky.py:68
 msgid "Formatting"
-msgstr "Formattage"
+msgstr "Formátovanie"
 
 #: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:443
 #: usr/lib/sticky/sticky.py:444
 msgid "Bold"
-msgstr "Gras"
+msgstr "Tučné"
 
 #: usr/lib/sticky/sticky.py:70 usr/lib/sticky/sticky.py:448
 #: usr/lib/sticky/sticky.py:449
 msgid "Italic"
-msgstr "Italique"
+msgstr "Kurzíva"
 
 #: usr/lib/sticky/sticky.py:71 usr/lib/sticky/sticky.py:453
 #: usr/lib/sticky/sticky.py:454
 msgid "Fixed Width"
-msgstr "Largeur fixe"
+msgstr "Pevná šírka"
 
 #: usr/lib/sticky/sticky.py:72 usr/lib/sticky/sticky.py:458
 #: usr/lib/sticky/sticky.py:459
 msgid "Underline"
-msgstr "Souligné"
+msgstr "Podčiarknuté"
 
 #: usr/lib/sticky/sticky.py:73 usr/lib/sticky/sticky.py:463
 #: usr/lib/sticky/sticky.py:464
 msgid "Strikethrough"
-msgstr "Barré"
+msgstr "Preškrtnuté"
 
 #: usr/lib/sticky/sticky.py:74 usr/lib/sticky/sticky.py:468
 #: usr/lib/sticky/sticky.py:469
 msgid "Highlight"
-msgstr "Surligné"
+msgstr "Zvýraznenie"
 
 #: usr/lib/sticky/sticky.py:75 usr/lib/sticky/sticky.py:473
 #: usr/lib/sticky/sticky.py:474
 msgid "Header"
-msgstr "En-tête"
+msgstr "Hlavička"
 
 #: usr/lib/sticky/sticky.py:144
 msgid "Note Color"
-msgstr "Couleur de la note"
+msgstr "Farba poznámky"
 
 #: usr/lib/sticky/sticky.py:161
 msgid "Rename"
-msgstr "Renommer"
+msgstr "Premenovať"
 
 #: usr/lib/sticky/sticky.py:169 usr/lib/sticky/sticky.py:400
 #: usr/lib/sticky/sticky.py:519
 msgid "Delete Note"
-msgstr "Supprimer la note"
+msgstr "Odstrániť poznámku"
 
 #: usr/lib/sticky/sticky.py:176 usr/lib/sticky/sticky.py:792
 msgid "New Note"
-msgstr "Nouvelle note"
+msgstr "Nová poznámka"
 
 #: usr/lib/sticky/sticky.py:182
 msgid "Format"
-msgstr "Format"
+msgstr "Formátovať"
 
 #: usr/lib/sticky/sticky.py:381
 msgid "undo"
-msgstr "annuler l'action"
+msgstr "späť"
 
 #: usr/lib/sticky/sticky.py:385
 msgid "redo"
-msgstr "rétablir"
+msgstr "znovu"
 
 #: usr/lib/sticky/sticky.py:391
 msgid "Set Title"
-msgstr "Définir le titre"
+msgstr "Pomenovať"
 
 #: usr/lib/sticky/sticky.py:391
 msgid "Edit Title"
-msgstr "Éditer le titre"
+msgstr "Upraviť názov"
 
 #: usr/lib/sticky/sticky.py:396
 msgid "Duplicate Note"
@@ -294,47 +295,47 @@ msgstr ""
 
 #: usr/lib/sticky/sticky.py:408
 msgid "Only on This Workspace"
-msgstr "Seulement sur cet espace de travail"
+msgstr "Iba na tejto ploche"
 
 #: usr/lib/sticky/sticky.py:412
 msgid "Always on Visible Workspace"
-msgstr "Toujours sur l'espace de travail visible"
+msgstr "Stále na viditeľnej ploche"
 
 #: usr/lib/sticky/sticky.py:424
 msgid "Always on Top"
-msgstr "Toujours sur le dessus"
+msgstr "Vždy navrchu"
 
 #: usr/lib/sticky/sticky.py:519
 msgid "Are you sure you want to remove this note?"
-msgstr "Êtes-vous certain de vouloir retirer cette note ?"
+msgstr "Naozaj chcete odstrániť túto poznámku?"
 
 #: usr/lib/sticky/sticky.py:579
 msgid "Show notes on all desktops"
-msgstr "Montrer les notes sur tous les bureaux"
+msgstr "Ukázať poznámky na všetkých plochách"
 
 #: usr/lib/sticky/sticky.py:580
 msgid "Show in taskbar"
-msgstr "Afficher dans la barre des tâches"
+msgstr "Zobraziť v panely úloh"
 
 #: usr/lib/sticky/sticky.py:581
 msgid "Tray icon"
-msgstr "Icône de notification"
+msgstr "Ikona v paneli"
 
 #: usr/lib/sticky/sticky.py:582
 msgid "Show the main window automatically"
-msgstr "Afficher la fenêtre principale automatiquement"
+msgstr "Automaticky zobraziť hlavné okno"
 
 #: usr/lib/sticky/sticky.py:583
 msgid "General"
-msgstr "Général"
+msgstr "Hlavné"
 
 #: usr/lib/sticky/sticky.py:587
 msgid "Default height"
-msgstr "Hauteur par défaut"
+msgstr "Predvolená výška"
 
 #: usr/lib/sticky/sticky.py:588
 msgid "Default width"
-msgstr "Largeur par défaut"
+msgstr "Predvolená šírka"
 
 #: usr/lib/sticky/sticky.py:592 usr/lib/sticky/sticky.py:597
 msgid "Cycle Colors"
@@ -342,109 +343,107 @@ msgstr ""
 
 #: usr/lib/sticky/sticky.py:594 usr/lib/sticky/sticky.py:599
 msgid "Default color"
-msgstr "Couleur par défaut"
+msgstr "Štandardná farba"
 
 #: usr/lib/sticky/sticky.py:601
 msgid "Font"
-msgstr "Police de caractères"
+msgstr "Font písma"
 
 #: usr/lib/sticky/sticky.py:602
 msgid "Show spelling mistakes"
-msgstr "Afficher les fautes d'orthographe"
+msgstr "Ukázať preklepy"
 
 #: usr/lib/sticky/sticky.py:604 usr/lib/sticky/sticky.py:675
 #: usr/lib/sticky/sticky.py:744 usr/lib/sticky/sticky.py:776
 #: usr/lib/sticky/sticky.py:1013 generate_desktop_files:13
 #: usr/share/sticky/manager.ui.h:1
 msgid "Notes"
-msgstr "Notes"
+msgstr "Poznámky"
 
 #: usr/lib/sticky/sticky.py:609
 msgid "Automatic backups"
-msgstr "Sauvegardes automatiques"
+msgstr "Automatické zálohovanie"
 
 #: usr/lib/sticky/sticky.py:610
 msgid "Time between backups"
-msgstr "Temps entre les sauvegardes"
+msgstr "Čas medzi zálohamy"
 
 #: usr/lib/sticky/sticky.py:610
 msgid "hours"
-msgstr "heures"
+msgstr "hodiny"
 
 #: usr/lib/sticky/sticky.py:611
 msgid "Set this to zero if you wish to keep all backups indefinitely"
-msgstr ""
-"Choisissez la valeur zéro si vous souhaitez garder indéfiniment toutes les "
-"sauvegardes"
+msgstr "Ak si chcete zálohu ponechať na neurčito, zadajte 0"
 
 #: usr/lib/sticky/sticky.py:612
 msgid "Number to keep"
-msgstr "Nombre à garder"
+msgstr "Počet koľko odložiť"
 
 #: usr/lib/sticky/sticky.py:614
 msgid "Backups"
-msgstr "Sauvegardes"
+msgstr "Zálohy"
 
 #: usr/lib/sticky/sticky.py:618
 msgid "Start automatically"
-msgstr "Démarrer automatiquement"
+msgstr "Spúšťať automaticky"
 
 #: usr/lib/sticky/sticky.py:619
 msgid "Show notes on the screen"
-msgstr "Afficher les notes à l'écran"
+msgstr "Ukázať poznámky na obrazovke"
 
 #: usr/lib/sticky/sticky.py:620
 msgid "Automatic start"
-msgstr "Démarrage automatique"
+msgstr "Spustiť automaticky"
 
 #: usr/lib/sticky/sticky.py:638
 msgid "Text Size"
-msgstr "Taille du texte"
+msgstr "Veľkosť textu"
 
 #: usr/lib/sticky/sticky.py:745
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
 msgstr ""
-"Souhaitez-vous importer vos notes à partir de Gnote ? Cela ne modifiera pas "
-"vos notes Gnote."
+"Chcete importovať svoje poznámky z Gnote? Tento krok nijako nezmení Vaše "
+"Gnote."
 
 #: usr/lib/sticky/sticky.py:768
 msgid "Group 1"
-msgstr "Groupe 1"
+msgstr "Skupina 1"
 
 #: usr/lib/sticky/sticky.py:777
 msgid "Left click to toggle notes"
-msgstr "Clic gauche pour basculer les notes"
+msgstr "Ľavý klik pre prepnutie poznámok"
 
 #: usr/lib/sticky/sticky.py:778
 msgid "Middle click to toggle the manager"
-msgstr "Clic du milieu pour basculer le gestionnaire"
+msgstr "Kliknutie na stredné tlačidlo prepnete správcu"
 
 #: usr/lib/sticky/sticky.py:796
 msgid "Manage Notes"
-msgstr "Gérer les notes"
+msgstr "Spravovať poznámky"
 
 #: usr/lib/sticky/sticky.py:818
 msgid "Quit"
-msgstr "Quitter"
+msgstr "Zavrieť"
 
 #: usr/lib/sticky/sticky.py:1014 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr "Prenez des notes et restez organisé"
+msgstr "Robte si poznámky a majte svoje záležitosti organizované"
 
 #: usr/lib/sticky/util.py:79
 msgid "Unfiled"
-msgstr "Non produite"
+msgstr "Nevyplnené"
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
-msgstr "Nouvelle note"
+msgstr "Nová poznámka"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr "Supprimer la note sélectionnée"
+msgstr "Odstrániť zvolenú poznámku"
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"

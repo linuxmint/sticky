@@ -93,13 +93,14 @@ class Note(Gtk.Window):
         self.showing = False
         self.is_pinned = False
         self.changed_timer_id = 0
+        self.invalid_cache = False
 
         self.x = info.get('x', 0)
         self.y = info.get('y', 0)
         self.height = info.get('height', self.app.settings.get_uint('default-height'))
         self.width = info.get('width', self.app.settings.get_uint('default-width'))
         title = info.get('title', '')
-        text = info.get('text', '')
+        self.cached_text = info.get('text', '')
         self.color = info.get('color', self.app.settings.get_string('default-color'))
 
         super(Note, self).__init__(
@@ -170,7 +171,7 @@ class Note(Gtk.Window):
 
         add_icon = Gtk.Image.new_from_icon_name('sticky-add', Gtk.IconSize.BUTTON)
         add_button = Gtk.Button(image=add_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
-        add_button.connect('clicked', self.app.new_note)
+        add_button.connect('clicked', self.app.new_note, self)
         add_button.connect('button-press-event', self.on_title_click)
         add_button.set_tooltip_text(_("New Note"))
         self.title_bar.pack_end(add_button, False, False, 0)
@@ -204,8 +205,8 @@ class Note(Gtk.Window):
         self.add(scroll)
         scroll.add(self.view)
 
-        self.buffer.set_from_internal_markup(text)
-        self.changed_id = self.buffer.connect('content-changed', self.queue_update)
+        self.buffer.set_from_internal_markup(self.cached_text)
+        self.changed_id = self.buffer.connect('content-changed', self.queue_update, True)
 
         self.app.settings.connect('changed::font', self.set_font)
         self.set_font()
@@ -342,7 +343,9 @@ class Note(Gtk.Window):
         self.present_with_time(time)
         self.move(self.x, self.y)
 
-    def queue_update(self, *args):
+    def queue_update(self, b=None, invalidate_cache=False):
+        self.invalid_cache = invalidate_cache
+
         if self.changed_timer_id:
             GLib.source_remove(self.changed_timer_id)
 
@@ -354,16 +357,19 @@ class Note(Gtk.Window):
         self.emit('update')
 
     def get_info(self):
-        (x, y) = self.get_position()
+        if self.invalid_cache:
+            self.cached_text = self.buffer.get_internal_markup()
+            self.invalid_cache = False
+
         (width, height) = self.get_size()
         info = {
-            'x': x,
-            'y': y,
-            'height': height,
-            'width': width,
+            'x': self.x,
+            'y': self.y,
+            'height': self.height,
+            'width': self.width,
             'color': self.color,
             'title': self.title.get_text(),
-            'text': self.buffer.get_internal_markup()
+            'text': self.cached_text
         }
 
         return info
@@ -386,6 +392,10 @@ class Note(Gtk.Window):
         edit_title = Gtk.MenuItem(label=label, visible=True)
         edit_title.connect('activate', self.set_title)
         popup.append(edit_title)
+
+        duplicate_item = Gtk.MenuItem(label=_("Duplicate Note"), visible=True)
+        duplicate_item.connect('activate', self.duplicate)
+        popup.append(duplicate_item)
 
         remove_item = Gtk.MenuItem(label=_("Delete Note"), visible=True)
         remove_item.connect('activate', self.remove)
@@ -510,6 +520,9 @@ class Note(Gtk.Window):
                     self, self.app.settings, 'disable-delete-confirm')):
             self.emit('removed')
             self.destroy()
+
+    def duplicate(self, *args):
+        self.app.duplicate_note(self)
 
     def set_title(self, *args):
         self.title_text = self.title.get_text()
@@ -861,9 +874,13 @@ class Application(Gtk.Application):
         self.notes_hidden = True
         self.update_dummy_window()
 
-    def new_note(self, *args):
-        x = 40
-        y = 40
+    def new_note(self, button, parent=None):
+        if parent is None:
+            x = 40
+            y = 40
+        else:
+            x = parent.x + 20
+            y = parent.y + 20
         while(True):
             found = False
             for note_info in self.file_handler.get_note_list(self.note_group):
@@ -875,6 +892,10 @@ class Application(Gtk.Application):
             x += 20
             y += 20
         info = {'x': x, 'y': y}
+
+        self.add_note(info)
+
+    def add_note(self, info):
         note = self.generate_note(info)
         note.present_with_time(Gtk.get_current_event_time())
 
@@ -884,7 +905,7 @@ class Application(Gtk.Application):
             note.realize()
         note.get_window().raise_()
 
-        note.trigger_update()
+        self.on_update()
 
     def generate_note(self, info={}):
         note = Note(self, self.dummy_window, info)
@@ -903,6 +924,13 @@ class Application(Gtk.Application):
 
         for note_info in self.file_handler.get_note_list(self.note_group):
             self.generate_note(note_info)
+
+    def duplicate_note(self, new_note):
+        new_note_info = new_note.get_info()
+        new_note_info['x'] += 50
+        new_note_info['y'] += 50
+
+        self.add_note(new_note_info)
 
     def focus_note(self, note_info):
         for note in self.notes:
