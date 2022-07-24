@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2022-06-22 08:57+0200\n"
-"PO-Revision-Date: 2022-06-24 20:31+0000\n"
-"Last-Translator: Miha Markovič <Unknown>\n"
+"PO-Revision-Date: 2022-07-14 06:53+0000\n"
+"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-26 11:30+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
+"X-Launchpad-Export-Date: 2022-07-24 09:43+0000\n"
+"X-Generator: Launchpad (build 025a39fd866a641b6ae33074cda0d02a2c712d38)\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:300
 msgid "Export..."
@@ -291,7 +291,7 @@ msgstr "Uredi naslov"
 
 #: usr/lib/sticky/sticky.py:396
 msgid "Duplicate Note"
-msgstr "Podvoji Zapisek"
+msgstr "Podvoji beležko"
 
 #: usr/lib/sticky/sticky.py:408
 msgid "Only on This Workspace"
@@ -299,7 +299,7 @@ msgstr "Samo na tej delovni površini"
 
 #: usr/lib/sticky/sticky.py:412
 msgid "Always on Visible Workspace"
-msgstr "Vedno na vidni delovni površini"
+msgstr "Vedno na dejavni delovni površini"
 
 #: usr/lib/sticky/sticky.py:424
 msgid "Always on Top"
@@ -315,7 +315,7 @@ msgstr "Prikaži beležke na vseh delovnih površinah"
 
 #: usr/lib/sticky/sticky.py:580
 msgid "Show in taskbar"
-msgstr "Prikaži v opravilni vrstici"
+msgstr "Pokaži v opravilni vrstici"
 
 #: usr/lib/sticky/sticky.py:581
 msgid "Tray icon"
@@ -339,7 +339,7 @@ msgstr "Privzeta širina"
 
 #: usr/lib/sticky/sticky.py:592 usr/lib/sticky/sticky.py:597
 msgid "Cycle Colors"
-msgstr "Prelivanje barv"
+msgstr "Kroži med barvami"
 
 #: usr/lib/sticky/sticky.py:594 usr/lib/sticky/sticky.py:599
 msgid "Default color"
@@ -351,7 +351,7 @@ msgstr "Pisava"
 
 #: usr/lib/sticky/sticky.py:602
 msgid "Show spelling mistakes"
-msgstr "Prikaži napake črkovanja"
+msgstr "Pokaži napake črkovanja"
 
 #: usr/lib/sticky/sticky.py:604 usr/lib/sticky/sticky.py:675
 #: usr/lib/sticky/sticky.py:744 usr/lib/sticky/sticky.py:776
@@ -447,4 +447,4 @@ msgstr "Odstrani izbrano beležko"
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
-msgstr "Podvoji izbran zapisek"
+msgstr "Podvoji izbrano beležko"
