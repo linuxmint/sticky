@@ -116,7 +116,7 @@ class FileHandler(GObject.Object):
             os.makedirs(CONFIG_DIR)
 
         timestamp = int(time.time())
-        path = os.path.join(CONFIG_DIR, 'backup-%d.json' % timestamp)
+        path = os.path.join(CONFIG_DIR, f'backup-{timestamp}.json')
         self.save_to_file(path)
 
         self.settings.set_uint('latest-backup', timestamp)
@@ -124,13 +124,10 @@ class FileHandler(GObject.Object):
         # remove old backups (if applicable)
         backups_keep = self.settings.get_uint('old-backups-max')
         if backups_keep > 0:
-            backups = []
-            for file in os.listdir(CONFIG_DIR):
-                if backup_file_name.search(file):
-                    backups.append(file)
+            backups = [file for file in os.listdir(CONFIG_DIR) if backup_file_name.search(file)]
 
             backups.sort()
-            for file in backups[0:-backups_keep]:
+            for file in backups[:-backups_keep]:
                 os.remove(os.path.join(CONFIG_DIR, file))
 
         self.check_backup()
@@ -147,17 +144,7 @@ class FileHandler(GObject.Object):
         file_dialog.set_current_name('notes.json')
         file_dialog.set_do_overwrite_confirmation(True)
 
-        json_filter = Gtk.FileFilter()
-        json_filter.set_name('JSON')
-        json_filter.add_mime_type('application/json')
-        file_dialog.add_filter(json_filter)
-
-        text_filter = Gtk.FileFilter()
-        text_filter.set_name(_("Plain Text"))
-        text_filter.add_mime_type('text/plain')
-        file_dialog.add_filter(text_filter)
-
-        response = file_dialog.run()
+        response = self.setup_filter(file_dialog)
         if response == Gtk.ResponseType.OK:
             file = file_dialog.get_filename()
             self.save_to_file(file)
@@ -169,23 +156,24 @@ class FileHandler(GObject.Object):
         file_dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL, _("Open"), Gtk.ResponseType.OK)
         file_dialog.set_current_folder(GLib.get_home_dir())
 
-        json_filter = Gtk.FileFilter()
-        json_filter.set_name('JSON')
-        json_filter.add_mime_type('application/json')
-        file_dialog.add_filter(json_filter)
-
-        text_filter = Gtk.FileFilter()
-        text_filter.set_name(_("Plain Text"))
-        text_filter.add_mime_type('text/plain')
-        file_dialog.add_filter(text_filter)
-
-        response = file_dialog.run()
+        response = self.setup_filter(file_dialog)
         if response == Gtk.ResponseType.OK:
             file_path = file_dialog.get_filename()
             if file_path is not None:
                 self.load_notes_from_path(file_path, window)
 
         file_dialog.destroy()
+
+    def setup_filter(self, file_dialog):
+        json_filter = Gtk.FileFilter()
+        json_filter.set_name('JSON')
+        json_filter.add_mime_type('application/json')
+        file_dialog.add_filter(json_filter)
+        text_filter = Gtk.FileFilter()
+        text_filter.set_name(_("Plain Text"))
+        text_filter.add_mime_type('text/plain')
+        file_dialog.add_filter(text_filter)
+        return file_dialog.run()
 
     def restore_backup(self, menuitem, window):
         dialog = Gtk.Dialog(title=_("Restore Backup"), transient_for=window)
@@ -205,14 +193,11 @@ class FileHandler(GObject.Object):
 
         content.pack_start(scrolled_window, True, True, 0)
 
-        backups = []
-        for file in os.listdir(CONFIG_DIR):
-            if backup_file_name.search(file):
-                backups.append(file)
+        backups = [file for file in os.listdir(CONFIG_DIR) if backup_file_name.search(file)]
 
         backups.sort()
 
-        if len(backups) == 0:
+        if not backups:
             restore_button.set_sensitive(False)
 
         for file_name in backups:
@@ -259,7 +244,7 @@ class FileHandler(GObject.Object):
 
     def new_group(self, group_name):
         if group_name in self.notes_lists:
-            if not confirm(_("Overwrite Existing Group"), _("There is already a group named '%s'. This action will overwrite it. Continue anyway?") % group_name, self.window):
+            if not confirm(_("Overwrite Existing Group"), _(f"There is already a group named '{group_name}'. This action will overwrite it. Continue anyway?{self.window}")):
                 return False
 
         self.notes_lists[group_name] = []
@@ -270,11 +255,11 @@ class FileHandler(GObject.Object):
         return True
 
     def remove_group(self, group_name):
-        if not confirm(_("Remove Group"), _("Are you sure you want to remove the group %s?") % group_name, self.window):
+        if not confirm(_("Remove Group"), _(f"Are you sure you want to remove the group {group_name}?{self.window}")):
             return
 
         if group_name not in self.notes_lists:
-            raise ValueError('invalid group name %s' % group_name)
+            raise ValueError(f'invalid group name {group_name}')
         del self.notes_lists[group_name]
 
         self.save_note_list()
