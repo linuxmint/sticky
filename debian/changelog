@@ -1,3 +1,10 @@
+sticky (1.12) vanessa; urgency=medium
+
+  [ Stephen Collins ]
+  * buffer, do_insert_text: always reassign location text iter to former pos
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 13 Aug 2022 12:26:38 +0200
+
 sticky (1.11) vanessa; urgency=medium
 
   * l10n: Update translations
