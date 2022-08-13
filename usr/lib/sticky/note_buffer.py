@@ -172,7 +172,6 @@ class TagAction(GenericAction):
         # there may be text between `start` and `end` that already has the tag applied (or doesn't, in the case of a
         # removal), and we need to find those ranges (if they exist) so we can restore that state properly when undoing
         current_iter = start.copy()
-        in_tag = False
         range_start = None
         self.ranges = []
         while current_iter.compare(end) < 0:
@@ -415,10 +414,8 @@ class NoteBuffer(Gtk.TextBuffer):
     def __init__(self):
         super(NoteBuffer, self).__init__()
 
-        self.tags = []
+        self.tags = [self.create_tag(name, **attributes) for name, attributes in TAG_DEFINITIONS.items()]
 
-        for name, attributes in TAG_DEFINITIONS.items():
-            self.tags.append(self.create_tag(name, **attributes))
 
         self.connect('delete-range', self.on_delete)
         self.connect('begin-user-action', self.begin_composite_action)
@@ -484,14 +481,14 @@ class NoteBuffer(Gtk.TextBuffer):
             # first we close any open tags that don't continue on to the current character
             for tag in on_tags:
                 if not current_iter.has_tag(tag):
-                    text += '#tag:%s:' % tag.props.name
+                    text += f'#tag:{tag.props.name}:'
                     off_tags.append(tag)
                     on_tags.remove(tag)
 
             # next we open any tags that start with the current character
             for tag in off_tags:
                 if current_iter.has_tag(tag):
-                    text += '#tag:%s:' % tag.props.name
+                    text += f'#tag:{tag.props.name}:'
                     on_tags.append(tag)
                     off_tags.remove(tag)
 
@@ -504,7 +501,7 @@ class NoteBuffer(Gtk.TextBuffer):
                 anchor_child = current_iter.get_child_anchor().get_widgets()[0]
                 if isinstance(anchor_child, Gtk.CheckButton):
                     checked = anchor_child.get_active()
-                    text += '#check:' + str(int(checked))
+                    text += f'#check:{int(checked)}'
                 elif isinstance(anchor_child, Gtk.Image):
                     text += '#bullet:'
             else:
@@ -515,7 +512,7 @@ class NoteBuffer(Gtk.TextBuffer):
 
         # If there are any open tags at this point, it means they go to the end of the text, so close them
         for tag in on_tags:
-            text += '#tag:%s:' % tag.props.name
+            text += f'#tag:{tag.props.name}:'
 
         return text
 
@@ -679,8 +676,7 @@ class NoteBuffer(Gtk.TextBuffer):
 
         if text in ['\n', '\t', ' ', '.', ',', ';', ':']:
             pre_text = self.get_slice(self.get_start_iter(), location, True)
-            match = get_url_start(pre_text)
-            if match:
+            if match := get_url_start(pre_text):
                 self.add_undo_action(self.add_tag('link', self.get_iter_at_offset(match.start()), location))
 
     def on_delete(self, buffer, start, end):
@@ -733,8 +729,7 @@ class NoteBuffer(Gtk.TextBuffer):
 
                 current_iter.forward_char()
 
-            for name, offset in open_tags.items():
-                actions.append(TagAction(self, name, self.get_iter_at_offset(offset), end, False))
+            actions.extend(TagAction(self, name, self.get_iter_at_offset(offset), end, False) for name, offset in open_tags.items())
 
             self.delete_mark(start_mark)
             self.delete_mark(end_mark)
@@ -743,7 +738,7 @@ class NoteBuffer(Gtk.TextBuffer):
             if start.compare(end) != 0:
                 actions.append(DeletionAction(self, start, end))
 
-            if len(actions) == 0:
+            if not actions:
                 return Gdk.EVENT_STOP
             elif len(actions) == 1:
                 action = actions[0]
@@ -794,7 +789,7 @@ class NoteBuffer(Gtk.TextBuffer):
         actions = []
         if tag_name in FONT_SCALES:
             for font_tag_name in FONT_SCALES:
-                if font_tag_name == tag_name or font_tag_name == 'normal':
+                if font_tag_name in [tag_name, 'normal']:
                     continue
 
                 action = self.strip_tag(font_tag_name, start, end)
@@ -805,10 +800,7 @@ class NoteBuffer(Gtk.TextBuffer):
             actions.append(TagAction(self, tag_name, start, end))
             self.apply_tag_by_name(tag_name, start, end)
         self.trigger_changed()
-        if len(actions) == 1:
-            return actions[0]
-        else:
-            return CompositeAction(*actions)
+        return actions[0] if len(actions) == 1 else CompositeAction(*actions)
 
     def strip_tag(self, tag_name, start, end):
         action = TagAction(self, tag_name, start, end, False)
@@ -845,11 +837,7 @@ class NoteBuffer(Gtk.TextBuffer):
             line_index_start = start.get_line()
             line_index_end = end.get_line()
 
-            all_have_checkboxes = True
-            for line in range(line_index_start, line_index_end + 1):
-                if self.get_iter_at_line(line).get_child_anchor() is None:
-                    all_have_checkboxes = False
-                    break
+            all_have_checkboxes = all(self.get_iter_at_line(line).get_child_anchor() is not None for line in range(line_index_start, line_index_end + 1))
 
             for line in range(line_index_start, line_index_end + 1):
                 if all_have_checkboxes:
@@ -875,11 +863,7 @@ class NoteBuffer(Gtk.TextBuffer):
             line_index_start = start.get_line()
             line_index_end = end.get_line()
 
-            all_have_bullets = True
-            for line in range(line_index_start, line_index_end + 1):
-                if self.get_iter_at_line(line).get_child_anchor() is None:
-                    all_have_bullets = False
-                    break
+            all_have_bullets = all(self.get_iter_at_line(line).get_child_anchor() is not None for line in range(line_index_start, line_index_end + 1))
 
             for line in range(line_index_start, line_index_end + 1):
                 if all_have_bullets:
@@ -891,7 +875,7 @@ class NoteBuffer(Gtk.TextBuffer):
                 else:
                     actions.append(self.add_bullet(self.get_iter_at_line(line)))
 
-        if len(actions):
+        if actions:
             self.add_undo_action(CompositeAction(*actions))
 
     def on_return(self):
