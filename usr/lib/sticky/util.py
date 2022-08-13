@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import contextlib
 import re
 import xml.etree.ElementTree as etree
 
