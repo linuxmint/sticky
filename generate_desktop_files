@@ -5,7 +5,6 @@ PATH = "/usr/share/locale"
 
 import os, gettext
 from mintcommon import additionalfiles
-import subprocess
 
 os.environ['LANGUAGE'] = "en_US.UTF-8"
 gettext.install(DOMAIN, PATH)
