@@ -4,7 +4,7 @@ import re
 import xml.etree.ElementTree as etree
 
 ip_number = r"(?:\d{1,2}|1\d{2}|2[0-4]\d|25[0-5])"
-ip_address = r"(?:(?:" + ip_number + ".){3}" + ip_number + ")"
+ip_address = f"(?:(?:{ip_number}.)3{ip_number})"
 domain = r"(?:(?:[a-z\u00a1-\uffff0-9]-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-?)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,}))"
 
 regex_string = r"(?:(?:https?|ftp)://)(?:\S+(?::\S*)?@)?(?:" + ip_address + r"|" + domain + r")(?::\d{2,5})?(?:/\S*)?(?:\?\S*)?$\Z"
@@ -36,14 +36,14 @@ def gnote_to_internal_format(file_path):
     root = tree.getroot()
 
     info = {}
-    info['title'] = root.find(GNOTE_NS_PREFIX + 'title').text
+    info['title'] = root.find(f'{GNOTE_NS_PREFIX}title').text
 
     def process_element(element):
         text = ''
 
         tag_name = element.tag.split('}')[1]
         if tag_name in GNOTE_TO_INTERNAL_MAP:
-            internal_tag = '#tag:%s:' % GNOTE_TO_INTERNAL_MAP[tag_name]
+            internal_tag = f'#tag:{GNOTE_TO_INTERNAL_MAP[tag_name]}:'
             text += internal_tag
         else:
             internal_tag = ''
@@ -61,19 +61,17 @@ def gnote_to_internal_format(file_path):
 
         return text
 
-    info['text'] = process_element(root.find(GNOTE_NS_PREFIX + 'text').find(GNOTE_NS_PREFIX + 'note-content'))
+    info['text'] = process_element(root.find(f'{GNOTE_NS_PREFIX}text').find(f'{GNOTE_NS_PREFIX}note-content'))
 
     category = None
     is_template = False
-    try:
-        tags = root.find(GNOTE_NS_PREFIX + 'tags')
+    with contextlib.suppress(Exception):
+        tags = root.find(f'{GNOTE_NS_PREFIX}tags')
         for tag in tags:
             if tag.text == "system:template":
                 is_template = True
             elif tag.text.startswith('system:notebook:'):
                 category = tag.text[16:]
-    except Exception as e:
-        pass
 
     if category is None:
         category = _("Unfiled")
