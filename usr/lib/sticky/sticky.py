@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-import json
 import os
 import sys
 
@@ -9,13 +8,13 @@ gi.require_version('Gdk', '3.0')
 gi.require_version('Gspell', '1')
 gi.require_version('Gtk', '3.0')
 gi.require_version('XApp', '1.0')
-from gi.repository import Gdk, Gio, GObject, Gspell, Gtk, Pango, XApp
+from gi.repository import Gdk, Gio, GObject, Gspell, Gtk, XApp
 
 from xapp.GSettingsWidgets import *
 
 from note_buffer import NoteBuffer
 from manager import NotesManager
-from common import FileHandler, HoverBox, prompt, confirm
+from common import FileHandler, HoverBox, confirm
 from util import gnote_to_internal_format
 
 import gettext
@@ -432,7 +431,7 @@ class Note(Gtk.Window):
         for color, color_name in sorted(COLORS.items(), key=lambda item: item[1]):
             color_code = COLOR_CODES[color]
             menu_item = Gtk.MenuItem(label=color_name, visible=True)
-            menu_item.get_child().set_markup("<span foreground='%s'>\u25A6</span>  %s" % (color_code, color_name))
+            menu_item.get_child().set_markup(f"<span foreground='{color_code}'>\u25A6</span>  {color_name}")
             menu_item.connect('activate', self.set_color, color)
             menu.append(menu_item)
 
@@ -441,37 +440,37 @@ class Note(Gtk.Window):
         menu = Gtk.Menu()
 
         bold_item = Gtk.MenuItem(label=_("Bold"), visible=True)
-        bold_item.get_child().set_markup("<b>%s</b>" % _("Bold"))
+        bold_item.get_child().set_markup(f"<b>{_("Bold")}</b>")
         bold_item.connect('activate', self.apply_format, 'bold')
         menu.append(bold_item)
 
         italic_item = Gtk.MenuItem(label=_("Italic"), visible=True)
-        italic_item.get_child().set_markup("<i>%s</i>" % _("Italic"))
+        italic_item.get_child().set_markup(f'<i>{_("Italic")}</i>')
         italic_item.connect('activate', self.apply_format, 'italic')
         menu.append(italic_item)
 
         monospace_item = Gtk.MenuItem(label=_("Fixed Width"), visible=True)
-        monospace_item.get_child().set_markup("<tt>%s</tt>" % _("Fixed Width"))
+        monospace_item.get_child().set_markup(f'<tt>{_("Fixed Width")}</tt>')
         monospace_item.connect('activate', self.apply_format, 'monospace')
         menu.append(monospace_item)
 
         underline_item = Gtk.MenuItem(label=_("Underline"), visible=True)
-        underline_item.get_child().set_markup("<u>%s</u>" % _("Underline"))
+        underline_item.get_child().set_markup(f'<u>{_("Underline")}</u>')
         underline_item.connect('activate', self.apply_format, 'underline')
         menu.append(underline_item)
 
         strikethrough_item = Gtk.MenuItem(label=_("Strikethrough"), visible=True)
-        strikethrough_item.get_child().set_markup("<s>%s</s>" % _("Strikethrough"))
+        strikethrough_item.get_child().set_markup(f'<s>{_("Strikethrough")}</s>')
         strikethrough_item.connect('activate', self.apply_format, 'strikethrough')
         menu.append(strikethrough_item)
 
         highlight_item = Gtk.MenuItem(label=_("Highlight"), visible=True)
-        highlight_item.get_child().set_markup("<span background='yellow' foreground='black'>%s</span>" % _("Highlight"))
+        highlight_item.get_child().set_markup(f"<span background='yellow' foreground='black'>{_("Highlight")}</span>" )
         highlight_item.connect('activate', self.apply_format, 'highlight')
         menu.append(highlight_item)
 
         header_item = Gtk.MenuItem(label=_("Header"), visible=True)
-        header_item.get_child().set_markup("<span size='large'>%s</span>" % _("Header"))
+       header_item.get_child().set_markup(f"<span size='large'>{_("Header")}</span>")
         header_item.connect('activate', self.apply_format, 'header')
         menu.append(header_item)
 
@@ -479,17 +478,17 @@ class Note(Gtk.Window):
 
         for (scale_id, scale_name, scale_value) in FONT_SCALES:
             font_scale_item = Gtk.MenuItem(label=scale_name, visible=True)
-            font_scale_item.get_child().set_markup("<span size='%s'>%s</span>" % (scale_value, scale_name))
+            font_scale_item.get_child().set_markup(f"<span size='{scale_value}'>{scale_name}</span>")
             font_scale_item.connect('activate', self.apply_format, scale_id)
             menu.append(font_scale_item)
 
         menu.append(Gtk.SeparatorMenuItem(visible=True))
 
-        self.checklist_item = Gtk.MenuItem(label="\u25A2 %s" % _("Toggle Checklist"), visible=True)
+        self.checklist_item = Gtk.MenuItem(label=f"\u25A2 {_("Toggle Checklist")}", visible=True)
         self.checklist_item.connect('activate', self.buffer.toggle_checklist)
         menu.append(self.checklist_item)
 
-        self.bullet_item = Gtk.MenuItem(label="\u25CF %s" % _("Toggle Bullets"), visible=True)
+        self.bullet_item = Gtk.MenuItem(label=f"\u25CF {_("Toggle Bullets")}", visible=True)
         self.bullet_item.connect('activate', self.buffer.toggle_bullets)
         menu.append(self.bullet_item)
 
@@ -638,7 +637,7 @@ class ShortcutsWindow(Gtk.ShortcutsWindow):
         group = Gtk.ShortcutsGroup(title=_("Text Size"), visible=False)
         section.add(group)
         for i in range(len(FONT_SCALES)):
-            shortcut_item = Gtk.ShortcutsShortcut(title=FONT_SCALES[i][1], accelerator='<ctrl>%d' % (i + 2), visible=True)
+            shortcut_item = Gtk.ShortcutsShortcut(title=FONT_SCALES[i][1], accelerator=f'<ctrl>{(i + 2)}', visible=True)
             group.add(shortcut_item)
 
         self.add(section)
@@ -700,7 +699,7 @@ class Application(Gtk.Application):
         self.note_group = self.settings.get_string('active-group')
         group_names = self.file_handler.get_note_group_names()
         if self.note_group not in group_names:
-            if len(group_names) > 0:
+            if group_names:
                 self.note_group = group_names[0]
                 self.settings.set_string('active-group', self.note_group)
             else:
@@ -740,7 +739,7 @@ class Application(Gtk.Application):
                 if os.path.isfile(path) and path.endswith('.note'):
                     import_notes.append(path)
 
-            if len(import_notes) > 0:
+            if import_notes:
                 resp = confirm(_("Notes"),
                                _("Would you like to import your notes from Gnote? This will not change your Gnote notes in any way."),
                                window=self.dummy_window)
@@ -773,9 +772,7 @@ class Application(Gtk.Application):
         self.status_icon = XApp.StatusIcon()
         self.status_icon.set_name('sticky')
         self.status_icon.set_icon_name('sticky-symbolic')
-        self.status_icon.set_tooltip_text('%s\n<i>%s</i>\n<i>%s</i>' % (_("Notes"),
-                                                                        _("Left click to toggle notes"),
-                                                                        _("Middle click to toggle the manager")))
+        self.status_icon.set_tooltip_text(f'{_("Notes")}\n<i>{_("Left click to toggle notes")}</i>\n<i>{_("Middle click to toggle the manager")}</i>')
         self.status_icon.set_visible(True)
         self.status_icon.connect('button-press-event', self.on_tray_button_pressed)
         self.status_icon.connect('button-release-event', self.on_tray_button_released)
@@ -840,10 +837,7 @@ class Application(Gtk.Application):
         self.change_visible_note_group()
 
     def update_dummy_window(self, *args):
-        if self.settings.get_boolean('show-in-taskbar') and not self.notes_hidden:
-            self.dummy_window.set_skip_taskbar_hint(False)
-        else:
-            self.dummy_window.set_skip_taskbar_hint(True)
+        self.dummy_window.set_skip_taskbar_hint(not self.settings.get_boolean('show-in-taskbar') or self.notes_hidden)
 
         self.dummy_window.move(-2, -2)
 
@@ -882,11 +876,7 @@ class Application(Gtk.Application):
             x = parent.x + 20
             y = parent.y + 20
         while(True):
-            found = False
-            for note_info in self.file_handler.get_note_list(self.note_group):
-                if note_info['x'] == x and note_info['y'] == y:
-                    found = True
-                    break
+            found = any(note_info['x'] == x and note_info['y'] == y for note_info in self.file_handler.get_note_list(self.note_group))
             if not found:
                 break
             x += 20
@@ -938,10 +928,8 @@ class Application(Gtk.Application):
                 note.present_with_time(0)
 
     def on_lists_changed(self, *args):
-        if not self.note_group in self.file_handler.get_note_group_names():
-            self.change_visible_note_group()
-        else:
-            self.load_notes()
+        self.change_visible_note_group() if self.note_group not in self.file_handler.get_note_group_names() else self.load_notes()
+            
 
     def on_group_changed(self, f, group_name):
         if self.note_group == group_name:
@@ -956,10 +944,7 @@ class Application(Gtk.Application):
 
     def change_visible_note_group(self, group=None):
         default = self.settings.get_string('active-group')
-        if group is None:
-            self.note_group = default
-        else:
-            self.note_group = group
+        self.note_group = default if group is None else group
 
         group_names = self.file_handler.get_note_group_names()
         if self.note_group not in group_names:
@@ -982,10 +967,9 @@ class Application(Gtk.Application):
         self.manager.window.connect('delete-event', self.manager_closed)
 
     def toggle_manager(self, time):
-        if self.manager and self.manager.window.is_active() and self.manager.window.is_visible():
-            self.manager.window.hide()
-        else:
-            self.open_manager(time=time)
+        self.manager.window.hide() if self.manager and self.manager.window.is_active() and self.manager.window.is_visible() else self.open_manager(time=time)
+
+            
 
     def manager_closed(self, *args):
         if self.status_icon is None:
@@ -1013,12 +997,11 @@ class Application(Gtk.Application):
         dlg.set_program_name(_("Notes"))
         dlg.set_comments(_("Take notes and stay organized"))
         try:
-            h = open('/usr/share/common-licenses/GPL', encoding="utf-8")
-            s = h.readlines()
-            gpl = ""
-            for line in s:
-                gpl += line
-            h.close()
+            with open('/usr/share/common-licenses/GPL', encoding="utf-8") as h:
+                s = h.readlines()
+                gpl = ""
+                for line in s:
+                    gpl += line
             dlg.set_license(gpl)
         except Exception as e:
             print (e)
@@ -1028,7 +1011,7 @@ class Application(Gtk.Application):
         dlg.set_logo_icon_name("sticky")
         dlg.set_website("https://www.github.com/linuxmint/sticky")
         def close(w, res):
-            if res == Gtk.ResponseType.CANCEL or res == Gtk.ResponseType.DELETE_EVENT:
+            if res in [Gtk.ResponseType.CANCEL, Gtk.ResponseType.DELETE_EVENT]:
                 w.destroy()
         dlg.connect("response", close)
         dlg.show()
@@ -1049,9 +1032,7 @@ class Application(Gtk.Application):
         self.keyboard_shortcuts = None
 
     def on_update(self, *args):
-        info = []
-        for note in self.notes:
-            info.append(note.get_info())
+        info = [note.get_info() for note in self.notes]
 
         self.file_handler.handler_block(self.group_update_id)
         self.file_handler.update_note_list(info, self.note_group)
@@ -1075,8 +1056,7 @@ if __name__ == "__main__":
         settings = Gio.Settings(schema_id=SCHEMA)
         if not settings.get_boolean("autostart"):
             sys.exit()
-        else:
-            autostart_mode = True
+        autostart_mode = True
 
     sticky = Application()
     sticky.autostart_mode = autostart_mode
