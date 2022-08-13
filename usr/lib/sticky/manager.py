@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from gi.repository import Gdk, Gio, GLib, GObject, Gtk, Pango, XApp
+from gi.repository import Gdk, Gio, GObject, Gtk, Pango, XApp
 from note_buffer import NoteBuffer
 from common import HoverBox
 from util import clean_text
@@ -173,7 +173,7 @@ class GroupEntry(Gtk.ListBoxRow):
 
     def maybe_done(self, *args):
         group_name = self.entry.get_text()
-        if group_name != '' and group_name != self.item.name:
+        if group_name not in ['', self.item.name]:
             old_name = self.item.name
             self.item.name = group_name
             self.file_handler.change_group_name(old_name, group_name)
@@ -218,10 +218,7 @@ class Note(GObject.Object):
         self.info = info
         self.group_name = group_name
         self.text = info['text']
-        if not 'title'in info or info['title'] in [None, '']:
-            self.title = _("Untitled")
-        else:
-            self.title = info['title']
+        self.title = _("Untitled") if 'title' not in info or info['title'] in [None, ''] else info['title']
 
 class NotesManager(object):
     def __init__(self, app, file_handler):
@@ -517,11 +514,7 @@ class NotesManager(object):
         self.create_new_group(on_complete)
 
     def remove_note(self, *args):
-        notes = []
-        selected = self.get_selected_note()
-        for child in self.note_view.get_children():
-            if child.item.info != selected:
-                notes.append(child.item.info)
+        notes = [child.item.info for child in self.note_view.get_children() if child.item.info != self.get_selected_note()]
 
         self.file_handler.update_note_list(notes, self.get_current_group())
 
