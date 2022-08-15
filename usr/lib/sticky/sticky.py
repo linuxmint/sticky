@@ -440,22 +440,22 @@ class Note(Gtk.Window):
         menu = Gtk.Menu()
 
         bold_item = Gtk.MenuItem(label=_("Bold"), visible=True)
-        bold_item.get_child().set_markup(f"<b>{_("Bold")}</b>")
+        bold_item.get_child().set_markup(f"<b>{_('Bold')}</b>")
         bold_item.connect('activate', self.apply_format, 'bold')
         menu.append(bold_item)
 
         italic_item = Gtk.MenuItem(label=_("Italic"), visible=True)
-        italic_item.get_child().set_markup(f'<i>{_("Italic")}</i>')
+        italic_item.get_child().set_markup(f"<i>{_('Italic')}</i>")
         italic_item.connect('activate', self.apply_format, 'italic')
         menu.append(italic_item)
 
         monospace_item = Gtk.MenuItem(label=_("Fixed Width"), visible=True)
-        monospace_item.get_child().set_markup(f'<tt>{_("Fixed Width")}</tt>')
+        monospace_item.get_child().set_markup(f"<tt>{_('Fixed Width')}</tt>")
         monospace_item.connect('activate', self.apply_format, 'monospace')
         menu.append(monospace_item)
 
         underline_item = Gtk.MenuItem(label=_("Underline"), visible=True)
-        underline_item.get_child().set_markup(f'<u>{_("Underline")}</u>')
+        underline_item.get_child().set_markup(f"<u>{_('Underline')}</u>")
         underline_item.connect('activate', self.apply_format, 'underline')
         menu.append(underline_item)
 
@@ -465,12 +465,12 @@ class Note(Gtk.Window):
         menu.append(strikethrough_item)
 
         highlight_item = Gtk.MenuItem(label=_("Highlight"), visible=True)
-        highlight_item.get_child().set_markup(f"<span background='yellow' foreground='black'>{_("Highlight")}</span>" )
+        highlight_item.get_child().set_markup(f"<span background='yellow' foreground='black'>{_('Highlight')}</span>")
         highlight_item.connect('activate', self.apply_format, 'highlight')
         menu.append(highlight_item)
 
         header_item = Gtk.MenuItem(label=_("Header"), visible=True)
-       header_item.get_child().set_markup(f"<span size='large'>{_("Header")}</span>")
+        header_item.get_child().set_markup(f"<span size='large'>{_('Header')}</span>")
         header_item.connect('activate', self.apply_format, 'header')
         menu.append(header_item)
 
@@ -484,11 +484,11 @@ class Note(Gtk.Window):
 
         menu.append(Gtk.SeparatorMenuItem(visible=True))
 
-        self.checklist_item = Gtk.MenuItem(label=f"\u25A2 {_("Toggle Checklist")}", visible=True)
+        self.checklist_item = Gtk.MenuItem(label=f"\u25A2 {_('Toggle Checklist')}", visible=True)
         self.checklist_item.connect('activate', self.buffer.toggle_checklist)
         menu.append(self.checklist_item)
 
-        self.bullet_item = Gtk.MenuItem(label=f"\u25CF {_("Toggle Bullets")}", visible=True)
+        self.bullet_item = Gtk.MenuItem(label=f"\u25CF {_('Toggle Bullets')}", visible=True)
         self.bullet_item.connect('activate', self.buffer.toggle_bullets)
         menu.append(self.bullet_item)
 
