@@ -1,5 +1,12 @@
 #!/usr/bin/python3
 
+import gettext
+from util import gnote_to_internal_format
+from common import FileHandler, HoverBox, confirm
+from manager import NotesManager
+from note_buffer import NoteBuffer
+from xapp.GSettingsWidgets import *
+from gi.repository import Gdk, Gio, GObject, Gspell, Gtk, XApp
 import os
 import sys
 
@@ -8,16 +15,8 @@ gi.require_version('Gdk', '3.0')
 gi.require_version('Gspell', '1')
 gi.require_version('Gtk', '3.0')
 gi.require_version('XApp', '1.0')
-from gi.repository import Gdk, Gio, GObject, Gspell, Gtk, XApp
 
-from xapp.GSettingsWidgets import *
 
-from note_buffer import NoteBuffer
-from manager import NotesManager
-from common import FileHandler, HoverBox, confirm
-from util import gnote_to_internal_format
-
-import gettext
 gettext.install("sticky", "/usr/share/locale", names="ngettext")
 
 APPLICATION_ID = 'org.x.sticky'
@@ -75,6 +74,7 @@ SHORTCUTS = {
     ]
 }
 
+
 class Note(Gtk.Window):
     @GObject.Signal(flags=GObject.SignalFlags.RUN_LAST, return_type=bool,
                     accumulator=GObject.signal_accumulator_true_handled)
@@ -96,11 +96,14 @@ class Note(Gtk.Window):
 
         self.x = info.get('x', 0)
         self.y = info.get('y', 0)
-        self.height = info.get('height', self.app.settings.get_uint('default-height'))
-        self.width = info.get('width', self.app.settings.get_uint('default-width'))
+        self.height = info.get(
+            'height', self.app.settings.get_uint('default-height'))
+        self.width = info.get(
+            'width', self.app.settings.get_uint('default-width'))
         title = info.get('title', '')
         self.cached_text = info.get('text', '')
-        self.color = info.get('color', self.app.settings.get_string('default-color'))
+        self.color = info.get(
+            'color', self.app.settings.get_string('default-color'))
 
         super(Note, self).__init__(
             skip_taskbar_hint=True,
@@ -137,8 +140,10 @@ class Note(Gtk.Window):
         self.title_bar = Gtk.Box(height_request=30, name='title-bar')
         self.title_bar.connect('button-press-event', self.on_title_click)
 
-        color_icon = Gtk.Image.new_from_icon_name('sticky-color', Gtk.IconSize.BUTTON)
-        color_button = Gtk.MenuButton(image=color_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
+        color_icon = Gtk.Image.new_from_icon_name(
+            'sticky-color', Gtk.IconSize.BUTTON)
+        color_button = Gtk.MenuButton(
+            image=color_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         color_button.connect('button-press-event', self.on_title_click)
         color_button.set_tooltip_text(_("Note Color"))
         self.title_bar.pack_start(color_button, False, False, 0)
@@ -153,30 +158,39 @@ class Note(Gtk.Window):
         self.title_box.pack_start(self.title, False, False, 0)
         self.title_style_manager = XApp.StyleManager(widget=self.title_box)
 
-        edit_title_icon = Gtk.Image.new_from_icon_name('sticky-edit', Gtk.IconSize.BUTTON)
-        self.edit_title_button = Gtk.Button(image=edit_title_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
+        edit_title_icon = Gtk.Image.new_from_icon_name(
+            'sticky-edit', Gtk.IconSize.BUTTON)
+        self.edit_title_button = Gtk.Button(
+            image=edit_title_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         self.edit_title_button.connect('clicked', self.set_title)
-        self.edit_title_button.connect('button-press-event', self.on_title_click)
+        self.edit_title_button.connect(
+            'button-press-event', self.on_title_click)
         self.edit_title_button.set_tooltip_text(_("Rename"))
         self.title_box.pack_start(self.edit_title_button, False, False, 0)
         self.title_hover.set_child_widget(self.edit_title_button)
 
-        close_icon = Gtk.Image.new_from_icon_name('sticky-delete', Gtk.IconSize.BUTTON)
-        close_button = Gtk.Button(image=close_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
+        close_icon = Gtk.Image.new_from_icon_name(
+            'sticky-delete', Gtk.IconSize.BUTTON)
+        close_button = Gtk.Button(
+            image=close_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         close_button.connect('clicked', self.remove)
         close_button.connect('button-press-event', self.on_title_click)
         close_button.set_tooltip_text(_("Delete Note"))
         self.title_bar.pack_end(close_button, False, False, 0)
 
-        add_icon = Gtk.Image.new_from_icon_name('sticky-add', Gtk.IconSize.BUTTON)
-        add_button = Gtk.Button(image=add_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
+        add_icon = Gtk.Image.new_from_icon_name(
+            'sticky-add', Gtk.IconSize.BUTTON)
+        add_button = Gtk.Button(image=add_icon, relief=Gtk.ReliefStyle.NONE,
+                                name='window-button', valign=Gtk.Align.CENTER)
         add_button.connect('clicked', self.app.new_note, self)
         add_button.connect('button-press-event', self.on_title_click)
         add_button.set_tooltip_text(_("New Note"))
         self.title_bar.pack_end(add_button, False, False, 0)
 
-        text_icon = Gtk.Image.new_from_icon_name('sticky-text', Gtk.IconSize.BUTTON)
-        text_button = Gtk.MenuButton(image=text_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
+        text_icon = Gtk.Image.new_from_icon_name(
+            'sticky-text', Gtk.IconSize.BUTTON)
+        text_button = Gtk.MenuButton(
+            image=text_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         text_button.connect('button-press-event', self.on_title_click)
         text_button.set_tooltip_text(_("Format"))
         self.title_bar.pack_end(text_button, False, False, 20)
@@ -187,16 +201,19 @@ class Note(Gtk.Window):
         self.buffer = NoteBuffer()
 
         # text view
-        self.view = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, populate_all=True, buffer=self.buffer)
+        self.view = Gtk.TextView(
+            wrap_mode=Gtk.WrapMode.WORD_CHAR, populate_all=True, buffer=self.buffer)
         self.buffer.set_view(self.view)
         spell_checker = Gspell.TextView.get_from_gtk_text_view(self.view)
         spell_checker.basic_setup()
-        self.app.settings.bind('inline-spell-check', spell_checker, 'inline-spell-checking', Gio.SettingsBindFlags.GET)
+        self.app.settings.bind('inline-spell-check', spell_checker,
+                               'inline-spell-checking', Gio.SettingsBindFlags.GET)
         self.view.set_left_margin(10)
         self.view.set_right_margin(10)
         self.view.set_top_margin(10)
         self.view.set_bottom_margin(10)
-        self.view.connect('populate-popup', lambda w, p: self.add_context_menu_items(p))
+        self.view.connect('populate-popup', lambda w,
+                          p: self.add_context_menu_items(p))
         self.view.connect('key-press-event', self.on_key_press)
         self.view_style_manager = XApp.StyleManager(widget=self.view)
 
@@ -205,7 +222,8 @@ class Note(Gtk.Window):
         scroll.add(self.view)
 
         self.buffer.set_from_internal_markup(self.cached_text)
-        self.changed_id = self.buffer.connect('content-changed', self.queue_update, True)
+        self.changed_id = self.buffer.connect(
+            'content-changed', self.queue_update, True)
 
         self.app.settings.connect('changed::font', self.set_font)
         self.set_font()
@@ -348,7 +366,8 @@ class Note(Gtk.Window):
         if self.changed_timer_id:
             GLib.source_remove(self.changed_timer_id)
 
-        self.changed_timer_id = GLib.timeout_add_seconds(UPDATE_DELAY, self.trigger_update)
+        self.changed_timer_id = GLib.timeout_add_seconds(
+            UPDATE_DELAY, self.trigger_update)
 
     def trigger_update(self):
         self.changed_timer_id = 0
@@ -377,17 +396,20 @@ class Note(Gtk.Window):
         if not is_title:
             popup.append(Gtk.SeparatorMenuItem(visible=True))
 
-            self.undo_item = Gtk.MenuItem(label=_("undo"), visible=True, sensitive=self.buffer.can_undo)
+            self.undo_item = Gtk.MenuItem(
+                label=_("undo"), visible=True, sensitive=self.buffer.can_undo)
             self.undo_item.connect('activate', self.buffer.undo)
             popup.append(self.undo_item)
 
-            self.redo_item = Gtk.MenuItem(label=_("redo"), visible=True, sensitive=self.buffer.can_redo)
+            self.redo_item = Gtk.MenuItem(
+                label=_("redo"), visible=True, sensitive=self.buffer.can_redo)
             self.redo_item.connect('activate', self.buffer.redo)
             popup.append(self.redo_item)
 
             popup.append(Gtk.SeparatorMenuItem(visible=True))
 
-        label = _("Set Title") if self.title.get_text() == '' else _('Edit Title')
+        label = _("Set Title") if self.title.get_text(
+        ) == '' else _('Edit Title')
         edit_title = Gtk.MenuItem(label=label, visible=True)
         edit_title.connect('activate', self.set_title)
         popup.append(edit_title)
@@ -405,10 +427,12 @@ class Note(Gtk.Window):
 
             if self.is_stuck:
                 label = _("Only on This Workspace")
+
                 def on_activate(*args):
                     self.unstick()
             else:
                 label = _("Always on Visible Workspace")
+
                 def on_activate(*args):
                     self.stick()
 
@@ -420,7 +444,8 @@ class Note(Gtk.Window):
                 self.set_keep_above(not self.is_pinned)
                 self.is_pinned = not self.is_pinned
 
-            pin_menu_item = Gtk.CheckMenuItem(active=self.is_pinned, label=_("Always on Top"), visible=True)
+            pin_menu_item = Gtk.CheckMenuItem(
+                active=self.is_pinned, label=_("Always on Top"), visible=True)
             pin_menu_item.connect('activate', on_activate)
             popup.append(pin_menu_item)
 
@@ -431,7 +456,8 @@ class Note(Gtk.Window):
         for color, color_name in sorted(COLORS.items(), key=lambda item: item[1]):
             color_code = COLOR_CODES[color]
             menu_item = Gtk.MenuItem(label=color_name, visible=True)
-            menu_item.get_child().set_markup(f"<span foreground='{color_code}'>\u25A6</span>  {color_name}")
+            menu_item.get_child().set_markup(
+                f"<span foreground='{color_code}'>\u25A6</span>  {color_name}")
             menu_item.connect('activate', self.set_color, color)
             menu.append(menu_item)
 
@@ -459,18 +485,23 @@ class Note(Gtk.Window):
         underline_item.connect('activate', self.apply_format, 'underline')
         menu.append(underline_item)
 
-        strikethrough_item = Gtk.MenuItem(label=_("Strikethrough"), visible=True)
-        strikethrough_item.get_child().set_markup(f'<s>{_("Strikethrough")}</s>')
-        strikethrough_item.connect('activate', self.apply_format, 'strikethrough')
+        strikethrough_item = Gtk.MenuItem(
+            label=_("Strikethrough"), visible=True)
+        strikethrough_item.get_child().set_markup(
+            f'<s>{_("Strikethrough")}</s>')
+        strikethrough_item.connect(
+            'activate', self.apply_format, 'strikethrough')
         menu.append(strikethrough_item)
 
         highlight_item = Gtk.MenuItem(label=_("Highlight"), visible=True)
-        highlight_item.get_child().set_markup(f"<span background='yellow' foreground='black'>{_('Highlight')}</span>")
+        highlight_item.get_child().set_markup(
+            f"<span background='yellow' foreground='black'>{_('Highlight')}</span>")
         highlight_item.connect('activate', self.apply_format, 'highlight')
         menu.append(highlight_item)
 
         header_item = Gtk.MenuItem(label=_("Header"), visible=True)
-        header_item.get_child().set_markup(f"<span size='large'>{_('Header')}</span>")
+        header_item.get_child().set_markup(
+            f"<span size='large'>{_('Header')}</span>")
         header_item.connect('activate', self.apply_format, 'header')
         menu.append(header_item)
 
@@ -478,17 +509,20 @@ class Note(Gtk.Window):
 
         for (scale_id, scale_name, scale_value) in FONT_SCALES:
             font_scale_item = Gtk.MenuItem(label=scale_name, visible=True)
-            font_scale_item.get_child().set_markup(f"<span size='{scale_value}'>{scale_name}</span>")
+            font_scale_item.get_child().set_markup(
+                f"<span size='{scale_value}'>{scale_name}</span>")
             font_scale_item.connect('activate', self.apply_format, scale_id)
             menu.append(font_scale_item)
 
         menu.append(Gtk.SeparatorMenuItem(visible=True))
 
-        self.checklist_item = Gtk.MenuItem(label=f"\u25A2 {_('Toggle Checklist')}", visible=True)
+        self.checklist_item = Gtk.MenuItem(
+            label=f"\u25A2 {_('Toggle Checklist')}", visible=True)
         self.checklist_item.connect('activate', self.buffer.toggle_checklist)
         menu.append(self.checklist_item)
 
-        self.bullet_item = Gtk.MenuItem(label=f"\u25CF {_('Toggle Bullets')}", visible=True)
+        self.bullet_item = Gtk.MenuItem(
+            label=f"\u25CF {_('Toggle Bullets')}", visible=True)
         self.bullet_item.connect('activate', self.buffer.toggle_bullets)
         menu.append(self.bullet_item)
 
@@ -505,8 +539,10 @@ class Note(Gtk.Window):
         self.emit('update')
 
     def set_font(self, *args):
-        self.title_style_manager.set_from_pango_font_string(self.app.settings.get_string('font'))
-        self.view_style_manager.set_from_pango_font_string(self.app.settings.get_string('font'))
+        self.title_style_manager.set_from_pango_font_string(
+            self.app.settings.get_string('font'))
+        self.view_style_manager.set_from_pango_font_string(
+            self.app.settings.get_string('font'))
 
     def apply_format(self, m, format_type):
         self.buffer.tag_selection(format_type)
@@ -527,11 +563,14 @@ class Note(Gtk.Window):
         self.title_text = self.title.get_text()
         self.title_box.remove(self.title)
 
-        self.title = Gtk.Entry(text=self.title_text, visible=True, name='title')
+        self.title = Gtk.Entry(text=self.title_text,
+                               visible=True, name='title')
         self.title_box.pack_start(self.title, False, False, 0)
 
-        self.title.key_id = self.title.connect('key-press-event', self.save_title)
-        self.title.focus_id = self.title.connect('focus-out-event', self.save_title)
+        self.title.key_id = self.title.connect(
+            'key-press-event', self.save_title)
+        self.title.focus_id = self.title.connect(
+            'focus-out-event', self.save_title)
 
         self.title_box.reorder_child(self.title, 0)
         self.title_hover.disable()
@@ -558,7 +597,8 @@ class Note(Gtk.Window):
 
         self.title_box.remove(self.title)
 
-        self.title = Gtk.Label(label=self.title_text, visible=True, name='title')
+        self.title = Gtk.Label(label=self.title_text,
+                               visible=True, name='title')
         self.title_box.pack_start(self.title, False, False, 0)
 
         self.title_box.reorder_child(self.title, 0)
@@ -569,56 +609,75 @@ class Note(Gtk.Window):
 
         return Gdk.EVENT_STOP
 
+
 class SettingsWindow(XApp.PreferencesWindow):
     def __init__(self, app):
-        super(SettingsWindow, self).__init__(skip_taskbar_hint=False, title=_("Preferences"))
+        super(SettingsWindow, self).__init__(
+            skip_taskbar_hint=False, title=_("Preferences"))
 
         # general settings
         page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        page.pack_start(GSettingsSwitch(_("Show notes on all desktops"), SCHEMA, 'desktop-window-state'), False, False, 0)
-        page.pack_start(GSettingsSwitch(_("Show in taskbar"), SCHEMA, 'show-in-taskbar'), False, False, 0)
-        page.pack_start(GSettingsSwitch(_("Tray icon"), SCHEMA, 'show-in-tray'), False, False, 0)
-        page.pack_start(GSettingsSwitch(_("Show the main window automatically"), SCHEMA, 'show-manager', dep_key=SCHEMA+'/show-in-tray'), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Show notes on all desktops"),
+                        SCHEMA, 'desktop-window-state'), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Show in taskbar"),
+                        SCHEMA, 'show-in-taskbar'), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Tray icon"), SCHEMA,
+                        'show-in-tray'), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Show the main window automatically"),
+                        SCHEMA, 'show-manager', dep_key=SCHEMA+'/show-in-tray'), False, False, 0)
         self.add_page(page, 'general', _("General"))
 
         # note related settings
         page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        page.pack_start(GSettingsSpinButton(_("Default height"), SCHEMA, 'default-height', mini=50, maxi=2000, step=10), False, False, 0)
-        page.pack_start(GSettingsSpinButton(_("Default width"), SCHEMA, 'default-width', mini=50, maxi=2000, step=10), False, False, 0)
+        page.pack_start(GSettingsSpinButton(_("Default height"), SCHEMA,
+                        'default-height', mini=50, maxi=2000, step=10), False, False, 0)
+        page.pack_start(GSettingsSpinButton(_("Default width"), SCHEMA,
+                        'default-width', mini=50, maxi=2000, step=10), False, False, 0)
         try:
             colors = [(x, y) for x, y in COLORS.items()]
             colors.append(('sep', ''))
             colors.append(('cycle', _('Cycle Colors')))
 
-            page.pack_start(GSettingsComboBox(_("Default color"), SCHEMA, 'default-color', options=colors, valtype=str, separator='sep'), False, False, 0)
+            page.pack_start(GSettingsComboBox(_("Default color"), SCHEMA, 'default-color',
+                            options=colors, valtype=str, separator='sep'), False, False, 0)
         except Exception as e:
             colors = [(x, y) for x, y in COLORS.items()]
             colors.append(('cycle', _('Cycle Colors')))
 
-            page.pack_start(GSettingsComboBox(_("Default color"), SCHEMA, 'default-color', options=colors, valtype=str), False, False, 0)
+            page.pack_start(GSettingsComboBox(_("Default color"), SCHEMA,
+                            'default-color', options=colors, valtype=str), False, False, 0)
 
-        page.pack_start(GSettingsFontButton(_("Font"), SCHEMA, 'font', level=Gtk.FontChooserLevel.SIZE), False, False, 0)
-        page.pack_start(GSettingsSwitch(_("Show spelling mistakes"), SCHEMA, 'inline-spell-check'), False, False, 0)
+        page.pack_start(GSettingsFontButton(
+            _("Font"), SCHEMA, 'font', level=Gtk.FontChooserLevel.SIZE), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Show spelling mistakes"),
+                        SCHEMA, 'inline-spell-check'), False, False, 0)
 
         self.add_page(page, 'notes', _("Notes"))
 
         # backups
         page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
-        page.pack_start(GSettingsSwitch(_("Automatic backups"), SCHEMA, 'automatic-backups'), False, False, 0)
-        page.pack_start(GSettingsSpinButton(_("Time between backups"), SCHEMA, 'backup-interval', units=_("hours")), False, False, 0)
-        obm_tooltip = _("Set this to zero if you wish to keep all backups indefinitely")
-        page.pack_start(GSettingsSpinButton(_("Number to keep"), SCHEMA, 'old-backups-max', tooltip=obm_tooltip), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Automatic backups"),
+                        SCHEMA, 'automatic-backups'), False, False, 0)
+        page.pack_start(GSettingsSpinButton(_("Time between backups"),
+                        SCHEMA, 'backup-interval', units=_("hours")), False, False, 0)
+        obm_tooltip = _(
+            "Set this to zero if you wish to keep all backups indefinitely")
+        page.pack_start(GSettingsSpinButton(_("Number to keep"), SCHEMA,
+                        'old-backups-max', tooltip=obm_tooltip), False, False, 0)
 
         self.add_page(page, 'backup', _("Backups"))
 
         # autostart
         page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        page.pack_start(GSettingsSwitch(_("Start automatically"), SCHEMA, 'autostart'), False, False, 0)
-        page.pack_start(GSettingsSwitch(_("Show notes on the screen"), SCHEMA, 'autostart-notes-visible', dep_key=SCHEMA+'/autostart'), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Start automatically"),
+                        SCHEMA, 'autostart'), False, False, 0)
+        page.pack_start(GSettingsSwitch(_("Show notes on the screen"), SCHEMA,
+                        'autostart-notes-visible', dep_key=SCHEMA+'/autostart'), False, False, 0)
         self.add_page(page, 'autostart', _("Automatic start"))
 
         self.show_all()
+
 
 class ShortcutsWindow(Gtk.ShortcutsWindow):
     def __init__(self):
@@ -631,22 +690,26 @@ class ShortcutsWindow(Gtk.ShortcutsWindow):
             section.add(group)
 
             for shortcut in items:
-                shortcut_item = Gtk.ShortcutsShortcut(title=shortcut[0], accelerator=shortcut[1], visible=True)
+                shortcut_item = Gtk.ShortcutsShortcut(
+                    title=shortcut[0], accelerator=shortcut[1], visible=True)
                 group.add(shortcut_item)
 
         group = Gtk.ShortcutsGroup(title=_("Text Size"), visible=False)
         section.add(group)
         for i in range(len(FONT_SCALES)):
-            shortcut_item = Gtk.ShortcutsShortcut(title=FONT_SCALES[i][1], accelerator=f'<ctrl>{(i + 2)}', visible=True)
+            shortcut_item = Gtk.ShortcutsShortcut(
+                title=FONT_SCALES[i][1], accelerator=f'<ctrl>{(i + 2)}', visible=True)
             group.add(shortcut_item)
 
         self.add(section)
         self.show_all()
 
+
 class Application(Gtk.Application):
 
     def __init__(self):
-        super(Application, self).__init__(application_id=APPLICATION_ID, flags=Gio.ApplicationFlags.FLAGS_NONE)
+        super(Application, self).__init__(
+            application_id=APPLICATION_ID, flags=Gio.ApplicationFlags.FLAGS_NONE)
 
         self.status_icon = None
         self.has_activated = False
@@ -658,7 +721,7 @@ class Application(Gtk.Application):
         # is none.
         self.manager = None
         self.notes_hidden = False
-        self.autostart_mode = False # indicates if we're in autostart mode
+        self.autostart_mode = False  # indicates if we're in autostart mode
 
     def do_activate(self):
         if self.has_activated:
@@ -671,7 +734,8 @@ class Application(Gtk.Application):
 
         self.settings = Gio.Settings(schema_id=SCHEMA)
 
-        self.dummy_window = Gtk.Window(title=_("Notes"), default_height=1, default_width=1, decorated=False, deletable=False, name='dummy-window')
+        self.dummy_window = Gtk.Window(title=_(
+            "Notes"), default_height=1, default_width=1, decorated=False, deletable=False, name='dummy-window')
         self.dummy_window.show()
 
         self.file_handler = FileHandler(self.settings, self.dummy_window)
@@ -685,15 +749,19 @@ class Application(Gtk.Application):
             self.settings.set_string('default-color', 'cycle')
 
         self.file_handler.connect('lists-changed', self.on_lists_changed)
-        self.group_update_id = self.file_handler.connect('group-changed', self.on_group_changed)
-        self.file_handler.connect('group-name-changed', self.on_group_name_changed)
+        self.group_update_id = self.file_handler.connect(
+            'group-changed', self.on_group_changed)
+        self.file_handler.connect(
+            'group-name-changed', self.on_group_name_changed)
 
         if self.settings.get_boolean('show-in-tray'):
             self.create_status_icon()
 
         self.settings.connect('changed::show-in-tray', self.update_tray_icon)
-        self.settings.connect('changed::show-in-taskbar', self.update_dummy_window)
-        self.settings.connect('changed::active-group', self.on_active_group_changed)
+        self.settings.connect('changed::show-in-taskbar',
+                              self.update_dummy_window)
+        self.settings.connect('changed::active-group',
+                              self.on_active_group_changed)
         self.update_dummy_window()
 
         self.note_group = self.settings.get_string('active-group')
@@ -708,7 +776,8 @@ class Application(Gtk.Application):
         provider = Gtk.CssProvider()
         provider.load_from_path(STYLE_SHEET_PATH)
 
-        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default(), provider, 600)
+        Gtk.StyleContext.add_provider_for_screen(
+            Gdk.Screen.get_default(), provider, 600)
 
         self.load_notes()
 
@@ -756,15 +825,18 @@ class Application(Gtk.Application):
                             if group_name not in self.file_handler.get_note_group_names():
                                 self.file_handler.new_group(group_name)
 
-                            group_list = self.file_handler.get_note_list(group_name)
+                            group_list = self.file_handler.get_note_list(
+                                group_name)
                             group_list.append(info)
-                            self.file_handler.update_note_list(group_list, group_name)
+                            self.file_handler.update_note_list(
+                                group_list, group_name)
 
                             coordinates += 20
 
         # Create a default group
         if len(self.file_handler.get_note_group_names()) == 0:
-            self.file_handler.update_note_list([{'text':'', 'color':'yellow', 'x': 20, 'y': 20}], _("Group 1"))
+            self.file_handler.update_note_list(
+                [{'text': '', 'color': 'yellow', 'x': 20, 'y': 20}], _("Group 1"))
 
         self.settings.set_boolean('first-run', False)
 
@@ -772,19 +844,22 @@ class Application(Gtk.Application):
         self.status_icon = XApp.StatusIcon()
         self.status_icon.set_name('sticky')
         self.status_icon.set_icon_name('sticky-symbolic')
-        self.status_icon.set_tooltip_text(f'{_("Notes")}\n<i>{_("Left click to toggle notes")}</i>\n<i>{_("Middle click to toggle the manager")}</i>')
+        self.status_icon.set_tooltip_text(
+            f'{_("Notes")}\n<i>{_("Left click to toggle notes")}</i>\n<i>{_("Middle click to toggle the manager")}</i>')
         self.status_icon.set_visible(True)
-        self.status_icon.connect('button-press-event', self.on_tray_button_pressed)
-        self.status_icon.connect('button-release-event', self.on_tray_button_released)
+        self.status_icon.connect('button-press-event',
+                                 self.on_tray_button_pressed)
+        self.status_icon.connect(
+            'button-release-event', self.on_tray_button_released)
 
-    def on_tray_button_pressed(self, icon, x, y , button, time, panel_position):
+    def on_tray_button_pressed(self, icon, x, y, button, time, panel_position):
         if button == 1:
             self.activate_notes(time)
         elif button == 2:
             self.toggle_manager(time)
 
-    def on_tray_button_released(self, icon, x, y , button, time, panel_position):
-      if button == 3:
+    def on_tray_button_released(self, icon, x, y, button, time, panel_position):
+        if button == 3:
             menu = Gtk.Menu()
             item = Gtk.MenuItem(label=_("New Note"))
             item.connect('activate', self.new_note)
@@ -801,7 +876,8 @@ class Application(Gtk.Application):
                 if group == self.settings.get_string('active-group'):
                     item.set_active(True)
                 else:
-                    item.connect('activate', self.on_tray_group_selected, group)
+                    item.connect(
+                        'activate', self.on_tray_group_selected, group)
                 menu.append(item)
 
             menu.append(Gtk.SeparatorMenuItem())
@@ -817,7 +893,8 @@ class Application(Gtk.Application):
             menu.append(item)
 
             menu.show_all()
-            self.status_icon.popup_menu(menu, x, y, button, time, panel_position)
+            self.status_icon.popup_menu(
+                menu, x, y, button, time, panel_position)
 
     def destroy_status_icon(self):
         self.status_icon.set_visible(False)
@@ -837,7 +914,8 @@ class Application(Gtk.Application):
         self.change_visible_note_group()
 
     def update_dummy_window(self, *args):
-        self.dummy_window.set_skip_taskbar_hint(not self.settings.get_boolean('show-in-taskbar') or self.notes_hidden)
+        self.dummy_window.set_skip_taskbar_hint(
+            not self.settings.get_boolean('show-in-taskbar') or self.notes_hidden)
 
         self.dummy_window.move(-2, -2)
 
@@ -864,7 +942,7 @@ class Application(Gtk.Application):
     def hide_notes(self):
         for note in self.notes:
             note.hide()
-        
+
         self.notes_hidden = True
         self.update_dummy_window()
 
@@ -875,8 +953,9 @@ class Application(Gtk.Application):
         else:
             x = parent.x + 20
             y = parent.y + 20
-        while(True):
-            found = any(note_info['x'] == x and note_info['y'] == y for note_info in self.file_handler.get_note_list(self.note_group))
+        while (True):
+            found = any(note_info['x'] == x and note_info['y'] ==
+                        y for note_info in self.file_handler.get_note_list(self.note_group))
             if not found:
                 break
             x += 20
@@ -928,8 +1007,8 @@ class Application(Gtk.Application):
                 note.present_with_time(0)
 
     def on_lists_changed(self, *args):
-        self.change_visible_note_group() if self.note_group not in self.file_handler.get_note_group_names() else self.load_notes()
-            
+        self.change_visible_note_group(
+        ) if self.note_group not in self.file_handler.get_note_group_names() else self.load_notes()
 
     def on_group_changed(self, f, group_name):
         if self.note_group == group_name:
@@ -967,9 +1046,8 @@ class Application(Gtk.Application):
         self.manager.window.connect('delete-event', self.manager_closed)
 
     def toggle_manager(self, time):
-        self.manager.window.hide() if self.manager and self.manager.window.is_active() and self.manager.window.is_visible() else self.open_manager(time=time)
-
-            
+        self.manager.window.hide() if self.manager and self.manager.window.is_active(
+        ) and self.manager.window.is_visible() else self.open_manager(time=time)
 
     def manager_closed(self, *args):
         if self.status_icon is None:
@@ -981,7 +1059,8 @@ class Application(Gtk.Application):
 
     def open_settings_window(self, *args):
         if self.settings_window:
-            self.settings_window.present_with_time(Gtk.get_current_event_time())
+            self.settings_window.present_with_time(
+                Gtk.get_current_event_time())
             return
 
         self.settings_window = SettingsWindow(self)
@@ -1004,12 +1083,13 @@ class Application(Gtk.Application):
                     gpl += line
             dlg.set_license(gpl)
         except Exception as e:
-            print (e)
+            print(e)
 
         dlg.set_version("__DEB_VERSION__")
         dlg.set_icon_name("sticky")
         dlg.set_logo_icon_name("sticky")
         dlg.set_website("https://www.github.com/linuxmint/sticky")
+
         def close(w, res):
             if res in [Gtk.ResponseType.CANCEL, Gtk.ResponseType.DELETE_EVENT]:
                 w.destroy()
@@ -1021,11 +1101,13 @@ class Application(Gtk.Application):
 
     def open_keyboard_shortcuts(self, *args):
         if self.keyboard_shortcuts:
-            self.keyboard_shortcuts.present_with_time(Gtk.get_current_event_time())
+            self.keyboard_shortcuts.present_with_time(
+                Gtk.get_current_event_time())
             return
 
         self.keyboard_shortcuts = ShortcutsWindow()
-        self.keyboard_shortcuts.connect('destroy', self.keyboard_shortcuts_closed)
+        self.keyboard_shortcuts.connect(
+            'destroy', self.keyboard_shortcuts_closed)
         self.keyboard_shortcuts.show_all()
 
     def keyboard_shortcuts_closed(self, *args):
@@ -1049,6 +1131,7 @@ class Application(Gtk.Application):
             note.destroy()
 
         self.quit()
+
 
 if __name__ == "__main__":
     autostart_mode = False
