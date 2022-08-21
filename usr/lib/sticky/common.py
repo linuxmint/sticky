@@ -11,7 +11,8 @@ CONFIG_DIR = os.path.join(GLib.get_user_config_dir(), 'sticky')
 CONFIG_PATH = os.path.join(CONFIG_DIR, 'notes.json')
 SAVE_DELAY = 3
 
-backup_file_name = re.compile(r"\Abackup-[0-9]{10,}\.json$", re.IGNORECASE)
+backup_file_name = re.compile(f"\Abackup-[0-9]{10,}\.json${re.IGNORECASE}")
+
 
 class FileHandler(GObject.Object):
     @GObject.Signal(flags=GObject.SignalFlags.RUN_LAST, return_type=bool,
@@ -70,7 +71,8 @@ class FileHandler(GObject.Object):
         if self.save_timer_id > 0:
             GLib.source_remove(self.save_timer_id)
 
-        self.save_timer_id = GLib.timeout_add_seconds(SAVE_DELAY, self.save_note_list)
+        self.save_timer_id = GLib.timeout_add_seconds(
+            SAVE_DELAY, self.save_note_list)
 
     def save_to_file(self, file_path):
         with open(file_path, 'w+') as file:
@@ -107,7 +109,8 @@ class FileHandler(GObject.Object):
         if next_backup < now:
             self.save_backup()
         else:
-            self.backup_timer_id = GLib.timeout_add_seconds(next_backup - now, self.save_backup)
+            self.backup_timer_id = GLib.timeout_add_seconds(
+                next_backup - now, self.save_backup)
 
     def save_backup(self, *args):
         self.backup_timer_id = 0
@@ -124,7 +127,8 @@ class FileHandler(GObject.Object):
         # remove old backups (if applicable)
         backups_keep = self.settings.get_uint('old-backups-max')
         if backups_keep > 0:
-            backups = [file for file in os.listdir(CONFIG_DIR) if backup_file_name.search(file)]
+            backups = [file for file in os.listdir(
+                CONFIG_DIR) if backup_file_name.search(file)]
 
             backups.sort()
             for file in backups[:-backups_keep]:
@@ -138,8 +142,10 @@ class FileHandler(GObject.Object):
                 os.remove(os.path.join(CONFIG_DIR, file))
 
     def export_notes(self, menuitem, window):
-        file_dialog = Gtk.FileChooserDialog(title=_("Export..."), action=Gtk.FileChooserAction.SAVE, transient_for=window)
-        file_dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.OK)
+        file_dialog = Gtk.FileChooserDialog(
+            title=_("Export..."), action=Gtk.FileChooserAction.SAVE, transient_for=window)
+        file_dialog.add_buttons(
+            _("Cancel"), Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.OK)
         file_dialog.set_current_folder(GLib.get_home_dir())
         file_dialog.set_current_name('notes.json')
         file_dialog.set_do_overwrite_confirmation(True)
@@ -152,8 +158,10 @@ class FileHandler(GObject.Object):
         file_dialog.destroy()
 
     def import_notes(self, menuitem, window):
-        file_dialog = Gtk.FileChooserDialog(title=_("Import..."), action=Gtk.FileChooserAction.OPEN, transient_for=self.window)
-        file_dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL, _("Open"), Gtk.ResponseType.OK)
+        file_dialog = Gtk.FileChooserDialog(title=_(
+            "Import..."), action=Gtk.FileChooserAction.OPEN, transient_for=self.window)
+        file_dialog.add_buttons(
+            _("Cancel"), Gtk.ResponseType.CANCEL, _("Open"), Gtk.ResponseType.OK)
         file_dialog.set_current_folder(GLib.get_home_dir())
 
         response = self.setup_filter(file_dialog)
@@ -193,7 +201,8 @@ class FileHandler(GObject.Object):
 
         content.pack_start(scrolled_window, True, True, 0)
 
-        backups = [file for file in os.listdir(CONFIG_DIR) if backup_file_name.search(file)]
+        backups = [file for file in os.listdir(
+            CONFIG_DIR) if backup_file_name.search(file)]
 
         backups.sort()
 
@@ -210,7 +219,8 @@ class FileHandler(GObject.Object):
 
         response = dialog.run()
         if response == Gtk.ResponseType.OK:
-            file_path = os.path.join(CONFIG_DIR, backup_list.get_selected_row().get_child().file)
+            file_path = os.path.join(
+                CONFIG_DIR, backup_list.get_selected_row().get_child().file)
             if file_path is not None:
                 self.load_notes_from_path(file_path, window)
         elif response == 20:
@@ -271,6 +281,7 @@ class FileHandler(GObject.Object):
         self.save_note_list()
         self.emit('group-name-changed', old_group, new_group)
 
+
 class HoverBox(Gtk.EventBox):
     def __init__(self, widget=None):
         super(HoverBox, self).__init__()
@@ -296,16 +307,20 @@ class HoverBox(Gtk.EventBox):
         self.set_child_widget_visibility()
 
     def set_child_widget_visibility(self, *args):
-        pointer_window = self.get_display().get_default_seat().get_pointer().get_window_at_position()[0]
-        has_mouse = pointer_window == self.get_window() or pointer_window in self.get_window().get_children()
+        pointer_window = self.get_display().get_default_seat(
+        ).get_pointer().get_window_at_position()[0]
+        has_mouse = pointer_window == self.get_window(
+        ) or pointer_window in self.get_window().get_children()
 
         if not self.inhibited and has_mouse:
             self.child_widget.show()
         else:
             self.child_widget.hide()
 
+
 def prompt(title, message, window):
-    dialog = Gtk.Dialog(title=title, transient_for=window, window_position=Gtk.WindowPosition.CENTER)
+    dialog = Gtk.Dialog(title=title, transient_for=window,
+                        window_position=Gtk.WindowPosition.CENTER)
     dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
     dialog.add_button(_("OK"), Gtk.ResponseType.OK)
     dialog.set_default_response(Gtk.ResponseType.OK)
@@ -327,9 +342,10 @@ def prompt(title, message, window):
 
     return (response == Gtk.ResponseType.OK, value)
 
+
 def confirm(title, message, window=None, settings=None, disable_key=None, disable_inverted=False):
     dialog = Gtk.Dialog(title=title, transient_for=window,
-        window_position=(Gtk.WindowPosition.CENTER if window is None else Gtk.WindowPosition.CENTER_ON_PARENT))
+                        window_position=(Gtk.WindowPosition.CENTER if window is None else Gtk.WindowPosition.CENTER_ON_PARENT))
     dialog.add_button(_("No"), Gtk.ResponseType.NO)
     dialog.add_button(_("Yes"), Gtk.ResponseType.YES)
     dialog.set_default_response(Gtk.ResponseType.YES)
@@ -341,7 +357,8 @@ def confirm(title, message, window=None, settings=None, disable_key=None, disabl
     content.pack_start(Gtk.Label(label=message), False, False, 10)
 
     if disable_key is not None:
-        disable_checkbox = Gtk.CheckButton.new_with_label(_("Don't ask me again"))
+        disable_checkbox = Gtk.CheckButton.new_with_label(
+            _("Don't ask me again"))
         content.pack_start(disable_checkbox, False, False, 0)
         flags = Gio.SettingsBindFlags.DEFAULT
         if disable_inverted:
@@ -355,4 +372,3 @@ def confirm(title, message, window=None, settings=None, disable_key=None, disabl
     dialog.destroy()
 
     return response == Gtk.ResponseType.YES
-
