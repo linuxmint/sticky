@@ -7,6 +7,7 @@ from util import clean_text
 
 NOTE_TARGETS = [Gtk.TargetEntry.new('note-entry', Gtk.TargetFlags.SAME_APP, 1)]
 
+
 class NoteEntry(Gtk.Container):
     initialized = False
 
@@ -23,11 +24,13 @@ class NoteEntry(Gtk.Container):
         self.style_manager = XApp.StyleManager(widget=self)
 
         self.title_bar = Gtk.Box(name='title-bar', visible=True)
-        self.title_bar.pack_start(Gtk.Label(label=item.title, name='title', visible=True, margin_top=5, margin_bottom=5, ellipsize=Pango.EllipsizeMode.END), False, False, 0)
+        self.title_bar.pack_start(Gtk.Label(label=item.title, name='title', visible=True,
+                                  margin_top=5, margin_bottom=5, ellipsize=Pango.EllipsizeMode.END), False, False, 0)
         self.title_bar.set_parent(self)
 
         self.buffer = NoteBuffer()
-        self.text = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, populate_all=True, buffer=self.buffer, visible=True, sensitive=False)
+        self.text = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, populate_all=True,
+                                 buffer=self.buffer, visible=True, sensitive=False)
         self.text.set_parent(self)
 
         self.buffer.set_view(self.text)
@@ -90,7 +93,9 @@ class NoteEntry(Gtk.Container):
             callback(self.text, *args)
 
     def set_font(self, *args):
-        self.style_manager.set_from_pango_font_string(self.settings.get_string('font'))
+        self.style_manager.set_from_pango_font_string(
+            self.settings.get_string('font'))
+
 
 class GroupEntry(Gtk.ListBoxRow):
     def __init__(self, item):
@@ -125,7 +130,8 @@ class GroupEntry(Gtk.ListBoxRow):
         self.generate_content()
 
     def on_popup(self, *args):
-        self.menu.popup_at_widget(self, Gdk.Gravity.CENTER, Gdk.Gravity.CENTER, None)
+        self.menu.popup_at_widget(
+            self, Gdk.Gravity.CENTER, Gdk.Gravity.CENTER, None)
 
     def on_button_press(self, w, event):
         if event.button == 3:
@@ -143,11 +149,14 @@ class GroupEntry(Gtk.ListBoxRow):
         self.box = Gtk.Box()
         self.hoverbox.add(self.box)
 
-        label = Gtk.Label(label=self.item.name, halign=Gtk.Align.START, margin_start=5)
+        label = Gtk.Label(label=self.item.name,
+                          halign=Gtk.Align.START, margin_start=5)
         self.box.pack_start(label, True, True, 5)
 
-        image = Gtk.Image.new_from_icon_name('document-edit-symbolic', Gtk.IconSize.BUTTON)
-        button = Gtk.Button(image=image, relief=Gtk.ReliefStyle.NONE, name='manager-group-edit-button')
+        image = Gtk.Image.new_from_icon_name(
+            'document-edit-symbolic', Gtk.IconSize.BUTTON)
+        button = Gtk.Button(
+            image=image, relief=Gtk.ReliefStyle.NONE, name='manager-group-edit-button')
         self.box.pack_end(button, False, False, 2)
         button.connect('clicked', self.edit_group_name)
         self.hoverbox.set_child_widget(button)
@@ -205,6 +214,7 @@ class GroupEntry(Gtk.ListBoxRow):
     def set_can_remove(self, can_remove):
         self.remove_item.set_sensitive(can_remove)
 
+
 class Group(GObject.Object):
     def __init__(self, name, file_handler, model):
         super(Group, self).__init__()
@@ -212,13 +222,16 @@ class Group(GObject.Object):
         self.file_handler = file_handler
         self.model = model
 
+
 class Note(GObject.Object):
     def __init__(self, info, group_name):
         super(Note, self).__init__()
         self.info = info
         self.group_name = group_name
         self.text = info['text']
-        self.title = _("Untitled") if 'title' not in info or info['title'] in [None, ''] else info['title']
+        self.title = _("Untitled") if 'title' not in info or info['title'] in [
+            None, ''] else info['title']
+
 
 class NotesManager(object):
     def __init__(self, app, file_handler):
@@ -238,11 +251,13 @@ class NotesManager(object):
         self.group_list = self.builder.get_object('group_list')
         self.note_view = self.builder.get_object('note_view')
         self.note_view.connect('child-activated', self.on_note_activated)
-        self.note_view.connect('selected-children-changed', self.on_selected_notes_changed)
+        self.note_view.connect('selected-children-changed',
+                               self.on_selected_notes_changed)
 
         def create_group_entry(item):
             widget = GroupEntry(item)
-            widget.drag_dest_set(Gtk.DestDefaults.MOTION | Gtk.DestDefaults.HIGHLIGHT, NOTE_TARGETS, Gdk.DragAction.MOVE)
+            widget.drag_dest_set(
+                Gtk.DestDefaults.MOTION | Gtk.DestDefaults.HIGHLIGHT, NOTE_TARGETS, Gdk.DragAction.MOVE)
             widget.connect('drag-drop', self.handle_drop)
 
             widget.new_item.connect('activate', self.new_group)
@@ -253,9 +268,11 @@ class NotesManager(object):
 
         search_toggle = self.builder.get_object('search_toggle_button')
         self.search_bar = self.builder.get_object('search_bar')
-        GObject.Object.bind_property(search_toggle, 'active', self.search_bar, 'search_mode_enabled', GObject.BindingFlags.BIDIRECTIONAL)
+        GObject.Object.bind_property(search_toggle, 'active', self.search_bar,
+                                     'search_mode_enabled', GObject.BindingFlags.BIDIRECTIONAL)
 
-        self.builder.get_object('new_note').connect('clicked', self.app.new_note)
+        self.builder.get_object('new_note').connect(
+            'clicked', self.app.new_note)
         self.remove_note_button = self.builder.get_object('remove_note')
         self.remove_note_button.connect('clicked', self.remove_note)
         self.duplicate_note_button = self.builder.get_object('duplicate_note')
@@ -265,7 +282,8 @@ class NotesManager(object):
         self.search_box.connect('search-changed', self.on_search_changed)
 
         self.entry_box = self.builder.get_object('group_name_entry_box')
-        self.entry_box.drag_dest_set(Gtk.DestDefaults.MOTION | Gtk.DestDefaults.HIGHLIGHT, NOTE_TARGETS, Gdk.DragAction.MOVE)
+        self.entry_box.drag_dest_set(
+            Gtk.DestDefaults.MOTION | Gtk.DestDefaults.HIGHLIGHT, NOTE_TARGETS, Gdk.DragAction.MOVE)
         self.entry_box.connect('drag-drop', self.handle_new_group_drop)
 
         main_menu = Gtk.Menu()
@@ -314,7 +332,8 @@ class NotesManager(object):
         key, mod = Gtk.accelerator_parse("F1")
         accel_group = Gtk.AccelGroup()
         self.window.add_accel_group(accel_group)
-        item.add_accelerator("activate", accel_group, key, mod, Gtk.AccelFlags.VISIBLE)
+        item.add_accelerator("activate", accel_group, key,
+                             mod, Gtk.AccelFlags.VISIBLE)
         main_menu.append(item)
 
         key, mod = Gtk.accelerator_parse('<Control>f')
@@ -331,7 +350,8 @@ class NotesManager(object):
         self.generate_previews()
         self.group_list.connect('row-selected', self.on_group_selected)
         self.group_list.connect('button-press-event', self.on_list_clicked)
-        self.app.settings.connect('changed::active-group', self.on_active_group_changed)
+        self.app.settings.connect(
+            'changed::active-group', self.on_active_group_changed)
 
     def on_list_clicked(self, list, event):
         for note in self.app.notes:
@@ -350,7 +370,8 @@ class NotesManager(object):
             model = Gio.ListStore()
             if self.app.settings.get_string('active-group') == group_name:
                 name = group_name
-            self.group_model.append(Group(group_name, self.file_handler, model))
+            self.group_model.append(
+                Group(group_name, self.file_handler, model))
 
         self.group_list.show_all()
 
@@ -393,7 +414,8 @@ class NotesManager(object):
                     if note_info['title'].lower().find(search_text) != -1 or clean_text(note_info['text']).find(search_text) != -1:
                         self.search_model.append(Note(note_info, group_name))
 
-            self.note_view.bind_model(self.search_model, self.create_note_entry)
+            self.note_view.bind_model(
+                self.search_model, self.create_note_entry)
 
     def open_search(self, *args):
         self.search_bar.set_search_mode(True)
@@ -415,11 +437,13 @@ class NotesManager(object):
         widget.item = item
 
         dnd_wrapper = Gtk.EventBox(above_child=True)
-        dnd_wrapper.drag_source_set(Gdk.ModifierType.BUTTON1_MASK, NOTE_TARGETS, Gdk.DragAction.MOVE)
+        dnd_wrapper.drag_source_set(
+            Gdk.ModifierType.BUTTON1_MASK, NOTE_TARGETS, Gdk.DragAction.MOVE)
         dnd_wrapper.connect('drag-begin', self.on_drag_begin)
         widget.add(dnd_wrapper)
 
-        outer_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, margin=10, spacing=10)
+        outer_box = Gtk.Box(
+            orientation=Gtk.Orientation.VERTICAL, margin=10, spacing=10)
         outer_box.set_receives_default(True)
         dnd_wrapper.add(outer_box)
 
@@ -514,7 +538,8 @@ class NotesManager(object):
         self.create_new_group(on_complete)
 
     def remove_note(self, *args):
-        notes = [child.item.info for child in self.note_view.get_children() if child.item.info != self.get_selected_note()]
+        notes = [child.item.info for child in self.note_view.get_children(
+        ) if child.item.info != self.get_selected_note()]
 
         self.file_handler.update_note_list(notes, self.get_current_group())
 
