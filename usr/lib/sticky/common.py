@@ -11,7 +11,7 @@ CONFIG_DIR = os.path.join(GLib.get_user_config_dir(), 'sticky')
 CONFIG_PATH = os.path.join(CONFIG_DIR, 'notes.json')
 SAVE_DELAY = 3
 
-backup_file_name = re.compile(f"\Abackup-[0-9]{10,}\.json${re.IGNORECASE}")
+backup_file_name = re.compile(r"\Abackup-[0-9]{10,}\.json$", {re.IGNORECASE}")
 
 
 class FileHandler(GObject.Object):
