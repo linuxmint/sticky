@@ -19,12 +19,15 @@ TAG_DEFINITIONS = {
 
 FONT_SCALES = ['small', 'normal', 'large', 'larger']
 
+
 class GenericAction(object):
     def maybe_join(self, new_action):
         return False
 
 # Used whenever plain text is added to the buffer. Internal characters such as anchor points should be handled with
 # ObjectInsertAction, etc.
+
+
 class AdditionAction(GenericAction):
     def __init__(self, buffer, text, location):
         super(AdditionAction, self).__init__()
@@ -43,7 +46,8 @@ class AdditionAction(GenericAction):
         self.buffer.select_range(pos, pos)
 
     def redo(self):
-        self.buffer.insert(self.buffer.get_iter_at_offset(self.position), self.text)
+        self.buffer.insert(self.buffer.get_iter_at_offset(
+            self.position), self.text)
 
         # we generally want to put the cursor at the end of the re-added text
         pos = self.buffer.get_iter_at_offset(self.position + len(self.text))
@@ -63,6 +67,8 @@ class AdditionAction(GenericAction):
         return False
 
 # Used whenever text is removed from the buffer.
+
+
 class DeletionAction(GenericAction):
     def __init__(self, buffer, start, end):
         super(DeletionAction, self).__init__()
@@ -85,19 +91,22 @@ class DeletionAction(GenericAction):
             self.deletion_type = 'other'
 
     def undo(self):
-        self.buffer.insert(self.buffer.get_iter_at_offset(self.position), self.text)
+        self.buffer.insert(self.buffer.get_iter_at_offset(
+            self.position), self.text)
 
         # depending on the type of deletion, we want to put the cursor (and selection) in different places
         if self.deletion_type == 'forward':
             pos = self.buffer.get_iter_at_offset(self.position)
             self.buffer.select_range(pos, pos)
         elif self.deletion_type == 'backward':
-            pos = self.buffer.get_iter_at_offset(self.position + len(self.text))
+            pos = self.buffer.get_iter_at_offset(
+                self.position + len(self.text))
             self.buffer.select_range(pos, pos)
         else:
             # any other type of deletion, we probably want to just select the whole thing
             pos1 = self.buffer.get_iter_at_offset(self.position)
-            pos2 = self.buffer.get_iter_at_offset(self.position + len(self.text))
+            pos2 = self.buffer.get_iter_at_offset(
+                self.position + len(self.text))
             self.buffer.select_range(pos1, pos2)
 
     def redo(self):
@@ -124,6 +133,8 @@ class DeletionAction(GenericAction):
         return False
 
 # Used for objects inserted at an anchor point such as checkbuttons, bullets, etc.
+
+
 class ObjectInsertAction(GenericAction):
     def __init__(self, buffer, anchor, is_addition=True):
         super(ObjectInsertAction, self).__init__()
@@ -140,14 +151,17 @@ class ObjectInsertAction(GenericAction):
         start_anchor_iter = self.buffer.get_iter_at_offset(self.position)
         end_anchor_iter = self.buffer.get_iter_at_offset(self.position + 1)
         if self.anchor_type == 'check':
-            self.checked = start_anchor_iter.get_child_anchor().get_widgets()[0].get_active()
+            self.checked = start_anchor_iter.get_child_anchor().get_widgets()[
+                0].get_active()
         self.buffer.delete(start_anchor_iter, end_anchor_iter)
 
     def add(self):
         if self.anchor_type == 'check':
-            self.buffer.add_check_button(self.buffer.get_iter_at_offset(self.position), checked=self.checked)
+            self.buffer.add_check_button(self.buffer.get_iter_at_offset(
+                self.position), checked=self.checked)
         elif self.anchor_type == 'bullet':
-            self.buffer.add_bullet(self.buffer.get_iter_at_offset(self.position))
+            self.buffer.add_bullet(
+                self.buffer.get_iter_at_offset(self.position))
 
     def undo(self):
         if self.is_addition:
@@ -162,6 +176,8 @@ class ObjectInsertAction(GenericAction):
             self.remove()
 
 # Used for setting formatting tags
+
+
 class TagAction(GenericAction):
     def __init__(self, buffer, name, start, end, is_addition=True):
         super(TagAction, self).__init__()
@@ -191,11 +207,13 @@ class TagAction(GenericAction):
 
     def remove(self):
         for (start, end) in self.ranges:
-            self.buffer.remove_tag_by_name(self.name, self.buffer.get_iter_at_offset(start), self.buffer.get_iter_at_offset(end))
+            self.buffer.remove_tag_by_name(self.name, self.buffer.get_iter_at_offset(
+                start), self.buffer.get_iter_at_offset(end))
 
     def add(self):
         for (start, end) in self.ranges:
-            self.buffer.apply_tag_by_name(self.name, self.buffer.get_iter_at_offset(start), self.buffer.get_iter_at_offset(end))
+            self.buffer.apply_tag_by_name(self.name, self.buffer.get_iter_at_offset(
+                start), self.buffer.get_iter_at_offset(end))
 
     def undo(self):
         if self.is_addition:
@@ -208,6 +226,7 @@ class TagAction(GenericAction):
             self.add()
         else:
             self.remove()
+
 
 class ShiftAction(GenericAction):
     def __init__(self, buffer, start, end, is_up):
@@ -234,13 +253,16 @@ class ShiftAction(GenericAction):
         move_end_mark = self.buffer.create_mark(None, move_end, True)
 
         self.buffer.insert_range(end_iter, move_start, move_end)
-        anchor = self.buffer.get_iter_at_mark(move_start_mark).get_child_anchor()
+        anchor = self.buffer.get_iter_at_mark(
+            move_start_mark).get_child_anchor()
         if anchor is not None:
             if isinstance(anchor.get_widgets()[0], Gtk.CheckButton):
                 checked = anchor.get_widgets()[0].get_active()
-                obj_action = self.buffer.add_check_button(self.buffer.get_iter_at_mark(end_mark), checked=checked)
+                obj_action = self.buffer.add_check_button(
+                    self.buffer.get_iter_at_mark(end_mark), checked=checked)
             elif isinstance(anchor.get_widgets()[0], Gtk.Image):
-                obj_action = self.buffer.add_bullet(self.buffer.get_iter_at_mark(end_mark))
+                obj_action = self.buffer.add_bullet(
+                    self.buffer.get_iter_at_mark(end_mark))
 
         self.buffer.insert(self.buffer.get_iter_at_mark(end_mark), '\n', -1)
         delete_start = self.buffer.get_iter_at_mark(move_start_mark)
@@ -249,7 +271,8 @@ class ShiftAction(GenericAction):
         self.buffer.delete(delete_start, delete_end)
 
         # since it gets really messy trying to restore the previous cursor position, just select the lines that are moving
-        self.buffer.select_range(self.buffer.get_iter_at_mark(start_mark), self.buffer.get_iter_at_mark(end_mark))
+        self.buffer.select_range(self.buffer.get_iter_at_mark(
+            start_mark), self.buffer.get_iter_at_mark(end_mark))
 
         self.buffer.delete_mark(move_start_mark)
         self.buffer.delete_mark(move_end_mark)
@@ -277,13 +300,16 @@ class ShiftAction(GenericAction):
 
         self.buffer.insert_range(start_iter, move_start, move_end)
         self.buffer.insert(self.buffer.get_iter_at_mark(start_mark), '\n', -1)
-        anchor = self.buffer.get_iter_at_mark(move_start_mark).get_child_anchor()
+        anchor = self.buffer.get_iter_at_mark(
+            move_start_mark).get_child_anchor()
         if anchor is not None:
             if isinstance(anchor.get_widgets()[0], Gtk.CheckButton):
                 checked = anchor.get_widgets()[0].get_active()
-                obj_action = self.buffer.add_check_button(self.buffer.get_iter_at_mark(begin_mark), checked=checked)
+                obj_action = self.buffer.add_check_button(
+                    self.buffer.get_iter_at_mark(begin_mark), checked=checked)
             elif isinstance(anchor.get_widgets()[0], Gtk.Image):
-                obj_action = self.buffer.add_bullet(self.buffer.get_iter_at_mark(begin_mark))
+                obj_action = self.buffer.add_bullet(
+                    self.buffer.get_iter_at_mark(begin_mark))
 
         delete_start = self.buffer.get_iter_at_mark(move_start_mark)
         delete_start.backward_char()
@@ -291,7 +317,8 @@ class ShiftAction(GenericAction):
         self.buffer.delete(delete_start, delete_end)
 
         # since it gets really messy trying to restore the previous cursor position, just select the lines that are moving
-        self.buffer.select_range(self.buffer.get_iter_at_mark(start_mark), self.buffer.get_iter_at_mark(end_mark))
+        self.buffer.select_range(self.buffer.get_iter_at_mark(
+            start_mark), self.buffer.get_iter_at_mark(end_mark))
 
         self.buffer.delete_mark(move_start_mark)
         self.buffer.delete_mark(move_end_mark)
@@ -316,6 +343,8 @@ class ShiftAction(GenericAction):
 
 # Used to combine multiple actions into one single undoable action. Actions should be passed in the same order in which
 # they were performed. Failure to do so could result in order getting mixed up in the buffer.
+
+
 class CompositeAction(GenericAction):
     def __init__(self, *args):
         super(CompositeAction, self).__init__()
@@ -330,6 +359,8 @@ class CompositeAction(GenericAction):
             action.redo()
 
 # we need to subclass the check button to add a Gdk.Window so that we can change the cursor
+
+
 class CheckBox(Gtk.CheckButton):
     def __init__(self, **kwargs):
         super(CheckBox, self).__init__(**kwargs)
@@ -346,7 +377,8 @@ class CheckBox(Gtk.CheckButton):
 
         allocation = self.get_allocation()
         attributes = Gdk.WindowAttr()
-        attributes.cursor = Gdk.Cursor.new_from_name(self.get_display(), 'default')
+        attributes.cursor = Gdk.Cursor.new_from_name(
+            self.get_display(), 'default')
         attributes.window_type = Gdk.WindowType.CHILD
         attributes.x = allocation.x
         attributes.y = allocation.y
@@ -357,7 +389,8 @@ class CheckBox(Gtk.CheckButton):
 
         attributes_mask = Gdk.WindowAttributesType.X | Gdk.WindowAttributesType.Y | Gdk.WindowAttributesType.CURSOR
 
-        self.event_window = Gdk.Window.new(parent_window, attributes, attributes_mask)
+        self.event_window = Gdk.Window.new(
+            parent_window, attributes, attributes_mask)
         self.register_window(self.event_window)
 
     def do_map(self):
@@ -375,6 +408,7 @@ class CheckBox(Gtk.CheckButton):
 
         if self.event_window:
             self.event_window.move(allocation.x, allocation.y)
+
 
 class NoteBuffer(Gtk.TextBuffer):
     # These values should not be modified directly.
@@ -414,8 +448,8 @@ class NoteBuffer(Gtk.TextBuffer):
     def __init__(self):
         super(NoteBuffer, self).__init__()
 
-        self.tags = [self.create_tag(name, **attributes) for name, attributes in TAG_DEFINITIONS.items()]
-
+        self.tags = [self.create_tag(name, **attributes)
+                     for name, attributes in TAG_DEFINITIONS.items()]
 
         self.connect('delete-range', self.on_delete)
         self.connect('begin-user-action', self.begin_composite_action)
@@ -424,20 +458,23 @@ class NoteBuffer(Gtk.TextBuffer):
 
     def set_view(self, view):
         def track_motion(v, event):
-            mouse_iter = self.view.get_iter_at_location(*self.view.window_to_buffer_coords(Gtk.TextWindowType.TEXT, event.x, event.y))[1]
+            mouse_iter = self.view.get_iter_at_location(
+                *self.view.window_to_buffer_coords(Gtk.TextWindowType.TEXT, event.x, event.y))[1]
             if mouse_iter.has_tag(self.get_tag_table().lookup('link')):
-                self.view.props.window.set_cursor(Gdk.Cursor.new_from_name(Gdk.Display.get_default(), 'pointer'))
+                self.view.props.window.set_cursor(
+                    Gdk.Cursor.new_from_name(Gdk.Display.get_default(), 'pointer'))
 
                 return Gdk.EVENT_STOP
 
             return Gdk.EVENT_PROPAGATE
 
         def handle_click(v, event):
-            if not(event.state & Gdk.ModifierType.CONTROL_MASK) or event.button != 1:
+            if not (event.state & Gdk.ModifierType.CONTROL_MASK) or event.button != 1:
                 return Gdk.EVENT_PROPAGATE
 
             tag = self.get_tag_table().lookup('link')
-            mouse_iter = self.view.get_iter_at_location(*self.view.window_to_buffer_coords(Gtk.TextWindowType.TEXT, event.x, event.y))[1]
+            mouse_iter = self.view.get_iter_at_location(
+                *self.view.window_to_buffer_coords(Gtk.TextWindowType.TEXT, event.x, event.y))[1]
             if not mouse_iter.has_tag(tag):
                 return Gdk.EVENT_PROPAGATE
 
@@ -528,7 +565,8 @@ class NoteBuffer(Gtk.TextBuffer):
                     self.insert(self.get_end_iter(), text[current_index:])
                     break
 
-                self.insert(self.get_end_iter(), text[current_index:next_index])
+                self.insert(self.get_end_iter(),
+                            text[current_index:next_index])
 
                 if text[next_index:next_index+2] == '##':
                     self.insert(self.get_end_iter(), '#')
@@ -551,7 +589,8 @@ class NoteBuffer(Gtk.TextBuffer):
                         self.apply_tag_by_name(tag_name, start, end)
                         self.delete_mark(mark)
                     else:
-                        open_tags[tag_name] = self.create_mark(None, self.get_end_iter(), True)
+                        open_tags[tag_name] = self.create_mark(
+                            None, self.get_end_iter(), True)
 
                     current_index = next_index + 6 + len(tag_name)
                 else:
@@ -644,16 +683,19 @@ class NoteBuffer(Gtk.TextBuffer):
                         font_scale_changed = True
                         for scale_tag_name in FONT_SCALES:
                             if scale_tag_name != 'normal':
-                                action = CompositeAction(action, self.strip_tag(scale_tag_name, location, next_char))
+                                action = CompositeAction(action, self.strip_tag(
+                                    scale_tag_name, location, next_char))
 
                     prev = location.copy()
                     if tag_name == 'normal':
                         # the 'normal' tag doesn't really exist but we still use it for removing other font scale tags
                         pass
                     elif prev.backward_char() & prev.has_tag(self.get_tag_table().lookup(tag_name)):
-                        action = CompositeAction(action, self.strip_tag(tag_name, location, next_char))
+                        action = CompositeAction(
+                            action, self.strip_tag(tag_name, location, next_char))
                     else:
-                        action = CompositeAction(action, self.add_tag(tag_name, location, next_char))
+                        action = CompositeAction(
+                            action, self.add_tag(tag_name, location, next_char))
 
                 for tag in location.get_toggled_tags(False):
                     tag_name = tag.props.name
@@ -667,7 +709,8 @@ class NoteBuffer(Gtk.TextBuffer):
                     # don't continue the tag if it was toggled off
                     # also don't continue if it's a font scale tag and another was just applied
                     if tag_name not in self.tag_toggles and (tag_name not in FONT_SCALES or not font_scale_changed):
-                        action = CompositeAction(action, self.add_tag(tag_name, location, next_char))
+                        action = CompositeAction(
+                            action, self.add_tag(tag_name, location, next_char))
 
                 self.tag_toggles = []
 
@@ -677,7 +720,8 @@ class NoteBuffer(Gtk.TextBuffer):
         if text in ['\n', '\t', ' ', '.', ',', ';', ':']:
             pre_text = self.get_slice(self.get_start_iter(), location, True)
             if match := get_url_start(pre_text):
-                self.add_undo_action(self.add_tag('link', self.get_iter_at_offset(match.start()), location))
+                self.add_undo_action(self.add_tag(
+                    'link', self.get_iter_at_offset(match.start()), location))
 
     def on_delete(self, buffer, start, end):
         if self.internal_action_count:
@@ -703,7 +747,8 @@ class NoteBuffer(Gtk.TextBuffer):
                 anchor = current_iter.get_child_anchor()
                 if anchor is not None:
                     current_offset = current_iter.get_offset()
-                    action = ObjectInsertAction(self, anchor, is_addition=False)
+                    action = ObjectInsertAction(
+                        self, anchor, is_addition=False)
                     actions.append(action)
                     action.remove()
 
@@ -722,14 +767,17 @@ class NoteBuffer(Gtk.TextBuffer):
                         continue
 
                     if tag.props.name in open_tags:
-                        actions.append(TagAction(self, tag.props.name, self.get_iter_at_offset(open_tags[tag.props.name]), current_iter, False))
+                        actions.append(TagAction(self, tag.props.name, self.get_iter_at_offset(
+                            open_tags[tag.props.name]), current_iter, False))
                         del open_tags[tag.props.name]
                     else:
-                        actions.append(TagAction(self, tag.props.name, start, current_iter, False))
+                        actions.append(
+                            TagAction(self, tag.props.name, start, current_iter, False))
 
                 current_iter.forward_char()
 
-            actions.extend(TagAction(self, name, self.get_iter_at_offset(offset), end, False) for name, offset in open_tags.items())
+            actions.extend(TagAction(self, name, self.get_iter_at_offset(
+                offset), end, False) for name, offset in open_tags.items())
 
             self.delete_mark(start_mark)
             self.delete_mark(end_mark)
@@ -812,7 +860,8 @@ class NoteBuffer(Gtk.TextBuffer):
     def add_check_button(self, a_iter, checked=False):
         with self.internal_action():
             anchor = self.create_child_anchor(a_iter)
-            check_button = CheckBox(visible=True, active=checked, margin_right=5, margin_top=5)
+            check_button = CheckBox(
+                visible=True, active=checked, margin_right=5, margin_top=5)
             check_button.connect('toggled', self.trigger_changed)
             self.view.add_child_at_anchor(check_button, anchor)
 
@@ -821,7 +870,8 @@ class NoteBuffer(Gtk.TextBuffer):
     def add_bullet(self, a_iter):
         with self.internal_action():
             anchor = self.create_child_anchor(a_iter)
-            bullet = Gtk.Image(visible=True, icon_name='menu-bullet', pixel_size=16)
+            bullet = Gtk.Image(
+                visible=True, icon_name='menu-bullet', pixel_size=16)
             self.view.add_child_at_anchor(bullet, anchor)
 
             return ObjectInsertAction(self, anchor)
@@ -837,7 +887,8 @@ class NoteBuffer(Gtk.TextBuffer):
             line_index_start = start.get_line()
             line_index_end = end.get_line()
 
-            all_have_checkboxes = all(self.get_iter_at_line(line).get_child_anchor() is not None for line in range(line_index_start, line_index_end + 1))
+            all_have_checkboxes = all(self.get_iter_at_line(line).get_child_anchor(
+            ) is not None for line in range(line_index_start, line_index_end + 1))
 
             for line in range(line_index_start, line_index_end + 1):
                 if all_have_checkboxes:
@@ -847,7 +898,8 @@ class NoteBuffer(Gtk.TextBuffer):
                         action.remove()
                         actions.append(action)
                 else:
-                    actions.append(self.add_check_button(self.get_iter_at_line(line)))
+                    actions.append(self.add_check_button(
+                        self.get_iter_at_line(line)))
 
             if len(actions):
                 self.add_undo_action(CompositeAction(*actions))
@@ -863,7 +915,8 @@ class NoteBuffer(Gtk.TextBuffer):
             line_index_start = start.get_line()
             line_index_end = end.get_line()
 
-            all_have_bullets = all(self.get_iter_at_line(line).get_child_anchor() is not None for line in range(line_index_start, line_index_end + 1))
+            all_have_bullets = all(self.get_iter_at_line(line).get_child_anchor(
+            ) is not None for line in range(line_index_start, line_index_end + 1))
 
             for line in range(line_index_start, line_index_end + 1):
                 if all_have_bullets:
@@ -873,7 +926,8 @@ class NoteBuffer(Gtk.TextBuffer):
                         action.remove()
                         actions.append(action)
                 else:
-                    actions.append(self.add_bullet(self.get_iter_at_line(line)))
+                    actions.append(self.add_bullet(
+                        self.get_iter_at_line(line)))
 
         if actions:
             self.add_undo_action(CompositeAction(*actions))
