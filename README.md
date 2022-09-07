@@ -1,4 +1,6 @@
 # Sticky
+![build](https://github.com/linuxmint/sticky/actions/workflows/build.yml/badge.svg)
+
 Sticky is a note-taking app for the Linux desktop that simulates traditional "sticky note" style stationery on your desktop. Some of its features include basic text formatting (bold, italics, monospaced, etc.), spell-checking, a tray icon for controlling note visibility, color notes, manual and automatic backups, and a manager to organize your notes into groups. Sticky is written in Python, and uses the GTK3 toolkit
 
 ![img](https://linuxmint.com/pictures/screenshots/uma/sticky.png)
