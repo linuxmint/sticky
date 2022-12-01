@@ -375,7 +375,7 @@ class CheckBox(Gtk.CheckButton):
         Gtk.CheckButton.do_size_allocate(self, allocation)
 
         if self.event_window:
-            self.event_window.move(allocation.x, allocation.y)
+            self.event_window.move_resize(allocation.x, allocation.y, allocation.width, allocation.height)
 
 class NoteBuffer(Gtk.TextBuffer):
     # These values should not be modified directly.
