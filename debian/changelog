@@ -1,3 +1,17 @@
+sticky (1.13) vanessa; urgency=medium
+
+  [ Michael Webster ]
+  * Add github workflow.
+
+  [ Stephen Collins ]
+  * checkbox: Fix cursor not changing on hover when checkboxes are 1st added
+
+  [ Clement Lefebvre ]
+  * l10n: Update translations
+  * l10n: Update files
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 02 Dec 2022 17:33:18 +0000
+
 sticky (1.12) vanessa; urgency=medium
 
   [ Stephen Collins ]
