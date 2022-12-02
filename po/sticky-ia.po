@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2022-06-22 08:57+0200\n"
-"PO-Revision-Date: 2021-06-17 05:20+0000\n"
+"PO-Revision-Date: 2022-09-07 18:08+0000\n"
 "Last-Translator: karm <melo@carmu.com>\n"
 "Language-Team: Interlingua <ia@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-07-24 09:43+0000\n"
-"X-Generator: Launchpad (build 025a39fd866a641b6ae33074cda0d02a2c712d38)\n"
+"X-Launchpad-Export-Date: 2022-12-02 14:13+0000\n"
+"X-Generator: Launchpad (build 51cef3d08dff1e227b5ada709bd67280c567d4be)\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:300
 msgid "Export..."
@@ -60,7 +60,7 @@ msgstr "Impossibile restaurar copia de reserva invalide o corrupte"
 
 #: usr/lib/sticky/common.py:262
 msgid "Overwrite Existing Group"
-msgstr ""
+msgstr "Superscriber gruppo existente"
 
 #: usr/lib/sticky/common.py:262
 #, python-format
@@ -68,6 +68,8 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
+"Il ha jam un gruppo nominate '%s'. Iste action lo superscribera. Continuar "
+"comocunque?"
 
 #: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
@@ -137,19 +139,19 @@ msgstr "A proposito"
 
 #: usr/lib/sticky/sticky.py:31
 msgid "Small Text"
-msgstr ""
+msgstr "Texto micre"
 
 #: usr/lib/sticky/sticky.py:32
 msgid "Normal Text"
-msgstr ""
+msgstr "Texto normal"
 
 #: usr/lib/sticky/sticky.py:33
 msgid "Large Text"
-msgstr ""
+msgstr "Texto grande"
 
 #: usr/lib/sticky/sticky.py:34
 msgid "Larger Text"
-msgstr ""
+msgstr "Texto plus grande"
 
 #: usr/lib/sticky/sticky.py:38
 msgid "Red"
@@ -185,7 +187,7 @@ msgstr "Magenta"
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Operations"
-msgstr ""
+msgstr "Operationes"
 
 #: usr/lib/sticky/sticky.py:61
 msgid "Move selection up"
@@ -213,7 +215,7 @@ msgstr "Mutar punctos"
 
 #: usr/lib/sticky/sticky.py:68
 msgid "Formatting"
-msgstr ""
+msgstr "Formattante"
 
 #: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:443
 #: usr/lib/sticky/sticky.py:444
@@ -252,7 +254,7 @@ msgstr "Titular"
 
 #: usr/lib/sticky/sticky.py:144
 msgid "Note Color"
-msgstr ""
+msgstr "Color de nota"
 
 #: usr/lib/sticky/sticky.py:161
 msgid "Rename"
@@ -289,7 +291,7 @@ msgstr "Rediger titulo"
 
 #: usr/lib/sticky/sticky.py:396
 msgid "Duplicate Note"
-msgstr ""
+msgstr "Duplicar nota"
 
 #: usr/lib/sticky/sticky.py:408
 msgid "Only on This Workspace"
@@ -337,7 +339,7 @@ msgstr "Largessa predefinite"
 
 #: usr/lib/sticky/sticky.py:592 usr/lib/sticky/sticky.py:597
 msgid "Cycle Colors"
-msgstr ""
+msgstr "Colores del cyclo"
 
 #: usr/lib/sticky/sticky.py:594 usr/lib/sticky/sticky.py:599
 msgid "Default color"
@@ -396,7 +398,7 @@ msgstr "Initio automatic"
 
 #: usr/lib/sticky/sticky.py:638
 msgid "Text Size"
-msgstr ""
+msgstr "Dimension de texto"
 
 #: usr/lib/sticky/sticky.py:745
 msgid ""
@@ -412,11 +414,11 @@ msgstr "Gruppo 1"
 
 #: usr/lib/sticky/sticky.py:777
 msgid "Left click to toggle notes"
-msgstr ""
+msgstr "Clicca sinistre pro mutar notas"
 
 #: usr/lib/sticky/sticky.py:778
 msgid "Middle click to toggle the manager"
-msgstr ""
+msgstr "Clicca medie pro mutar gestor"
 
 #: usr/lib/sticky/sticky.py:796
 msgid "Manage Notes"
@@ -445,4 +447,4 @@ msgstr "Remover le nota seligite"
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
-msgstr ""
+msgstr "Duplicar nota seligite"

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2022-06-22 08:57+0200\n"
-"PO-Revision-Date: 2022-06-22 08:53+0000\n"
+"PO-Revision-Date: 2022-07-25 18:01+0000\n"
 "Last-Translator: Piet Coppens <Unknown>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-07-24 09:43+0000\n"
-"X-Generator: Launchpad (build 025a39fd866a641b6ae33074cda0d02a2c712d38)\n"
+"X-Launchpad-Export-Date: 2022-12-02 14:13+0000\n"
+"X-Generator: Launchpad (build 51cef3d08dff1e227b5ada709bd67280c567d4be)\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:300
 msgid "Export..."
@@ -302,7 +302,7 @@ msgstr "Ĉiam sur videbla laborspaco"
 
 #: usr/lib/sticky/sticky.py:424
 msgid "Always on Top"
-msgstr "Ĉiam supre"
+msgstr "Ĉiamvidebligi"
 
 #: usr/lib/sticky/sticky.py:519
 msgid "Are you sure you want to remove this note?"
@@ -326,7 +326,7 @@ msgstr "Montri la ĉefan fenestron aŭtomate"
 
 #: usr/lib/sticky/sticky.py:583
 msgid "General"
-msgstr "Ĝenerala"
+msgstr "Ĝenerale"
 
 #: usr/lib/sticky/sticky.py:587
 msgid "Default height"
@@ -404,7 +404,7 @@ msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
 msgstr ""
-"Ĉu vi ŝatas importi viajn notojn ekde Gnote? Ĉi tio tute ne ŝanĝos viajn "
+"Ĉu vi deziras importi viajn notojn ekde Gnote? Ĉi tio tute ne ŝanĝos viajn "
 "Gnote-notojn."
 
 #: usr/lib/sticky/sticky.py:768
@@ -413,7 +413,7 @@ msgstr "Grupo 1"
 
 #: usr/lib/sticky/sticky.py:777
 msgid "Left click to toggle notes"
-msgstr "Maldekstre alklaki por baskuligi komentojn"
+msgstr "Maldekstre alklaki por baskuligi notojn"
 
 #: usr/lib/sticky/sticky.py:778
 msgid "Middle click to toggle the manager"

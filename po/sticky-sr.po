@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2022-06-22 08:57+0200\n"
-"PO-Revision-Date: 2021-06-08 22:36+0000\n"
-"Last-Translator: Saša Marjanović <Unknown>\n"
+"PO-Revision-Date: 2022-08-13 08:37+0000\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-07-24 09:43+0000\n"
-"X-Generator: Launchpad (build 025a39fd866a641b6ae33074cda0d02a2c712d38)\n"
+"X-Launchpad-Export-Date: 2022-12-02 14:13+0000\n"
+"X-Generator: Launchpad (build 51cef3d08dff1e227b5ada709bd67280c567d4be)\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:300
 msgid "Export..."
@@ -61,7 +61,7 @@ msgstr ""
 
 #: usr/lib/sticky/common.py:262
 msgid "Overwrite Existing Group"
-msgstr ""
+msgstr "Препиши постојећу групу"
 
 #: usr/lib/sticky/common.py:262
 #, python-format
@@ -69,6 +69,8 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
+"Већ постоји група под називом „%s“. Ова радња ће је преписати. Да ипак "
+"наставим?"
 
 #: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
@@ -138,19 +140,19 @@ msgstr "О програму"
 
 #: usr/lib/sticky/sticky.py:31
 msgid "Small Text"
-msgstr ""
+msgstr "Мали текст"
 
 #: usr/lib/sticky/sticky.py:32
 msgid "Normal Text"
-msgstr ""
+msgstr "Обичан текст"
 
 #: usr/lib/sticky/sticky.py:33
 msgid "Large Text"
-msgstr ""
+msgstr "Велики текст"
 
 #: usr/lib/sticky/sticky.py:34
 msgid "Larger Text"
-msgstr ""
+msgstr "Већи текст"
 
 #: usr/lib/sticky/sticky.py:38
 msgid "Red"
@@ -186,7 +188,7 @@ msgstr "Светло љубичаста"
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Operations"
-msgstr ""
+msgstr "Радње"
 
 #: usr/lib/sticky/sticky.py:61
 msgid "Move selection up"
@@ -214,7 +216,7 @@ msgstr "Замени стање избора ставки у листи"
 
 #: usr/lib/sticky/sticky.py:68
 msgid "Formatting"
-msgstr ""
+msgstr "Форматирам"
 
 #: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:443
 #: usr/lib/sticky/sticky.py:444
@@ -253,7 +255,7 @@ msgstr "Заглавље"
 
 #: usr/lib/sticky/sticky.py:144
 msgid "Note Color"
-msgstr ""
+msgstr "Боја белешке"
 
 #: usr/lib/sticky/sticky.py:161
 msgid "Rename"
@@ -290,7 +292,7 @@ msgstr "Уредите наслов"
 
 #: usr/lib/sticky/sticky.py:396
 msgid "Duplicate Note"
-msgstr ""
+msgstr "Удвостручи белешку"
 
 #: usr/lib/sticky/sticky.py:408
 msgid "Only on This Workspace"
@@ -338,7 +340,7 @@ msgstr "Подразумевана ширина"
 
 #: usr/lib/sticky/sticky.py:592 usr/lib/sticky/sticky.py:597
 msgid "Cycle Colors"
-msgstr ""
+msgstr "Мењај боје"
 
 #: usr/lib/sticky/sticky.py:594 usr/lib/sticky/sticky.py:599
 msgid "Default color"
@@ -399,7 +401,7 @@ msgstr "Аутоматско покретање"
 
 #: usr/lib/sticky/sticky.py:638
 msgid "Text Size"
-msgstr ""
+msgstr "Величина текста"
 
 #: usr/lib/sticky/sticky.py:745
 msgid ""
@@ -415,11 +417,11 @@ msgstr "Група 1"
 
 #: usr/lib/sticky/sticky.py:777
 msgid "Left click to toggle notes"
-msgstr ""
+msgstr "Леви клик за окидање белешки"
 
 #: usr/lib/sticky/sticky.py:778
 msgid "Middle click to toggle the manager"
-msgstr ""
+msgstr "Средњи клик за окидање управника"
 
 #: usr/lib/sticky/sticky.py:796
 msgid "Manage Notes"
@@ -448,4 +450,4 @@ msgstr "Уклони изабране белешке"
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
-msgstr ""
+msgstr "Удвостручите изабрану белешку"

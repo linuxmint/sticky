@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2022-06-22 08:57+0200\n"
-"PO-Revision-Date: 2021-09-10 20:00+0000\n"
-"Last-Translator: mohammed mubarak <modymu9@gmail.com>\n"
+"PO-Revision-Date: 2022-09-05 13:13+0000\n"
+"Last-Translator: أنس <Unknown>\n"
 "Language-Team: Arabic <ar@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-07-24 09:43+0000\n"
-"X-Generator: Launchpad (build 025a39fd866a641b6ae33074cda0d02a2c712d38)\n"
+"X-Launchpad-Export-Date: 2022-12-02 14:13+0000\n"
+"X-Generator: Launchpad (build 51cef3d08dff1e227b5ada709bd67280c567d4be)\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:300
 msgid "Export..."
@@ -60,7 +60,7 @@ msgstr "لا يمكن استرجاعه: ملف النسخ الإحتياطي غ�
 
 #: usr/lib/sticky/common.py:262
 msgid "Overwrite Existing Group"
-msgstr ""
+msgstr "إستبدل المجموعة الموجودة"
 
 #: usr/lib/sticky/common.py:262
 #, python-format
@@ -68,6 +68,7 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
+"يوجد بالفعل مجموعة تسمى '%s'. هذا الإجراء سيستبدلها. إستمر على أي حال؟"
 
 #: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
@@ -137,19 +138,19 @@ msgstr "عن التطبيق"
 
 #: usr/lib/sticky/sticky.py:31
 msgid "Small Text"
-msgstr ""
+msgstr "نص صغير"
 
 #: usr/lib/sticky/sticky.py:32
 msgid "Normal Text"
-msgstr ""
+msgstr "نص عادي"
 
 #: usr/lib/sticky/sticky.py:33
 msgid "Large Text"
-msgstr ""
+msgstr "نص كبير"
 
 #: usr/lib/sticky/sticky.py:34
 msgid "Larger Text"
-msgstr ""
+msgstr "نص أكبر"
 
 #: usr/lib/sticky/sticky.py:38
 msgid "Red"
@@ -185,7 +186,7 @@ msgstr "أرجواني"
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Operations"
-msgstr ""
+msgstr "العمليات"
 
 #: usr/lib/sticky/sticky.py:61
 msgid "Move selection up"
@@ -213,7 +214,7 @@ msgstr "قائمة نقاط"
 
 #: usr/lib/sticky/sticky.py:68
 msgid "Formatting"
-msgstr ""
+msgstr "النسق"
 
 #: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:443
 #: usr/lib/sticky/sticky.py:444
@@ -252,7 +253,7 @@ msgstr "عنوان رئيسي"
 
 #: usr/lib/sticky/sticky.py:144
 msgid "Note Color"
-msgstr ""
+msgstr "لون الملاحظة"
 
 #: usr/lib/sticky/sticky.py:161
 msgid "Rename"
@@ -289,7 +290,7 @@ msgstr "عدِّل العنوان"
 
 #: usr/lib/sticky/sticky.py:396
 msgid "Duplicate Note"
-msgstr ""
+msgstr "كرر الملاحظة"
 
 #: usr/lib/sticky/sticky.py:408
 msgid "Only on This Workspace"
@@ -337,7 +338,7 @@ msgstr "العرض الافتراضي"
 
 #: usr/lib/sticky/sticky.py:592 usr/lib/sticky/sticky.py:597
 msgid "Cycle Colors"
-msgstr ""
+msgstr "الألوان الدورية"
 
 #: usr/lib/sticky/sticky.py:594 usr/lib/sticky/sticky.py:599
 msgid "Default color"
@@ -396,13 +397,14 @@ msgstr "البدء التلقائي"
 
 #: usr/lib/sticky/sticky.py:638
 msgid "Text Size"
-msgstr ""
+msgstr "حجم النص"
 
 #: usr/lib/sticky/sticky.py:745
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
 msgstr ""
+"هل تود استيراد ملاحظاتِك من Gnote؟ هذا لن يغير من ملاحظاتك في Gnote بأي شكل."
 
 #: usr/lib/sticky/sticky.py:768
 msgid "Group 1"
@@ -410,15 +412,15 @@ msgstr "مجموعة 1"
 
 #: usr/lib/sticky/sticky.py:777
 msgid "Left click to toggle notes"
-msgstr ""
+msgstr "نقرة على اليسار لتبديل الملاحظات"
 
 #: usr/lib/sticky/sticky.py:778
 msgid "Middle click to toggle the manager"
-msgstr ""
+msgstr "ضغطة على الوسط لتبديل المدير"
 
 #: usr/lib/sticky/sticky.py:796
 msgid "Manage Notes"
-msgstr ""
+msgstr "إدارة الملاحظات"
 
 #: usr/lib/sticky/sticky.py:818
 msgid "Quit"
@@ -427,11 +429,11 @@ msgstr "اغلاق"
 #: usr/lib/sticky/sticky.py:1014 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr ""
+msgstr "دوِّن الملاحظات وكن منظّماً"
 
 #: usr/lib/sticky/util.py:79
 msgid "Unfiled"
-msgstr ""
+msgstr "غير مدرج"
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
@@ -439,8 +441,8 @@ msgstr "ملاحظة جديدة"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr ""
+msgstr "إحذف الملاحظة المختارة"
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
-msgstr ""
+msgstr "كرر الملاحظة المختارة"

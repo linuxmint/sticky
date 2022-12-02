@@ -1,16 +1,16 @@
-# Estonian translation for linuxmint
-# Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
+# Bulgarian translation for linuxmint
+# Copyright (c) 2022 Rosetta Contributors and Canonical Ltd 2022
 # This file is distributed under the same license as the linuxmint package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2022-06-22 08:57+0200\n"
-"PO-Revision-Date: 2022-06-23 06:18+0000\n"
-"Last-Translator: mahfiaz <mahfiaz@gmail.com>\n"
-"Language-Team: Estonian <et@li.org>\n"
+"PO-Revision-Date: 2022-09-24 06:01+0000\n"
+"Last-Translator: Nikolay Trifonov <trifonov88@gmail.com>\n"
+"Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,48 +19,48 @@ msgstr ""
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:300
 msgid "Export..."
-msgstr "Ekspordi ..."
+msgstr "Експортиране..."
 
 #: usr/lib/sticky/common.py:145 usr/lib/sticky/common.py:169
 #: usr/lib/sticky/common.py:192 usr/lib/sticky/common.py:324
 msgid "Cancel"
-msgstr "Tühista"
+msgstr "Отмяна"
 
 #: usr/lib/sticky/common.py:145
 msgid "Save"
-msgstr "Salvesta"
+msgstr "Запазване"
 
 #: usr/lib/sticky/common.py:156 usr/lib/sticky/common.py:178
 msgid "Plain Text"
-msgstr "Lihttekst"
+msgstr "Само текст"
 
 #: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:296
 msgid "Import..."
-msgstr "Impordi..."
+msgstr "Импортиране..."
 
 #: usr/lib/sticky/common.py:169
 msgid "Open"
-msgstr "Ava"
+msgstr "Отваряне"
 
 #: usr/lib/sticky/common.py:191
 msgid "Restore Backup"
-msgstr "Taasta varukoopiast"
+msgstr ""
 
 #: usr/lib/sticky/common.py:193
 msgid "Clear"
-msgstr "Puhasta"
+msgstr "Изчистване"
 
 #: usr/lib/sticky/common.py:194
 msgid "Restore"
-msgstr "Taasta"
+msgstr "Възстановяване"
 
 #: usr/lib/sticky/common.py:249
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr "Ei saa taastada: vigane või rikutud varufail"
+msgstr ""
 
 #: usr/lib/sticky/common.py:262
 msgid "Overwrite Existing Group"
-msgstr "Olemasoleva rühma ülekirjutamine"
+msgstr ""
 
 #: usr/lib/sticky/common.py:262
 #, python-format
@@ -68,384 +68,379 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
-"Grupp nimega '%s' on juba olemas. See toiming kirjutab selle üle. Kas "
-"jätkata ikkagi?"
 
 #: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
-msgstr "Eemalda grupp"
+msgstr ""
 
 #: usr/lib/sticky/common.py:273
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
-msgstr "Kas olete kindel, et soovite grupi %s eemaldada"
+msgstr ""
 
 #: usr/lib/sticky/common.py:325
 msgid "OK"
-msgstr "OK"
+msgstr ""
 
 #: usr/lib/sticky/common.py:348
 msgid "No"
-msgstr "Ei"
+msgstr ""
 
 #: usr/lib/sticky/common.py:349
 msgid "Yes"
-msgstr "Jah"
+msgstr ""
 
 #: usr/lib/sticky/common.py:359
 msgid "Don't ask me again"
-msgstr "Ära küsi enam uuesti"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:108
 msgid "New"
-msgstr "Uus"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:113
 msgid "Edit"
-msgstr "Redigeeri"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:117
 msgid "Remove"
-msgstr "Eemalda"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:222
 msgid "Untitled"
-msgstr "Pealkirjata"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:276
 msgid "New Group"
-msgstr "Uus grupp"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:286
 msgid "Back Up"
-msgstr "Varunda"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:290
 msgid "Restore Backups..."
-msgstr "Taastada varukoopiad..."
+msgstr ""
 
 #: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:575
 #: usr/lib/sticky/sticky.py:812
 msgid "Preferences"
-msgstr "Eelistused"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:310
 msgid "Keyboard Shortcuts"
-msgstr "Klaviatuuri kiirklahvid"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:315 usr/lib/sticky/sticky.py:1012
 msgid "About"
-msgstr "Teave"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:31
 msgid "Small Text"
-msgstr "Väike tekst"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:32
 msgid "Normal Text"
-msgstr "Tavaline tekst"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:33
 msgid "Large Text"
-msgstr "Suur tekst"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:34
 msgid "Larger Text"
-msgstr "Suurem tekst"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:38
 msgid "Red"
-msgstr "Punane"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:39
 msgid "Green"
-msgstr "Roheline"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:40
 msgid "Blue"
-msgstr "Sinine"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:41
 msgid "Yellow"
-msgstr "Kollane"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:42
 msgid "Purple"
-msgstr "Lilla"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:43
 msgid "Teal"
-msgstr "Sinakasroheline"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:44
 msgid "Orange"
-msgstr "Oranž"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:45
 msgid "Magenta"
-msgstr "Fuksiinpunane"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Operations"
-msgstr "Toimingud"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:61
 msgid "Move selection up"
-msgstr "Liigutage valik üles"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:62
 msgid "Move selection down"
-msgstr "Liigutage valik alla"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:63
 msgid "Undo"
-msgstr "Võta tagasi"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:64
 msgid "Redo"
-msgstr "Uuesti"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:65 usr/lib/sticky/sticky.py:488
 msgid "Toggle Checklist"
-msgstr "Lülita kontrollnimekiri sisse / välja"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:66 usr/lib/sticky/sticky.py:492
 msgid "Toggle Bullets"
-msgstr "Lülita täpid ümber"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:68
 msgid "Formatting"
-msgstr "Vormindamine"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:69 usr/lib/sticky/sticky.py:443
 #: usr/lib/sticky/sticky.py:444
 msgid "Bold"
-msgstr "Rasvane"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:70 usr/lib/sticky/sticky.py:448
 #: usr/lib/sticky/sticky.py:449
 msgid "Italic"
-msgstr "Kursiiv"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:71 usr/lib/sticky/sticky.py:453
 #: usr/lib/sticky/sticky.py:454
 msgid "Fixed Width"
-msgstr "Fikseeritud laius"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:72 usr/lib/sticky/sticky.py:458
 #: usr/lib/sticky/sticky.py:459
 msgid "Underline"
-msgstr "Allajoonitud"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:73 usr/lib/sticky/sticky.py:463
 #: usr/lib/sticky/sticky.py:464
 msgid "Strikethrough"
-msgstr "Läbikriipsutus"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:74 usr/lib/sticky/sticky.py:468
 #: usr/lib/sticky/sticky.py:469
 msgid "Highlight"
-msgstr "Esiletõstetud"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:75 usr/lib/sticky/sticky.py:473
 #: usr/lib/sticky/sticky.py:474
 msgid "Header"
-msgstr "Päis"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:144
 msgid "Note Color"
-msgstr "Märkme värvus"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:161
 msgid "Rename"
-msgstr "Ümbernimetamine"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:169 usr/lib/sticky/sticky.py:400
 #: usr/lib/sticky/sticky.py:519
 msgid "Delete Note"
-msgstr "Kustuta märge"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:176 usr/lib/sticky/sticky.py:792
 msgid "New Note"
-msgstr "Uus märge"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:182
 msgid "Format"
-msgstr "Vorming"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:381
 msgid "undo"
-msgstr "Võta tagasi"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:385
 msgid "redo"
-msgstr "uuesti"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:391
 msgid "Set Title"
-msgstr "Pealkirja määramine"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:391
 msgid "Edit Title"
-msgstr "Pealkirja muutmine"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:396
 msgid "Duplicate Note"
-msgstr "Dubleeri märkus"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:408
 msgid "Only on This Workspace"
-msgstr "Ainult sellel töölaual"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:412
 msgid "Always on Visible Workspace"
-msgstr "Alati nähtaval tööalal"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:424
 msgid "Always on Top"
-msgstr "Alati pealmine"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:519
 msgid "Are you sure you want to remove this note?"
-msgstr "Kas olete kindel, et soovite selle märkme eemaldada?"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:579
 msgid "Show notes on all desktops"
-msgstr "Kuva märkmeid kõigil lauaarvutitel"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:580
 msgid "Show in taskbar"
-msgstr "Näita tegumiribal"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:581
 msgid "Tray icon"
-msgstr "Paneeli ikoon"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:582
 msgid "Show the main window automatically"
-msgstr "Kuva peaaken automaatselt"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:583
 msgid "General"
-msgstr "Üldine"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:587
 msgid "Default height"
-msgstr "Vaikimisi kõrgus"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:588
 msgid "Default width"
-msgstr "Vaikimisi laius"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:592 usr/lib/sticky/sticky.py:597
 msgid "Cycle Colors"
-msgstr "Värvivaheldus"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:594 usr/lib/sticky/sticky.py:599
 msgid "Default color"
-msgstr "Vaikevärv"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:601
 msgid "Font"
-msgstr "Font"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:602
 msgid "Show spelling mistakes"
-msgstr "Näita õigekirjavigu"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:604 usr/lib/sticky/sticky.py:675
 #: usr/lib/sticky/sticky.py:744 usr/lib/sticky/sticky.py:776
 #: usr/lib/sticky/sticky.py:1013 generate_desktop_files:13
 #: usr/share/sticky/manager.ui.h:1
 msgid "Notes"
-msgstr "Märkmed"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:609
 msgid "Automatic backups"
-msgstr "Automaatne varundamine"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:610
 msgid "Time between backups"
-msgstr "Varundamise vaheline aeg"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:610
 msgid "hours"
-msgstr "tundi"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:611
 msgid "Set this to zero if you wish to keep all backups indefinitely"
 msgstr ""
-"Kui soovite kõik varukoopiad määramata ajaks säilitada, seadke see nulliks"
 
 #: usr/lib/sticky/sticky.py:612
 msgid "Number to keep"
-msgstr "Säilitav arv"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:614
 msgid "Backups"
-msgstr "Varukoopiad"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:618
 msgid "Start automatically"
-msgstr "Automaatne käivitumine"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:619
 msgid "Show notes on the screen"
-msgstr "Kuva märkmeid ekraanil"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:620
 msgid "Automatic start"
-msgstr "Automaatne käivitamine"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:638
 msgid "Text Size"
-msgstr "Teksti suurus"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:745
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
 msgstr ""
-"Kas soovite oma märkmed Gnote'ist importida? See ei muuda teie Gnote'i "
-"märkmeid mingil viisil."
 
 #: usr/lib/sticky/sticky.py:768
 msgid "Group 1"
-msgstr "Grupp 1"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:777
 msgid "Left click to toggle notes"
-msgstr "Vasak klikk avab märkmed"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:778
 msgid "Middle click to toggle the manager"
-msgstr "Keskmine hiireklikk avab halduri"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:796
 msgid "Manage Notes"
-msgstr "Märkmete haldamine"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:818
 msgid "Quit"
-msgstr "Välju"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:1014 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr "Tehke märkmeid ja olge organiseeritud"
+msgstr ""
 
 #: usr/lib/sticky/util.py:79
 msgid "Unfiled"
-msgstr "Salvestamata"
+msgstr ""
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
-msgstr "Uus märge"
+msgstr ""
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr "Eemalda valitud märge"
+msgstr ""
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
-msgstr "Valitud märkuse dubleerimine"
+msgstr ""
