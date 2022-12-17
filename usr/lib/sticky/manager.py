@@ -239,6 +239,9 @@ class NotesManager(object):
 
         self.window = self.builder.get_object('main_window')
         self.group_list = self.builder.get_object('group_list')
+        self.window.resize(self.app.settings.get_int('manager-width'), self.app.settings.get_int('manager-height'))
+        self.window.connect('unrealize', self.cache_window_size)
+
         self.note_view = self.builder.get_object('note_view')
         self.note_view.connect('child-activated', self.on_note_activated)
         self.note_view.connect('selected-children-changed', self.on_selected_notes_changed)
@@ -585,3 +588,8 @@ class NotesManager(object):
         self.create_new_group(on_created)
 
         Gtk.drag_finish(context, True, False, time)
+
+    def cache_window_size(self, *args):
+        width, height = self.window.get_size()
+        self.app.settings.set_int('manager-width', width)
+        self.app.settings.set_int('manager-height', height)

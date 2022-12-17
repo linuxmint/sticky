@@ -179,6 +179,22 @@
       </description>
     </key>
 
+    <key name='manager-width' type='i'>
+      <default>800</default>
+      <summary>The most recent width</summary>
+      <description>
+        Used to keep track of the current/most recent width.
+      </description>
+    </key>
+
+    <key name='manager-height' type='i'>
+      <default>600</default>
+      <summary>The most recent height</summary>
+      <description>
+        Used to keep track of the current/most recent height.
+      </description>
+    </key>
+
   </schema>
 
 </schemalist>
