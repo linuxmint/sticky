@@ -5,7 +5,8 @@ from note_buffer import NoteBuffer
 from common import HoverBox
 from util import clean_text
 
-NOTE_TARGETS = [Gtk.TargetEntry.new('note-entry', Gtk.TargetFlags.SAME_APP, 1)]
+GRID_NOTE_TARGETS = [Gtk.TargetEntry.new('grid-note-entry', Gtk.TargetFlags.SAME_APP, 1)]
+KANBAN_NOTE_TARGETS = [Gtk.TargetEntry.new('kanban-note-entry', Gtk.TargetFlags.SAME_APP, 1)]
 
 class NoteEntry(Gtk.Container):
     initialized = False
@@ -231,6 +232,84 @@ class Note(GObject.Object):
         else:
             self.title = info['title']
 
+class KanbanColumn(Gtk.Box):
+    def __init__(self, column_info, file_handler, settings, size_group):
+        super(KanbanColumn, self).__init__(orientation=Gtk.Orientation.VERTICAL, margin=10, name='kanban-column', width_request=180)
+        self.column_info = column_info
+        self.file_handler = file_handler
+        self.settings = settings
+        self.dragged_note = None
+
+        column_header = Gtk.Label(label=self.column_info.name,
+                                  halign=Gtk.Align.CENTER,
+                                  hexpand=True,
+                                  wrap=True,
+                                  wrap_mode=Pango.WrapMode.WORD_CHAR,
+                                  name='kanban-column-header',
+                                  margin=4,
+                                  justify=Gtk.Justification.CENTER)
+
+        size_group.add_widget(column_header)
+        self.pack_start(column_header, False, False, 0)
+
+        scroll_box = Gtk.ScrolledWindow(hscrollbar_policy=Gtk.PolicyType.NEVER)
+        self.pack_start(scroll_box, True, True, 0)
+
+        self.listbox = Gtk.ListBox()
+        scroll_box.add(self.listbox)
+        self.listbox.drag_dest_set(Gtk.DestDefaults.MOTION | Gtk.DestDefaults.HIGHLIGHT, KANBAN_NOTE_TARGETS, Gdk.DragAction.MOVE)
+        self.listbox.connect('drag-drop', self.handle_note_drop)
+        self.listbox.bind_model(self.column_info.model, self.create_note_entry)
+
+        self.show_all()
+
+    def create_note_entry(self, item):
+        widget = Gtk.ListBoxRow()
+        widget.item = item
+
+        dnd_wrapper = Gtk.EventBox(above_child=True)
+        dnd_wrapper.drag_source_set(Gdk.ModifierType.BUTTON1_MASK, KANBAN_NOTE_TARGETS, Gdk.DragAction.MOVE)
+        dnd_wrapper.connect('drag-begin', self.on_drag_begin)
+        widget.add(dnd_wrapper)
+
+        outer_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, margin=10, spacing=10)
+        outer_box.set_receives_default(True)
+        dnd_wrapper.add(outer_box)
+
+        wrapper = Gtk.Box(halign=Gtk.Align.CENTER)
+        context = wrapper.get_style_context()
+        context.add_class(item.info['color'])
+        context.add_class('note-preview')
+        outer_box.pack_start(wrapper, False, False, 0)
+
+        entry = NoteEntry(item, self.settings)
+        wrapper.pack_start(entry, False, False, 0)
+
+        widget.show_all()
+
+        return widget
+
+    def on_drag_begin(self, widget, *args):
+        self.dragged_note = widget.get_parent().item.info
+
+    def handle_note_drop(self, widget, context, x, y, time):
+        origin = Gtk.drag_get_source_widget(context).get_parent().item
+
+        new_group = self.column_info.name
+        new_list = self.file_handler.get_note_list(new_group)
+        new_list.append(origin.info)
+
+        old_group = origin.group_name
+        old_list = self.file_handler.get_note_list(old_group)
+        old_list.remove(origin.info)
+
+        self.file_handler.update_note_list(new_list, new_group)
+        self.file_handler.update_note_list(old_list, old_group)
+
+        self.dragged_note = None
+
+        Gtk.drag_finish(context, True, False, time)
+
 class NotesManager(object):
     def __init__(self, app, file_handler):
         self.app = app
@@ -249,13 +328,15 @@ class NotesManager(object):
         self.window.resize(self.app.settings.get_int('manager-width'), self.app.settings.get_int('manager-height'))
         self.window.connect('unrealize', self.cache_window_size)
 
-        self.group_list = self.builder.get_object('group_list')
+        self.grid_group_list_box = self.builder.get_object('grid_group_list_box')
         self.group_model = Gio.ListStore()
-        self.group_list.bind_model(self.group_model, self.create_group_entry)
+        self.grid_group_list_box.bind_model(self.group_model, self.create_group_entry)
 
         self.note_view = self.builder.get_object('note_view')
         self.note_view.connect('child-activated', self.on_note_activated)
         self.note_view.connect('selected-children-changed', self.on_selected_notes_changed)
+
+        self.kanban_column_box = self.builder.get_object('kanban_column_box')
 
         self.builder.get_object('new_note').connect('clicked', self.app.new_note)
         self.remove_note_button = self.builder.get_object('remove_note')
@@ -271,10 +352,9 @@ class NotesManager(object):
         self.search_box = self.builder.get_object('search_box')
         self.search_box.connect('search-changed', self.on_search_changed)
 
-        self.entry_box = self.builder.get_object('group_name_entry_box')
-        self.entry_box.drag_dest_set(Gtk.DestDefaults.MOTION | Gtk.DestDefaults.HIGHLIGHT, NOTE_TARGETS, Gdk.DragAction.MOVE)
-        self.entry_box.connect('drag-drop', self.handle_new_group_drop)
-
+        self.grid_group_entry_box = self.builder.get_object('grid_group_name_entry_box')
+        self.grid_group_entry_box.drag_dest_set(Gtk.DestDefaults.MOTION | Gtk.DestDefaults.HIGHLIGHT, GRID_NOTE_TARGETS, Gdk.DragAction.MOVE)
+        self.grid_group_entry_box.connect('drag-drop', self.handle_new_group_drop)
 
         accel_group = Gtk.AccelGroup()
         self.window.add_accel_group(accel_group)
@@ -300,8 +380,8 @@ class NotesManager(object):
         self.window.show_all()
 
         self.generate_previews()
-        self.group_list.connect('row-selected', self.on_group_selected)
-        self.group_list.connect('button-press-event', self.on_list_clicked)
+        self.grid_group_list_box.connect('row-selected', self.on_group_selected)
+        self.grid_group_list_box.connect('button-press-event', self.on_list_clicked)
         self.app.settings.connect('changed::active-group', self.on_active_group_changed)
 
     def on_list_clicked(self, list, event):
@@ -314,31 +394,48 @@ class NotesManager(object):
                 group.update_notes()
 
     def refresh_group_list(self, *args):
+        # grid view
         name = None
         selected_group_name = self.get_current_group()
         self.group_model.remove_all()
 
         for group_name in self.file_handler.get_note_group_names():
+            # get currently selected group (if any) so that we can re-select in grid view
             if self.app.settings.get_string('active-group') == group_name:
                 name = group_name
 
             self.group_model.append(Group(group_name, self.file_handler))
 
-        self.group_list.show_all()
+        self.grid_group_list_box.show_all()
 
         if name != None:
             self.select_group(name)
 
-        children = self.group_list.get_children()
-        for item in children:
-            item.set_can_remove(len(children) != 1)
+        self.rebuild_kanban_columns()
 
-        self.remove_group_item.set_sensitive(len(children) != 1)
+        # disable 'remove' context menu item if there is only one group, otherwise enable for all items
+        children = self.grid_group_list_box.get_children()
+        can_remove_groups = len(children) > 1
+
+        for item in children:
+            item.set_can_remove(can_remove_groups)
+
+        self.remove_group_item.set_sensitive(can_remove_groups)
+
+    def rebuild_kanban_columns(self):
+        for child in self.kanban_column_box.get_children():
+            child.destroy()
+
+        size_group = Gtk.SizeGroup(mode=Gtk.SizeGroupMode.VERTICAL)
+
+        for group in self.group_model:
+            column = KanbanColumn(group, self.file_handler, self.app.settings, size_group)
+            self.kanban_column_box.pack_start(column, False, False, 0)
 
     def select_group(self, name):
-        for row in self.group_list.get_children():
+        for row in self.grid_group_list_box.get_children():
             if row.item.name == name:
-                self.group_list.select_row(row)
+                self.grid_group_list_box.select_row(row)
                 break
 
     def on_active_group_changed(self, settings, key):
@@ -395,7 +492,7 @@ class NotesManager(object):
         widget.item = item
 
         dnd_wrapper = Gtk.EventBox(above_child=True)
-        dnd_wrapper.drag_source_set(Gdk.ModifierType.BUTTON1_MASK, NOTE_TARGETS, Gdk.DragAction.MOVE)
+        dnd_wrapper.drag_source_set(Gdk.ModifierType.BUTTON1_MASK, GRID_NOTE_TARGETS, Gdk.DragAction.MOVE)
         dnd_wrapper.connect('drag-begin', self.on_drag_begin)
         widget.add(dnd_wrapper)
 
@@ -417,7 +514,7 @@ class NotesManager(object):
         return widget
 
     def generate_previews(self, *args):
-        selected_row = self.group_list.get_selected_row()
+        selected_row = self.grid_group_list_box.get_selected_row()
         if selected_row is None:
             return
 
@@ -426,7 +523,7 @@ class NotesManager(object):
         self.note_view.bind_model(group_info.model, self.create_note_entry)
 
     def get_current_group(self):
-        row = self.group_list.get_selected_row()
+        row = self.grid_group_list_box.get_selected_row()
         return row.item.name if row is not None else None
 
     def get_selected_note(self):
@@ -434,7 +531,7 @@ class NotesManager(object):
 
     def create_new_group(self, callback):
         entry = Gtk.Entry(visible=True)
-        self.entry_box.pack_start(entry, False, False, 5)
+        self.grid_group_entry_box.pack_start(entry, False, False, 5)
         activate_id = 0
         focus_id = 0
         key_id = 0
@@ -444,7 +541,7 @@ class NotesManager(object):
             entry.disconnect(focus_id)
             entry.disconnect(key_id)
 
-            self.entry_box.remove(entry)
+            self.grid_group_entry_box.remove(entry)
 
         def maybe_done(entry, *args):
             group_name = entry.get_text()
@@ -479,9 +576,9 @@ class NotesManager(object):
             if not success:
                 group_name = old_group
 
-            for row in self.group_list.get_children():
+            for row in self.grid_group_list_box.get_children():
                 if row.item.name == group_name:
-                    self.group_list.select_row(row)
+                    self.grid_group_list_box.select_row(row)
                     return
 
         self.create_new_group(on_complete)
@@ -547,9 +644,9 @@ class NotesManager(object):
 
             self.dragged_note = None
 
-            for row in self.group_list.get_children():
+            for row in self.grid_group_list_box.get_children():
                 if row.item.name == group_name:
-                    self.group_list.select_row(row)
+                    self.grid_group_list_box.select_row(row)
                     return
 
         self.create_new_group(on_created)

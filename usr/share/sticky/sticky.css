@@ -65,6 +65,16 @@
     padding: 0 5px;
 }
 
+#kanban-column {
+    border: solid 1px @borders;
+    background-color: @selected_bg_color;
+}
+
+#kanban-column-header {
+    color: black;
+    font-size: 1.5em;
+}
+
 /* common */
 #sticky-note decoration,
 #sticky-note decoration:backdrop,
