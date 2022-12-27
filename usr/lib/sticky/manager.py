@@ -206,11 +206,19 @@ class GroupEntry(Gtk.ListBoxRow):
         self.remove_item.set_sensitive(can_remove)
 
 class Group(GObject.Object):
-    def __init__(self, name, file_handler, model):
+    def __init__(self, name, file_handler):
         super(Group, self).__init__()
         self.name = name
         self.file_handler = file_handler
-        self.model = model
+        self.model = Gio.ListStore()
+
+        self.update_notes()
+
+    def update_notes(self):
+        self.model.remove_all()
+
+        for note in self.file_handler.get_note_list(self.name):
+            self.model.append(Note(note, self.name))
 
 class Note(GObject.Object):
     def __init__(self, info, group_name):
@@ -230,8 +238,8 @@ class NotesManager(object):
         self.search_model = Gio.ListStore()
 
         self.file_handler = file_handler
-        self.file_handler.connect('group-changed', self.on_list_changed)
-        self.file_handler.connect('lists-changed', self.generate_group_list)
+        self.file_handler.connect('group-changed', self.on_group_changed)
+        self.file_handler.connect('lists-changed', self.refresh_group_list)
 
         self.builder = Gtk.Builder()
         self.builder.set_translation_domain("sticky")
@@ -330,7 +338,7 @@ class NotesManager(object):
 
         self.builder.get_object('menu_button').set_popup(main_menu)
 
-        self.generate_group_list()
+        self.refresh_group_list()
 
         self.window.show_all()
 
@@ -343,20 +351,21 @@ class NotesManager(object):
         for note in self.app.notes:
             note.present_with_time(Gtk.get_current_event_time())
 
-    def on_list_changed(self, a, group_name):
-        if group_name == self.get_current_group():
-            self.generate_previews()
+    def on_group_changed(self, a, group_name):
+        for group in self.group_model:
+            if group.name == group_name:
+                group.update_notes()
 
-    def generate_group_list(self, *args):
+    def refresh_group_list(self, *args):
         name = None
         selected_group_name = self.get_current_group()
         self.group_model.remove_all()
 
         for group_name in self.file_handler.get_note_group_names():
-            model = Gio.ListStore()
             if self.app.settings.get_string('active-group') == group_name:
                 name = group_name
-            self.group_model.append(Group(group_name, self.file_handler, model))
+
+            self.group_model.append(Group(group_name, self.file_handler))
 
         self.group_list.show_all()
 
@@ -448,15 +457,8 @@ class NotesManager(object):
             return
 
         group_info = selected_row.item
-        group_name = group_info.name
-        model = group_info.model
 
-        model.remove_all()
-
-        for note in self.file_handler.get_note_list(group_name):
-            model.append(Note(note, group_name))
-
-        self.note_view.bind_model(model, self.create_note_entry)
+        self.note_view.bind_model(group_info.model, self.create_note_entry)
 
     def get_current_group(self):
         row = self.group_list.get_selected_row()
@@ -489,7 +491,7 @@ class NotesManager(object):
                 success = self.file_handler.new_group(group_name)
 
             if success:
-                self.generate_group_list()
+                self.refresh_group_list()
 
             callback(group_name, success)
 
