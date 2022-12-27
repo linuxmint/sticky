@@ -274,61 +274,25 @@ class NotesManager(object):
         self.entry_box.drag_dest_set(Gtk.DestDefaults.MOTION | Gtk.DestDefaults.HIGHLIGHT, NOTE_TARGETS, Gdk.DragAction.MOVE)
         self.entry_box.connect('drag-drop', self.handle_new_group_drop)
 
-        main_menu = Gtk.Menu()
 
-        item = Gtk.MenuItem(label=_("New Group"))
-        item.connect('activate', self.new_group)
-        main_menu.append(item)
-
-        self.remove_group_item = Gtk.MenuItem(label=_("Remove Group"))
-        self.remove_group_item.connect('activate', self.remove_group)
-        main_menu.append(self.remove_group_item)
-
-        main_menu.append(Gtk.SeparatorMenuItem(visible=True))
-
-        item = Gtk.MenuItem(label=_("Back Up"))
-        item.connect('activate', self.file_handler.save_backup)
-        main_menu.append(item)
-
-        item = Gtk.MenuItem(label=_("Restore Backups..."))
-        item.connect('activate', self.file_handler.restore_backup, self.window)
-        main_menu.append(item)
-
-        main_menu.append(Gtk.SeparatorMenuItem(visible=True))
-
-        item = Gtk.MenuItem(label=_("Import..."))
-        item.connect('activate', self.file_handler.import_notes, self.window)
-        main_menu.append(item)
-
-        item = Gtk.MenuItem(label=_("Export..."))
-        item.connect('activate', self.file_handler.export_notes, self.window)
-        main_menu.append(item)
-
-        main_menu.append(Gtk.SeparatorMenuItem(visible=True))
-
-        item = Gtk.MenuItem(label=_("Preferences"))
-        item.connect('activate', self.app.open_settings_window)
-        main_menu.append(item)
-
-        item = Gtk.MenuItem(label=_("Keyboard Shortcuts"))
-        item.connect('activate', self.app.open_keyboard_shortcuts)
-        main_menu.append(item)
-
-        item = Gtk.MenuItem()
-        item.set_label(_("About"))
-        item.connect("activate", self.app.open_about)
-        key, mod = Gtk.accelerator_parse("F1")
         accel_group = Gtk.AccelGroup()
         self.window.add_accel_group(accel_group)
-        item.add_accelerator("activate", accel_group, key, mod, Gtk.AccelFlags.VISIBLE)
-        main_menu.append(item)
-
         key, mod = Gtk.accelerator_parse('<Control>f')
         accel_group.connect(key, mod, Gtk.AccelFlags.VISIBLE, self.open_search)
 
-        main_menu.show_all()
+        # connect main menu signals
+        self.builder.get_object('new_menu_item').connect('activate', self.new_group)
 
-        self.builder.get_object('menu_button').set_popup(main_menu)
+        self.remove_group_item = self.builder.get_object('remove_group_menu_item')
+        self.remove_group_item.connect('activate', self.remove_group)
+
+        self.builder.get_object('backup_menu_item').connect('activate', self.file_handler.save_backup)
+        self.builder.get_object('restore_backup_menu_item').connect('activate', self.file_handler.restore_backup, self.window)
+        self.builder.get_object('import_menu_item').connect('activate', self.file_handler.import_notes, self.window)
+        self.builder.get_object('export_menu_item').connect('activate', self.file_handler.export_notes, self.window)
+        self.builder.get_object('preferences_menu_item').connect('activate', self.app.open_settings_window)
+        self.builder.get_object('shortcuts_menu_item').connect('activate', self.app.open_keyboard_shortcuts)
+        self.builder.get_object('about_menu_item').connect("activate", self.app.open_about)
 
         self.refresh_group_list()
 
