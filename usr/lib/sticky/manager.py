@@ -257,15 +257,16 @@ class NotesManager(object):
         self.note_view.connect('child-activated', self.on_note_activated)
         self.note_view.connect('selected-children-changed', self.on_selected_notes_changed)
 
-        search_toggle = self.builder.get_object('search_toggle_button')
-        self.search_bar = self.builder.get_object('search_bar')
-        GObject.Object.bind_property(search_toggle, 'active', self.search_bar, 'search_mode_enabled', GObject.BindingFlags.BIDIRECTIONAL)
-
         self.builder.get_object('new_note').connect('clicked', self.app.new_note)
         self.remove_note_button = self.builder.get_object('remove_note')
         self.remove_note_button.connect('clicked', self.remove_note)
         self.duplicate_note_button = self.builder.get_object('duplicate_note')
         self.duplicate_note_button.connect('clicked', self.duplicate_note)
+
+        # search
+        search_toggle = self.builder.get_object('search_toggle_button')
+        self.search_bar = self.builder.get_object('search_bar')
+        GObject.Object.bind_property(search_toggle, 'active', self.search_bar, 'search_mode_enabled', GObject.BindingFlags.BIDIRECTIONAL)
 
         self.search_box = self.builder.get_object('search_box')
         self.search_box.connect('search-changed', self.on_search_changed)
