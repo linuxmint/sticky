@@ -246,24 +246,16 @@ class NotesManager(object):
         self.builder.add_from_file('/usr/share/sticky/manager.ui')
 
         self.window = self.builder.get_object('main_window')
-        self.group_list = self.builder.get_object('group_list')
         self.window.resize(self.app.settings.get_int('manager-width'), self.app.settings.get_int('manager-height'))
         self.window.connect('unrealize', self.cache_window_size)
+
+        self.group_list = self.builder.get_object('group_list')
+        self.group_model = Gio.ListStore()
+        self.group_list.bind_model(self.group_model, self.create_group_entry)
 
         self.note_view = self.builder.get_object('note_view')
         self.note_view.connect('child-activated', self.on_note_activated)
         self.note_view.connect('selected-children-changed', self.on_selected_notes_changed)
-
-        def create_group_entry(item):
-            widget = GroupEntry(item)
-            widget.drag_dest_set(Gtk.DestDefaults.MOTION | Gtk.DestDefaults.HIGHLIGHT, NOTE_TARGETS, Gdk.DragAction.MOVE)
-            widget.connect('drag-drop', self.handle_drop)
-
-            widget.new_item.connect('activate', self.new_group)
-            return widget
-
-        self.group_model = Gio.ListStore()
-        self.group_list.bind_model(self.group_model, create_group_entry)
 
         search_toggle = self.builder.get_object('search_toggle_button')
         self.search_bar = self.builder.get_object('search_bar')
@@ -424,6 +416,14 @@ class NotesManager(object):
         sensitive = len(self.note_view.get_selected_children()) != 0
         self.remove_note_button.set_sensitive(sensitive)
         self.duplicate_note_button.set_sensitive(sensitive)
+
+    def create_group_entry(self, item):
+        widget = GroupEntry(item)
+        widget.drag_dest_set(Gtk.DestDefaults.MOTION | Gtk.DestDefaults.HIGHLIGHT, GRID_NOTE_TARGETS, Gdk.DragAction.MOVE)
+        widget.connect('drag-drop', self.handle_drop)
+        widget.new_item.connect('activate', self.new_group)
+
+        return widget
 
     def create_note_entry(self, item):
         widget = Gtk.FlowBoxChild()
