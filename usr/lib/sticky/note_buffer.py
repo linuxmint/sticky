@@ -631,11 +631,16 @@ class NoteBuffer(Gtk.TextBuffer):
 
                     action = CompositeAction(action, obj_action)
 
-            # location gets shifted by one when Gtk.TextBuffer.do_insert_text() gets called, and becomes invalidated by
-            # adding a check/bullet, so we need to put it back to where it was before
-            location.assign(self.get_iter_at_offset(position))
+                    # `location` becomes invalidated by adding a check/bullet, but it is expected to be there when the
+                    # function ends, so we need to reinitialize it. The default handler places it at the end of the
+                    # inserted text, so that's what we'll do too
+                    location.assign(self.get_iter_at_offset(position + 2))
 
-            next_char = location.copy()
+            # 'location' has usually been shifted by this point, and since it may be used by something else later that
+            # expects the new location, we need to use a different iter
+            start = self.get_iter_at_offset(position)
+
+            next_char = start.copy()
             next_char.forward_char()
 
             # check tag toggles
@@ -647,18 +652,18 @@ class NoteBuffer(Gtk.TextBuffer):
                         font_scale_changed = True
                         for scale_tag_name in FONT_SCALES:
                             if scale_tag_name != 'normal':
-                                action = CompositeAction(action, self.strip_tag(scale_tag_name, location, next_char))
+                                action = CompositeAction(action, self.strip_tag(scale_tag_name, start, next_char))
 
-                    prev = location.copy()
+                    prev = start.copy()
                     if tag_name == 'normal':
                         # the 'normal' tag doesn't really exist but we still use it for removing other font scale tags
                         pass
                     elif prev.backward_char() & prev.has_tag(self.get_tag_table().lookup(tag_name)):
-                        action = CompositeAction(action, self.strip_tag(tag_name, location, next_char))
+                        action = CompositeAction(action, self.strip_tag(tag_name, start, next_char))
                     else:
-                        action = CompositeAction(action, self.add_tag(tag_name, location, next_char))
+                        action = CompositeAction(action, self.add_tag(tag_name, start, next_char))
 
-                for tag in location.get_toggled_tags(False):
+                for tag in start.get_toggled_tags(False):
                     tag_name = tag.props.name
                     if tag_name is None:
                         continue
@@ -670,7 +675,7 @@ class NoteBuffer(Gtk.TextBuffer):
                     # don't continue the tag if it was toggled off
                     # also don't continue if it's a font scale tag and another was just applied
                     if tag_name not in self.tag_toggles and (tag_name not in FONT_SCALES or not font_scale_changed):
-                        action = CompositeAction(action, self.add_tag(tag_name, location, next_char))
+                        action = CompositeAction(action, self.add_tag(tag_name, start, next_char))
 
                 self.tag_toggles = []
 
@@ -678,10 +683,10 @@ class NoteBuffer(Gtk.TextBuffer):
                 self.add_undo_action(action)
 
         if text in ['\n', '\t', ' ', '.', ',', ';', ':']:
-            pre_text = self.get_slice(self.get_start_iter(), location, True)
+            pre_text = self.get_slice(self.get_start_iter(), start, True)
             match = get_url_start(pre_text)
             if match:
-                self.add_undo_action(self.add_tag('link', self.get_iter_at_offset(match.start()), location))
+                self.add_undo_action(self.add_tag('link', self.get_iter_at_offset(match.start()), start))
 
     def on_delete(self, buffer, start, end):
         if self.internal_action_count:
