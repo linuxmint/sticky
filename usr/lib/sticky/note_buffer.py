@@ -427,6 +427,9 @@ class NoteBuffer(Gtk.TextBuffer):
 
     def set_view(self, view):
         def track_motion(v, event):
+            if self.view.get_modifier_mask(Gdk.ModifierIntent.EXTEND_SELECTION):
+                return Gdk.EVENT_PROPAGATE
+
             mouse_iter = self.view.get_iter_at_location(*self.view.window_to_buffer_coords(Gtk.TextWindowType.TEXT, event.x, event.y))[1]
             if mouse_iter.has_tag(self.get_tag_table().lookup('link')):
                 self.view.props.window.set_cursor(Gdk.Cursor.new_from_name(Gdk.Display.get_default(), 'pointer'))
