@@ -19,6 +19,8 @@ TAG_DEFINITIONS = {
 
 FONT_SCALES = ['small', 'normal', 'large', 'larger']
 
+LINK_ENDERS = ['\n', '\t', ' ', '.', ',', ';', ':']
+
 class GenericAction(object):
     def maybe_join(self, new_action):
         return False
@@ -675,6 +677,10 @@ class NoteBuffer(Gtk.TextBuffer):
                     if text == '\n' and tag_name == 'header':
                         continue
 
+                    # don't continue links across link-ending characters
+                    if tag_name == 'link' and text in LINK_ENDERS:
+                        continue
+
                     # don't continue the tag if it was toggled off
                     # also don't continue if it's a font scale tag and another was just applied
                     if tag_name not in self.tag_toggles and (tag_name not in FONT_SCALES or not font_scale_changed):
@@ -685,7 +691,8 @@ class NoteBuffer(Gtk.TextBuffer):
             if not self.props.can_undo or not self.undo_actions[-1].maybe_join(action):
                 self.add_undo_action(action)
 
-        if text in ['\n', '\t', ' ', '.', ',', ';', ':']:
+        # check for a link if text is a link-ending character
+        if text in LINK_ENDERS:
             pre_text = self.get_slice(self.get_start_iter(), start, True)
             match = get_url_start(pre_text)
             if match:
