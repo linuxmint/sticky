@@ -1,3 +1,12 @@
+sticky (1.14) vera; urgency=medium
+
+  [ Stephen Collins ]
+  * Buffer: fix an issue where pasted text sometimes gets jumbled
+  * Buffer: only override the view's motion handler when not selecting text
+  * Buffer: On insert, don't continue a link through a link-ending character
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 06 Jan 2023 16:37:13 +0000
+
 sticky (1.13) vanessa; urgency=medium
 
   [ Michael Webster ]
