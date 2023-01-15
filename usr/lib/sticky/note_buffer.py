@@ -708,7 +708,7 @@ class NoteBuffer(Gtk.TextBuffer):
             current_iter = start.copy()
 
             # if there's a bullet or checkbox for the next 'character', remove that too
-            if end.get_child_anchor() != None:
+            if end.get_child_anchor() is not None:
                 end.forward_char()
 
             start_mark = Gtk.TextMark()

@@ -357,7 +357,7 @@ class NotesManager(object):
 
         self.group_list.show_all()
 
-        if name != None:
+        if name is not None:
             self.select_group(name)
 
         children = self.group_list.get_children()
@@ -378,7 +378,7 @@ class NotesManager(object):
 
     def on_group_selected(self, listbox, row):
         group_name = self.get_current_group()
-        if group_name != None:
+        if group_name is not None:
             if self.app.settings.get_string('active-group') != group_name:
                 self.app.settings.set_string('active-group', group_name)
             self.generate_previews()
