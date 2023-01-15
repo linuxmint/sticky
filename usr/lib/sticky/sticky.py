@@ -881,7 +881,7 @@ class Application(Gtk.Application):
         else:
             x = parent.x + 20
             y = parent.y + 20
-        while(True):
+        while True:
             found = False
             for note_info in self.file_handler.get_note_list(self.note_group):
                 if note_info['x'] == x and note_info['y'] == y:
