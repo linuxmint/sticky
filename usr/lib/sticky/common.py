@@ -340,7 +340,7 @@ def prompt(title, message, window):
 
     dialog.destroy()
 
-    return (response == Gtk.ResponseType.OK, value)
+    return response == Gtk.ResponseType.OK, value
 
 def confirm(title, message, window=None, settings=None, disable_key=None, disable_inverted=False):
     dialog = Gtk.Dialog(title=title, transient_for=window,

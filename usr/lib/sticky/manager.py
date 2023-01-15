@@ -64,16 +64,16 @@ class NoteEntry(Gtk.Container):
         self.set_clip(allocation)
 
     def do_get_preferred_height(self):
-        return (150, 150)
+        return 150, 150
 
     def do_get_preferred_height_for_width(self, width):
-        return (150, 150)
+        return 150, 150
 
     def do_get_preferred_width(self):
-        return (150, 150)
+        return 150, 150
 
     def do_get_preferred_width_for_height(self, height):
-        return (150, 150)
+        return 150, 150
 
     def do_destroy(self):
         if not self.initialized:

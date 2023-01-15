@@ -78,7 +78,7 @@ def gnote_to_internal_format(file_path):
     if category is None:
         category = _("Unfiled")
 
-    return (category, info, is_template)
+    return category, info, is_template
 
 def clean_text(text):
     current_index = 0
