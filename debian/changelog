@@ -1,3 +1,22 @@
+sticky (1.15) victoria; urgency=medium
+
+  [ Matt ]
+  * Update sticky-symbolic.svg
+
+  [ hduelme ]
+  * replace equality None check with identity None check
+
+  [ Ziyang ]
+  * update license content to GPLv2 (#97)
+
+  [ hduelme ]
+  * remove redundant parentheses
+
+  [ Fatih Altun ]
+  * Fix new_note parameter (#77)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 06 Jun 2023 11:16:58 +0100
+
 sticky (1.14) vera; urgency=medium
 
   [ Stephen Collins ]
