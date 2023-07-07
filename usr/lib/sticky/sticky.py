@@ -874,7 +874,7 @@ class Application(Gtk.Application):
         self.notes_hidden = True
         self.update_dummy_window()
 
-    def new_note(self, button, parent=None):
+    def new_note(self, button=None, parent=None):
         if parent is None:
             x = 40
             y = 40

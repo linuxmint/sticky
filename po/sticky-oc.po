@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2022-06-22 08:57+0200\n"
-"PO-Revision-Date: 2021-12-07 15:43+0000\n"
+"PO-Revision-Date: 2023-01-07 10:29+0000\n"
 "Last-Translator: Quentin PAGÈS <Unknown>\n"
 "Language-Team: Occitan (post 1500) <oc@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-12-02 14:13+0000\n"
-"X-Generator: Launchpad (build 51cef3d08dff1e227b5ada709bd67280c567d4be)\n"
+"X-Launchpad-Export-Date: 2023-06-08 10:23+0000\n"
+"X-Generator: Launchpad (build 620cd5280e3a973662e263ebf9346837ed657a46)\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:300
 msgid "Export..."
@@ -291,7 +291,7 @@ msgstr "Modificar lo títol"
 
 #: usr/lib/sticky/sticky.py:396
 msgid "Duplicate Note"
-msgstr ""
+msgstr "Duplicar la nòta"
 
 #: usr/lib/sticky/sticky.py:408
 msgid "Only on This Workspace"
@@ -339,7 +339,7 @@ msgstr "Largor per defaut"
 
 #: usr/lib/sticky/sticky.py:592 usr/lib/sticky/sticky.py:597
 msgid "Cycle Colors"
-msgstr ""
+msgstr "Repetir las colors"
 
 #: usr/lib/sticky/sticky.py:594 usr/lib/sticky/sticky.py:599
 msgid "Default color"
@@ -414,11 +414,11 @@ msgstr "Grop 1"
 
 #: usr/lib/sticky/sticky.py:777
 msgid "Left click to toggle notes"
-msgstr ""
+msgstr "Clic esquèr per alternar las nòtas"
 
 #: usr/lib/sticky/sticky.py:778
 msgid "Middle click to toggle the manager"
-msgstr ""
+msgstr "Clic del mitan per bascular al gestionari"
 
 #: usr/lib/sticky/sticky.py:796
 msgid "Manage Notes"
@@ -447,4 +447,4 @@ msgstr "Suprimir la nòta seleccionada"
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
-msgstr ""
+msgstr "Duplicar la nòta seleccionada"
