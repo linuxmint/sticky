@@ -1,3 +1,9 @@
+sticky (1.17) victoria; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 07 Jul 2023 17:18:53 +0200
+
 sticky (1.16) victoria; urgency=medium
 
   * l10n: Update translations
