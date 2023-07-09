@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2022-06-22 08:57+0200\n"
-"PO-Revision-Date: 2022-06-23 05:08+0000\n"
+"PO-Revision-Date: 2023-06-24 13:10+0000\n"
 "Last-Translator: Avi Markovitz <avi.markovitz@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-06-08 10:23+0000\n"
-"X-Generator: Launchpad (build 620cd5280e3a973662e263ebf9346837ed657a46)\n"
+"X-Launchpad-Export-Date: 2023-07-07 12:58+0000\n"
+"X-Generator: Launchpad (build 2ac9e3bf4ab511504f8fc651371e24a6a047ba12)\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:300
 msgid "Export..."
@@ -56,11 +56,11 @@ msgstr "שחזור"
 
 #: usr/lib/sticky/common.py:249
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr "לא ניתן לשחזר: קובץ הגיבוי פגום או לא תקין"
+msgstr "לא ניתן לשחזר: קובץ גיבוי פגום או לא תקין"
 
 #: usr/lib/sticky/common.py:262
 msgid "Overwrite Existing Group"
-msgstr "כתיבה על הקבוצה הקיימת"
+msgstr "כתיבה־על קבוצה קיימת"
 
 #: usr/lib/sticky/common.py:262
 #, python-format
@@ -129,7 +129,7 @@ msgstr "העדפות"
 
 #: usr/lib/sticky/manager.py:310
 msgid "Keyboard Shortcuts"
-msgstr "קיצורי מקשים"
+msgstr "קיצורי מקלדת"
 
 #: usr/lib/sticky/manager.py:315 usr/lib/sticky/sticky.py:1012
 msgid "About"
@@ -189,19 +189,19 @@ msgstr "פעולות"
 
 #: usr/lib/sticky/sticky.py:61
 msgid "Move selection up"
-msgstr "הזזת הבחירה למעלה"
+msgstr "הזזת בחירה מעלה"
 
 #: usr/lib/sticky/sticky.py:62
 msgid "Move selection down"
-msgstr "הזזת הבחירה למטה"
+msgstr "הזזת בחירה מטה"
 
 #: usr/lib/sticky/sticky.py:63
 msgid "Undo"
-msgstr "החזרה"
+msgstr "החזרה לקדמות"
 
 #: usr/lib/sticky/sticky.py:64
 msgid "Redo"
-msgstr "ביצוע חוזר"
+msgstr "ביטול החזרה לקדמות"
 
 #: usr/lib/sticky/sticky.py:65 usr/lib/sticky/sticky.py:488
 msgid "Toggle Checklist"
@@ -410,11 +410,11 @@ msgstr "קבוצה 1"
 
 #: usr/lib/sticky/sticky.py:777
 msgid "Left click to toggle notes"
-msgstr "הקשה שמאלית לחילוף הערות"
+msgstr "הקשה שמאלית למיתוג הערות"
 
 #: usr/lib/sticky/sticky.py:778
 msgid "Middle click to toggle the manager"
-msgstr "הקשה אמצעית לחילוף המנהל"
+msgstr "הקשה אמצעית למיתוג המנהל"
 
 #: usr/lib/sticky/sticky.py:796
 msgid "Manage Notes"
