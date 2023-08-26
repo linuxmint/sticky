@@ -25,6 +25,11 @@ APPLICATION_ID = 'org.x.sticky'
 STYLE_SHEET_PATH = '/usr/share/sticky/sticky.css'
 SCHEMA = 'org.x.sticky'
 
+import dbus
+import dbus.service
+from dbus.mainloop.glib import DBusGMainLoop
+BUS_NAME = SCHEMA + 'app'
+
 UPDATE_DELAY = 1
 
 FONT_SCALES = [
@@ -850,7 +855,7 @@ class Application(Gtk.Application):
         if self.settings.get_boolean('desktop-window-state'):
             self.dummy_window.stick()
 
-    def activate_notes(self, time):
+    def activate_notes(self, time=0):
         for note in self.notes:
             if note.is_active():
                 self.hide_notes()
@@ -1069,6 +1074,34 @@ class Application(Gtk.Application):
 
         self.quit()
 
+class DbusService(dbus.service.Object):
+
+    def __init__(self, sticky):
+        bus_name = dbus.service.BusName(BUS_NAME, bus=dbus.SessionBus())
+        object_path = '/'+BUS_NAME.replace('.','/')
+        dbus.service.Object.__init__(self, bus_name, object_path)
+        self._sticky = sticky
+
+    @dbus.service.method(dbus_interface=BUS_NAME)
+    def activate_notes(self):
+        self._sticky.activate_notes() # actually works as toggle
+
+    @dbus.service.method(dbus_interface=BUS_NAME)
+    def hide_notes(self):
+        self._sticky.hide_notes()
+
+    @dbus.service.method(dbus_interface=BUS_NAME)
+    def new_note(self):
+        self._sticky.new_note()
+
+    @dbus.service.method(dbus_interface=BUS_NAME)
+    def open_manager(self):
+        self._sticky.open_manager()
+
+    @dbus.service.method(dbus_interface=BUS_NAME)
+    def quit_app(self):
+        self._sticky.quit_app()
+
 if __name__ == "__main__":
     autostart_mode = False
     if "--autostart" in sys.argv:
@@ -1080,4 +1113,6 @@ if __name__ == "__main__":
 
     sticky = Application()
     sticky.autostart_mode = autostart_mode
+    DBusGMainLoop(set_as_default=True)
+    dbusService = DbusService(sticky)
     sticky.run()
