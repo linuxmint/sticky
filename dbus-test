@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Sticky app should be running already! 
+
+# call New Note as an example
+dbus-send --type=method_call --dest=org.x.stickyapp /org/x/stickyapp org.x.stickyapp.new_note
+
+# check out more examples in DBUS-CLI-calls.md
