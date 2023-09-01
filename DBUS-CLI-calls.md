@@ -17,6 +17,10 @@ dbus-send --type=method_call --dest=org.x.stickyapp /org/x/stickyapp org.x.stick
 
 dbus-send --type=method_call --dest=org.x.stickyapp /org/x/stickyapp org.x.stickyapp.new_note
 
+#### Change visible note group
+
+dbus-send --type=method_call --dest=org.x.stickyapp /org/x/stickyapp org.x.stickyapp.change_visible_note_group string:'Group 1'
+
 ### Open notes manager
 
 dbus-send --type=method_call --dest=org.x.stickyapp /org/x/stickyapp org.x.stickyapp.open_manager 

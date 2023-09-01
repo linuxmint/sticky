@@ -1095,6 +1095,10 @@ class DbusService(dbus.service.Object):
         self._sticky.new_note()
 
     @dbus.service.method(dbus_interface=BUS_NAME)
+    def change_visible_note_group(self, group=None):
+        self._sticky.change_visible_note_group(group)
+
+    @dbus.service.method(dbus_interface=BUS_NAME)
     def open_manager(self):
         self._sticky.open_manager()
 
