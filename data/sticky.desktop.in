@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Notes
+Comment=Take notes and stay organized
+Exec=sticky
+Icon=sticky
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Categories=Application;Utility;
+StartupNotify=false
