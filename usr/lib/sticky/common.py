@@ -31,6 +31,11 @@ class FileHandler(GObject.Object):
     def lists_changed(self):
         pass
 
+    @GObject.Signal(flags=GObject.SignalFlags.RUN_LAST, return_type=bool,
+                    accumulator=GObject.signal_accumulator_true_handled)
+    def saved(self):
+        pass
+
     def __init__(self, settings, window):
         super(FileHandler, self).__init__()
 
@@ -83,6 +88,7 @@ class FileHandler(GObject.Object):
             os.makedirs(CONFIG_DIR)
 
         self.save_to_file(CONFIG_PATH)
+        self.emit('saved')
 
     def check_backup(self, *args):
         if self.backup_timer_id:
