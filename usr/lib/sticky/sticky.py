@@ -24,6 +24,22 @@ gettext.install("sticky", "/usr/share/locale", names="ngettext")
 APPLICATION_ID = 'org.x.sticky'
 STYLE_SHEET_PATH = '/usr/share/sticky/sticky.css'
 SCHEMA = 'org.x.sticky'
+DBUS_PATH = '/org/x/sticky'
+DBUS_INTERFACE_XML = '''
+<node>
+  <interface name='org.x.sticky'>
+    <method name='ShowNotes'>
+    </method>
+    <method name='NewNote'>
+      <arg type='s' name='text' direction='in'/>
+    </method>
+    <method name='NewNoteBlank'>
+    </method>
+    <signal name='NotesChanged'>
+    </signal>
+  </interface>
+</node>
+'''
 
 UPDATE_DELAY = 1
 
@@ -660,6 +676,7 @@ class Application(Gtk.Application):
         self.manager = None
         self.notes_hidden = False
         self.autostart_mode = False # indicates if we're in autostart mode
+        self.dbus_register_id = 0
 
     def do_activate(self):
         if self.has_activated:
@@ -688,6 +705,7 @@ class Application(Gtk.Application):
         self.file_handler.connect('lists-changed', self.on_lists_changed)
         self.group_update_id = self.file_handler.connect('group-changed', self.on_group_changed)
         self.file_handler.connect('group-name-changed', self.on_group_name_changed)
+        self.file_handler.connect('saved', self.on_save)
 
         if self.settings.get_boolean('show-in-tray'):
             self.create_status_icon()
@@ -727,6 +745,34 @@ class Application(Gtk.Application):
             self.open_manager()
 
         self.has_activated = True
+
+    def do_dbus_register(self, connection, object_path):
+        dbus_interface_info = Gio.DBusNodeInfo.new_for_xml(DBUS_INTERFACE_XML)
+        self.dbus_register_id = connection.register_object(
+            object_path, dbus_interface_info.interfaces[0], self.dbus_method_callback, None, None)
+
+        return Gio.Application.do_dbus_register(self, connection, object_path)
+
+    def do_dbus_unregister(self, connection, object_path):
+        if self.dbus_register_id > 0:
+            connection.unregister_object(self.dbus_register_id)
+            self.dbus_register_id = 0
+
+
+        Gio.Application.do_dbus_unregister(self, connection, object_path)
+
+    def dbus_method_callback(self, connection, sender, path, iface_name, method_name, params, invocation, user_data=None):
+        match method_name:
+            case 'ShowNotes':
+                self.activate_notes(0)
+
+            case 'NewNote':
+                x, y = self.find_note_location(40, 40)
+
+                self.add_note({'text': params.unpack()[0], 'x': x, 'y': y})
+
+            case 'NewNoteBlank':
+                self.new_note()
 
     def first_run(self):
         gnote_dir = os.path.join(GLib.get_user_data_dir(), 'gnote')
@@ -874,6 +920,22 @@ class Application(Gtk.Application):
         self.notes_hidden = True
         self.update_dummy_window()
 
+    def find_note_location(self, x, y):
+        while True:
+            found = False
+            for note_info in self.file_handler.get_note_list(self.note_group):
+                if note_info['x'] == x and note_info['y'] == y:
+                    found = True
+                    break
+
+            if not found:
+                break
+
+            x += 20
+            y += 20
+
+        return x, y
+
     def new_note(self, button=None, parent=None):
         if parent is None:
             x = 40
@@ -881,16 +943,9 @@ class Application(Gtk.Application):
         else:
             x = parent.x + 20
             y = parent.y + 20
-        while True:
-            found = False
-            for note_info in self.file_handler.get_note_list(self.note_group):
-                if note_info['x'] == x and note_info['y'] == y:
-                    found = True
-                    break
-            if not found:
-                break
-            x += 20
-            y += 20
+
+        x, y = self.find_note_location(x, y)
+
         info = {'x': x, 'y': y}
 
         self.add_note(info)
@@ -953,6 +1008,9 @@ class Application(Gtk.Application):
 
         if self.settings.get_string('active-group') == old_name:
             self.settings.set_string('active-group', new_name)
+
+    def on_save(self, *args):
+        self.get_dbus_connection().emit_signal(None, DBUS_PATH, APPLICATION_ID, 'NotesChanged', None)
 
     def change_visible_note_group(self, group=None):
         default = self.settings.get_string('active-group')
