@@ -29,12 +29,20 @@ sudo dpkg -i sticky*.deb
 # If this fails, make note of missing runtime dependencies (check list below),
 # install them, repeat previous command (apt-get install -f may also work).
 ```
-### Otherwise (and this is valid anywhere if you want to avoid packaging):
+### Build and install using Meson
+```
+Sticky has support for the meson build system. See https://mesonbuild.com/Running-Meson.html for more details on using meson to build and install.
+```
+### Otherwise you can copy files directly to the file system:
 ```
 sudo cp -r usr/* /usr/
 chmod +x /usr/bin/sticky
 sudo cp etc/xdg/autostart/sticky.desktop /etc/xdg/autostart/
+sudo cp data/sticky.desktop.in /usr/share/applications/sticky.desktop
+sudo cp data/org.x.sticky.service /usr/share/dbus-1/services/org.x.sticky.service
 ```
+> [!NOTE]
+> This method doesn't install translations, so Sticky may not get translated if you install it this way.
 
 #### runtime deps
 - gir1.2-glib-2.0
@@ -44,6 +52,23 @@ sudo cp etc/xdg/autostart/sticky.desktop /etc/xdg/autostart/
 - python3
 - python3-gi
 - python3-xapp (>= 1.6.0)
+
+## Controlling Sticky via DBUS
+Sticky offers the following dbus methods and signals:
+- 'ShowNotes' (method): toggles visibility and focus of the notes on the screen
+- 'NewNote' (method): creates a new note containing the provided text
+    - Takes 1 addtional argument containing the text of the new note
+- 'NewNoteBlank' (method): creates a new empty note
+- 'NotesChanged' (signal): indicates that the notes have changed in some way and the changes have been saved
+
+### Command Line
+You can use dbus-send to call dbus methods (and dbus-monitor for signals) at a command prompt, in a script, etc.
+```
+dbus-send --type=method_call --dest="org.x.sticky" /org/x/sticky org.x.sticky.ShowNotes
+dbus-send --type=method_call --dest="org.x.sticky" /org/x/sticky org.x.sticky.NewNoteBlank
+dbus-send --type=method_call --dest="org.x.sticky" /org/x/sticky org.x.sticky.NewNote string:'New note text'
+dbus-monitor "type='signal',interface='org.x.sticky',member=NotesChanged"
+```
 
 ## Translations
 Please use Launchpad to translate Sticky Notes: https://translations.launchpad.net/linuxmint/latest/.
