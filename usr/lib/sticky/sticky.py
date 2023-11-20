@@ -36,6 +36,7 @@ FONT_SCALES = [
 
 COLORS = {
     'red': _("Red"),
+    'grey': _("Grey"),
     'green': _("Green"),
     'blue': _("Blue"),
     'yellow': _("Yellow"),
@@ -47,6 +48,7 @@ COLORS = {
 
 COLOR_CODES = {
     'red': "#ff5561",
+    'grey': "#6f6f6f",
     'green': "#67ff67",
     'blue': "#3d9bff",
     'yellow': "#f6f907",
