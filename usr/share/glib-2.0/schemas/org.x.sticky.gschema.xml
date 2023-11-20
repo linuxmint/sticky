@@ -25,6 +25,7 @@
       <summary>Default Color</summary>
       <choices>
         <choice value='red'/>
+        <choice value='grey'/>
         <choice value='green'/>
         <choice value='blue'/>
         <choice value='yellow'/>
@@ -36,6 +37,7 @@
       </choices>
       <aliases>
         <alias value='Red' target='red'/>
+        <alias value='Grey' target='grey'/> 
         <alias value='Green' target='green'/>
         <alias value='Blue' target='blue'/>
         <alias value='Yellow' target='yellow'/>
