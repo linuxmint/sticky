@@ -5,6 +5,13 @@
 @define-color red5 #ffc5ca; /* slider trough */
 @define-color red5 #ac2029; /* selection */
 
+@define-color grey1 #898989; /* main */
+@define-color grey2 #6f6f6f; /* title */
+@define-color grey3 #6f6f6f; /* slider */
+@define-color grey4 #898989; /* slider hover */
+@define-color grey5 #a8a8a8; /* slider trough */
+@define-color grey5 #a8a8a8; /* selection */
+
 @define-color blue1 #81bdff; /* main */
 @define-color blue2 #3d9bff; /* title */
 @define-color blue3 #3d9bff; /* slider */
