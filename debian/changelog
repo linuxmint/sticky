@@ -1,3 +1,16 @@
+sticky (1.18) virginia; urgency=medium
+
+  [ Stephen Collins ]
+  * Switch build to meson
+  * Add dbus service file
+  * Add a dbus interface for creating new notes and toggling visibility
+  * README.md: update to reflect recent changes.
+
+  [ haggen88 ]
+  * update icon (#105)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 29 Nov 2023 17:30:59 +0000
+
 sticky (1.17) victoria; urgency=medium
 
   * l10n: Update translations
