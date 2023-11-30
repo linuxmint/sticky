@@ -39,7 +39,8 @@ sudo cp -r usr/* /usr/
 chmod +x /usr/bin/sticky
 sudo cp etc/xdg/autostart/sticky.desktop /etc/xdg/autostart/
 sudo cp data/sticky.desktop.in /usr/share/applications/sticky.desktop
-sudo cp data/org.x.sticky.service /usr/share/dbus-1/services/org.x.sticky.service
+sed -i 's|@bindir@|/usr/bin|' data/org.x.sticky.service.in
+sudo cp data/org.x.sticky.service.in /usr/share/dbus-1/services/org.x.sticky.service
 ```
 > [!NOTE]
 > This method doesn't install translations, so Sticky may not get translated if you install it this way.
