@@ -1,5 +1,10 @@
-install_data(
-    'org.x.sticky.service',
+service_conf = configuration_data()
+service_conf.set('bindir', prefix / bindir)
+
+configure_file(
+    input: 'org.x.sticky.service.in',
+    output: 'org.x.sticky.service',
+    configuration: service_conf,
     install_dir: datadir / 'dbus-1' / 'services',
 )
 

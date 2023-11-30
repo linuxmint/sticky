@@ -6,6 +6,7 @@ gnome = import('gnome')
 gettext_package = meson.project_name()
 
 prefix = get_option('prefix')
+bindir = get_option('bindir')
 datadir = get_option('datadir')
 sysconfdir = get_option('sysconfdir')
 
