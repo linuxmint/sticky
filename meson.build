@@ -10,7 +10,7 @@ bindir = get_option('bindir')
 datadir = get_option('datadir')
 sysconfdir = get_option('sysconfdir')
 
-podir = meson.source_root() / 'po'
+podir = meson.project_source_root() / 'po'
 
 subdir('data')
 subdir('po')
