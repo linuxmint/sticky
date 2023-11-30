@@ -1,4 +1,4 @@
-project('sticky', version: '1.17')
+project('sticky', version: '1.19')
 
 i18n = import('i18n')
 
