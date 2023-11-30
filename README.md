@@ -36,7 +36,6 @@ Sticky has support for the meson build system. See https://mesonbuild.com/Runnin
 ### Otherwise you can copy files directly to the file system:
 ```
 sudo cp -r usr/* /usr/
-chmod +x /usr/bin/sticky
 sudo cp etc/xdg/autostart/sticky.desktop /etc/xdg/autostart/
 sudo cp data/sticky.desktop.in /usr/share/applications/sticky.desktop
 sed -i 's|@bindir@|/usr/bin|' data/org.x.sticky.service.in
