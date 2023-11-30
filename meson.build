@@ -6,8 +6,12 @@ gettext_package = meson.project_name()
 
 prefix = get_option('prefix')
 datadir = get_option('datadir')
+sysconfdir = get_option('sysconfdir')
 
 podir = meson.source_root() / 'po'
 
 subdir('data')
 subdir('po')
+
+install_subdir('etc', install_dir: sysconfdir, strip_directory: true)
+install_subdir('usr', install_dir: prefix, strip_directory: true)
