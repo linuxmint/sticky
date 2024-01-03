@@ -3,9 +3,11 @@ Section: x11
 Priority: optional
 Maintainer: Linux Mint <root@linuxmint.com>
 Build-Depends:
-    debhelper (>= 9),
-    dh-python
-Standards-Version: 3.9.5
+    debhelper-compat (= 12),
+    dh-python,
+    python3,
+    meson (>=0.55)
+Standards-Version: 4.6.0
 
 Package: sticky
 Architecture: all
