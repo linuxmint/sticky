@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2022-06-22 08:57+0200\n"
-"PO-Revision-Date: 2021-12-09 05:56+0000\n"
-"Last-Translator: Arief Setiadi Wibowo <q_thrynx@yahoo.com>\n"
+"PO-Revision-Date: 2023-10-25 11:02+0000\n"
+"Last-Translator: Dirga Afissabilla <Unknown>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-07-07 12:58+0000\n"
-"X-Generator: Launchpad (build 2ac9e3bf4ab511504f8fc651371e24a6a047ba12)\n"
+"X-Launchpad-Export-Date: 2024-01-04 14:59+0000\n"
+"X-Generator: Launchpad (build e1eeab5b20e19239bd7d5f36676f7a52988db88b)\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:300
 msgid "Export..."
@@ -290,7 +290,7 @@ msgstr "Ubah Judul"
 
 #: usr/lib/sticky/sticky.py:396
 msgid "Duplicate Note"
-msgstr ""
+msgstr "Duplikat Catatan"
 
 #: usr/lib/sticky/sticky.py:408
 msgid "Only on This Workspace"
@@ -318,7 +318,7 @@ msgstr "Tampilkan di taskbar"
 
 #: usr/lib/sticky/sticky.py:581
 msgid "Tray icon"
-msgstr ""
+msgstr "Ikon Tray"
 
 #: usr/lib/sticky/sticky.py:582
 msgid "Show the main window automatically"
@@ -338,7 +338,7 @@ msgstr "Lebar standar"
 
 #: usr/lib/sticky/sticky.py:592 usr/lib/sticky/sticky.py:597
 msgid "Cycle Colors"
-msgstr ""
+msgstr "Siklus Warna"
 
 #: usr/lib/sticky/sticky.py:594 usr/lib/sticky/sticky.py:599
 msgid "Default color"
@@ -414,11 +414,11 @@ msgstr "Grup 1"
 
 #: usr/lib/sticky/sticky.py:777
 msgid "Left click to toggle notes"
-msgstr ""
+msgstr "Klik kiri untuk mengaktifkan catatan"
 
 #: usr/lib/sticky/sticky.py:778
 msgid "Middle click to toggle the manager"
-msgstr ""
+msgstr "Klik tengah untuk mengaktifkan pengelola"
 
 #: usr/lib/sticky/sticky.py:796
 msgid "Manage Notes"
@@ -447,4 +447,4 @@ msgstr "Hilangkan note yang dipilih"
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
-msgstr ""
+msgstr "Gandakan catatan yang dipilih"

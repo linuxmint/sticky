@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2022-06-22 08:57+0200\n"
-"PO-Revision-Date: 2022-06-23 19:10+0000\n"
-"Last-Translator: vega m57 <Unknown>\n"
+"PO-Revision-Date: 2023-12-02 11:02+0000\n"
+"Last-Translator: kmyyfz8q <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-07-07 12:58+0000\n"
-"X-Generator: Launchpad (build 2ac9e3bf4ab511504f8fc651371e24a6a047ba12)\n"
+"X-Launchpad-Export-Date: 2024-01-04 14:59+0000\n"
+"X-Generator: Launchpad (build e1eeab5b20e19239bd7d5f36676f7a52988db88b)\n"
 "Language: ja\n"
 
 #: usr/lib/sticky/common.py:144 usr/lib/sticky/manager.py:300
@@ -33,7 +33,7 @@ msgstr "保存"
 
 #: usr/lib/sticky/common.py:156 usr/lib/sticky/common.py:178
 msgid "Plain Text"
-msgstr "単純なテキスト"
+msgstr "平文テキスト"
 
 #: usr/lib/sticky/common.py:168 usr/lib/sticky/manager.py:296
 msgid "Import..."
@@ -49,7 +49,7 @@ msgstr "バックアップを復元"
 
 #: usr/lib/sticky/common.py:193
 msgid "Clear"
-msgstr "消去"
+msgstr "すべて消去"
 
 #: usr/lib/sticky/common.py:194
 msgid "Restore"
@@ -68,7 +68,7 @@ msgstr "既存のグループを上書き"
 msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
-msgstr "'%s' という名前のグループがすでに存在します。 このアクションはそれを上書きします。 それでも続けますか？"
+msgstr "'%s' という名前のグループがすでに存在します。このまま続けると、そのグループが上書きされます。よろしいですか？"
 
 #: usr/lib/sticky/common.py:273 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
@@ -77,7 +77,7 @@ msgstr "グループを削除"
 #: usr/lib/sticky/common.py:273
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
-msgstr "グループ %s を削除してもよろしいですか？"
+msgstr "グループ %s を削除しますか？"
 
 #: usr/lib/sticky/common.py:325
 msgid "OK"
@@ -117,7 +117,7 @@ msgstr "新しいグループ"
 
 #: usr/lib/sticky/manager.py:286
 msgid "Back Up"
-msgstr "バックアップ"
+msgstr "バックアップを取る"
 
 #: usr/lib/sticky/manager.py:290
 msgid "Restore Backups..."
@@ -150,7 +150,7 @@ msgstr "大きな文字"
 
 #: usr/lib/sticky/sticky.py:34
 msgid "Larger Text"
-msgstr "更に大きな文字"
+msgstr "さらに大きな文字"
 
 #: usr/lib/sticky/sticky.py:38
 msgid "Red"
@@ -190,11 +190,11 @@ msgstr "操作"
 
 #: usr/lib/sticky/sticky.py:61
 msgid "Move selection up"
-msgstr "選択を上に移動"
+msgstr "選択を上へ移動"
 
 #: usr/lib/sticky/sticky.py:62
 msgid "Move selection down"
-msgstr "選択を下に移動"
+msgstr "選択を下へ移動"
 
 #: usr/lib/sticky/sticky.py:63
 msgid "Undo"
@@ -206,11 +206,11 @@ msgstr "やり直す"
 
 #: usr/lib/sticky/sticky.py:65 usr/lib/sticky/sticky.py:488
 msgid "Toggle Checklist"
-msgstr "チェックリスト形式を切替"
+msgstr "チェックリスト形式を切り替え"
 
 #: usr/lib/sticky/sticky.py:66 usr/lib/sticky/sticky.py:492
 msgid "Toggle Bullets"
-msgstr "箇条書き接頭記号"
+msgstr "箇条書き形式を切り替え"
 
 #: usr/lib/sticky/sticky.py:68
 msgid "Formatting"
@@ -244,12 +244,12 @@ msgstr "取り消し線"
 #: usr/lib/sticky/sticky.py:74 usr/lib/sticky/sticky.py:468
 #: usr/lib/sticky/sticky.py:469
 msgid "Highlight"
-msgstr "ハイライト"
+msgstr "強調"
 
 #: usr/lib/sticky/sticky.py:75 usr/lib/sticky/sticky.py:473
 #: usr/lib/sticky/sticky.py:474
 msgid "Header"
-msgstr "ヘッダー"
+msgstr "見出し"
 
 #: usr/lib/sticky/sticky.py:144
 msgid "Note Color"
@@ -266,7 +266,7 @@ msgstr "メモを削除"
 
 #: usr/lib/sticky/sticky.py:176 usr/lib/sticky/sticky.py:792
 msgid "New Note"
-msgstr "新規メモ"
+msgstr "新しいメモ"
 
 #: usr/lib/sticky/sticky.py:182
 msgid "Format"
@@ -290,31 +290,31 @@ msgstr "タイトルを編集"
 
 #: usr/lib/sticky/sticky.py:396
 msgid "Duplicate Note"
-msgstr "重複メモ"
+msgstr "メモを複製"
 
 #: usr/lib/sticky/sticky.py:408
 msgid "Only on This Workspace"
-msgstr "このワークスペースにのみ表示する"
+msgstr "このワークスペースにのみ表示"
 
 #: usr/lib/sticky/sticky.py:412
 msgid "Always on Visible Workspace"
-msgstr "全てのワークスペースに表示する"
+msgstr "すべてのワークスペースに表示"
 
 #: usr/lib/sticky/sticky.py:424
 msgid "Always on Top"
-msgstr "常に最前面に表示する"
+msgstr "最前面に固定"
 
 #: usr/lib/sticky/sticky.py:519
 msgid "Are you sure you want to remove this note?"
-msgstr "このメモを削除してもよろしいですか？"
+msgstr "このメモを削除しますか？"
 
 #: usr/lib/sticky/sticky.py:579
 msgid "Show notes on all desktops"
-msgstr "全てのデスクトップにメモを表示する"
+msgstr "メモをすべてのデスクトップに表示"
 
 #: usr/lib/sticky/sticky.py:580
 msgid "Show in taskbar"
-msgstr "タスクバーに表示する"
+msgstr "タスクバーに表示"
 
 #: usr/lib/sticky/sticky.py:581
 msgid "Tray icon"
@@ -330,15 +330,15 @@ msgstr "一般"
 
 #: usr/lib/sticky/sticky.py:587
 msgid "Default height"
-msgstr "高さの既定値"
+msgstr "既定の高さ"
 
 #: usr/lib/sticky/sticky.py:588
 msgid "Default width"
-msgstr "幅の既定値"
+msgstr "既定の幅"
 
 #: usr/lib/sticky/sticky.py:592 usr/lib/sticky/sticky.py:597
 msgid "Cycle Colors"
-msgstr "色を循環"
+msgstr "色を循環させる"
 
 #: usr/lib/sticky/sticky.py:594 usr/lib/sticky/sticky.py:599
 msgid "Default color"
@@ -357,7 +357,7 @@ msgstr "スペルミスを表示"
 #: usr/lib/sticky/sticky.py:1013 generate_desktop_files:13
 #: usr/share/sticky/manager.ui.h:1
 msgid "Notes"
-msgstr "Sticky Notes"
+msgstr "メモ"
 
 #: usr/lib/sticky/sticky.py:609
 msgid "Automatic backups"
@@ -373,7 +373,7 @@ msgstr "時間"
 
 #: usr/lib/sticky/sticky.py:611
 msgid "Set this to zero if you wish to keep all backups indefinitely"
-msgstr "全てのバックアップを無期限に保持する場合は､これをゼロに設定します"
+msgstr "これをゼロに設定すると、すべてのバックアップを無期限に保持します"
 
 #: usr/lib/sticky/sticky.py:612
 msgid "Number to keep"
@@ -389,7 +389,7 @@ msgstr "自動的に開始"
 
 #: usr/lib/sticky/sticky.py:619
 msgid "Show notes on the screen"
-msgstr "画面にメモを表示する"
+msgstr "メモを画面に表示"
 
 #: usr/lib/sticky/sticky.py:620
 msgid "Automatic start"
@@ -397,13 +397,13 @@ msgstr "自動開始"
 
 #: usr/lib/sticky/sticky.py:638
 msgid "Text Size"
-msgstr "文字サイズ"
+msgstr "文字の大きさ"
 
 #: usr/lib/sticky/sticky.py:745
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
-msgstr "Gnote からノートをインポートしますか? これによって Gnote 側のノートが変更されることはありません。"
+msgstr "Gnote からメモをインポートしますか？Gnote 側のメモが変更されることはありません。"
 
 #: usr/lib/sticky/sticky.py:768
 msgid "Group 1"
@@ -411,15 +411,15 @@ msgstr "グループ 1"
 
 #: usr/lib/sticky/sticky.py:777
 msgid "Left click to toggle notes"
-msgstr "左クリックしてメモを切り替えます"
+msgstr "左クリックでメモを切り替えます"
 
 #: usr/lib/sticky/sticky.py:778
 msgid "Middle click to toggle the manager"
-msgstr "中クリックしてマネージャーを切り替えます"
+msgstr "中クリックでメモの管理画面を切り替えます"
 
 #: usr/lib/sticky/sticky.py:796
 msgid "Manage Notes"
-msgstr "Sticky Notes を管理"
+msgstr "メモを管理"
 
 #: usr/lib/sticky/sticky.py:818
 msgid "Quit"
@@ -428,7 +428,7 @@ msgstr "終了"
 #: usr/lib/sticky/sticky.py:1014 generate_desktop_files:14
 #: usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr "メモをとって整理"
+msgstr "メモを取って整理します"
 
 #: usr/lib/sticky/util.py:79
 msgid "Unfiled"
@@ -436,7 +436,7 @@ msgstr "未分類"
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
-msgstr "新規メモ"
+msgstr "新しいメモ"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
@@ -444,4 +444,4 @@ msgstr "選択したメモを削除"
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
-msgstr "選んだメモの重複"
+msgstr "選択したメモを複製"
