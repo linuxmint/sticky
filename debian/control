@@ -4,7 +4,8 @@ Priority: optional
 Maintainer: Linux Mint <root@linuxmint.com>
 Build-Depends:
     debhelper (>= 9),
-    dh-python
+    dh-python,
+    meson,
 Standards-Version: 3.9.5
 
 Package: sticky
