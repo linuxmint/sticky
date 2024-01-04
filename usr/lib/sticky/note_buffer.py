@@ -649,7 +649,7 @@ class NoteBuffer(Gtk.TextBuffer):
             next_char.forward_char()
 
             # check tag toggles
-            if length == 1:
+            if len(text) == 1:
                 font_scale_changed = False
                 for tag_name in self.tag_toggles:
                     # if the tag is a font scale, remove all other font scales
