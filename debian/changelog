@@ -1,3 +1,11 @@
+sticky (1.19) virginia; urgency=medium
+
+  * note_buffer: Don't use the length variable
+  * l10n: Update translations
+  * Drop generate_desktop_files
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 04 Jan 2024 16:59:28 +0000
+
 sticky (1.18) virginia; urgency=medium
 
   [ Stephen Collins ]
