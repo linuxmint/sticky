@@ -1,6 +1,7 @@
-project('sticky', version: '1.19')
+project('sticky', version: '1.19', meson_version: '>= 0.57.0')
 
 i18n = import('i18n')
+gnome = import('gnome')
 
 gettext_package = meson.project_name()
 
@@ -15,3 +16,8 @@ subdir('po')
 
 install_subdir('etc', install_dir: sysconfdir, strip_directory: true)
 install_subdir('usr', install_dir: prefix, strip_directory: true)
+
+gnome.post_install(
+  glib_compile_schemas: true,
+  gtk_update_icon_cache: true
+)
