@@ -15,3 +15,5 @@ subdir('po')
 
 install_subdir('etc', install_dir: sysconfdir, strip_directory: true)
 install_subdir('usr', install_dir: prefix, strip_directory: true)
+
+meson.add_install_script('meson/meson-postinstall.sh')
