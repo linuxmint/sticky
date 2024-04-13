@@ -20,6 +20,36 @@
       </description>
     </key>
 
+    <key name='default-start-position' type='s'>
+      <default>"left-top"</default>
+      <summary>Default Start Position</summary>
+      <choices>
+        <choice value='left-top'/>
+        <choice value='center-top'/>
+        <choice value='right-top'/>
+        <choice value='left-center'/>
+        <choice value='center-center'/>
+        <choice value='right-center'/>
+        <choice value='left-bottom'/>
+        <choice value='center-bottom'/>
+        <choice value='right-bottom'/>
+      </choices>
+      <aliases>
+        <alias value='Top Left' target='left-top'/>
+        <alias value='Top Center' target='center-top'/>
+        <alias value='Top Right' target='right-top'/>
+        <alias value='Center Left' target='left-center'/>
+        <alias value='Center' target='center-center'/>
+        <alias value='Center Right' target='right-center'/>
+        <alias value='Bottom Left' target='left-bottom'/>
+        <alias value='Bottom Center' target='center-bottom'/>
+        <alias value='Bottom Right' target='right-bottom'/>
+      </aliases>
+      <description>
+        The position that new notes will start at on the screen.
+      </description>
+    </key>
+
     <key name='default-color' type='s'>
       <default>"yellow"</default>
       <summary>Default Color</summary>
