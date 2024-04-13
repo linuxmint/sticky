@@ -92,6 +92,18 @@ SHORTCUTS = {
     ]
 }
 
+START_POSITIONS = {
+    'left-top': _("Top Left"),
+    'center-top': _("Top Center"),
+    'right-top': _("Top Right"),
+    'left-center': _("Center Left"),
+    'center-center': _("Center"),
+    'right-center': _("Center Right"),
+    'left-bottom': _("Bottom Left"),
+    'center-bottom': _("Bottom Center"),
+    'right-bottom': _("Bottom Right"),
+}
+
 class Note(Gtk.Window):
     @GObject.Signal(flags=GObject.SignalFlags.RUN_LAST, return_type=bool,
                     accumulator=GObject.signal_accumulator_true_handled)
@@ -602,6 +614,8 @@ class SettingsWindow(XApp.PreferencesWindow):
         page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         page.pack_start(GSettingsSpinButton(_("Default height"), SCHEMA, 'default-height', mini=50, maxi=2000, step=10), False, False, 0)
         page.pack_start(GSettingsSpinButton(_("Default width"), SCHEMA, 'default-width', mini=50, maxi=2000, step=10), False, False, 0)
+        start_posititions = [(x, y) for x, y in START_POSITIONS.items()]
+        page.pack_start(GSettingsComboBox(_("Default start position"), SCHEMA, 'default-start-position', options=start_posititions, valtype=str), False, False, 0)
         try:
             colors = [(x, y) for x, y in COLORS.items()]
             colors.append(('sep', ''))
@@ -919,7 +933,7 @@ class Application(Gtk.Application):
         self.notes_hidden = True
         self.update_dummy_window()
 
-    def find_note_location(self, x, y):
+    def find_note_location(self, x, y, direction):
         while True:
             found = False
             for note_info in self.file_handler.get_note_list(self.note_group):
@@ -930,20 +944,45 @@ class Application(Gtk.Application):
             if not found:
                 break
 
-            x += 20
-            y += 20
+            x += 20 * direction[0]
+            y += 60 * direction[1]
 
         return x, y
 
     def new_note(self, button=None, parent=None):
-        if parent is None:
-            x = 40
-            y = 40
+        workarea_rect = Gdk.Monitor.get_workarea(
+            Gdk.Display.get_primary_monitor(Gdk.Display.get_default())
+        )
+        direction = [1, 1]
+        if parent:
+            if parent.x > (workarea_rect.width / 2):
+                x = parent.x - 20
+                direction[0] = -1
+            else:
+                x = parent.x + 20
+            if parent.y > (workarea_rect.height / 2):
+                y = parent.y - 60
+                direction[1] = -1
+            else:
+                y = parent.y + 60
         else:
-            x = parent.x + 20
-            y = parent.y + 20
+            start_pos = self.settings.get_string('default-start-position').split('-')
+            if start_pos[0] == 'right':
+                x = workarea_rect.width - self.settings.get_uint('default-width') - 20
+                direction[0] = -1
+            elif start_pos[0] == 'center':
+                x = workarea_rect.width / 2 - self.settings.get_uint('default-width') / 2
+            else:
+                x = 20
+            if start_pos[1] == 'bottom':
+                y = workarea_rect.height - self.settings.get_uint('default-height') - 60
+                direction[1] = -1
+            elif start_pos[1] == 'center':
+                y = workarea_rect.height / 2 - self.settings.get_uint('default-height') / 2
+            else:
+                y = 20
 
-        x, y = self.find_note_location(x, y)
+        x, y = self.find_note_location(x, y, direction)
 
         info = {'x': x, 'y': y}
 
