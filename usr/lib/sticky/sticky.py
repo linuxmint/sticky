@@ -662,8 +662,8 @@ class ShortcutsWindow(Gtk.ShortcutsWindow):
 
 class Application(Gtk.Application):
 
-    def __init__(self):
-        super(Application, self).__init__(application_id=APPLICATION_ID, flags=Gio.ApplicationFlags.FLAGS_NONE)
+    def __init__(self, *args):
+        super(Application, self).__init__(*args, application_id=APPLICATION_ID, flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE)
 
         self.status_icon = None
         self.has_activated = False
@@ -677,6 +677,54 @@ class Application(Gtk.Application):
         self.notes_hidden = False
         self.autostart_mode = False # indicates if we're in autostart mode
         self.dbus_register_id = 0
+
+        self.add_main_option(
+            'autostart',
+            ord('a'),
+            GLib.OptionFlags.NONE,
+            GLib.OptionArg.NONE,
+            'Autostart mode',
+            None)
+        self.add_main_option(
+            'new',
+            ord('n'),
+            GLib.OptionFlags.NONE,
+            GLib.OptionArg.NONE,
+            'Create a new note',
+            None)
+
+        self.add_main_option(
+            'toggle',
+            ord('t'),
+            GLib.OptionFlags.NONE,
+            GLib.OptionArg.NONE,
+            'Toggle note visibility',
+            None)
+
+    def do_command_line(self, command_line):
+        options = command_line.get_options_dict()
+        options = options.end().unpack()
+
+        if 'autostart' in options:
+            settings = Gio.Settings(schema_id=SCHEMA)
+            if not settings.get_boolean("autostart"):
+                sys.exit()
+            else:
+                autostart_mode = True
+
+        if not self.has_activated:
+            self.activate()
+
+        if 'new' in options:
+            self.new_note(None)
+
+        if 'toggle' in options:
+            if self.notes_hidden:
+                self.activate_notes(Gtk.get_current_event_time())
+            else:
+                self.hide_notes()
+
+        return 0
 
     def do_activate(self):
         if self.has_activated:
@@ -1128,14 +1176,5 @@ class Application(Gtk.Application):
         self.quit()
 
 if __name__ == "__main__":
-    autostart_mode = False
-    if "--autostart" in sys.argv:
-        settings = Gio.Settings(schema_id=SCHEMA)
-        if not settings.get_boolean("autostart"):
-            sys.exit()
-        else:
-            autostart_mode = True
-
     sticky = Application()
-    sticky.autostart_mode = autostart_mode
-    sticky.run()
+    sticky.run(sys.argv)
