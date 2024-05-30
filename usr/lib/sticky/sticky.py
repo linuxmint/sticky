@@ -762,17 +762,16 @@ class Application(Gtk.Application):
         Gio.Application.do_dbus_unregister(self, connection, object_path)
 
     def dbus_method_callback(self, connection, sender, path, iface_name, method_name, params, invocation, user_data=None):
-        match method_name:
-            case 'ShowNotes':
-                self.activate_notes(0)
+        if method_name == 'ShowNotes':
+            self.activate_notes(0)
 
-            case 'NewNote':
-                x, y = self.find_note_location(40, 40)
+        elif method_name == 'NewNote':
+            x, y = self.find_note_location(40, 40)
 
-                self.add_note({'text': params.unpack()[0], 'x': x, 'y': y})
+            self.add_note({'text': params.unpack()[0], 'x': x, 'y': y})
 
-            case 'NewNoteBlank':
-                self.new_note()
+        elif method_name == 'NewNoteBlank':
+            self.new_note()
 
     def first_run(self):
         gnote_dir = os.path.join(GLib.get_user_data_dir(), 'gnote')
