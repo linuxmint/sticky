@@ -1,4 +1,4 @@
 #!/bin/bash
 intltool-extract --type=gettext/glade usr/share/sticky/manager.ui
-xgettext --language=Python -cTRANSLATORS --keyword=_ --keyword=N_ --output=sticky.pot usr/lib/sticky/*.py generate_desktop_files usr/bin/* usr/share/sticky/*.ui.h
+xgettext --language=Python -cTRANSLATORS --keyword=_ --keyword=N_ --output=sticky.pot usr/lib/sticky/*.py usr/bin/* usr/share/sticky/*.ui.h
 rm -f usr/share/sticky/*.ui.h
