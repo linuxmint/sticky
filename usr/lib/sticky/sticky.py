@@ -93,15 +93,15 @@ SHORTCUTS = {
 }
 
 START_POSITIONS = {
-    'left-top': _("Top Left"),
-    'center-top': _("Top Center"),
-    'right-top': _("Top Right"),
-    'left-center': _("Center Left"),
+    'top-left': _("Top Left"),
+    'top-center': _("Top Center"),
+    'top-right': _("Top Right"),
+    'center-left': _("Center Left"),
     'center-center': _("Center"),
-    'right-center': _("Center Right"),
-    'left-bottom': _("Bottom Left"),
-    'center-bottom': _("Bottom Center"),
-    'right-bottom': _("Bottom Right"),
+    'center-right': _("Center Right"),
+    'bottom-left': _("Bottom Left"),
+    'bottom-center': _("Bottom Center"),
+    'bottom-right': _("Bottom Right"),
 }
 
 class Note(Gtk.Window):
@@ -615,7 +615,7 @@ class SettingsWindow(XApp.PreferencesWindow):
         page.pack_start(GSettingsSpinButton(_("Default height"), SCHEMA, 'default-height', mini=50, maxi=2000, step=10), False, False, 0)
         page.pack_start(GSettingsSpinButton(_("Default width"), SCHEMA, 'default-width', mini=50, maxi=2000, step=10), False, False, 0)
         start_posititions = [(x, y) for x, y in START_POSITIONS.items()]
-        page.pack_start(GSettingsComboBox(_("Default start position"), SCHEMA, 'default-start-position', options=start_posititions, valtype=str), False, False, 0)
+        page.pack_start(GSettingsComboBox(_("Default position"), SCHEMA, 'default-position', options=start_posititions, valtype=str), False, False, 0)
         try:
             colors = [(x, y) for x, y in COLORS.items()]
             colors.append(('sep', ''))
@@ -966,18 +966,18 @@ class Application(Gtk.Application):
             else:
                 y = parent.y + 60
         else:
-            start_pos = self.settings.get_string('default-start-position').split('-')
-            if start_pos[0] == 'right':
+            pos_y, pos_x = self.settings.get_string('default-position').split('-')
+            if pos_x == 'right':
                 x = workarea_rect.width - self.settings.get_uint('default-width') - 20
                 direction[0] = -1
-            elif start_pos[0] == 'center':
+            elif pos_x == 'center':
                 x = workarea_rect.width / 2 - self.settings.get_uint('default-width') / 2
             else:
                 x = 20
-            if start_pos[1] == 'bottom':
+            if pos_y == 'bottom':
                 y = workarea_rect.height - self.settings.get_uint('default-height') - 60
                 direction[1] = -1
-            elif start_pos[1] == 'center':
+            elif pos_y == 'center':
                 y = workarea_rect.height / 2 - self.settings.get_uint('default-height') / 2
             else:
                 y = 20
