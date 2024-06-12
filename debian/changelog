@@ -1,3 +1,29 @@
+sticky (1.20) wilma; urgency=medium
+
+  [ Bobby Rong ]
+  * meson: Various fixes (#118)
+
+  [ carlosmintfan ]
+  * Don't use python3.10 code (#124)
+
+  [ Himadri Sekhar Basu ]
+  * Fix debian packaging and lintian issues (#121)
+
+  [ Scott Murphy ]
+  * Add start position option.
+
+  [ Clement Lefebvre ]
+  * Refactor position key values
+
+  [ Scott Murphy ]
+  * Add command line options.
+
+  [ Clement Lefebvre ]
+  * Fix regression in previous commit
+  * l10n: Update POT
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 12 Jun 2024 13:49:35 +0100
+
 sticky (1.19) virginia; urgency=medium
 
   * note_buffer: Don't use the length variable
