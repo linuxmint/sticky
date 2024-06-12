@@ -724,7 +724,7 @@ class Application(Gtk.Application):
             if not settings.get_boolean("autostart"):
                 sys.exit()
             else:
-                autostart_mode = True
+                self.autostart_mode = True
 
         if not self.has_activated:
             self.activate()
