@@ -1,16 +1,16 @@
-# Hebrew translation for linuxmint
-# Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
+# Chinese (Traditional) translation for linuxmint
+# Copyright (c) 2024 Rosetta Contributors and Canonical Ltd 2024
 # This file is distributed under the same license as the linuxmint package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-06-12 13:48+0100\n"
-"PO-Revision-Date: 2024-06-12 14:08+0000\n"
-"Last-Translator: Avi Markovitz <avi.markovitz@gmail.com>\n"
-"Language-Team: Hebrew <he@li.org>\n"
+"PO-Revision-Date: 2024-02-14 19:26+0000\n"
+"Last-Translator: 爽自由 <coby2023t@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,468 +19,466 @@ msgstr ""
 
 #: usr/lib/sticky/common.py:150 usr/lib/sticky/manager.py:300
 msgid "Export..."
-msgstr "ייצוא..."
+msgstr "匯出..."
 
 #: usr/lib/sticky/common.py:151 usr/lib/sticky/common.py:175
 #: usr/lib/sticky/common.py:198 usr/lib/sticky/common.py:330
 msgid "Cancel"
-msgstr "ביטול"
+msgstr "取消"
 
 #: usr/lib/sticky/common.py:151
 msgid "Save"
-msgstr "שמירה"
+msgstr "儲存"
 
 #: usr/lib/sticky/common.py:162 usr/lib/sticky/common.py:184
 msgid "Plain Text"
-msgstr "מלל רגיל"
+msgstr "純文字"
 
 #: usr/lib/sticky/common.py:174 usr/lib/sticky/manager.py:296
 msgid "Import..."
-msgstr "ייבוא..."
+msgstr "匯入..."
 
 #: usr/lib/sticky/common.py:175
 msgid "Open"
-msgstr "פתיחה"
+msgstr "開啟"
 
 #: usr/lib/sticky/common.py:197
 msgid "Restore Backup"
-msgstr "שחזור מגיבוי"
+msgstr "回存備份"
 
 #: usr/lib/sticky/common.py:199
 msgid "Clear"
-msgstr "ניקוי"
+msgstr "清除"
 
 #: usr/lib/sticky/common.py:200
 msgid "Restore"
-msgstr "שחזור"
+msgstr "還原"
 
 #: usr/lib/sticky/common.py:255
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr "לא ניתן לשחזר: קובץ גיבוי פגום או לא תקין"
+msgstr "無法還原: 無效或損壞的備份檔"
 
 #: usr/lib/sticky/common.py:268
 msgid "Overwrite Existing Group"
-msgstr "כתיבה־על קבוצה קיימת"
+msgstr "覆寫已有的群組"
 
 #: usr/lib/sticky/common.py:268
 #, python-format
 msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
-msgstr ""
-"קבוצה בשם \"%s\" קיימת כבר. פעולה זו תכתוב על הקבוצה. להמשיך בכל זאת?"
+msgstr "已有 %s 群組，確定要覆蓋嗎?"
 
 #: usr/lib/sticky/common.py:279 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
-msgstr "הסרת קבוצה"
+msgstr "移除群組"
 
 #: usr/lib/sticky/common.py:279
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
-msgstr "להסיר את הקבוצה '%s'?"
+msgstr "確定要移除 %s 群組 ?"
 
 #: usr/lib/sticky/common.py:331
 msgid "OK"
-msgstr "בסדר"
+msgstr "確定"
 
 #: usr/lib/sticky/common.py:354
 msgid "No"
-msgstr "לא"
+msgstr "不要"
 
 #: usr/lib/sticky/common.py:355
 msgid "Yes"
-msgstr "כן"
+msgstr "確定"
 
 #: usr/lib/sticky/common.py:365
 msgid "Don't ask me again"
-msgstr "לא לשאול שוב"
+msgstr "不要再問我"
 
 #: usr/lib/sticky/manager.py:108
 msgid "New"
-msgstr "פתקית חדשה"
+msgstr "新增"
 
 #: usr/lib/sticky/manager.py:113
 msgid "Edit"
-msgstr "עריכה"
+msgstr "編輯"
 
 #: usr/lib/sticky/manager.py:117
 msgid "Remove"
-msgstr "הסרה"
+msgstr "移除"
 
 #: usr/lib/sticky/manager.py:222
 msgid "Untitled"
-msgstr "ללא שם"
+msgstr "未命名"
 
 #: usr/lib/sticky/manager.py:276
 msgid "New Group"
-msgstr "קבוצה חדשה"
+msgstr "新增群組"
 
 #: usr/lib/sticky/manager.py:286
 msgid "Back Up"
-msgstr "גיבוי"
+msgstr "備份"
 
 #: usr/lib/sticky/manager.py:290
 msgid "Restore Backups..."
-msgstr "שחזור מגיבוי..."
+msgstr "還原備份..."
 
 #: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:603
 #: usr/lib/sticky/sticky.py:919
 msgid "Preferences"
-msgstr "העדפות"
+msgstr "偏好設定"
 
 #: usr/lib/sticky/manager.py:310
 msgid "Keyboard Shortcuts"
-msgstr "קיצורי מקלדת"
+msgstr "鍵盤快速鍵"
 
 #: usr/lib/sticky/manager.py:315 usr/lib/sticky/sticky.py:1156
 msgid "About"
-msgstr "על אודות"
+msgstr "關於"
 
 #: usr/lib/sticky/sticky.py:47
 msgid "Small Text"
-msgstr "מלל קטן"
+msgstr "小文字"
 
 #: usr/lib/sticky/sticky.py:48
 msgid "Normal Text"
-msgstr "מלל תקני"
+msgstr "普通文字"
 
 #: usr/lib/sticky/sticky.py:49
 msgid "Large Text"
-msgstr "מלל גדול"
+msgstr "大文字"
 
 #: usr/lib/sticky/sticky.py:50
 msgid "Larger Text"
-msgstr "מלל גדול יותר"
+msgstr "較大文字"
 
 #: usr/lib/sticky/sticky.py:54
 msgid "Red"
-msgstr "אדום"
+msgstr "紅色"
 
 #: usr/lib/sticky/sticky.py:55
 msgid "Green"
-msgstr "ירוק"
+msgstr "綠色"
 
 #: usr/lib/sticky/sticky.py:56
 msgid "Blue"
-msgstr "כחול"
+msgstr "藍色"
 
 #: usr/lib/sticky/sticky.py:57
 msgid "Yellow"
-msgstr "צהוב"
+msgstr "黃色"
 
 #: usr/lib/sticky/sticky.py:58
 msgid "Purple"
-msgstr "סגול"
+msgstr "紫色"
 
 #: usr/lib/sticky/sticky.py:59
 msgid "Teal"
-msgstr "ירוק כחלחל"
+msgstr "青色"
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Orange"
-msgstr "כתום"
+msgstr "橘色"
 
 #: usr/lib/sticky/sticky.py:61
 msgid "Magenta"
-msgstr "ארגמן"
+msgstr "紫紅色"
 
 #: usr/lib/sticky/sticky.py:76
 msgid "Operations"
-msgstr "פעולות"
+msgstr "動作"
 
 #: usr/lib/sticky/sticky.py:77
 msgid "Move selection up"
-msgstr "הזזת בחירה מעלה"
+msgstr "往上移動選擇"
 
 #: usr/lib/sticky/sticky.py:78
 msgid "Move selection down"
-msgstr "הזזת בחירה מטה"
+msgstr "往下移動選擇"
 
 #: usr/lib/sticky/sticky.py:79
 msgid "Undo"
-msgstr "החזרה לקדמות"
+msgstr "取消動作"
 
 #: usr/lib/sticky/sticky.py:80
 msgid "Redo"
-msgstr "ביטול החזרה לקדמות"
+msgstr "重覆動作"
 
 #: usr/lib/sticky/sticky.py:81 usr/lib/sticky/sticky.py:516
 msgid "Toggle Checklist"
-msgstr "מיתוג רשימת בקרה"
+msgstr "切換檢查單"
 
 #: usr/lib/sticky/sticky.py:82 usr/lib/sticky/sticky.py:520
 msgid "Toggle Bullets"
-msgstr "מיתוג נקודות תבליט"
+msgstr "切換子彈"
 
 #: usr/lib/sticky/sticky.py:84
 msgid "Formatting"
-msgstr "תסדור"
+msgstr "格式化..."
 
 #: usr/lib/sticky/sticky.py:85 usr/lib/sticky/sticky.py:471
 #: usr/lib/sticky/sticky.py:472
 msgid "Bold"
-msgstr "מודגש"
+msgstr "粗體"
 
 #: usr/lib/sticky/sticky.py:86 usr/lib/sticky/sticky.py:476
 #: usr/lib/sticky/sticky.py:477
 msgid "Italic"
-msgstr "נטוי"
+msgstr "斜體"
 
 #: usr/lib/sticky/sticky.py:87 usr/lib/sticky/sticky.py:481
 #: usr/lib/sticky/sticky.py:482
 msgid "Fixed Width"
-msgstr "רוחב קבוע"
+msgstr "固定寬度"
 
 #: usr/lib/sticky/sticky.py:88 usr/lib/sticky/sticky.py:486
 #: usr/lib/sticky/sticky.py:487
 msgid "Underline"
-msgstr "קו תחתון"
+msgstr "底線字"
 
 #: usr/lib/sticky/sticky.py:89 usr/lib/sticky/sticky.py:491
 #: usr/lib/sticky/sticky.py:492
 msgid "Strikethrough"
-msgstr "קו חוצה"
+msgstr "刪除線"
 
 #: usr/lib/sticky/sticky.py:90 usr/lib/sticky/sticky.py:496
 #: usr/lib/sticky/sticky.py:497
 msgid "Highlight"
-msgstr "הדגש"
+msgstr "強化文字"
 
 #: usr/lib/sticky/sticky.py:91 usr/lib/sticky/sticky.py:501
 #: usr/lib/sticky/sticky.py:502
 msgid "Header"
-msgstr "כותרת עליונה"
+msgstr "標頭"
 
 #: usr/lib/sticky/sticky.py:96
 msgid "Top Left"
-msgstr "עליון שמאל"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:97
 msgid "Top Center"
-msgstr "עליון מרכז"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:98
 msgid "Top Right"
-msgstr "עליון ימין"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:99
 msgid "Center Left"
-msgstr "מרכז שמאל"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:100
 msgid "Center"
-msgstr "מרכז"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:101
 msgid "Center Right"
-msgstr "מרכז ימין"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:102
 msgid "Bottom Left"
-msgstr "תחתון שמאל"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:103
 msgid "Bottom Center"
-msgstr "תחתון מרכז"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:104
 msgid "Bottom Right"
-msgstr "תחתון ימין"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:172
 msgid "Note Color"
-msgstr "צבע פתקית"
+msgstr "筆記顏色"
 
 #: usr/lib/sticky/sticky.py:189
 msgid "Rename"
-msgstr "שינוי שם"
+msgstr "改名"
 
 #: usr/lib/sticky/sticky.py:197 usr/lib/sticky/sticky.py:428
 #: usr/lib/sticky/sticky.py:547
 msgid "Delete Note"
-msgstr "מחיקת פתקית"
+msgstr "刪除筆記"
 
 #: usr/lib/sticky/sticky.py:204 usr/lib/sticky/sticky.py:899
 msgid "New Note"
-msgstr "פתקית חדשה"
+msgstr "新增筆記"
 
 #: usr/lib/sticky/sticky.py:210
 msgid "Format"
-msgstr "תסדיר"
+msgstr "格式"
 
 #: usr/lib/sticky/sticky.py:409
 msgid "undo"
-msgstr "ביטול פעולה"
+msgstr "取消動作"
 
 #: usr/lib/sticky/sticky.py:413
 msgid "redo"
-msgstr "החזרת פעולה"
+msgstr "重作"
 
 #: usr/lib/sticky/sticky.py:419
 msgid "Set Title"
-msgstr "הגדרת כותרת"
+msgstr "設定標題"
 
 #: usr/lib/sticky/sticky.py:419
 msgid "Edit Title"
-msgstr "עריכת כותרת"
+msgstr "編輯標題"
 
 #: usr/lib/sticky/sticky.py:424
 msgid "Duplicate Note"
-msgstr "שיכפול פתקית"
+msgstr "複製筆記"
 
 #: usr/lib/sticky/sticky.py:436
 msgid "Only on This Workspace"
-msgstr "רק במרחב עבודה זה"
+msgstr "只在本工作區"
 
 #: usr/lib/sticky/sticky.py:440
 msgid "Always on Visible Workspace"
-msgstr "תמיד במרחב עבודה גלוי"
+msgstr "總是在可視工作區"
 
 #: usr/lib/sticky/sticky.py:452
 msgid "Always on Top"
-msgstr "תמיד עליון"
+msgstr "總是在最上層"
 
 #: usr/lib/sticky/sticky.py:547
 msgid "Are you sure you want to remove this note?"
-msgstr "להסיר פתקית זו?"
+msgstr "確定要移除這筆記嗎?"
 
 #: usr/lib/sticky/sticky.py:607
 msgid "Show notes on all desktops"
-msgstr "הצגת פתקיות בכל שולחנות העבודה"
+msgstr "在全部桌面顯示筆記"
 
 #: usr/lib/sticky/sticky.py:608
 msgid "Show in taskbar"
-msgstr "הצגה בסרגל משימות"
+msgstr "在工作列中顯示"
 
 #: usr/lib/sticky/sticky.py:609
 msgid "Tray icon"
-msgstr "סמל מגש"
+msgstr "托盤圖示"
 
 #: usr/lib/sticky/sticky.py:610
 msgid "Show the main window automatically"
-msgstr "הצגת החלון הראשי באופן אוטומטי"
+msgstr "自動顯示主視窗"
 
 #: usr/lib/sticky/sticky.py:611
 msgid "General"
-msgstr "כללי"
+msgstr "一般選項"
 
 #: usr/lib/sticky/sticky.py:615
 msgid "Default height"
-msgstr "גובה ברירת המחדל"
+msgstr "預設高度"
 
 #: usr/lib/sticky/sticky.py:616
 msgid "Default width"
-msgstr "רוחב ברירת המחדל"
+msgstr "預設寬度"
 
 #: usr/lib/sticky/sticky.py:618
 msgid "Default position"
-msgstr "איות ברירת מחדל"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:622 usr/lib/sticky/sticky.py:627
 msgid "Cycle Colors"
-msgstr "מחזור צבעים"
+msgstr "循環色彩"
 
 #: usr/lib/sticky/sticky.py:624 usr/lib/sticky/sticky.py:629
 msgid "Default color"
-msgstr "צבע ברירת מחדל"
+msgstr "預設顏色"
 
 #: usr/lib/sticky/sticky.py:631
 msgid "Font"
-msgstr "גופן"
+msgstr "字型"
 
 #: usr/lib/sticky/sticky.py:632
 msgid "Show spelling mistakes"
-msgstr "הצגת שגיאות כתיב"
+msgstr "顯示拼音錯誤"
 
 #: usr/lib/sticky/sticky.py:634 usr/lib/sticky/sticky.py:754
 #: usr/lib/sticky/sticky.py:851 usr/lib/sticky/sticky.py:883
 #: usr/lib/sticky/sticky.py:1157 usr/share/sticky/manager.ui.h:1
 msgid "Notes"
-msgstr "פתקיות"
+msgstr "筆記"
 
 #: usr/lib/sticky/sticky.py:639
 msgid "Automatic backups"
-msgstr "גיבויים אוטומטיים"
+msgstr "自動備份"
 
 #: usr/lib/sticky/sticky.py:640
 msgid "Time between backups"
-msgstr "מרווח זמן בין גיבויים"
+msgstr "備份間隔 (時間)"
 
 #: usr/lib/sticky/sticky.py:640
 msgid "hours"
-msgstr "שעות"
+msgstr "小時"
 
 #: usr/lib/sticky/sticky.py:641
 msgid "Set this to zero if you wish to keep all backups indefinitely"
-msgstr "הגדרת אפס בשדה זה כדי לשמור את כל הגיבויים לעד"
+msgstr "如果要無限地保留全部備份，請設為 0"
 
 #: usr/lib/sticky/sticky.py:642
 msgid "Number to keep"
-msgstr "מספר גיבויים לשמירה"
+msgstr "保留的數量"
 
 #: usr/lib/sticky/sticky.py:644
 msgid "Backups"
-msgstr "גיבויים"
+msgstr "備份"
 
 #: usr/lib/sticky/sticky.py:648
 msgid "Start automatically"
-msgstr "אתחול אוטומטי"
+msgstr "自動啟動"
 
 #: usr/lib/sticky/sticky.py:649
 msgid "Show notes on the screen"
-msgstr "הצגת פתקיות על המרקע"
+msgstr "在螢幕顯示筆記"
 
 #: usr/lib/sticky/sticky.py:650
 msgid "Automatic start"
-msgstr "איטמוט אתחול"
+msgstr "自動開始"
 
 #: usr/lib/sticky/sticky.py:668
 msgid "Text Size"
-msgstr "גודל מלל"
+msgstr "文字大小"
 
 #: usr/lib/sticky/sticky.py:852
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
-msgstr ""
-"האם לייבא פתקיות מ־Gnote?  לא תהיה לכך שפעה על פתקיות Gnote קיימות בשום אופן."
+msgstr "想從 Gnote 匯入筆記嗎? 這不會更動 Gnote 裏面的筆記。"
 
 #: usr/lib/sticky/sticky.py:875
 msgid "Group 1"
-msgstr "קבוצה 1"
+msgstr "群組 1"
 
 #: usr/lib/sticky/sticky.py:884
 msgid "Left click to toggle notes"
-msgstr "הקשה שמאלית למיתוג פתקיות"
+msgstr "點左鍵切換筆記"
 
 #: usr/lib/sticky/sticky.py:885
 msgid "Middle click to toggle the manager"
-msgstr "הקשה אמצעית למיתוג מנהל הפתקיות"
+msgstr "點中鍵切換管理員"
 
 #: usr/lib/sticky/sticky.py:903
 msgid "Manage Notes"
-msgstr "ניהול פתקיות"
+msgstr "管理筆記"
 
 #: usr/lib/sticky/sticky.py:925
 msgid "Quit"
-msgstr "יציאה"
+msgstr "結束"
 
 #: usr/lib/sticky/sticky.py:1158 usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr "רישמו הערות והשראו מאורגנים"
+msgstr "做筆記且管理好"
 
 #: usr/lib/sticky/util.py:79
 msgid "Unfiled"
-msgstr "לא תוייק"
+msgstr "未歸檔"
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
-msgstr "פתקית חדשה"
+msgstr "新增筆記"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr "הסרת הפתק שנבחר"
+msgstr "移除選取的筆記"
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
-msgstr "שכפול הערה שנבחרה"
+msgstr "複製選取的筆記"
