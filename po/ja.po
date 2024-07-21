@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-06-12 13:48+0100\n"
-"PO-Revision-Date: 2023-12-02 11:02+0000\n"
+"PO-Revision-Date: 2024-07-02 17:45+0000\n"
 "Last-Translator: kmyyfz8q <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-06-18 17:57+0000\n"
+"X-Launchpad-Export-Date: 2024-07-21 09:03+0000\n"
 "X-Generator: Launchpad (build bbfa2351d9d6a9ddfe262109428f7bf5516e65d1)\n"
 "Language: ja\n"
 
@@ -253,39 +253,39 @@ msgstr "見出し"
 
 #: usr/lib/sticky/sticky.py:96
 msgid "Top Left"
-msgstr ""
+msgstr "左上"
 
 #: usr/lib/sticky/sticky.py:97
 msgid "Top Center"
-msgstr ""
+msgstr "中央上"
 
 #: usr/lib/sticky/sticky.py:98
 msgid "Top Right"
-msgstr ""
+msgstr "右上"
 
 #: usr/lib/sticky/sticky.py:99
 msgid "Center Left"
-msgstr ""
+msgstr "左中央"
 
 #: usr/lib/sticky/sticky.py:100
 msgid "Center"
-msgstr ""
+msgstr "中央"
 
 #: usr/lib/sticky/sticky.py:101
 msgid "Center Right"
-msgstr ""
+msgstr "右中央"
 
 #: usr/lib/sticky/sticky.py:102
 msgid "Bottom Left"
-msgstr ""
+msgstr "左下"
 
 #: usr/lib/sticky/sticky.py:103
 msgid "Bottom Center"
-msgstr ""
+msgstr "中央下"
 
 #: usr/lib/sticky/sticky.py:104
 msgid "Bottom Right"
-msgstr ""
+msgstr "右下"
 
 #: usr/lib/sticky/sticky.py:172
 msgid "Note Color"
@@ -374,7 +374,7 @@ msgstr "既定の幅"
 
 #: usr/lib/sticky/sticky.py:618
 msgid "Default position"
-msgstr ""
+msgstr "既定の位置"
 
 #: usr/lib/sticky/sticky.py:622 usr/lib/sticky/sticky.py:627
 msgid "Cycle Colors"

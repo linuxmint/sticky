@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-06-12 13:48+0100\n"
-"PO-Revision-Date: 2022-01-21 06:45+0000\n"
-"Last-Translator: shenlebantongying <shenlebantongying@gmail.com>\n"
+"PO-Revision-Date: 2024-07-19 07:09+0000\n"
+"Last-Translator: 张鹏 <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-06-18 17:57+0000\n"
+"X-Launchpad-Export-Date: 2024-07-21 09:03+0000\n"
 "X-Generator: Launchpad (build bbfa2351d9d6a9ddfe262109428f7bf5516e65d1)\n"
 
 #: usr/lib/sticky/common.py:150 usr/lib/sticky/manager.py:300
@@ -56,18 +56,18 @@ msgstr "还原"
 
 #: usr/lib/sticky/common.py:255
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr ""
+msgstr "无法还原：备份文件无效或损坏"
 
 #: usr/lib/sticky/common.py:268
 msgid "Overwrite Existing Group"
-msgstr ""
+msgstr "覆盖现有的分组"
 
 #: usr/lib/sticky/common.py:268
 #, python-format
 msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
-msgstr ""
+msgstr "已经存在名为 '%s' 的分组。这将覆盖它。 是否继续？"
 
 #: usr/lib/sticky/common.py:279 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
@@ -76,7 +76,7 @@ msgstr "移除分组"
 #: usr/lib/sticky/common.py:279
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
-msgstr ""
+msgstr "你确定要移除分组 %s 吗?"
 
 #: usr/lib/sticky/common.py:331
 msgid "OK"
@@ -104,381 +104,381 @@ msgstr "编辑"
 
 #: usr/lib/sticky/manager.py:117
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 #: usr/lib/sticky/manager.py:222
 msgid "Untitled"
-msgstr ""
+msgstr "无标题"
 
 #: usr/lib/sticky/manager.py:276
 msgid "New Group"
-msgstr ""
+msgstr "新建分组"
 
 #: usr/lib/sticky/manager.py:286
 msgid "Back Up"
-msgstr ""
+msgstr "备份"
 
 #: usr/lib/sticky/manager.py:290
 msgid "Restore Backups..."
-msgstr ""
+msgstr "恢复备份…"
 
 #: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:603
 #: usr/lib/sticky/sticky.py:919
 msgid "Preferences"
-msgstr ""
+msgstr "首选项"
 
 #: usr/lib/sticky/manager.py:310
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "键盘快捷键"
 
 #: usr/lib/sticky/manager.py:315 usr/lib/sticky/sticky.py:1156
 msgid "About"
-msgstr ""
+msgstr "关于"
 
 #: usr/lib/sticky/sticky.py:47
 msgid "Small Text"
-msgstr ""
+msgstr "小号文本"
 
 #: usr/lib/sticky/sticky.py:48
 msgid "Normal Text"
-msgstr ""
+msgstr "普通文本"
 
 #: usr/lib/sticky/sticky.py:49
 msgid "Large Text"
-msgstr ""
+msgstr "大号文本"
 
 #: usr/lib/sticky/sticky.py:50
 msgid "Larger Text"
-msgstr ""
+msgstr "超大文本"
 
 #: usr/lib/sticky/sticky.py:54
 msgid "Red"
-msgstr ""
+msgstr "红色"
 
 #: usr/lib/sticky/sticky.py:55
 msgid "Green"
-msgstr ""
+msgstr "绿色"
 
 #: usr/lib/sticky/sticky.py:56
 msgid "Blue"
-msgstr ""
+msgstr "蓝色"
 
 #: usr/lib/sticky/sticky.py:57
 msgid "Yellow"
-msgstr ""
+msgstr "黄色"
 
 #: usr/lib/sticky/sticky.py:58
 msgid "Purple"
-msgstr ""
+msgstr "紫色"
 
 #: usr/lib/sticky/sticky.py:59
 msgid "Teal"
-msgstr ""
+msgstr "青色"
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Orange"
-msgstr ""
+msgstr "橙色"
 
 #: usr/lib/sticky/sticky.py:61
 msgid "Magenta"
-msgstr ""
+msgstr "品红"
 
 #: usr/lib/sticky/sticky.py:76
 msgid "Operations"
-msgstr ""
+msgstr "操作"
 
 #: usr/lib/sticky/sticky.py:77
 msgid "Move selection up"
-msgstr ""
+msgstr "上移选中项"
 
 #: usr/lib/sticky/sticky.py:78
 msgid "Move selection down"
-msgstr ""
+msgstr "下移选中项"
 
 #: usr/lib/sticky/sticky.py:79
 msgid "Undo"
-msgstr ""
+msgstr "撤销"
 
 #: usr/lib/sticky/sticky.py:80
 msgid "Redo"
-msgstr ""
+msgstr "重做"
 
 #: usr/lib/sticky/sticky.py:81 usr/lib/sticky/sticky.py:516
 msgid "Toggle Checklist"
-msgstr ""
+msgstr "切换清单"
 
 #: usr/lib/sticky/sticky.py:82 usr/lib/sticky/sticky.py:520
 msgid "Toggle Bullets"
-msgstr ""
+msgstr "切换符号"
 
 #: usr/lib/sticky/sticky.py:84
 msgid "Formatting"
-msgstr ""
+msgstr "正在格式化"
 
 #: usr/lib/sticky/sticky.py:85 usr/lib/sticky/sticky.py:471
 #: usr/lib/sticky/sticky.py:472
 msgid "Bold"
-msgstr ""
+msgstr "加粗"
 
 #: usr/lib/sticky/sticky.py:86 usr/lib/sticky/sticky.py:476
 #: usr/lib/sticky/sticky.py:477
 msgid "Italic"
-msgstr ""
+msgstr "斜体"
 
 #: usr/lib/sticky/sticky.py:87 usr/lib/sticky/sticky.py:481
 #: usr/lib/sticky/sticky.py:482
 msgid "Fixed Width"
-msgstr ""
+msgstr "固定宽度"
 
 #: usr/lib/sticky/sticky.py:88 usr/lib/sticky/sticky.py:486
 #: usr/lib/sticky/sticky.py:487
 msgid "Underline"
-msgstr ""
+msgstr "下划线"
 
 #: usr/lib/sticky/sticky.py:89 usr/lib/sticky/sticky.py:491
 #: usr/lib/sticky/sticky.py:492
 msgid "Strikethrough"
-msgstr ""
+msgstr "删除线"
 
 #: usr/lib/sticky/sticky.py:90 usr/lib/sticky/sticky.py:496
 #: usr/lib/sticky/sticky.py:497
 msgid "Highlight"
-msgstr ""
+msgstr "高亮"
 
 #: usr/lib/sticky/sticky.py:91 usr/lib/sticky/sticky.py:501
 #: usr/lib/sticky/sticky.py:502
 msgid "Header"
-msgstr ""
+msgstr "页眉"
 
 #: usr/lib/sticky/sticky.py:96
 msgid "Top Left"
-msgstr ""
+msgstr "顶部左侧"
 
 #: usr/lib/sticky/sticky.py:97
 msgid "Top Center"
-msgstr ""
+msgstr "顶端居中"
 
 #: usr/lib/sticky/sticky.py:98
 msgid "Top Right"
-msgstr ""
+msgstr "顶部右侧"
 
 #: usr/lib/sticky/sticky.py:99
 msgid "Center Left"
-msgstr ""
+msgstr "中部左侧"
 
 #: usr/lib/sticky/sticky.py:100
 msgid "Center"
-msgstr ""
+msgstr "居中"
 
 #: usr/lib/sticky/sticky.py:101
 msgid "Center Right"
-msgstr ""
+msgstr "中部右侧"
 
 #: usr/lib/sticky/sticky.py:102
 msgid "Bottom Left"
-msgstr ""
+msgstr "底部左侧"
 
 #: usr/lib/sticky/sticky.py:103
 msgid "Bottom Center"
-msgstr ""
+msgstr "底部居中"
 
 #: usr/lib/sticky/sticky.py:104
 msgid "Bottom Right"
-msgstr ""
+msgstr "底部右侧"
 
 #: usr/lib/sticky/sticky.py:172
 msgid "Note Color"
-msgstr ""
+msgstr "便笺颜色"
 
 #: usr/lib/sticky/sticky.py:189
 msgid "Rename"
-msgstr ""
+msgstr "重命名"
 
 #: usr/lib/sticky/sticky.py:197 usr/lib/sticky/sticky.py:428
 #: usr/lib/sticky/sticky.py:547
 msgid "Delete Note"
-msgstr ""
+msgstr "删除便笺"
 
 #: usr/lib/sticky/sticky.py:204 usr/lib/sticky/sticky.py:899
 msgid "New Note"
-msgstr ""
+msgstr "新建便笺"
 
 #: usr/lib/sticky/sticky.py:210
 msgid "Format"
-msgstr ""
+msgstr "格式"
 
 #: usr/lib/sticky/sticky.py:409
 msgid "undo"
-msgstr ""
+msgstr "撤销"
 
 #: usr/lib/sticky/sticky.py:413
 msgid "redo"
-msgstr ""
+msgstr "重做"
 
 #: usr/lib/sticky/sticky.py:419
 msgid "Set Title"
-msgstr ""
+msgstr "设置标题"
 
 #: usr/lib/sticky/sticky.py:419
 msgid "Edit Title"
-msgstr ""
+msgstr "编辑标题"
 
 #: usr/lib/sticky/sticky.py:424
 msgid "Duplicate Note"
-msgstr ""
+msgstr "复制便笺"
 
 #: usr/lib/sticky/sticky.py:436
 msgid "Only on This Workspace"
-msgstr ""
+msgstr "只在此工作区可见"
 
 #: usr/lib/sticky/sticky.py:440
 msgid "Always on Visible Workspace"
-msgstr ""
+msgstr "总在可见工作区"
 
 #: usr/lib/sticky/sticky.py:452
 msgid "Always on Top"
-msgstr ""
+msgstr "置顶"
 
 #: usr/lib/sticky/sticky.py:547
 msgid "Are you sure you want to remove this note?"
-msgstr ""
+msgstr "确定要删除此便笺吗？"
 
 #: usr/lib/sticky/sticky.py:607
 msgid "Show notes on all desktops"
-msgstr ""
+msgstr "在所有桌面显示便笺"
 
 #: usr/lib/sticky/sticky.py:608
 msgid "Show in taskbar"
-msgstr ""
+msgstr "在任务栏显示"
 
 #: usr/lib/sticky/sticky.py:609
 msgid "Tray icon"
-msgstr ""
+msgstr "托盘图标"
 
 #: usr/lib/sticky/sticky.py:610
 msgid "Show the main window automatically"
-msgstr ""
+msgstr "自动显示主窗口"
 
 #: usr/lib/sticky/sticky.py:611
 msgid "General"
-msgstr ""
+msgstr "常规"
 
 #: usr/lib/sticky/sticky.py:615
 msgid "Default height"
-msgstr ""
+msgstr "默认高度"
 
 #: usr/lib/sticky/sticky.py:616
 msgid "Default width"
-msgstr ""
+msgstr "默认宽度"
 
 #: usr/lib/sticky/sticky.py:618
 msgid "Default position"
-msgstr ""
+msgstr "默认位置"
 
 #: usr/lib/sticky/sticky.py:622 usr/lib/sticky/sticky.py:627
 msgid "Cycle Colors"
-msgstr ""
+msgstr "循环使用颜色"
 
 #: usr/lib/sticky/sticky.py:624 usr/lib/sticky/sticky.py:629
 msgid "Default color"
-msgstr ""
+msgstr "默认颜色"
 
 #: usr/lib/sticky/sticky.py:631
 msgid "Font"
-msgstr ""
+msgstr "字体"
 
 #: usr/lib/sticky/sticky.py:632
 msgid "Show spelling mistakes"
-msgstr ""
+msgstr "显示拼写错误"
 
 #: usr/lib/sticky/sticky.py:634 usr/lib/sticky/sticky.py:754
 #: usr/lib/sticky/sticky.py:851 usr/lib/sticky/sticky.py:883
 #: usr/lib/sticky/sticky.py:1157 usr/share/sticky/manager.ui.h:1
 msgid "Notes"
-msgstr ""
+msgstr "便笺"
 
 #: usr/lib/sticky/sticky.py:639
 msgid "Automatic backups"
-msgstr ""
+msgstr "自动备份"
 
 #: usr/lib/sticky/sticky.py:640
 msgid "Time between backups"
-msgstr ""
+msgstr "备份间隔"
 
 #: usr/lib/sticky/sticky.py:640
 msgid "hours"
-msgstr ""
+msgstr "小时"
 
 #: usr/lib/sticky/sticky.py:641
 msgid "Set this to zero if you wish to keep all backups indefinitely"
-msgstr ""
+msgstr "如果希望永久保留所有备份，请将其设置为零"
 
 #: usr/lib/sticky/sticky.py:642
 msgid "Number to keep"
-msgstr ""
+msgstr "保留数量"
 
 #: usr/lib/sticky/sticky.py:644
 msgid "Backups"
-msgstr ""
+msgstr "备份"
 
 #: usr/lib/sticky/sticky.py:648
 msgid "Start automatically"
-msgstr ""
+msgstr "自动启动"
 
 #: usr/lib/sticky/sticky.py:649
 msgid "Show notes on the screen"
-msgstr ""
+msgstr "在屏幕上显示便笺"
 
 #: usr/lib/sticky/sticky.py:650
 msgid "Automatic start"
-msgstr ""
+msgstr "自动启动"
 
 #: usr/lib/sticky/sticky.py:668
 msgid "Text Size"
-msgstr ""
+msgstr "文字大小"
 
 #: usr/lib/sticky/sticky.py:852
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
-msgstr ""
+msgstr "您想从 Gnote 导入您的笔记吗？这不会以任何方式改变您的 Gnote 笔记。"
 
 #: usr/lib/sticky/sticky.py:875
 msgid "Group 1"
-msgstr ""
+msgstr "第 1 组"
 
 #: usr/lib/sticky/sticky.py:884
 msgid "Left click to toggle notes"
-msgstr ""
+msgstr "左键单击以切换笔记"
 
 #: usr/lib/sticky/sticky.py:885
 msgid "Middle click to toggle the manager"
-msgstr ""
+msgstr "中键单击切换管理器"
 
 #: usr/lib/sticky/sticky.py:903
 msgid "Manage Notes"
-msgstr ""
+msgstr "管理便笺"
 
 #: usr/lib/sticky/sticky.py:925
 msgid "Quit"
-msgstr ""
+msgstr "退出"
 
 #: usr/lib/sticky/sticky.py:1158 usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr ""
+msgstr "做笔记并保持井井有条"
 
 #: usr/lib/sticky/util.py:79
 msgid "Unfiled"
-msgstr ""
+msgstr "未归档"
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
-msgstr ""
+msgstr "新笔记"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr ""
+msgstr "删除所选笔记"
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
-msgstr ""
+msgstr "复制所选笔记"
