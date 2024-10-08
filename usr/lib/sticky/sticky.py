@@ -130,6 +130,7 @@ class Note(Gtk.Window):
         title = info.get('title', '')
         self.cached_text = info.get('text', '')
         self.color = info.get('color', self.app.settings.get_string('default-color'))
+        self.locked = info.get('locked', False)
 
         super(Note, self).__init__(
             skip_taskbar_hint=True,
@@ -197,6 +198,14 @@ class Note(Gtk.Window):
         close_button.set_tooltip_text(_("Delete Note"))
         self.title_bar.pack_end(close_button, False, False, 0)
 
+        self.lock_icon = Gtk.Image.new_from_icon_name('sticky-lock', Gtk.IconSize.BUTTON)
+        self.unlock_icon = Gtk.Image.new_from_icon_name('sticky-unlock', Gtk.IconSize.BUTTON)
+        self.lock_button = Gtk.Button(image={False:self.unlock_icon, True:self.lock_icon}[self.locked], relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
+        self.lock_button.connect('clicked', self.on_lock_toggle, self)
+        self.lock_button.connect('button-press-event', self.on_title_click)
+        self.lock_button.set_tooltip_text(_("Lock/Unlock Edit"))
+        self.title_bar.pack_end(self.lock_button, False, False, 0)
+
         add_icon = Gtk.Image.new_from_icon_name('sticky-add', Gtk.IconSize.BUTTON)
         add_button = Gtk.Button(image=add_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         add_button.connect('clicked', self.app.new_note, self)
@@ -228,6 +237,8 @@ class Note(Gtk.Window):
         self.view.connect('populate-popup', lambda w, p: self.add_context_menu_items(p))
         self.view.connect('key-press-event', self.on_key_press)
         self.view_style_manager = XApp.StyleManager(widget=self.view)
+        self.view.set_cursor_visible(not self.locked)
+        self.view.set_editable(not self.locked)
 
         scroll = Gtk.ScrolledWindow()
         self.add(scroll)
@@ -397,7 +408,8 @@ class Note(Gtk.Window):
             'width': self.width,
             'color': self.color,
             'title': self.title.get_text(),
-            'text': self.cached_text
+            'text': self.cached_text,
+            'locked': self.locked
         }
 
         return info
@@ -597,6 +609,15 @@ class Note(Gtk.Window):
             self.emit('update')
 
         return Gdk.EVENT_STOP
+
+    def on_lock_toggle(self, *args):
+        # locked = not editable
+        self.locked = self.view.get_editable()
+        self.view.set_editable(not self.locked)
+        self.view.set_cursor_visible(not self.locked)
+        self.lock_button.set_image({False:self.unlock_icon, True:self.lock_icon}[self.locked])
+
+        self.emit('update')
 
 class SettingsWindow(XApp.PreferencesWindow):
     def __init__(self, app):
