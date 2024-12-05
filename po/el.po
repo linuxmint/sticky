@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-06-12 13:48+0100\n"
-"PO-Revision-Date: 2022-07-22 08:08+0000\n"
+"PO-Revision-Date: 2024-10-24 16:20+0000\n"
 "Last-Translator: Vasilis Kosmidis <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-07-21 09:03+0000\n"
-"X-Generator: Launchpad (build bbfa2351d9d6a9ddfe262109428f7bf5516e65d1)\n"
+"X-Launchpad-Export-Date: 2024-12-05 10:20+0000\n"
+"X-Generator: Launchpad (build 1519c6efe8e9bd78e6c5ebf2eb5bcb040b95ad32)\n"
 
 #: usr/lib/sticky/common.py:150 usr/lib/sticky/manager.py:300
 msgid "Export..."
@@ -254,39 +254,39 @@ msgstr "Κεφαλίδα"
 
 #: usr/lib/sticky/sticky.py:96
 msgid "Top Left"
-msgstr ""
+msgstr "Πάνω αριστερά"
 
 #: usr/lib/sticky/sticky.py:97
 msgid "Top Center"
-msgstr ""
+msgstr "Πάνω κέντρο"
 
 #: usr/lib/sticky/sticky.py:98
 msgid "Top Right"
-msgstr ""
+msgstr "Πάνω δεξιά"
 
 #: usr/lib/sticky/sticky.py:99
 msgid "Center Left"
-msgstr ""
+msgstr "Κέντρο αριστερά"
 
 #: usr/lib/sticky/sticky.py:100
 msgid "Center"
-msgstr ""
+msgstr "Κέντρο"
 
 #: usr/lib/sticky/sticky.py:101
 msgid "Center Right"
-msgstr ""
+msgstr "Κέντρο δεξιά"
 
 #: usr/lib/sticky/sticky.py:102
 msgid "Bottom Left"
-msgstr ""
+msgstr "Κάτω αριστερά"
 
 #: usr/lib/sticky/sticky.py:103
 msgid "Bottom Center"
-msgstr ""
+msgstr "Κάτω κέντρο"
 
 #: usr/lib/sticky/sticky.py:104
 msgid "Bottom Right"
-msgstr ""
+msgstr "Κάτω δεξιά"
 
 #: usr/lib/sticky/sticky.py:172
 msgid "Note Color"
@@ -375,7 +375,7 @@ msgstr "Προεπιλεγμένο πλάτος"
 
 #: usr/lib/sticky/sticky.py:618
 msgid "Default position"
-msgstr ""
+msgstr "Προεπιλεγμένη θέση"
 
 #: usr/lib/sticky/sticky.py:622 usr/lib/sticky/sticky.py:627
 msgid "Cycle Colors"

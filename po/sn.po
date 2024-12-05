@@ -1,16 +1,16 @@
-# Vietnamese translation for linuxmint
-# Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
+# Shona translation for linuxmint
+# Copyright (c) 2024 Rosetta Contributors and Canonical Ltd 2024
 # This file is distributed under the same license as the linuxmint package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-06-12 13:48+0100\n"
-"PO-Revision-Date: 2024-09-04 03:17+0000\n"
-"Last-Translator: Huan Hoa Hong <Unknown>\n"
-"Language-Team: Vietnamese <vi@li.org>\n"
+"PO-Revision-Date: 2024-11-04 17:04+0000\n"
+"Last-Translator: Keith Matarutse <Unknown>\n"
+"Language-Team: Shona <sn@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,48 +19,48 @@ msgstr ""
 
 #: usr/lib/sticky/common.py:150 usr/lib/sticky/manager.py:300
 msgid "Export..."
-msgstr "Xuất..."
+msgstr ""
 
 #: usr/lib/sticky/common.py:151 usr/lib/sticky/common.py:175
 #: usr/lib/sticky/common.py:198 usr/lib/sticky/common.py:330
 msgid "Cancel"
-msgstr "Hủy bỏ"
+msgstr ""
 
 #: usr/lib/sticky/common.py:151
 msgid "Save"
-msgstr "Lưu lại"
+msgstr ""
 
 #: usr/lib/sticky/common.py:162 usr/lib/sticky/common.py:184
 msgid "Plain Text"
-msgstr "Văn bản thô"
+msgstr ""
 
 #: usr/lib/sticky/common.py:174 usr/lib/sticky/manager.py:296
 msgid "Import..."
-msgstr "Nhập..."
+msgstr ""
 
 #: usr/lib/sticky/common.py:175
 msgid "Open"
-msgstr "Mở"
+msgstr "Zarura"
 
 #: usr/lib/sticky/common.py:197
 msgid "Restore Backup"
-msgstr "Khôi phục lại bản sao lưu"
+msgstr ""
 
 #: usr/lib/sticky/common.py:199
 msgid "Clear"
-msgstr "Xoá sạch"
+msgstr ""
 
 #: usr/lib/sticky/common.py:200
 msgid "Restore"
-msgstr "Khôi phục"
+msgstr "Dzorera"
 
 #: usr/lib/sticky/common.py:255
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr "Không thể khôi phục: tệp sao lưu không hợp lệ hoặc bị hỏng"
+msgstr ""
 
 #: usr/lib/sticky/common.py:268
 msgid "Overwrite Existing Group"
-msgstr "Ghi đè nhóm hiện có"
+msgstr ""
 
 #: usr/lib/sticky/common.py:268
 #, python-format
@@ -68,421 +68,417 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
-"Đã có một nhóm có tên '%s'. Hành động này sẽ ghi đè lên nó. Vẫn tiếp tục?"
 
 #: usr/lib/sticky/common.py:279 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
-msgstr "Gỡ bỏ nhóm"
+msgstr ""
 
 #: usr/lib/sticky/common.py:279
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
-msgstr "Bạn có chắc chắn muốn xóa nhóm %s không?"
+msgstr ""
 
 #: usr/lib/sticky/common.py:331
 msgid "OK"
-msgstr "Đồng Ý"
+msgstr ""
 
 #: usr/lib/sticky/common.py:354
 msgid "No"
-msgstr "Từ chối"
+msgstr "Kwete"
 
 #: usr/lib/sticky/common.py:355
 msgid "Yes"
-msgstr "Đồng ý"
+msgstr "Ehe"
 
 #: usr/lib/sticky/common.py:365
 msgid "Don't ask me again"
-msgstr "Không hỏi lại nữa"
+msgstr "Usandibvunze futi"
 
 #: usr/lib/sticky/manager.py:108
 msgid "New"
-msgstr "Mới"
+msgstr "itsva"
 
 #: usr/lib/sticky/manager.py:113
 msgid "Edit"
-msgstr "Sửa"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:117
 msgid "Remove"
-msgstr "Gỡ bỏ"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:222
 msgid "Untitled"
-msgstr "Không tiêu đề"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:276
 msgid "New Group"
-msgstr "Nhóm mới"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:286
 msgid "Back Up"
-msgstr "Sao lưu"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:290
 msgid "Restore Backups..."
-msgstr "Khôi phục bản sao lưu..."
+msgstr ""
 
 #: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:603
 #: usr/lib/sticky/sticky.py:919
 msgid "Preferences"
-msgstr "Tùy chỉnh"
+msgstr "Zvido"
 
 #: usr/lib/sticky/manager.py:310
 msgid "Keyboard Shortcuts"
-msgstr "Các Phím Tắt"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:315 usr/lib/sticky/sticky.py:1156
 msgid "About"
-msgstr "Thông Tin"
+msgstr "Maringe"
 
 #: usr/lib/sticky/sticky.py:47
 msgid "Small Text"
-msgstr "Chữ nhỏ"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:48
 msgid "Normal Text"
-msgstr "Chữ thông thường"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:49
 msgid "Large Text"
-msgstr "Chữ lớn"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:50
 msgid "Larger Text"
-msgstr "Chữ lớn hơn"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:54
 msgid "Red"
-msgstr "Đỏ"
+msgstr "Dzvuku"
 
 #: usr/lib/sticky/sticky.py:55
 msgid "Green"
-msgstr "Xanh lá"
+msgstr "Zerere"
 
 #: usr/lib/sticky/sticky.py:56
 msgid "Blue"
-msgstr "Xanh dương"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:57
 msgid "Yellow"
-msgstr "Vàng"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:58
 msgid "Purple"
-msgstr "Tím"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:59
 msgid "Teal"
-msgstr "Xanh Mòng két"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Orange"
-msgstr "Cam"
+msgstr "Tsukuruku"
 
 #: usr/lib/sticky/sticky.py:61
 msgid "Magenta"
-msgstr "Đỏ tươi"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:76
 msgid "Operations"
-msgstr "Thao tác"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:77
 msgid "Move selection up"
-msgstr "Di chuyển lựa chọn lên trên"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:78
 msgid "Move selection down"
-msgstr "Dị chuyển lựa chọn xuống dưới"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:79
 msgid "Undo"
-msgstr "Hoàn tác"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:80
 msgid "Redo"
-msgstr "Làm lại"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:81 usr/lib/sticky/sticky.py:516
 msgid "Toggle Checklist"
-msgstr "Hộp kiểm danh sách"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:82 usr/lib/sticky/sticky.py:520
 msgid "Toggle Bullets"
-msgstr "Dấu chấm đầu dòng"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:84
 msgid "Formatting"
-msgstr "Định dạng"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:85 usr/lib/sticky/sticky.py:471
 #: usr/lib/sticky/sticky.py:472
 msgid "Bold"
-msgstr "Đậm"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:86 usr/lib/sticky/sticky.py:476
 #: usr/lib/sticky/sticky.py:477
 msgid "Italic"
-msgstr "Nghiêng"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:87 usr/lib/sticky/sticky.py:481
 #: usr/lib/sticky/sticky.py:482
 msgid "Fixed Width"
-msgstr "Chiều rộng cố định"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:88 usr/lib/sticky/sticky.py:486
 #: usr/lib/sticky/sticky.py:487
 msgid "Underline"
-msgstr "Gạch chân"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:89 usr/lib/sticky/sticky.py:491
 #: usr/lib/sticky/sticky.py:492
 msgid "Strikethrough"
-msgstr "Gạch ngang"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:90 usr/lib/sticky/sticky.py:496
 #: usr/lib/sticky/sticky.py:497
 msgid "Highlight"
-msgstr "Tô sáng"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:91 usr/lib/sticky/sticky.py:501
 #: usr/lib/sticky/sticky.py:502
 msgid "Header"
-msgstr "Tiêu đề"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:96
 msgid "Top Left"
-msgstr "Phía Trên Bên Trái"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:97
 msgid "Top Center"
-msgstr "Phía trên ở giữa"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:98
 msgid "Top Right"
-msgstr "Phía Trên Bên Phải"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:99
 msgid "Center Left"
-msgstr "Ở giữa bên trái"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:100
 msgid "Center"
-msgstr "Ở giữa"
+msgstr "Pakati"
 
 #: usr/lib/sticky/sticky.py:101
 msgid "Center Right"
-msgstr "Ở giữa bên phải"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:102
 msgid "Bottom Left"
-msgstr "Phía Dưới Bên Trái"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:103
 msgid "Bottom Center"
-msgstr "Phía dưới ở giữa"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:104
 msgid "Bottom Right"
-msgstr "Phía Dưới Bên Phải"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:172
 msgid "Note Color"
-msgstr "Màu ghi chú"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:189
 msgid "Rename"
-msgstr "Đổi tên"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:197 usr/lib/sticky/sticky.py:428
 #: usr/lib/sticky/sticky.py:547
 msgid "Delete Note"
-msgstr "Xóa ghi chú"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:204 usr/lib/sticky/sticky.py:899
 msgid "New Note"
-msgstr "Ghi chú mới"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:210
 msgid "Format"
-msgstr "Định dạng"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:409
 msgid "undo"
-msgstr "Hoàn tác"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:413
 msgid "redo"
-msgstr "làm lại"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:419
 msgid "Set Title"
-msgstr "Đặt tiêu đề"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:419
 msgid "Edit Title"
-msgstr "Sửa tiêu đề"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:424
 msgid "Duplicate Note"
-msgstr "Nhân bản Ghi chú"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:436
 msgid "Only on This Workspace"
-msgstr "Chỉ trên không gian làm việc này"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:440
 msgid "Always on Visible Workspace"
-msgstr "Luôn ở trên không gian làm việc hiển thị"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:452
 msgid "Always on Top"
-msgstr "Luôn ở trên cùng"
+msgstr "Zvigare zviri pamusoro"
 
 #: usr/lib/sticky/sticky.py:547
 msgid "Are you sure you want to remove this note?"
-msgstr "Bạn có chắc chắn muốn xóa ghi chú này không?"
+msgstr "Urikurevesa here kuti ukuda kubvisa chinyorwa ichi"
 
 #: usr/lib/sticky/sticky.py:607
 msgid "Show notes on all desktops"
-msgstr "Hiển thị ghi chú trên tất cả màn hình"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:608
 msgid "Show in taskbar"
-msgstr "Hiển thị trên thanh tác vụ"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:609
 msgid "Tray icon"
-msgstr "Biểu tượng khay"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:610
 msgid "Show the main window automatically"
-msgstr "Tự động hiển thị cửa sổ chính"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:611
 msgid "General"
-msgstr "Tổng quan"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:615
 msgid "Default height"
-msgstr "Chiều cao mặc định"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:616
 msgid "Default width"
-msgstr "Chiều rộng mặc định"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:618
 msgid "Default position"
-msgstr "Vị trí mặc định"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:622 usr/lib/sticky/sticky.py:627
 msgid "Cycle Colors"
-msgstr "Vòng tròn Màu"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:624 usr/lib/sticky/sticky.py:629
 msgid "Default color"
-msgstr "Màu mặc định"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:631
 msgid "Font"
-msgstr "Phông chữ"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:632
 msgid "Show spelling mistakes"
-msgstr "Hiển thị lỗi chính tả"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:634 usr/lib/sticky/sticky.py:754
 #: usr/lib/sticky/sticky.py:851 usr/lib/sticky/sticky.py:883
 #: usr/lib/sticky/sticky.py:1157 usr/share/sticky/manager.ui.h:1
 msgid "Notes"
-msgstr "Ghi chú"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:639
 msgid "Automatic backups"
-msgstr "Tự động sao lưu"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:640
 msgid "Time between backups"
-msgstr "Thời gian giữa các lần sao lưu"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:640
 msgid "hours"
-msgstr "giờ"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:641
 msgid "Set this to zero if you wish to keep all backups indefinitely"
 msgstr ""
-"Đặt giá trị này thành 0 nếu bạn muốn giữ tất cả các bản sao lưu vô thời hạn"
 
 #: usr/lib/sticky/sticky.py:642
 msgid "Number to keep"
-msgstr "Số bản cần giữ"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:644
 msgid "Backups"
-msgstr "Sao lưu"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:648
 msgid "Start automatically"
-msgstr "Tự động khởi động"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:649
 msgid "Show notes on the screen"
-msgstr "Hiển thị ghi chú trên màn hình"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:650
 msgid "Automatic start"
-msgstr "Tự động khởi động"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:668
 msgid "Text Size"
-msgstr "Cỡ chữ"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:852
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
 msgstr ""
-"Bạn có muốn nhập ghi chú của mình từ Gnote không? Điều này sẽ không thay đổi "
-"ghi chú Gnote của bạn theo bất kỳ cách nào."
 
 #: usr/lib/sticky/sticky.py:875
 msgid "Group 1"
-msgstr "Nhóm 1"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:884
 msgid "Left click to toggle notes"
-msgstr "Nhấp chuột trái để hiện-ẩn ghi chú"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:885
 msgid "Middle click to toggle the manager"
-msgstr "Nhấp chuột giữa để hiện-ẩn quản lý"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:903
 msgid "Manage Notes"
-msgstr "Quản lý ghi chú"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:925
 msgid "Quit"
-msgstr "Thoát"
+msgstr "Buda"
 
 #: usr/lib/sticky/sticky.py:1158 usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr "Ghi chú luôn ngăn nắp"
+msgstr ""
 
 #: usr/lib/sticky/util.py:79
 msgid "Unfiled"
-msgstr "Mở ra"
+msgstr ""
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
-msgstr "Ghi chú mới"
+msgstr "Chinyorwa chitsva"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr "Gỡ ghi chú được chọn"
+msgstr ""
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
-msgstr "Nhân bản Ghi chú đã chọn"
+msgstr ""

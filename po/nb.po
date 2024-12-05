@@ -8,59 +8,59 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-06-12 13:48+0100\n"
-"PO-Revision-Date: 2024-06-09 08:59+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2024-09-11 15:42+0000\n"
+"Last-Translator: Roger Knutsen <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-07-21 09:03+0000\n"
-"X-Generator: Launchpad (build bbfa2351d9d6a9ddfe262109428f7bf5516e65d1)\n"
+"X-Launchpad-Export-Date: 2024-12-05 10:20+0000\n"
+"X-Generator: Launchpad (build 1519c6efe8e9bd78e6c5ebf2eb5bcb040b95ad32)\n"
 
 #: usr/lib/sticky/common.py:150 usr/lib/sticky/manager.py:300
 msgid "Export..."
-msgstr ""
+msgstr "Eksporter..."
 
 #: usr/lib/sticky/common.py:151 usr/lib/sticky/common.py:175
 #: usr/lib/sticky/common.py:198 usr/lib/sticky/common.py:330
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: usr/lib/sticky/common.py:151
 msgid "Save"
-msgstr ""
+msgstr "Lagre"
 
 #: usr/lib/sticky/common.py:162 usr/lib/sticky/common.py:184
 msgid "Plain Text"
-msgstr ""
+msgstr "Vanlig tekst"
 
 #: usr/lib/sticky/common.py:174 usr/lib/sticky/manager.py:296
 msgid "Import..."
-msgstr ""
+msgstr "Importer..."
 
 #: usr/lib/sticky/common.py:175
 msgid "Open"
-msgstr ""
+msgstr "Åpne"
 
 #: usr/lib/sticky/common.py:197
 msgid "Restore Backup"
-msgstr ""
+msgstr "Gjenopprett sikkerhetskopi"
 
 #: usr/lib/sticky/common.py:199
 msgid "Clear"
-msgstr ""
+msgstr "Tøm"
 
 #: usr/lib/sticky/common.py:200
 msgid "Restore"
-msgstr ""
+msgstr "Gjenopprett"
 
 #: usr/lib/sticky/common.py:255
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr ""
+msgstr "Kan ikke gjenopprette: ugyldig eller ødelagt sikkerhetskopifil"
 
 #: usr/lib/sticky/common.py:268
 msgid "Overwrite Existing Group"
-msgstr ""
+msgstr "Overskriv eksisterende gruppe"
 
 #: usr/lib/sticky/common.py:268
 #, python-format
@@ -68,417 +68,423 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
+"Det er allerede en gruppe som heter '%s'. Denne handlingen vil overskrive "
+"den. Fortsette uansett?"
 
 #: usr/lib/sticky/common.py:279 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
-msgstr ""
+msgstr "Fjern gruppe"
 
 #: usr/lib/sticky/common.py:279
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
-msgstr ""
+msgstr "Er du sikker på at du vil fjerne gruppen %s?"
 
 #: usr/lib/sticky/common.py:331
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: usr/lib/sticky/common.py:354
 msgid "No"
-msgstr ""
+msgstr "Nei"
 
 #: usr/lib/sticky/common.py:355
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: usr/lib/sticky/common.py:365
 msgid "Don't ask me again"
-msgstr ""
+msgstr "Ikke spør meg igjen"
 
 #: usr/lib/sticky/manager.py:108
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #: usr/lib/sticky/manager.py:113
 msgid "Edit"
-msgstr ""
+msgstr "Rediger"
 
 #: usr/lib/sticky/manager.py:117
 msgid "Remove"
-msgstr ""
+msgstr "Fjern"
 
 #: usr/lib/sticky/manager.py:222
 msgid "Untitled"
-msgstr ""
+msgstr "Uten tittel"
 
 #: usr/lib/sticky/manager.py:276
 msgid "New Group"
-msgstr ""
+msgstr "Ny gruppe"
 
 #: usr/lib/sticky/manager.py:286
 msgid "Back Up"
-msgstr ""
+msgstr "Ta sikkerhetskopi"
 
 #: usr/lib/sticky/manager.py:290
 msgid "Restore Backups..."
-msgstr ""
+msgstr "Gjenopprett sikkerhetskopier..."
 
 #: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:603
 #: usr/lib/sticky/sticky.py:919
 msgid "Preferences"
-msgstr ""
+msgstr "Preferanser"
 
 #: usr/lib/sticky/manager.py:310
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Tastatursnarveier"
 
 #: usr/lib/sticky/manager.py:315 usr/lib/sticky/sticky.py:1156
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #: usr/lib/sticky/sticky.py:47
 msgid "Small Text"
-msgstr ""
+msgstr "Liten tekst"
 
 #: usr/lib/sticky/sticky.py:48
 msgid "Normal Text"
-msgstr ""
+msgstr "Normal tekst"
 
 #: usr/lib/sticky/sticky.py:49
 msgid "Large Text"
-msgstr ""
+msgstr "Stor tekst"
 
 #: usr/lib/sticky/sticky.py:50
 msgid "Larger Text"
-msgstr ""
+msgstr "Større tekst"
 
 #: usr/lib/sticky/sticky.py:54
 msgid "Red"
-msgstr ""
+msgstr "Rød"
 
 #: usr/lib/sticky/sticky.py:55
 msgid "Green"
-msgstr ""
+msgstr "Grønn"
 
 #: usr/lib/sticky/sticky.py:56
 msgid "Blue"
-msgstr ""
+msgstr "Blå"
 
 #: usr/lib/sticky/sticky.py:57
 msgid "Yellow"
-msgstr ""
+msgstr "Gul"
 
 #: usr/lib/sticky/sticky.py:58
 msgid "Purple"
-msgstr ""
+msgstr "Lilla"
 
 #: usr/lib/sticky/sticky.py:59
 msgid "Teal"
-msgstr ""
+msgstr "Turkis"
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Orange"
-msgstr ""
+msgstr "Oransje"
 
 #: usr/lib/sticky/sticky.py:61
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
 #: usr/lib/sticky/sticky.py:76
 msgid "Operations"
-msgstr ""
+msgstr "Operasjoner"
 
 #: usr/lib/sticky/sticky.py:77
 msgid "Move selection up"
-msgstr ""
+msgstr "Flytt valg opp"
 
 #: usr/lib/sticky/sticky.py:78
 msgid "Move selection down"
-msgstr ""
+msgstr "Flytt valg ned"
 
 #: usr/lib/sticky/sticky.py:79
 msgid "Undo"
-msgstr ""
+msgstr "Angre"
 
 #: usr/lib/sticky/sticky.py:80
 msgid "Redo"
-msgstr ""
+msgstr "Gjenta"
 
 #: usr/lib/sticky/sticky.py:81 usr/lib/sticky/sticky.py:516
 msgid "Toggle Checklist"
-msgstr ""
+msgstr "Veksle sjekkliste"
 
 #: usr/lib/sticky/sticky.py:82 usr/lib/sticky/sticky.py:520
 msgid "Toggle Bullets"
-msgstr ""
+msgstr "Veksle punkter"
 
 #: usr/lib/sticky/sticky.py:84
 msgid "Formatting"
-msgstr ""
+msgstr "Formatering"
 
 #: usr/lib/sticky/sticky.py:85 usr/lib/sticky/sticky.py:471
 #: usr/lib/sticky/sticky.py:472
 msgid "Bold"
-msgstr ""
+msgstr "Fet"
 
 #: usr/lib/sticky/sticky.py:86 usr/lib/sticky/sticky.py:476
 #: usr/lib/sticky/sticky.py:477
 msgid "Italic"
-msgstr ""
+msgstr "Kursiv"
 
 #: usr/lib/sticky/sticky.py:87 usr/lib/sticky/sticky.py:481
 #: usr/lib/sticky/sticky.py:482
 msgid "Fixed Width"
-msgstr ""
+msgstr "Fast bredde"
 
 #: usr/lib/sticky/sticky.py:88 usr/lib/sticky/sticky.py:486
 #: usr/lib/sticky/sticky.py:487
 msgid "Underline"
-msgstr ""
+msgstr "Understrek"
 
 #: usr/lib/sticky/sticky.py:89 usr/lib/sticky/sticky.py:491
 #: usr/lib/sticky/sticky.py:492
 msgid "Strikethrough"
-msgstr ""
+msgstr "Gjennomstrek"
 
 #: usr/lib/sticky/sticky.py:90 usr/lib/sticky/sticky.py:496
 #: usr/lib/sticky/sticky.py:497
 msgid "Highlight"
-msgstr ""
+msgstr "Fremhev"
 
 #: usr/lib/sticky/sticky.py:91 usr/lib/sticky/sticky.py:501
 #: usr/lib/sticky/sticky.py:502
 msgid "Header"
-msgstr ""
+msgstr "Overskrift"
 
 #: usr/lib/sticky/sticky.py:96
 msgid "Top Left"
-msgstr ""
+msgstr "Øverst til venstre"
 
 #: usr/lib/sticky/sticky.py:97
 msgid "Top Center"
-msgstr ""
+msgstr "Øverst i midten"
 
 #: usr/lib/sticky/sticky.py:98
 msgid "Top Right"
-msgstr ""
+msgstr "Øverst til høyre"
 
 #: usr/lib/sticky/sticky.py:99
 msgid "Center Left"
-msgstr ""
+msgstr "Midten til venstre"
 
 #: usr/lib/sticky/sticky.py:100
 msgid "Center"
-msgstr ""
+msgstr "Midtstilt"
 
 #: usr/lib/sticky/sticky.py:101
 msgid "Center Right"
-msgstr ""
+msgstr "Midten til høyre"
 
 #: usr/lib/sticky/sticky.py:102
 msgid "Bottom Left"
-msgstr ""
+msgstr "Nederst til venstre"
 
 #: usr/lib/sticky/sticky.py:103
 msgid "Bottom Center"
-msgstr ""
+msgstr "Nederst i midten"
 
 #: usr/lib/sticky/sticky.py:104
 msgid "Bottom Right"
-msgstr ""
+msgstr "Nederst til høyre"
 
 #: usr/lib/sticky/sticky.py:172
 msgid "Note Color"
-msgstr ""
+msgstr "Farge på notat"
 
 #: usr/lib/sticky/sticky.py:189
 msgid "Rename"
-msgstr ""
+msgstr "Gi nytt navn"
 
 #: usr/lib/sticky/sticky.py:197 usr/lib/sticky/sticky.py:428
 #: usr/lib/sticky/sticky.py:547
 msgid "Delete Note"
-msgstr ""
+msgstr "Slett notat"
 
 #: usr/lib/sticky/sticky.py:204 usr/lib/sticky/sticky.py:899
 msgid "New Note"
-msgstr ""
+msgstr "Nytt notat"
 
 #: usr/lib/sticky/sticky.py:210
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: usr/lib/sticky/sticky.py:409
 msgid "undo"
-msgstr ""
+msgstr "angre"
 
 #: usr/lib/sticky/sticky.py:413
 msgid "redo"
-msgstr ""
+msgstr "gjenta"
 
 #: usr/lib/sticky/sticky.py:419
 msgid "Set Title"
-msgstr ""
+msgstr "Angi tittel"
 
 #: usr/lib/sticky/sticky.py:419
 msgid "Edit Title"
-msgstr ""
+msgstr "Rediger tittel"
 
 #: usr/lib/sticky/sticky.py:424
 msgid "Duplicate Note"
-msgstr ""
+msgstr "Dupliser notat"
 
 #: usr/lib/sticky/sticky.py:436
 msgid "Only on This Workspace"
-msgstr ""
+msgstr "Kun på dette arbeidsområdet"
 
 #: usr/lib/sticky/sticky.py:440
 msgid "Always on Visible Workspace"
-msgstr ""
+msgstr "Alltid på synlig arbeidsområde"
 
 #: usr/lib/sticky/sticky.py:452
 msgid "Always on Top"
-msgstr ""
+msgstr "Alltid øverst"
 
 #: usr/lib/sticky/sticky.py:547
 msgid "Are you sure you want to remove this note?"
-msgstr ""
+msgstr "Er du sikker på at du vil fjerne dette notatet?"
 
 #: usr/lib/sticky/sticky.py:607
 msgid "Show notes on all desktops"
-msgstr ""
+msgstr "Vis notater på alle skrivebord"
 
 #: usr/lib/sticky/sticky.py:608
 msgid "Show in taskbar"
-msgstr ""
+msgstr "Vis på oppgavelinjen"
 
 #: usr/lib/sticky/sticky.py:609
 msgid "Tray icon"
-msgstr ""
+msgstr "Ikon i systemkurv"
 
 #: usr/lib/sticky/sticky.py:610
 msgid "Show the main window automatically"
-msgstr ""
+msgstr "Vis hovedvinduet automatisk"
 
 #: usr/lib/sticky/sticky.py:611
 msgid "General"
-msgstr ""
+msgstr "Generelt"
 
 #: usr/lib/sticky/sticky.py:615
 msgid "Default height"
-msgstr ""
+msgstr "Standard høyde"
 
 #: usr/lib/sticky/sticky.py:616
 msgid "Default width"
-msgstr ""
+msgstr "Standard bredde"
 
 #: usr/lib/sticky/sticky.py:618
 msgid "Default position"
-msgstr ""
+msgstr "Standard posisjon"
 
 #: usr/lib/sticky/sticky.py:622 usr/lib/sticky/sticky.py:627
 msgid "Cycle Colors"
-msgstr ""
+msgstr "Syklusfarger"
 
 #: usr/lib/sticky/sticky.py:624 usr/lib/sticky/sticky.py:629
 msgid "Default color"
-msgstr ""
+msgstr "Standard farge"
 
 #: usr/lib/sticky/sticky.py:631
 msgid "Font"
-msgstr ""
+msgstr "Skrifttype"
 
 #: usr/lib/sticky/sticky.py:632
 msgid "Show spelling mistakes"
-msgstr ""
+msgstr "Vis stavefeil"
 
 #: usr/lib/sticky/sticky.py:634 usr/lib/sticky/sticky.py:754
 #: usr/lib/sticky/sticky.py:851 usr/lib/sticky/sticky.py:883
 #: usr/lib/sticky/sticky.py:1157 usr/share/sticky/manager.ui.h:1
 msgid "Notes"
-msgstr ""
+msgstr "Notater"
 
 #: usr/lib/sticky/sticky.py:639
 msgid "Automatic backups"
-msgstr ""
+msgstr "Automatisk sikkerhetskopiering"
 
 #: usr/lib/sticky/sticky.py:640
 msgid "Time between backups"
-msgstr ""
+msgstr "Tid mellom sikkerhetskopier"
 
 #: usr/lib/sticky/sticky.py:640
 msgid "hours"
-msgstr ""
+msgstr "timer"
 
 #: usr/lib/sticky/sticky.py:641
 msgid "Set this to zero if you wish to keep all backups indefinitely"
 msgstr ""
+"Sett dette til null hvis du ønsker å beholde alle sikkerhetskopier på "
+"ubestemt tid"
 
 #: usr/lib/sticky/sticky.py:642
 msgid "Number to keep"
-msgstr ""
+msgstr "Nummer å beholde"
 
 #: usr/lib/sticky/sticky.py:644
 msgid "Backups"
-msgstr ""
+msgstr "Sikkerhetskopier"
 
 #: usr/lib/sticky/sticky.py:648
 msgid "Start automatically"
-msgstr ""
+msgstr "Start automatisk"
 
 #: usr/lib/sticky/sticky.py:649
 msgid "Show notes on the screen"
-msgstr ""
+msgstr "Vis merknader på skjermen"
 
 #: usr/lib/sticky/sticky.py:650
 msgid "Automatic start"
-msgstr ""
+msgstr "Automatisk start"
 
 #: usr/lib/sticky/sticky.py:668
 msgid "Text Size"
-msgstr ""
+msgstr "Tekststørrelse"
 
 #: usr/lib/sticky/sticky.py:852
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
 msgstr ""
+"Vil du importere notatene dine fra Gnote? Dette vil ikke endre Gnote-"
+"notatene dine på noen måte."
 
 #: usr/lib/sticky/sticky.py:875
 msgid "Group 1"
-msgstr ""
+msgstr "Gruppe 1"
 
 #: usr/lib/sticky/sticky.py:884
 msgid "Left click to toggle notes"
-msgstr ""
+msgstr "Venstreklikk for å veksle mellom notater"
 
 #: usr/lib/sticky/sticky.py:885
 msgid "Middle click to toggle the manager"
-msgstr ""
+msgstr "Midtklikk for å veksle mellom behandleren"
 
 #: usr/lib/sticky/sticky.py:903
 msgid "Manage Notes"
-msgstr ""
+msgstr "Behandle notater"
 
 #: usr/lib/sticky/sticky.py:925
 msgid "Quit"
-msgstr ""
+msgstr "Avslutt"
 
 #: usr/lib/sticky/sticky.py:1158 usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr ""
+msgstr "Ta notater og hold deg organisert"
 
 #: usr/lib/sticky/util.py:79
 msgid "Unfiled"
-msgstr ""
+msgstr "Uarkivert"
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
-msgstr ""
+msgstr "Nytt notat"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr ""
+msgstr "Fjern valgt notat"
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
-msgstr ""
+msgstr "Dupliser valgt notat"

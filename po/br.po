@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-06-12 13:48+0100\n"
-"PO-Revision-Date: 2024-06-21 08:33+0000\n"
-"Last-Translator: Anthony Guechoum <a.guechoum@gmail.com>\n"
+"PO-Revision-Date: 2024-07-22 09:39+0000\n"
+"Last-Translator: Anthony Guechoum <a.guechoum@proton.me>\n"
 "Language-Team: Breton <br@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-07-21 09:03+0000\n"
-"X-Generator: Launchpad (build bbfa2351d9d6a9ddfe262109428f7bf5516e65d1)\n"
+"X-Launchpad-Export-Date: 2024-12-05 10:20+0000\n"
+"X-Generator: Launchpad (build 1519c6efe8e9bd78e6c5ebf2eb5bcb040b95ad32)\n"
 
 #: usr/lib/sticky/common.py:150 usr/lib/sticky/manager.py:300
 msgid "Export..."
@@ -32,7 +32,7 @@ msgstr "Enrollañ"
 
 #: usr/lib/sticky/common.py:162 usr/lib/sticky/common.py:184
 msgid "Plain Text"
-msgstr ""
+msgstr "Testenn eeun"
 
 #: usr/lib/sticky/common.py:174 usr/lib/sticky/manager.py:296
 msgid "Import..."
@@ -44,7 +44,7 @@ msgstr "Digeriñ"
 
 #: usr/lib/sticky/common.py:197
 msgid "Restore Backup"
-msgstr ""
+msgstr "Assevel ur gwarezadur"
 
 #: usr/lib/sticky/common.py:199
 msgid "Clear"
@@ -52,15 +52,15 @@ msgstr "Skarzhañ"
 
 #: usr/lib/sticky/common.py:200
 msgid "Restore"
-msgstr ""
+msgstr "Assevel"
 
 #: usr/lib/sticky/common.py:255
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr ""
+msgstr "N'haller ket assevel: didalvoudek pe kontronet eo restr gwareziñ"
 
 #: usr/lib/sticky/common.py:268
 msgid "Overwrite Existing Group"
-msgstr ""
+msgstr "Flastrañ ar strollad a zo anezhañ"
 
 #: usr/lib/sticky/common.py:268
 #, python-format
@@ -80,7 +80,7 @@ msgstr "Ha sur oc'h e fell deoc'h dilemel ar strollad %s?"
 
 #: usr/lib/sticky/common.py:331
 msgid "OK"
-msgstr ""
+msgstr "Mat"
 
 #: usr/lib/sticky/common.py:354
 msgid "No"
@@ -116,20 +116,20 @@ msgstr "Strollad nevez"
 
 #: usr/lib/sticky/manager.py:286
 msgid "Back Up"
-msgstr ""
+msgstr "Gwareziñ"
 
 #: usr/lib/sticky/manager.py:290
 msgid "Restore Backups..."
-msgstr ""
+msgstr "Assevel gwarezadurioù..."
 
 #: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:603
 #: usr/lib/sticky/sticky.py:919
 msgid "Preferences"
-msgstr ""
+msgstr "Gwellvezioù"
 
 #: usr/lib/sticky/manager.py:310
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Berradennoù klavier"
 
 #: usr/lib/sticky/manager.py:315 usr/lib/sticky/sticky.py:1156
 msgid "About"
@@ -185,7 +185,7 @@ msgstr "Majenta"
 
 #: usr/lib/sticky/sticky.py:76
 msgid "Operations"
-msgstr ""
+msgstr "Oberoù"
 
 #: usr/lib/sticky/sticky.py:77
 msgid "Move selection up"
@@ -213,17 +213,17 @@ msgstr ""
 
 #: usr/lib/sticky/sticky.py:84
 msgid "Formatting"
-msgstr ""
+msgstr "O furmadiñ"
 
 #: usr/lib/sticky/sticky.py:85 usr/lib/sticky/sticky.py:471
 #: usr/lib/sticky/sticky.py:472
 msgid "Bold"
-msgstr ""
+msgstr "Tev"
 
 #: usr/lib/sticky/sticky.py:86 usr/lib/sticky/sticky.py:476
 #: usr/lib/sticky/sticky.py:477
 msgid "Italic"
-msgstr ""
+msgstr "Italek"
 
 #: usr/lib/sticky/sticky.py:87 usr/lib/sticky/sticky.py:481
 #: usr/lib/sticky/sticky.py:482
@@ -233,12 +233,12 @@ msgstr ""
 #: usr/lib/sticky/sticky.py:88 usr/lib/sticky/sticky.py:486
 #: usr/lib/sticky/sticky.py:487
 msgid "Underline"
-msgstr ""
+msgstr "Islinennañ"
 
 #: usr/lib/sticky/sticky.py:89 usr/lib/sticky/sticky.py:491
 #: usr/lib/sticky/sticky.py:492
 msgid "Strikethrough"
-msgstr ""
+msgstr "Barrennet"
 
 #: usr/lib/sticky/sticky.py:90 usr/lib/sticky/sticky.py:496
 #: usr/lib/sticky/sticky.py:497
@@ -248,7 +248,7 @@ msgstr ""
 #: usr/lib/sticky/sticky.py:91 usr/lib/sticky/sticky.py:501
 #: usr/lib/sticky/sticky.py:502
 msgid "Header"
-msgstr ""
+msgstr "Talbenn"
 
 #: usr/lib/sticky/sticky.py:96
 msgid "Top Left"
@@ -268,7 +268,7 @@ msgstr ""
 
 #: usr/lib/sticky/sticky.py:100
 msgid "Center"
-msgstr ""
+msgstr "Kreiz"
 
 #: usr/lib/sticky/sticky.py:101
 msgid "Center Right"
@@ -305,7 +305,7 @@ msgstr "Notenn nevez"
 
 #: usr/lib/sticky/sticky.py:210
 msgid "Format"
-msgstr ""
+msgstr "Furmad"
 
 #: usr/lib/sticky/sticky.py:409
 msgid "undo"
@@ -317,11 +317,11 @@ msgstr "adober"
 
 #: usr/lib/sticky/sticky.py:419
 msgid "Set Title"
-msgstr ""
+msgstr "Kefluniañ an titl"
 
 #: usr/lib/sticky/sticky.py:419
 msgid "Edit Title"
-msgstr ""
+msgstr "Aozañ an titl"
 
 #: usr/lib/sticky/sticky.py:424
 msgid "Duplicate Note"
@@ -341,15 +341,15 @@ msgstr ""
 
 #: usr/lib/sticky/sticky.py:547
 msgid "Are you sure you want to remove this note?"
-msgstr ""
+msgstr "Ha sur-oc'h e fell deoc'h dilemel an notenn-mañ?"
 
 #: usr/lib/sticky/sticky.py:607
 msgid "Show notes on all desktops"
-msgstr ""
+msgstr "Diskouez an notennoù war an holl vurevioù"
 
 #: usr/lib/sticky/sticky.py:608
 msgid "Show in taskbar"
-msgstr ""
+msgstr "Diskouez e barrenn an trevelloù"
 
 #: usr/lib/sticky/sticky.py:609
 msgid "Tray icon"
@@ -365,7 +365,7 @@ msgstr "Hollek"
 
 #: usr/lib/sticky/sticky.py:615
 msgid "Default height"
-msgstr ""
+msgstr "Uhelder dre ziouer"
 
 #: usr/lib/sticky/sticky.py:616
 msgid "Default width"
@@ -385,11 +385,11 @@ msgstr "Liv dre ziouer"
 
 #: usr/lib/sticky/sticky.py:631
 msgid "Font"
-msgstr ""
+msgstr "Nodrezh"
 
 #: usr/lib/sticky/sticky.py:632
 msgid "Show spelling mistakes"
-msgstr ""
+msgstr "Gwiriañ ar reizhskrivañ"
 
 #: usr/lib/sticky/sticky.py:634 usr/lib/sticky/sticky.py:754
 #: usr/lib/sticky/sticky.py:851 usr/lib/sticky/sticky.py:883
@@ -399,15 +399,15 @@ msgstr "Notennoù"
 
 #: usr/lib/sticky/sticky.py:639
 msgid "Automatic backups"
-msgstr ""
+msgstr "Gwareziñ ez-emgefreek"
 
 #: usr/lib/sticky/sticky.py:640
 msgid "Time between backups"
-msgstr ""
+msgstr "Dale etre ar gwarezadurioù"
 
 #: usr/lib/sticky/sticky.py:640
 msgid "hours"
-msgstr ""
+msgstr "eurvezh"
 
 #: usr/lib/sticky/sticky.py:641
 msgid "Set this to zero if you wish to keep all backups indefinitely"
@@ -419,7 +419,7 @@ msgstr ""
 
 #: usr/lib/sticky/sticky.py:644
 msgid "Backups"
-msgstr ""
+msgstr "Gwarezadurioù"
 
 #: usr/lib/sticky/sticky.py:648
 msgid "Start automatically"
@@ -427,7 +427,7 @@ msgstr ""
 
 #: usr/lib/sticky/sticky.py:649
 msgid "Show notes on the screen"
-msgstr ""
+msgstr "Diskouez an notennoù war ar skrammad"
 
 #: usr/lib/sticky/sticky.py:650
 msgid "Automatic start"
@@ -477,7 +477,7 @@ msgstr "Notenn nevez"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr ""
+msgstr "Dilemel an notenn diuzet"
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
