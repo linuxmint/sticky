@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-06-12 13:48+0100\n"
-"PO-Revision-Date: 2022-08-13 08:37+0000\n"
+"PO-Revision-Date: 2024-12-16 23:32+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-12-05 10:20+0000\n"
-"X-Generator: Launchpad (build 1519c6efe8e9bd78e6c5ebf2eb5bcb040b95ad32)\n"
+"X-Launchpad-Export-Date: 2025-01-06 12:01+0000\n"
+"X-Generator: Launchpad (build 6394e03793719e8d73f5a60b5439440e693c92f1)\n"
 
 #: usr/lib/sticky/common.py:150 usr/lib/sticky/manager.py:300
 msgid "Export..."
@@ -255,39 +255,39 @@ msgstr "Заглавље"
 
 #: usr/lib/sticky/sticky.py:96
 msgid "Top Left"
-msgstr ""
+msgstr "Горе лево"
 
 #: usr/lib/sticky/sticky.py:97
 msgid "Top Center"
-msgstr ""
+msgstr "Горе у средини"
 
 #: usr/lib/sticky/sticky.py:98
 msgid "Top Right"
-msgstr ""
+msgstr "Горе десно"
 
 #: usr/lib/sticky/sticky.py:99
 msgid "Center Left"
-msgstr ""
+msgstr "По средини лево"
 
 #: usr/lib/sticky/sticky.py:100
 msgid "Center"
-msgstr ""
+msgstr "Усредиштено"
 
 #: usr/lib/sticky/sticky.py:101
 msgid "Center Right"
-msgstr ""
+msgstr "По средини десно"
 
 #: usr/lib/sticky/sticky.py:102
 msgid "Bottom Left"
-msgstr ""
+msgstr "Доле лево"
 
 #: usr/lib/sticky/sticky.py:103
 msgid "Bottom Center"
-msgstr ""
+msgstr "Доле у средини"
 
 #: usr/lib/sticky/sticky.py:104
 msgid "Bottom Right"
-msgstr ""
+msgstr "Доле десно"
 
 #: usr/lib/sticky/sticky.py:172
 msgid "Note Color"
@@ -376,7 +376,7 @@ msgstr "Подразумевана ширина"
 
 #: usr/lib/sticky/sticky.py:618
 msgid "Default position"
-msgstr ""
+msgstr "Основни положај"
 
 #: usr/lib/sticky/sticky.py:622 usr/lib/sticky/sticky.py:627
 msgid "Cycle Colors"
