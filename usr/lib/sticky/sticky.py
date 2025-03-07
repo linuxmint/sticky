@@ -828,7 +828,8 @@ class Application(Gtk.Application):
             self.activate_notes(0)
 
         elif method_name == 'NewNote':
-            x, y = self.find_note_location(40, 40)
+            x, y, direction = self.get_direction()
+            x, y = self.find_note_location(x, y, direction)
 
             self.add_note({'text': params.unpack()[0], 'x': x, 'y': y})
 
@@ -997,7 +998,7 @@ class Application(Gtk.Application):
 
         return x, y
 
-    def new_note(self, button=None, parent=None):
+    def get_direction(self, parent=None):
         workarea_rect = Gdk.Monitor.get_workarea(
             Gdk.Display.get_primary_monitor(Gdk.Display.get_default())
         )
@@ -1029,6 +1030,11 @@ class Application(Gtk.Application):
                 y = workarea_rect.height / 2 - self.settings.get_uint('default-height') / 2
             else:
                 y = 20
+        
+        return (x, y, direction)
+
+    def new_note(self, button=None, parent=None):
+        x, y, direction = self.get_direction(parent)
 
         x, y = self.find_note_location(x, y, direction)
 
