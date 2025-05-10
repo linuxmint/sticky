@@ -952,7 +952,7 @@ class Application(Gtk.Application):
         else:
             self.dummy_window.set_skip_taskbar_hint(True)
 
-        self.dummy_window.move(-2, -2)
+        self.dummy_window.close()
 
         if self.settings.get_boolean('desktop-window-state'):
             self.dummy_window.stick()
