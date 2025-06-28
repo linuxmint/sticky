@@ -190,12 +190,20 @@ class Note(Gtk.Window):
         self.title_box.pack_start(self.edit_title_button, False, False, 0)
         self.title_hover.set_child_widget(self.edit_title_button)
 
-        close_icon = Gtk.Image.new_from_icon_name('sticky-delete', Gtk.IconSize.BUTTON)
-        close_button = Gtk.Button(image=close_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
-        close_button.connect('clicked', self.remove)
-        close_button.connect('button-press-event', self.on_title_click)
-        close_button.set_tooltip_text(_("Delete Note"))
+        # Close Button
+        close_icon = Gtk.Image.new_from_icon_name('window-close', Gtk.IconSize.BUTTON)
+        close_button = Gtk.Button(image=close_icon, relief=Gtk.ReliefStyle.NONE, name='window-close-button')
+        close_button.set_tooltip_text(_("Close Note"))
+        close_button.connect('clicked', lambda btn: self.hide())
         self.title_bar.pack_end(close_button, False, False, 0)
+
+        # Delete Button (now with confirmation)
+        delete_icon = Gtk.Image.new_from_icon_name('sticky-delete', Gtk.IconSize.BUTTON)
+        delete_button = Gtk.Button(image=delete_icon, relief=Gtk.ReliefStyle.NONE, name='window-delete-button')
+        delete_button.set_tooltip_text(_("Delete Note"))
+        delete_button.connect('clicked', self.on_delete_confirm)
+        self.title_bar.pack_end(delete_button, False, False, 0)
+
 
         add_icon = Gtk.Image.new_from_icon_name('sticky-add', Gtk.IconSize.BUTTON)
         add_button = Gtk.Button(image=add_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
@@ -548,6 +556,22 @@ class Note(Gtk.Window):
                     self, self.app.settings, 'disable-delete-confirm')):
             self.emit('removed')
             self.destroy()
+
+    def on_delete_confirm(self, *args):
+    	dialog = Gtk.MessageDialog(
+            transient_for=self.get_toplevel(),
+            flags=0,
+            message_type=Gtk.MessageType.QUESTION,
+            buttons=Gtk.ButtonsType.OK_CANCEL,
+            text=_("Delete this note?"),
+    	)
+    	dialog.format_secondary_text(_("Are you sure you want to permanently delete this note?"))
+    	response = dialog.run()
+    	dialog.destroy()
+
+    	if response == Gtk.ResponseType.OK:
+            self.remove()
+
 
     def duplicate(self, *args):
         self.app.duplicate_note(self)
