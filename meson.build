@@ -1,4 +1,4 @@
-project('sticky', version : '1.24', meson_version : '>= 0.49.0')
+project('sticky', version : '1.25', meson_version : '>= 0.49.0')
 
 i18n = import('i18n')
 

@@ -1,3 +1,19 @@
+sticky (1.25) zara; urgency=medium
+
+  [ gbygrave ]
+  * Add DBus control to reload note contents from file. (#135)
+
+  [ David Guest ]
+  * Fixed regression in dbus NewNote with start position (#143)
+
+  [ Dereified ]
+  * Allow stickies to be created under Wayland. (#146)
+
+  [ Clement Lefebvre ]
+  * Allow the Gtk theme to define a decoration radius
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 22 Jul 2025 16:44:34 +0200
+
 sticky (1.24) xia; urgency=medium
 
   * l10n: Update translations
