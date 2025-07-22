@@ -35,6 +35,8 @@ DBUS_INTERFACE_XML = '''
     </method>
     <method name='NewNoteBlank'>
     </method>
+    <method name='ReloadNotesFromFile'>
+    </method>
     <signal name='NotesChanged'>
     </signal>
   </interface>
@@ -828,12 +830,16 @@ class Application(Gtk.Application):
             self.activate_notes(0)
 
         elif method_name == 'NewNote':
-            x, y = self.find_note_location(40, 40)
+            x, y, direction = self.get_direction()
+            x, y = self.find_note_location(x, y, direction)
 
             self.add_note({'text': params.unpack()[0], 'x': x, 'y': y})
 
         elif method_name == 'NewNoteBlank':
             self.new_note()
+
+        elif method_name == 'ReloadNotesFromFile':
+            self.reload_notes_from_file()
 
     def first_run(self):
         gnote_dir = os.path.join(GLib.get_user_data_dir(), 'gnote')
@@ -997,7 +1003,7 @@ class Application(Gtk.Application):
 
         return x, y
 
-    def new_note(self, button=None, parent=None):
+    def get_direction(self, parent=None):
         monitor = Gdk.Display.get_primary_monitor(Gdk.Display.get_default())
         if monitor == None:
             # if user has no monitor configured, or uses Wayland, for now guess
@@ -1033,6 +1039,11 @@ class Application(Gtk.Application):
                 y = workarea_rect.height / 2 - self.settings.get_uint('default-height') / 2
             else:
                 y = 20
+        
+        return (x, y, direction)
+
+    def new_note(self, button=None, parent=None):
+        x, y, direction = self.get_direction(parent)
 
         x, y = self.find_note_location(x, y, direction)
 
@@ -1069,6 +1080,10 @@ class Application(Gtk.Application):
 
         for note_info in self.file_handler.get_note_list(self.note_group):
             self.generate_note(note_info)
+
+    def reload_notes_from_file(self):
+        self.file_handler.load_notes()
+        self.load_notes();
 
     def duplicate_note(self, new_note):
         new_note_info = new_note.get_info()
