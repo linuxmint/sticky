@@ -1004,9 +1004,13 @@ class Application(Gtk.Application):
         return x, y
 
     def get_direction(self, parent=None):
-        workarea_rect = Gdk.Monitor.get_workarea(
-            Gdk.Display.get_primary_monitor(Gdk.Display.get_default())
-        )
+        monitor = Gdk.Display.get_primary_monitor(Gdk.Display.get_default())
+        if monitor == None:
+            # if user has no monitor configured, or uses Wayland, for now guess
+            # monitor 0 (better than a crash)
+            monitor = Gdk.Display.get_monitor(Gdk.Display.get_default(),0)
+
+        workarea_rect = Gdk.Monitor.get_workarea(monitor)
         direction = [1, 1]
         if parent:
             if parent.x > (workarea_rect.width / 2):
