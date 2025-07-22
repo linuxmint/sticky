@@ -35,6 +35,8 @@ DBUS_INTERFACE_XML = '''
     </method>
     <method name='NewNoteBlank'>
     </method>
+    <method name='ReloadNotesFromFile'>
+    </method>
     <signal name='NotesChanged'>
     </signal>
   </interface>
@@ -835,6 +837,9 @@ class Application(Gtk.Application):
         elif method_name == 'NewNoteBlank':
             self.new_note()
 
+        elif method_name == 'ReloadNotesFromFile':
+            self.reload_notes_from_file()
+
     def first_run(self):
         gnote_dir = os.path.join(GLib.get_user_data_dir(), 'gnote')
 
@@ -1065,6 +1070,10 @@ class Application(Gtk.Application):
 
         for note_info in self.file_handler.get_note_list(self.note_group):
             self.generate_note(note_info)
+
+    def reload_notes_from_file(self):
+        self.file_handler.load_notes()
+        self.load_notes();
 
     def duplicate_note(self, new_note):
         new_note_info = new_note.get_info()
