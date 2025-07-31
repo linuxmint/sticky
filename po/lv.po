@@ -1,16 +1,16 @@
-# Romanian translation for linuxmint
-# Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
+# Latvian translation for linuxmint
+# Copyright (c) 2025 Rosetta Contributors and Canonical Ltd 2025
 # This file is distributed under the same license as the linuxmint package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-06-12 13:48+0100\n"
-"PO-Revision-Date: 2024-07-12 14:07+0000\n"
-"Last-Translator: Vladm <Unknown>\n"
-"Language-Team: Romanian <ro@li.org>\n"
+"PO-Revision-Date: 2025-07-07 12:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Latvian <lv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,48 +19,48 @@ msgstr ""
 
 #: usr/lib/sticky/common.py:150 usr/lib/sticky/manager.py:300
 msgid "Export..."
-msgstr "Exportă..."
+msgstr ""
 
 #: usr/lib/sticky/common.py:151 usr/lib/sticky/common.py:175
 #: usr/lib/sticky/common.py:198 usr/lib/sticky/common.py:330
 msgid "Cancel"
-msgstr "Anulează"
+msgstr ""
 
 #: usr/lib/sticky/common.py:151
 msgid "Save"
-msgstr "Salvează"
+msgstr ""
 
 #: usr/lib/sticky/common.py:162 usr/lib/sticky/common.py:184
 msgid "Plain Text"
-msgstr "Text simplu"
+msgstr ""
 
 #: usr/lib/sticky/common.py:174 usr/lib/sticky/manager.py:296
 msgid "Import..."
-msgstr "Importă..."
+msgstr ""
 
 #: usr/lib/sticky/common.py:175
 msgid "Open"
-msgstr "Deschide"
+msgstr ""
 
 #: usr/lib/sticky/common.py:197
 msgid "Restore Backup"
-msgstr "Restaurează copia de siguranță"
+msgstr ""
 
 #: usr/lib/sticky/common.py:199
 msgid "Clear"
-msgstr "Golește"
+msgstr ""
 
 #: usr/lib/sticky/common.py:200
 msgid "Restore"
-msgstr "Restaurează"
+msgstr ""
 
 #: usr/lib/sticky/common.py:255
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr "Restaurare imposibilă: fișierul de salvare este corupt sau nevalid"
+msgstr ""
 
 #: usr/lib/sticky/common.py:268
 msgid "Overwrite Existing Group"
-msgstr "Suprascrie grupul existent"
+msgstr ""
 
 #: usr/lib/sticky/common.py:268
 #, python-format
@@ -68,421 +68,417 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
-"Există deja un grup numit '%s'. Această acțiune îl va suprascrie. Continuă "
-"oricum?"
 
 #: usr/lib/sticky/common.py:279 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
-msgstr "Șterge grupul"
+msgstr ""
 
 #: usr/lib/sticky/common.py:279
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
-msgstr "Sigur vrei să ștergi grupul %s?"
+msgstr ""
 
 #: usr/lib/sticky/common.py:331
 msgid "OK"
-msgstr "În regulă"
+msgstr ""
 
 #: usr/lib/sticky/common.py:354
 msgid "No"
-msgstr "Nu"
+msgstr ""
 
 #: usr/lib/sticky/common.py:355
 msgid "Yes"
-msgstr "Da"
+msgstr ""
 
 #: usr/lib/sticky/common.py:365
 msgid "Don't ask me again"
-msgstr "Nu mă mai întreba"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:108
 msgid "New"
-msgstr "Nou"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:113
 msgid "Edit"
-msgstr "Editează"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:117
 msgid "Remove"
-msgstr "Șterge"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:222
 msgid "Untitled"
-msgstr "Fără titlu"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:276
 msgid "New Group"
-msgstr "Grup nou"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:286
 msgid "Back Up"
-msgstr "Creează o copie de siguranță"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:290
 msgid "Restore Backups..."
-msgstr "Restaurează copii de siguranță..."
+msgstr ""
 
 #: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:603
 #: usr/lib/sticky/sticky.py:919
 msgid "Preferences"
-msgstr "Preferințe"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:310
 msgid "Keyboard Shortcuts"
-msgstr "Scurtături de tastatură"
+msgstr ""
 
 #: usr/lib/sticky/manager.py:315 usr/lib/sticky/sticky.py:1156
 msgid "About"
-msgstr "Despre"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:47
 msgid "Small Text"
-msgstr "Text mic"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:48
 msgid "Normal Text"
-msgstr "Text normal"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:49
 msgid "Large Text"
-msgstr "Text mare"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:50
 msgid "Larger Text"
-msgstr "Text mai mare"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:54
 msgid "Red"
-msgstr "Roșu"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:55
 msgid "Green"
-msgstr "Verde"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:56
 msgid "Blue"
-msgstr "Albastru"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:57
 msgid "Yellow"
-msgstr "Galben"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:58
 msgid "Purple"
-msgstr "Violet"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:59
 msgid "Teal"
-msgstr "Albastru-verde"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Orange"
-msgstr "Portocaliu"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:61
 msgid "Magenta"
-msgstr "Purpuriu"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:76
 msgid "Operations"
-msgstr "Operațiuni"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:77
 msgid "Move selection up"
-msgstr "Mută selecția în sus"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:78
 msgid "Move selection down"
-msgstr "Mută selecția în jos"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:79
 msgid "Undo"
-msgstr "Anulează ultima acțiune"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:80
 msgid "Redo"
-msgstr "Refă ultima acțiune"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:81 usr/lib/sticky/sticky.py:516
 msgid "Toggle Checklist"
-msgstr "Comută lista"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:82 usr/lib/sticky/sticky.py:520
 msgid "Toggle Bullets"
-msgstr "Comută punctele"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:84
 msgid "Formatting"
-msgstr "Formatare"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:85 usr/lib/sticky/sticky.py:471
 #: usr/lib/sticky/sticky.py:472
 msgid "Bold"
-msgstr "Îngroșat"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:86 usr/lib/sticky/sticky.py:476
 #: usr/lib/sticky/sticky.py:477
 msgid "Italic"
-msgstr "Înclinat"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:87 usr/lib/sticky/sticky.py:481
 #: usr/lib/sticky/sticky.py:482
 msgid "Fixed Width"
-msgstr "Lățime fixă"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:88 usr/lib/sticky/sticky.py:486
 #: usr/lib/sticky/sticky.py:487
 msgid "Underline"
-msgstr "Subliniat"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:89 usr/lib/sticky/sticky.py:491
 #: usr/lib/sticky/sticky.py:492
 msgid "Strikethrough"
-msgstr "Tăiat"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:90 usr/lib/sticky/sticky.py:496
 #: usr/lib/sticky/sticky.py:497
 msgid "Highlight"
-msgstr "Evidențiază"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:91 usr/lib/sticky/sticky.py:501
 #: usr/lib/sticky/sticky.py:502
 msgid "Header"
-msgstr "Antet"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:96
 msgid "Top Left"
-msgstr "Stânga sus"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:97
 msgid "Top Center"
-msgstr "Centru sus"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:98
 msgid "Top Right"
-msgstr "Dreapta sus"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:99
 msgid "Center Left"
-msgstr "Centru stânga"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:100
 msgid "Center"
-msgstr "Centru"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:101
 msgid "Center Right"
-msgstr "Centru dreapta"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:102
 msgid "Bottom Left"
-msgstr "Stânga jos"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:103
 msgid "Bottom Center"
-msgstr "Centru jos"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:104
 msgid "Bottom Right"
-msgstr "Dreapta jos"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:172
 msgid "Note Color"
-msgstr "Culoare notiță"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:189
 msgid "Rename"
-msgstr "Redenumește"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:197 usr/lib/sticky/sticky.py:428
 #: usr/lib/sticky/sticky.py:547
 msgid "Delete Note"
-msgstr "Șterge notița"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:204 usr/lib/sticky/sticky.py:899
 msgid "New Note"
-msgstr "Notiță nouă"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:210
 msgid "Format"
-msgstr "Format"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:409
 msgid "undo"
-msgstr "anulează"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:413
 msgid "redo"
-msgstr "refă"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:419
 msgid "Set Title"
-msgstr "Setează titlul"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:419
 msgid "Edit Title"
-msgstr "Editează titlul"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:424
 msgid "Duplicate Note"
-msgstr "Duplică notița selectată"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:436
 msgid "Only on This Workspace"
-msgstr "Doar în acest spațiu de lucru"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:440
 msgid "Always on Visible Workspace"
-msgstr "Întotdeauna pe spațiul de lucru vizibil"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:452
 msgid "Always on Top"
-msgstr "Întotdeauna deasupra"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:547
 msgid "Are you sure you want to remove this note?"
-msgstr "Sigur ștergi această notiță?"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:607
 msgid "Show notes on all desktops"
-msgstr "Arată notițele pe toate ecranele"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:608
 msgid "Show in taskbar"
-msgstr "Arată în bara aplicațiilor"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:609
 msgid "Tray icon"
-msgstr "Pictogramă de notificare"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:610
 msgid "Show the main window automatically"
-msgstr "Arată automat fereastra principală"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:611
 msgid "General"
-msgstr "Setări generale"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:615
 msgid "Default height"
-msgstr "Înălțime implicită"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:616
 msgid "Default width"
-msgstr "Lățime implicită"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:618
 msgid "Default position"
-msgstr "Poziția implicită"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:622 usr/lib/sticky/sticky.py:627
 msgid "Cycle Colors"
-msgstr "Ciclează culorile"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:624 usr/lib/sticky/sticky.py:629
 msgid "Default color"
-msgstr "Culoare implicită"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:631
 msgid "Font"
-msgstr "Font"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:632
 msgid "Show spelling mistakes"
-msgstr "Indică greșelile de ortografie"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:634 usr/lib/sticky/sticky.py:754
 #: usr/lib/sticky/sticky.py:851 usr/lib/sticky/sticky.py:883
 #: usr/lib/sticky/sticky.py:1157 usr/share/sticky/manager.ui.h:1
 msgid "Notes"
-msgstr "Notițe"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:639
 msgid "Automatic backups"
-msgstr "Copii de siguranță automate"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:640
 msgid "Time between backups"
-msgstr "Interval între copiile de siguranță"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:640
 msgid "hours"
-msgstr "ore"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:641
 msgid "Set this to zero if you wish to keep all backups indefinitely"
-msgstr "Alege zero dacă vrei să păstrezi permanent copiile de siguranță"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:642
 msgid "Number to keep"
-msgstr "Număr de păstrat"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:644
 msgid "Backups"
-msgstr "Copii de siguranță"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:648
 msgid "Start automatically"
-msgstr "Pornește automat"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:649
 msgid "Show notes on the screen"
-msgstr "Arată notițe pe ecran"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:650
 msgid "Automatic start"
-msgstr "Pornire automată"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:668
 msgid "Text Size"
-msgstr "Dimensiunea textului"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:852
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
 msgstr ""
-"Vrei să imporți notițele din Gnote? Operațiunea nu va modifica nimic în "
-"Gnote."
 
 #: usr/lib/sticky/sticky.py:875
 msgid "Group 1"
-msgstr "Grupul 1"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:884
 msgid "Left click to toggle notes"
-msgstr "Clic stânga pentru a comuta notițele"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:885
 msgid "Middle click to toggle the manager"
-msgstr "Clic dreapta pentru a comuta managerul"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:903
 msgid "Manage Notes"
-msgstr "Gestionează notițele"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:925
 msgid "Quit"
-msgstr "Închide"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:1158 usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr "Ia notițe și organizează-te"
+msgstr ""
 
 #: usr/lib/sticky/util.py:79
 msgid "Unfiled"
-msgstr "Nesalvată"
+msgstr ""
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
-msgstr "Notiță nouă"
+msgstr ""
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr "Șterge notița selectată"
+msgstr ""
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
-msgstr "Duplică notița selectată"
+msgstr ""
