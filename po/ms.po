@@ -1,16 +1,16 @@
-# Swedish translation for linuxmint
-# Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
+# Malay translation for linuxmint
+# Copyright (c) 2025 Rosetta Contributors and Canonical Ltd 2025
 # This file is distributed under the same license as the linuxmint package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-06-12 13:48+0100\n"
-"PO-Revision-Date: 2024-06-12 22:29+0000\n"
-"Last-Translator: Jan-Olof Svensson <jan-olof.svensson@abc.se>\n"
-"Language-Team: Swedish <sv@li.org>\n"
+"PO-Revision-Date: 2025-08-24 15:01+0000\n"
+"Last-Translator: Keviindran Ramachandran <Unknown>\n"
+"Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,48 +19,48 @@ msgstr ""
 
 #: usr/lib/sticky/common.py:150 usr/lib/sticky/manager.py:300
 msgid "Export..."
-msgstr "Exportera..."
+msgstr "Eksport..."
 
 #: usr/lib/sticky/common.py:151 usr/lib/sticky/common.py:175
 #: usr/lib/sticky/common.py:198 usr/lib/sticky/common.py:330
 msgid "Cancel"
-msgstr "Avbryt"
+msgstr "Batal"
 
 #: usr/lib/sticky/common.py:151
 msgid "Save"
-msgstr "Spara"
+msgstr "Simpan"
 
 #: usr/lib/sticky/common.py:162 usr/lib/sticky/common.py:184
 msgid "Plain Text"
-msgstr "Vanlig text"
+msgstr "Teks Biasa"
 
 #: usr/lib/sticky/common.py:174 usr/lib/sticky/manager.py:296
 msgid "Import..."
-msgstr "Importera..."
+msgstr "Import..."
 
 #: usr/lib/sticky/common.py:175
 msgid "Open"
-msgstr "Öppna"
+msgstr "Buka"
 
 #: usr/lib/sticky/common.py:197
 msgid "Restore Backup"
-msgstr "Läs in säkerhetskopia"
+msgstr "Pulihkan Sandaran"
 
 #: usr/lib/sticky/common.py:199
 msgid "Clear"
-msgstr "Rensa"
+msgstr "Kosongkan"
 
 #: usr/lib/sticky/common.py:200
 msgid "Restore"
-msgstr "Återställ"
+msgstr "Pulihkan"
 
 #: usr/lib/sticky/common.py:255
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr "Kunde inte återställa - ogiltig eller skadad säkerhetskopia"
+msgstr "Tidak dapat dipulihkan: fail sandaran tidak sah atau rosak"
 
 #: usr/lib/sticky/common.py:268
 msgid "Overwrite Existing Group"
-msgstr "Skriv över existerande grupp"
+msgstr ""
 
 #: usr/lib/sticky/common.py:268
 #, python-format
@@ -68,17 +68,17 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
-"Det finns redan en grupp med namnet '%s'. Detta val kommer att ersätta den. "
-"Vill du fortsätta ändå?"
+"Terdapat sudah kumpulan bernama '%s'. Tindakan ini akan menulis ganti "
+"kumpulan tersebut. Teruskan juga?"
 
 #: usr/lib/sticky/common.py:279 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
-msgstr "Ta bort grupp"
+msgstr "Keluarkan Kumpulan"
 
 #: usr/lib/sticky/common.py:279
 #, python-format
 msgid "Are you sure you want to remove the group %s?"
-msgstr "Är du säker på att du vill ta bort gruppen %s?"
+msgstr "Adakah anda pasti mahu mengeluarkan kumpulan %s?"
 
 #: usr/lib/sticky/common.py:331
 msgid "OK"
@@ -86,100 +86,100 @@ msgstr "OK"
 
 #: usr/lib/sticky/common.py:354
 msgid "No"
-msgstr "Nej"
+msgstr "Tidak"
 
 #: usr/lib/sticky/common.py:355
 msgid "Yes"
-msgstr "Ja"
+msgstr "Ya"
 
 #: usr/lib/sticky/common.py:365
 msgid "Don't ask me again"
-msgstr "Fråga mig inte igen"
+msgstr "Jangan tanya saya lagi"
 
 #: usr/lib/sticky/manager.py:108
 msgid "New"
-msgstr "Ny"
+msgstr "Baru"
 
 #: usr/lib/sticky/manager.py:113
 msgid "Edit"
-msgstr "Redigera"
+msgstr "Sunting"
 
 #: usr/lib/sticky/manager.py:117
 msgid "Remove"
-msgstr "Ta bort"
+msgstr "Buang"
 
 #: usr/lib/sticky/manager.py:222
 msgid "Untitled"
-msgstr "Namnlös"
+msgstr "Tidak bertajuk"
 
 #: usr/lib/sticky/manager.py:276
 msgid "New Group"
-msgstr "Ny grupp"
+msgstr "Kumpulan Baru"
 
 #: usr/lib/sticky/manager.py:286
 msgid "Back Up"
-msgstr "Säkerhetskopiera"
+msgstr "Sandar"
 
 #: usr/lib/sticky/manager.py:290
 msgid "Restore Backups..."
-msgstr "Läs in säkerhetskopior..."
+msgstr "Pulihkan Sandaran..."
 
 #: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:603
 #: usr/lib/sticky/sticky.py:919
 msgid "Preferences"
-msgstr "Inställningar"
+msgstr "Keutamaan"
 
 #: usr/lib/sticky/manager.py:310
 msgid "Keyboard Shortcuts"
-msgstr "Snabbkommandon"
+msgstr "Pintasan Papan Kekunci"
 
 #: usr/lib/sticky/manager.py:315 usr/lib/sticky/sticky.py:1156
 msgid "About"
-msgstr "Om programmet"
+msgstr "Tentang"
 
 #: usr/lib/sticky/sticky.py:47
 msgid "Small Text"
-msgstr "Liten text"
+msgstr "Teks Kecil"
 
 #: usr/lib/sticky/sticky.py:48
 msgid "Normal Text"
-msgstr "Normal text"
+msgstr "Teks Biasa"
 
 #: usr/lib/sticky/sticky.py:49
 msgid "Large Text"
-msgstr "Stor text"
+msgstr "Teks Besar"
 
 #: usr/lib/sticky/sticky.py:50
 msgid "Larger Text"
-msgstr "Större text"
+msgstr "Teks Lebih Besar"
 
 #: usr/lib/sticky/sticky.py:54
 msgid "Red"
-msgstr "Rött"
+msgstr "Merah"
 
 #: usr/lib/sticky/sticky.py:55
 msgid "Green"
-msgstr "Grönt"
+msgstr "Hijau"
 
 #: usr/lib/sticky/sticky.py:56
 msgid "Blue"
-msgstr "Blått"
+msgstr "Biru"
 
 #: usr/lib/sticky/sticky.py:57
 msgid "Yellow"
-msgstr "Gult"
+msgstr "Kuning"
 
 #: usr/lib/sticky/sticky.py:58
 msgid "Purple"
-msgstr "Lila"
+msgstr "Ungu"
 
 #: usr/lib/sticky/sticky.py:59
 msgid "Teal"
-msgstr "Blågrön"
+msgstr "Teal"
 
 #: usr/lib/sticky/sticky.py:60
 msgid "Orange"
-msgstr "Orange"
+msgstr "Jingga"
 
 #: usr/lib/sticky/sticky.py:61
 msgid "Magenta"
@@ -187,123 +187,123 @@ msgstr "Magenta"
 
 #: usr/lib/sticky/sticky.py:76
 msgid "Operations"
-msgstr "Åtgärder"
+msgstr "Operasi"
 
 #: usr/lib/sticky/sticky.py:77
 msgid "Move selection up"
-msgstr "Flytta upp det markerade"
+msgstr "Pindahkan pilihan ke atas"
 
 #: usr/lib/sticky/sticky.py:78
 msgid "Move selection down"
-msgstr "Flytta ned det markerade"
+msgstr "Pindahkan pilihan ke bawah"
 
 #: usr/lib/sticky/sticky.py:79
 msgid "Undo"
-msgstr "Ångra"
+msgstr "Buat asal"
 
 #: usr/lib/sticky/sticky.py:80
 msgid "Redo"
-msgstr "Gör om"
+msgstr "Buat semula"
 
 #: usr/lib/sticky/sticky.py:81 usr/lib/sticky/sticky.py:516
 msgid "Toggle Checklist"
-msgstr "Checklista till/från"
+msgstr "Togol Senarai Semak"
 
 #: usr/lib/sticky/sticky.py:82 usr/lib/sticky/sticky.py:520
 msgid "Toggle Bullets"
-msgstr "Punkttecken till/från"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:84
 msgid "Formatting"
-msgstr "Formatera"
+msgstr "Memformat"
 
 #: usr/lib/sticky/sticky.py:85 usr/lib/sticky/sticky.py:471
 #: usr/lib/sticky/sticky.py:472
 msgid "Bold"
-msgstr "Fet"
+msgstr "Tebal"
 
 #: usr/lib/sticky/sticky.py:86 usr/lib/sticky/sticky.py:476
 #: usr/lib/sticky/sticky.py:477
 msgid "Italic"
-msgstr "Kursiv"
+msgstr "Condong"
 
 #: usr/lib/sticky/sticky.py:87 usr/lib/sticky/sticky.py:481
 #: usr/lib/sticky/sticky.py:482
 msgid "Fixed Width"
-msgstr "Fast bredd"
+msgstr "Lebar Tetap"
 
 #: usr/lib/sticky/sticky.py:88 usr/lib/sticky/sticky.py:486
 #: usr/lib/sticky/sticky.py:487
 msgid "Underline"
-msgstr "Understrykning"
+msgstr "Garis Bawah"
 
 #: usr/lib/sticky/sticky.py:89 usr/lib/sticky/sticky.py:491
 #: usr/lib/sticky/sticky.py:492
 msgid "Strikethrough"
-msgstr "Genomstrykning"
+msgstr "Coret tembus"
 
 #: usr/lib/sticky/sticky.py:90 usr/lib/sticky/sticky.py:496
 #: usr/lib/sticky/sticky.py:497
 msgid "Highlight"
-msgstr "Markering"
+msgstr "Sorot"
 
 #: usr/lib/sticky/sticky.py:91 usr/lib/sticky/sticky.py:501
 #: usr/lib/sticky/sticky.py:502
 msgid "Header"
-msgstr "Sidhuvud"
+msgstr "Pengepala"
 
 #: usr/lib/sticky/sticky.py:96
 msgid "Top Left"
-msgstr "Överst till vänster"
+msgstr "Kiri Atas"
 
 #: usr/lib/sticky/sticky.py:97
 msgid "Top Center"
-msgstr "Uppe i mitten"
+msgstr "Tengah Atas"
 
 #: usr/lib/sticky/sticky.py:98
 msgid "Top Right"
-msgstr "Överst till höger"
+msgstr "Kanan Atas"
 
 #: usr/lib/sticky/sticky.py:99
 msgid "Center Left"
-msgstr "Mitten till vänster"
+msgstr "Kiri Tengah"
 
 #: usr/lib/sticky/sticky.py:100
 msgid "Center"
-msgstr "Mitten"
+msgstr "Tengah"
 
 #: usr/lib/sticky/sticky.py:101
 msgid "Center Right"
-msgstr "Mitten till höger"
+msgstr "Kanan Tengah"
 
 #: usr/lib/sticky/sticky.py:102
 msgid "Bottom Left"
-msgstr "Nere till vänster"
+msgstr "Kiri Bawah"
 
 #: usr/lib/sticky/sticky.py:103
 msgid "Bottom Center"
-msgstr "Nere i mitten"
+msgstr "Tengah Bawah"
 
 #: usr/lib/sticky/sticky.py:104
 msgid "Bottom Right"
-msgstr "Nere till höger"
+msgstr "Kanan Bawah"
 
 #: usr/lib/sticky/sticky.py:172
 msgid "Note Color"
-msgstr "Anteckningsfärg"
+msgstr "Warna Nota"
 
 #: usr/lib/sticky/sticky.py:189
 msgid "Rename"
-msgstr "Byt namn"
+msgstr "Namakan semula"
 
 #: usr/lib/sticky/sticky.py:197 usr/lib/sticky/sticky.py:428
 #: usr/lib/sticky/sticky.py:547
 msgid "Delete Note"
-msgstr "Ta bort anteckning"
+msgstr "Padam Nota"
 
 #: usr/lib/sticky/sticky.py:204 usr/lib/sticky/sticky.py:899
 msgid "New Note"
-msgstr "Ny anteckning"
+msgstr "Nota Baru"
 
 #: usr/lib/sticky/sticky.py:210
 msgid "Format"
@@ -311,178 +311,180 @@ msgstr "Format"
 
 #: usr/lib/sticky/sticky.py:409
 msgid "undo"
-msgstr "ångra"
+msgstr "buat asal"
 
 #: usr/lib/sticky/sticky.py:413
 msgid "redo"
-msgstr "gör om"
+msgstr "buat semula"
 
 #: usr/lib/sticky/sticky.py:419
 msgid "Set Title"
-msgstr "Ange titel"
+msgstr "Tetapkan Tajuk"
 
 #: usr/lib/sticky/sticky.py:419
 msgid "Edit Title"
-msgstr "Redigera titel"
+msgstr "Sunting Tajuk"
 
 #: usr/lib/sticky/sticky.py:424
 msgid "Duplicate Note"
-msgstr "Duplicera anteckningar"
+msgstr "Nota Pendua"
 
 #: usr/lib/sticky/sticky.py:436
 msgid "Only on This Workspace"
-msgstr "Endast på denna arbetsyta"
+msgstr "Hanya pada Ruang Kerja Ini"
 
 #: usr/lib/sticky/sticky.py:440
 msgid "Always on Visible Workspace"
-msgstr "Alltid på synlig arbetsyta"
+msgstr "Sentiasa pada Ruang Kerja Kelihatan"
 
 #: usr/lib/sticky/sticky.py:452
 msgid "Always on Top"
-msgstr "Alltid överst"
+msgstr "Sentiasa di Atas"
 
 #: usr/lib/sticky/sticky.py:547
 msgid "Are you sure you want to remove this note?"
-msgstr "Är du säker på att du vill ta bort denna anteckning?"
+msgstr "Adakah anda pasti mahu mengeluarkan nota ini?"
 
 #: usr/lib/sticky/sticky.py:607
 msgid "Show notes on all desktops"
-msgstr "Visa anteckningar på alla skrivbord"
+msgstr "Paparkan nota di semua desktop"
 
 #: usr/lib/sticky/sticky.py:608
 msgid "Show in taskbar"
-msgstr "Visa i aktivitetsfältet"
+msgstr "Paparkan di bar tugas"
 
 #: usr/lib/sticky/sticky.py:609
 msgid "Tray icon"
-msgstr "Aktivitetsikon"
+msgstr "Dulang ikon"
 
 #: usr/lib/sticky/sticky.py:610
 msgid "Show the main window automatically"
-msgstr "Visa huvudfönstret automatiskt"
+msgstr "Paparkan tetingkap utama secara automatik"
 
 #: usr/lib/sticky/sticky.py:611
 msgid "General"
-msgstr "Allmänt"
+msgstr "Umum"
 
 #: usr/lib/sticky/sticky.py:615
 msgid "Default height"
-msgstr "Standardhöjd"
+msgstr "Tinggi lalai"
 
 #: usr/lib/sticky/sticky.py:616
 msgid "Default width"
-msgstr "Standardvidd"
+msgstr "Lebar lalai"
 
 #: usr/lib/sticky/sticky.py:618
 msgid "Default position"
-msgstr "Förvalt läge"
+msgstr "Kedudukan lalai"
 
 #: usr/lib/sticky/sticky.py:622 usr/lib/sticky/sticky.py:627
 msgid "Cycle Colors"
-msgstr "Växla färger"
+msgstr "Kitar Warna"
 
 #: usr/lib/sticky/sticky.py:624 usr/lib/sticky/sticky.py:629
 msgid "Default color"
-msgstr "Standardfärg"
+msgstr "Warna lalai"
 
 #: usr/lib/sticky/sticky.py:631
 msgid "Font"
-msgstr "Teckensnitt"
+msgstr "Fon"
 
 #: usr/lib/sticky/sticky.py:632
 msgid "Show spelling mistakes"
-msgstr "Visa stavfel"
+msgstr "Paparkan kesilapan ejaan"
 
 #: usr/lib/sticky/sticky.py:634 usr/lib/sticky/sticky.py:754
 #: usr/lib/sticky/sticky.py:851 usr/lib/sticky/sticky.py:883
 #: usr/lib/sticky/sticky.py:1157 usr/share/sticky/manager.ui.h:1
 msgid "Notes"
-msgstr "Anteckningar"
+msgstr "Nota"
 
 #: usr/lib/sticky/sticky.py:639
 msgid "Automatic backups"
-msgstr "Automatisk säkerhetskopiering"
+msgstr "Sandaran automatik"
 
 #: usr/lib/sticky/sticky.py:640
 msgid "Time between backups"
-msgstr "Tid mellan varje säkerhetskopiering"
+msgstr "Masa antara sandaran"
 
 #: usr/lib/sticky/sticky.py:640
 msgid "hours"
-msgstr "timmar"
+msgstr "jam"
 
 #: usr/lib/sticky/sticky.py:641
 msgid "Set this to zero if you wish to keep all backups indefinitely"
-msgstr "Sätt detta värde till noll om du vill spara alla kopior för alltid"
+msgstr ""
+"Tetapkan ini kepada sifar jika anda ingin mengekalkan semua sandaran tanpa "
+"had"
 
 #: usr/lib/sticky/sticky.py:642
 msgid "Number to keep"
-msgstr "Antal att spara"
+msgstr "Bilangan untuk disimpan"
 
 #: usr/lib/sticky/sticky.py:644
 msgid "Backups"
-msgstr "Säkerhetskopior"
+msgstr "Sandaran"
 
 #: usr/lib/sticky/sticky.py:648
 msgid "Start automatically"
-msgstr "Starta automatiskt"
+msgstr "Mula secara automatik"
 
 #: usr/lib/sticky/sticky.py:649
 msgid "Show notes on the screen"
-msgstr "Visa anteckningar på skärmen"
+msgstr "Paparkan nota di skrin"
 
 #: usr/lib/sticky/sticky.py:650
 msgid "Automatic start"
-msgstr "Automatisk start"
+msgstr "Mula automatik"
 
 #: usr/lib/sticky/sticky.py:668
 msgid "Text Size"
-msgstr "Textstorlek"
+msgstr "Saiz Teks"
 
 #: usr/lib/sticky/sticky.py:852
 msgid ""
 "Would you like to import your notes from Gnote? This will not change your "
 "Gnote notes in any way."
 msgstr ""
-"Vill du importera dina anteckningar från Gnote? Anteckningarna i Gnote "
-"kommer att förbli oförändrade."
+"Adakah anda ingin mengimport nota anda dari Gnote? Ini tidak akan mengubah "
+"nota Gnote anda dalam apa jua cara."
 
 #: usr/lib/sticky/sticky.py:875
 msgid "Group 1"
-msgstr "Grupp 1"
+msgstr "Kumpulan 1"
 
 #: usr/lib/sticky/sticky.py:884
 msgid "Left click to toggle notes"
-msgstr "Vänsterklicka för att växla anteckningar"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:885
 msgid "Middle click to toggle the manager"
-msgstr "Mittenklicka för att växla hanterare"
+msgstr ""
 
 #: usr/lib/sticky/sticky.py:903
 msgid "Manage Notes"
-msgstr "Hantera anteckningar"
+msgstr "Urus Nota"
 
 #: usr/lib/sticky/sticky.py:925
 msgid "Quit"
-msgstr "Avsluta"
+msgstr "Keluar"
 
 #: usr/lib/sticky/sticky.py:1158 usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr "Gör anteckningar och håll dig organiserad"
+msgstr "Buat nota dan kekal teratur"
 
 #: usr/lib/sticky/util.py:79
 msgid "Unfiled"
-msgstr "Inte lagrad"
+msgstr "Belum difailkan"
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"
-msgstr "Ny anteckning"
+msgstr "Nota baru"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr "Ta bort markerad anteckning"
+msgstr "Keluarkan nota yang dipilih"
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
-msgstr "Duplicera vald anteckning"
+msgstr "Pendua nota yang dipilih"
