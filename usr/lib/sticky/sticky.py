@@ -891,7 +891,8 @@ class Application(Gtk.Application):
                                                                         _("Middle click to toggle the manager")))
         self.status_icon.set_visible(True)
         self.status_icon.connect('button-press-event', self.on_tray_button_pressed)
-        self.status_icon.connect('button-release-event', self.on_tray_button_released)
+
+        self.rebuild_tray_context_menu()
 
     def on_tray_button_pressed(self, icon, x, y , button, time, panel_position):
         if button == 1:
@@ -899,41 +900,44 @@ class Application(Gtk.Application):
         elif button == 2:
             self.toggle_manager(time)
 
-    def on_tray_button_released(self, icon, x, y , button, time, panel_position):
-      if button == 3:
-            menu = Gtk.Menu()
-            item = Gtk.MenuItem(label=_("New Note"))
-            item.connect('activate', self.new_note)
-            menu.append(item)
+    def rebuild_tray_context_menu(self):
+        if self.status_icon is None:
+            return
 
-            item = Gtk.MenuItem(label=_("Manage Notes"))
-            item.connect('activate', self.open_manager)
-            menu.append(item)
+        self.context_menu = Gtk.Menu()
+        item = Gtk.MenuItem(label=_("New Note"))
+        item.connect('activate', self.new_note)
+        self.context_menu.append(item)
 
-            menu.append(Gtk.SeparatorMenuItem())
+        item = Gtk.MenuItem(label=_("Manage Notes"))
+        item.connect('activate', self.open_manager)
+        self.context_menu.append(item)
 
-            for group in self.file_handler.get_note_group_names():
-                item = Gtk.RadioMenuItem(label=group)
-                if group == self.settings.get_string('active-group'):
-                    item.set_active(True)
-                else:
-                    item.connect('activate', self.on_tray_group_selected, group)
-                menu.append(item)
+        self.context_menu.append(Gtk.SeparatorMenuItem())
 
-            menu.append(Gtk.SeparatorMenuItem())
+        for group in self.file_handler.get_note_group_names():
+            item = Gtk.RadioMenuItem(label=group)
+            if group == self.settings.get_string('active-group'):
+                item.set_active(True)
+            else:
+                item.connect('activate', self.on_tray_group_selected, group)
+            self.context_menu.append(item)
 
-            item = Gtk.MenuItem(label=_("Preferences"))
-            item.connect('activate', self.open_settings_window)
-            menu.append(item)
+        self.context_menu.append(Gtk.SeparatorMenuItem())
 
-            menu.append(Gtk.SeparatorMenuItem())
+        item = Gtk.MenuItem(label=_("Preferences"))
+        item.connect('activate', self.open_settings_window)
+        self.context_menu.append(item)
 
-            item = Gtk.MenuItem(label=_("Quit"))
-            item.connect('activate', self.quit_app)
-            menu.append(item)
+        self.context_menu.append(Gtk.SeparatorMenuItem())
 
-            menu.show_all()
-            self.status_icon.popup_menu(menu, x, y, button, time, panel_position)
+        item = Gtk.MenuItem(label=_("Quit"))
+        item.connect('activate', self.quit_app)
+        self.context_menu.append(item)
+
+        self.context_menu.show_all()
+
+        self.status_icon.set_secondary_menu(self.context_menu)
 
     def destroy_status_icon(self):
         self.status_icon.set_visible(False)
@@ -1120,6 +1124,8 @@ class Application(Gtk.Application):
         else:
             self.load_notes()
 
+        self.rebuild_tray_context_menu()
+
     def on_group_changed(self, f, group_name):
         if self.note_group == group_name:
             self.load_notes()
@@ -1130,6 +1136,8 @@ class Application(Gtk.Application):
 
         if self.settings.get_string('active-group') == old_name:
             self.settings.set_string('active-group', new_name)
+
+        self.rebuild_tray_context_menu()
 
     def on_save(self, *args):
         self.get_dbus_connection().emit_signal(None, DBUS_PATH, APPLICATION_ID, 'NotesChanged', None)
