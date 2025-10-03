@@ -1001,6 +1001,23 @@ class Application(Gtk.Application):
             x += 20 * direction[0]
             y += 60 * direction[1]
 
+        # make sure the note doesn't get placed off-screen or over a panel
+        display = Gdk.Display.get_default()
+        monitor = display.get_monitor_at_point(x, y)
+        workarea = monitor.get_workarea()
+        min_x = workarea.x
+        max_x = workarea.x + workarea.width
+        min_y = workarea.y
+        max_y = workarea.y + workarea.height
+
+        x_end = x + self.settings.get_uint('default-height')
+        y_end = y + self.settings.get_uint('default-width')
+
+        if x < min_x or x_end > max_x or y < min_y or y_end > max_y:
+            # the calculated location wont work, so put the new note near the top left corner
+            x = workarea.x + 20
+            y = workarea.y + 20
+
         return x, y
 
     def get_direction(self, parent=None):
