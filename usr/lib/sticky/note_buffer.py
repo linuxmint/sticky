@@ -487,14 +487,14 @@ class NoteBuffer(Gtk.TextBuffer):
         current_iter = self.get_iter_at_offset(0)
         while True:
             # first we close any open tags that don't continue on to the current character
-            for tag in on_tags:
+            for tag in on_tags[:]:
                 if not current_iter.has_tag(tag):
                     text += '#tag:%s:' % tag.props.name
                     off_tags.append(tag)
                     on_tags.remove(tag)
 
             # next we open any tags that start with the current character
-            for tag in off_tags:
+            for tag in off_tags[:]:
                 if current_iter.has_tag(tag):
                     text += '#tag:%s:' % tag.props.name
                     on_tags.append(tag)
