@@ -29,7 +29,7 @@
                   <object class="GtkImage">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="icon_name">open-menu-symbolic</property>
+                    <property name="icon_name">xapp-open-menu-symbolic</property>
                     <property name="use_fallback">True</property>
                     <property name="icon_size">2</property>
                   </object>
@@ -47,7 +47,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="icon_name">edit-find-symbolic</property>
+                <property name="icon_name">xapp-edit-find-symbolic</property>
               </object>
             </child>
           </object>
@@ -130,7 +130,7 @@
                   <object class="GtkSearchEntry" id="search_box">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="primary_icon_name">edit-find-symbolic</property>
+                    <property name="primary_icon_name">xapp-edit-find-symbolic</property>
                     <property name="primary_icon_activatable">False</property>
                     <property name="primary_icon_sensitive">False</property>
                   </object>
@@ -206,7 +206,7 @@
                                 <property name="width_request">50</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="icon_name">document-new-symbolic</property>
+                                <property name="icon_name">xapp-document-new-symbolic</property>
                               </object>
                             </child>
                           </object>
@@ -228,7 +228,7 @@
                                 <property name="width_request">50</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="icon_name">list-remove-symbolic</property>
+                                <property name="icon_name">xapp-list-remove-symbolic</property>
                               </object>
                             </child>
                           </object>
@@ -250,7 +250,7 @@
                                 <property name="width_request">50</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="icon_name">edit-copy-symbolic</property>
+                                <property name="icon_name">xapp-edit-copy-symbolic</property>
                               </object>
                             </child>
                           </object>

@@ -146,7 +146,7 @@ class GroupEntry(Gtk.ListBoxRow):
         label = Gtk.Label(label=self.item.name, halign=Gtk.Align.START, margin_start=5)
         self.box.pack_start(label, True, True, 5)
 
-        image = Gtk.Image.new_from_icon_name('document-edit-symbolic', Gtk.IconSize.BUTTON)
+        image = Gtk.Image.new_from_icon_name('xapp-document-edit-symbolic', Gtk.IconSize.BUTTON)
         button = Gtk.Button(image=image, relief=Gtk.ReliefStyle.NONE, name='manager-group-edit-button')
         self.box.pack_end(button, False, False, 2)
         button.connect('clicked', self.edit_group_name)
