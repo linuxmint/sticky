@@ -1,3 +1,16 @@
+sticky (1.28) zena; urgency=medium
+
+  [ Stephen Collins ]
+  * sticky.py: ensure new notes don't get placed off-screen or over a panel.
+  * Don't segfault when opening and closing the status icon context menu.
+  * get_internal_markup(): don't skip a tag due to removing it from a list.
+
+  [ Clement Lefebvre ]
+  * Switch to XApp symbolic icons
+  * Switch to xapp-symbolic-icons (XSI)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 19 Nov 2025 15:26:19 +0000
+
 sticky (1.27) zara; urgency=medium
 
   * l10n: Update translations
