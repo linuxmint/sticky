@@ -3,6 +3,7 @@
 import json
 import os
 import sys
+import uuid
 
 import gi
 gi.require_version('Gdk', '3.0')
@@ -125,6 +126,7 @@ class Note(Gtk.Window):
         self.changed_timer_id = 0
         self.invalid_cache = False
 
+        self.id = info.get('id', str(uuid.uuid4()))
         self.x = info.get('x', 0)
         self.y = info.get('y', 0)
         self.height = info.get('height', self.app.settings.get_uint('default-height'))
@@ -393,6 +395,7 @@ class Note(Gtk.Window):
 
         (width, height) = self.get_size()
         info = {
+            'id': self.id,
             'x': self.x,
             'y': self.y,
             'height': self.height,
