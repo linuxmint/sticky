@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-06-12 13:48+0100\n"
-"PO-Revision-Date: 2025-01-10 23:27+0000\n"
-"Last-Translator: Clement Lefebvre <root@linuxmint.com>\n"
+"PO-Revision-Date: 2025-09-09 21:44+0000\n"
+"Last-Translator: AO <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-08-26 15:25+0000\n"
-"X-Generator: Launchpad (build 919009172d854f2b8e4e8262db447f12f11d25eb)\n"
+"X-Launchpad-Export-Date: 2025-12-12 13:33+0000\n"
+"X-Generator: Launchpad (build 379e22b8475e3402088a4cdb4a6e7936a4d28414)\n"
 "Language: fr\n"
 
 #: usr/lib/sticky/common.py:150 usr/lib/sticky/manager.py:300
@@ -264,7 +264,7 @@ msgstr "En haut au centre"
 
 #: usr/lib/sticky/sticky.py:98
 msgid "Top Right"
-msgstr "En Haut à droite"
+msgstr "En haut à droite"
 
 #: usr/lib/sticky/sticky.py:99
 msgid "Center Left"
