@@ -56,9 +56,9 @@ class FileHandler(GObject.Object):
         self.notes_lists = {}
 
         # File monitoring variables
-        self.monitor = None
-        self.ignore_next_change = False
-        self.had_pending_changes = False
+        self.monitor = None  # the GFileMonitor object used to watch for external changes
+        self.ignore_next_change = False  # Flag to prevent the app from reacting to its own file writes
+        self.had_pending_changes = False  # tracks active save timer (used in detecting race condition)
         self.file_mtime = None  # Track file modification time for conflict detection
         self.dirty = False  # Track whether notes have been modified since last save/load
         self.has_pending_external_change = False  # Track deferred external changes while notes hidden
@@ -178,7 +178,9 @@ class FileHandler(GObject.Object):
             # Resolve symlinks to monitor the actual file
             actual_path = os.path.realpath(CONFIG_PATH)
             file = Gio.File.new_for_path(actual_path)
+            # Create the monitor object
             self.monitor = file.monitor_file(Gio.FileMonitorFlags.NONE, None)
+            # Establish the callback
             self.monitor.connect('changed', self.on_file_changed)
         except Exception as e:
             # If monitoring fails, log but don't crash the app
