@@ -61,7 +61,7 @@ CLICK "Reload from disk"
 Verify note has text "Quick Fox" and note is restored to original position.
 
 Test 5b:
-Repeat 6a except CLICK "Keep my changes"
+Repeat 5a except CLICK "Keep my changes"
 VERIFY a second dialog appears with file modified message: The notes.json file has been modified since you last opened it. If you save now, those external changes will be lost. Do you want to save anyway? Don't Save/Backup and Save/Save Anyway.
 CLICK "Save Anyway"
 VERIFY UI keeps edited version with text "Lazy Dog"
@@ -257,7 +257,7 @@ Make a second external change to the notes.json file.
 Verify confirmation prompt does not appear.
 (Because we haven't actually clicked the tray icon to make notes appear ... they showed up as a byproduct of other actions)
 
-Test 16: Always auto-reload Checkbox
+Test 16: Checkbox for "Always auto-reload" 
 START application
 VERIFY Preference > General > Auto reload is OFF.
 CREATE a new note in color yellow with text "demo note"
