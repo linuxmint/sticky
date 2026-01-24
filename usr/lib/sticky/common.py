@@ -56,9 +56,9 @@ class FileHandler(GObject.Object):
         self.notes_lists = {}
 
         # File monitoring variables
-        self.monitor = None  # the GFileMonitor object used to watch for external changes
-        self.ignore_next_change = False  # Flag to prevent the app from reacting to its own file writes
-        self.had_pending_changes = False  # tracks active save timer (used in detecting race condition)
+        self.monitor = None # the GFileMonitor object used to watch for external changes
+        self.ignore_next_change = False # Flag to prevent the app from reacting to its own file writes
+        self.had_pending_changes = False # tracks active save timer (used in detecting race condition)
         self.file_mtime = None  # Track file modification time for conflict detection
         self.dirty = False  # Track whether notes have been modified since last save/load
         self.has_pending_external_change = False  # Track deferred external changes while notes hidden

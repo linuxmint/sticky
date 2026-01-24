@@ -257,3 +257,27 @@ Make a second external change to the notes.json file.
 Verify confirmation prompt does not appear.
 (Because we haven't actually clicked the tray icon to make notes appear ... they showed up as a byproduct of other actions)
 
+Test 16: Always auto-reload Checkbox
+START application
+VERIFY Preference > General > Auto reload is OFF.
+CREATE a new note in color yellow with text "demo note"
+EXTERNALLY modify notes.json, changing color to red.
+VERIFY confirmation prompt appears with checkbox unchecked "Always reload (unless turned off in Preferences)"
+CLICK the checkbox to turn on this preference.
+CLICK "Reload"
+VERIFY UI the note color is now red.
+VERIFY Preference setting is now ON.
+EXTERNALLY modify notes.json, changing color to blue.
+VERIFY note color changes to blue WITHOUT confirmation prompt.
+HIDE the notes, modify notes.json to change color to green.
+REVEAL the notes, VERIFY the note is green (no prompt displayed)
+MODIFY Preference setting to OFF.
+EXTERNALLY modify notes.json, changing color to teal.
+VERIFY confirmation prompt appears with checkbox unchecked "Always reload (unless turned off in Preferences)"
+CLICK "Reload"
+VERIFY UI the note color is now teal.
+
+Test 17: Auto-reload doesn't happen in race condition.
+VERIFY auto-reload preference is ON.
+Repeat test 5 for race condition and verify confirmation prompt appears even though auto-reload is on.
+
