@@ -10,7 +10,7 @@ configure_file(
 
 i18n.merge_file(
     input: 'sticky.desktop.in',
-    output: 'sticky.desktop',
+    output: 'org.x.sticky.desktop',
     po_dir: podir,
     type: 'desktop',
     install: true,
