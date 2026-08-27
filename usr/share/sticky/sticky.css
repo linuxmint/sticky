@@ -455,3 +455,24 @@ button.magenta {
     color: #303030;
     box-shadow: 1px 1px 2px;
 }
+
+.note-transparent,
+.note-transparent textview,
+.note-transparent text {
+    background-color: transparent;
+    background-image: none;
+}
+
+#sticky-note.transparent textview text,
+#sticky-note.transparent textview,
+#sticky-note.transparent {
+background-color: transparent;
+background-image: none;
+}
+
+#sticky-note.transparent textview text {
+background-color: rgba(0, 0, 0, 0.4);
+color: white;
+caret-color: white;
+border-radius: 6px;
+}
