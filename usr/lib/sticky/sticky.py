@@ -752,6 +752,9 @@ class Application(Gtk.Application):
 
         Gtk.Application.do_activate(self)
 
+        GLib.set_prgname("sticky")
+        Gtk.Window.set_default_icon_name("sticky")
+
         self.settings = Gio.Settings(schema_id=SCHEMA)
 
         self.dummy_window = Gtk.Window(title=_("Notes"), default_height=1, default_width=1, decorated=False, deletable=False, name='dummy-window')
