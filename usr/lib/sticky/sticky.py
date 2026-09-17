@@ -2,7 +2,9 @@
 
 import json
 import os
+import shutil
 import sys
+import time
 
 import gi
 gi.require_version('Gdk', '3.0')
@@ -15,7 +17,7 @@ from xapp.GSettingsWidgets import *
 
 from note_buffer import NoteBuffer
 from manager import NotesManager
-from common import FileHandler, HoverBox, prompt, confirm
+from common import FileHandler, HoverBox, prompt, confirm, CONFIG_DIR, CONFIG_PATH
 from util import gnote_to_internal_format
 
 import gettext
@@ -610,6 +612,14 @@ class SettingsWindow(XApp.PreferencesWindow):
         page.pack_start(GSettingsSwitch(_("Show in taskbar"), SCHEMA, 'show-in-taskbar'), False, False, 0)
         page.pack_start(GSettingsSwitch(_("Tray icon"), SCHEMA, 'show-in-tray'), False, False, 0)
         page.pack_start(GSettingsSwitch(_("Show the main window automatically"), SCHEMA, 'show-manager', dep_key=SCHEMA+'/show-in-tray'), False, False, 0)
+
+        # Get description from schema for tooltip
+        settings = Gio.Settings.new(SCHEMA)
+        schema = settings.get_property('settings-schema')
+        key = schema.get_key('auto-reload-external-changes')
+        auto_reload_tooltip = key.get_description()
+
+        page.pack_start(GSettingsSwitch(_("Automatically reload external changes"), SCHEMA, 'auto-reload-external-changes', tooltip=auto_reload_tooltip), False, False, 0)
         self.add_page(page, 'general', _("General"))
 
         # note related settings
@@ -774,6 +784,8 @@ class Application(Gtk.Application):
         self.group_update_id = self.file_handler.connect('group-changed', self.on_group_changed)
         self.file_handler.connect('group-name-changed', self.on_group_name_changed)
         self.file_handler.connect('saved', self.on_save)
+        self.file_handler.connect('external-change-detected', self.on_external_change_detected)
+        self.file_handler.connect('file-modified-before-save', self.on_file_modified_before_save)
 
         if self.settings.get_boolean('show-in-tray'):
             self.create_status_icon()
@@ -993,6 +1005,11 @@ class Application(Gtk.Application):
                 self.hide_notes()
                 return
 
+        # Check for pending external changes before showing notes
+        if self.file_handler.has_pending_external_change:
+            self.file_handler.has_pending_external_change = False
+            self.show_deferred_external_change_dialog()
+
         self.dummy_window.present_with_time(time)
 
         for note in self.notes:
@@ -1162,6 +1179,213 @@ class Application(Gtk.Application):
     def on_save(self, *args):
         self.get_dbus_connection().emit_signal(None, DBUS_PATH, APPLICATION_ID, 'NotesChanged', None)
 
+    def _reload_notes_from_external_change(self):
+        """Reload notes from disk after external change detected"""
+        self.file_handler.load_notes()
+        self.load_notes()
+
+        # Notify manager window to refresh thumbnails (if it's open)
+        if self.manager:
+            self.manager.generate_previews()
+
+    def _show_external_change_dialog(self, has_unsaved):
+        """Show external change dialog and handle user response
+
+        Args:
+            has_unsaved: Whether there are unsaved local changes
+
+        Returns:
+            True if user chose to reload, False otherwise
+        """
+        # Customize dialog message based on whether there are unsaved changes
+        if has_unsaved:
+            title = _("External Changes Detected")
+            message = _("The notes have been changed on disk, but you have unsaved changes.\nWhat would you like to do?")
+            reload_text = _("Reload from disk")
+            cancel_text = _("Keep my changes")
+        else:
+            title = _("External Changes Detected")
+            message = _("The notes have been changed on disk. Do you want to reload all notes?")
+            reload_text = _("Reload")
+            cancel_text = _("Cancel")
+
+        # Create custom dialog with proper button labels
+        dialog = Gtk.Dialog(title=title, transient_for=self.dummy_window,
+                           window_position=Gtk.WindowPosition.CENTER_ON_PARENT)
+        dialog.add_button(cancel_text, Gtk.ResponseType.CANCEL)
+        dialog.add_button(reload_text, Gtk.ResponseType.OK)
+        dialog.set_default_response(Gtk.ResponseType.OK)
+
+        # Apply orange background to make dialog stand out on desktop
+        css_provider = Gtk.CssProvider()
+        css_provider.load_from_data(b"""
+            dialog {
+                background-color: #ffa939;
+            }
+            dialog label {
+                color: #000000;
+                font-weight: bold;
+            }
+        """)
+        style_context = dialog.get_style_context()
+        style_context.add_provider(css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+
+        content = dialog.get_content_area()
+        content.props.margin_left = 20
+        content.props.margin_right = 20
+
+        content.pack_start(Gtk.Label(label=message), False, False, 10)
+
+        # Add checkbox to enable auto-reload (only when preference is currently disabled and scenario is safe)
+        auto_reload_checkbox = None
+        if not has_unsaved and not self.settings.get_boolean('auto-reload-external-changes'):
+            auto_reload_checkbox = Gtk.CheckButton.new_with_label(_("Always reload (unless turned off in Preferences)"))
+            content.pack_start(auto_reload_checkbox, False, False, 5)
+
+        content.show_all()
+
+        response = dialog.run()
+
+        # If user checked the box, enable auto-reload in settings
+        if auto_reload_checkbox is not None and auto_reload_checkbox.get_active():
+            self.settings.set_boolean('auto-reload-external-changes', True)
+
+        dialog.destroy()
+
+        # Handle response
+        user_chose_reload = (response == Gtk.ResponseType.OK)
+
+        if user_chose_reload:
+            # User chose to reload from disk
+            self._reload_notes_from_external_change()
+        else:
+            # User chose to keep their changes
+            # If they had unsaved changes, save them now to overwrite external changes
+            if has_unsaved:
+                self.file_handler.save_note_list()
+
+        # Restore focus to notes after dialog closes
+        # (dialog steals focus, we need to return it so tray icon works correctly)
+        for note in self.notes:
+            note.restore(Gtk.get_current_event_time())
+
+        return user_chose_reload
+
+    def on_external_change_detected(self, file_handler):
+        """Handle external changes to notes.json file"""
+        """ Note: Edits less than 1 second old may be lost if external changes arrive during that time.
+        There's a delay between when the note is changed in the UI and when update_note_list()
+        actually gets called to register the change. Fixing this defect is a bit tricky and the 
+        likelihood of occurrence is very small so I'm not going to bother repairing it.
+        """
+        # If notes are hidden, defer the dialog until they're shown
+        if self.notes_hidden:
+            self.file_handler.has_pending_external_change = True
+            return
+
+        # Check if there were unsaved changes (saved before timer was cancelled)
+        has_unsaved = file_handler.had_pending_changes
+
+        # Check preference for auto-reload
+        auto_reload = self.settings.get_boolean('auto-reload-external-changes')
+
+        # SAFE SCENARIO: Auto-reload if enabled and no unsaved changes
+        if auto_reload and not has_unsaved:
+            self._reload_notes_from_external_change()
+            self.file_handler.had_pending_changes = False
+            return
+
+        # UNSAFE SCENARIO or preference disabled: Show dialog
+        self._show_external_change_dialog(has_unsaved)
+
+        # Reset flag for next time
+        self.file_handler.had_pending_changes = False
+    def show_deferred_external_change_dialog(self):
+        """Handle deferred external changes when notes become visible"""
+        # Check if there are unsaved changes (via dirty bit)
+        has_unsaved = self.file_handler.dirty
+
+        # Check preference for auto-reload
+        auto_reload = self.settings.get_boolean('auto-reload-external-changes')
+
+        # SAFE SCENARIO: Auto-reload if enabled and no unsaved changes
+        if auto_reload and not has_unsaved:
+            self._reload_notes_from_external_change()
+            return
+
+        # UNSAFE SCENARIO or preference disabled: Show dialog
+        self._show_external_change_dialog(has_unsaved)
+
+    def on_file_modified_before_save(self, file_handler):
+        """Handle file modified since last read - warn before overwriting"""
+        title = _("File Modified")
+        message = _("The notes.json file has been modified since you last opened it.\nIf you save now, those external changes will be lost.\n\nDo you want to save anyway?")
+        save_text = _("Save Anyway")
+        backup_save_text = _("Backup and Save")
+        cancel_text = _("Don't Save")
+
+        # Create custom dialog with proper button labels
+        dialog = Gtk.Dialog(title=title, transient_for=self.dummy_window,
+                           window_position=Gtk.WindowPosition.CENTER_ON_PARENT)
+        dialog.add_button(cancel_text, Gtk.ResponseType.CANCEL)
+        dialog.add_button(backup_save_text, Gtk.ResponseType.APPLY)  # Middle option
+        dialog.add_button(save_text, Gtk.ResponseType.OK)
+        dialog.set_default_response(Gtk.ResponseType.CANCEL)  # Default to safe option
+
+        # Apply orange background to make dialog stand out on desktop
+        css_provider = Gtk.CssProvider()
+        css_provider.load_from_data(b"""
+            dialog {
+                background-color: #ffa939;
+            }
+            dialog label {
+                color: #000000;
+                font-weight: bold;
+            }
+        """)
+        style_context = dialog.get_style_context()
+        style_context.add_provider(css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+
+        content = dialog.get_content_area()
+        content.props.margin_left = 20
+        content.props.margin_right = 20
+
+        content.pack_start(Gtk.Label(label=message), False, False, 10)
+        content.show_all()
+
+        response = dialog.run()
+        dialog.destroy()
+
+        # Handle response and perform actions
+        if response == Gtk.ResponseType.APPLY:
+            # User chose "Backup and Save" - backup current file then proceed with save
+            try:
+                # Resolve symlinks to get the actual file path
+                actual_path = os.path.realpath(CONFIG_PATH)
+                if os.path.exists(actual_path):
+                    # Create backup with timestamp
+                    timestamp = int(time.time())
+                    backup_path = os.path.join(CONFIG_DIR, 'backup-%d.json' % timestamp)
+                    shutil.copy2(actual_path, backup_path)
+                    print(f"External changes backed up to: {backup_path}")
+            except Exception as e:
+                print(f"Warning: Could not create backup: {e}")
+                # Continue with save anyway
+
+        # Restore focus to notes after dialog closes
+        # (dialog steals focus, we need to return it so tray icon works correctly)
+        for note in self.notes:
+            note.restore(Gtk.get_current_event_time())
+
+        # Return appropriate value based on user choice
+        if response == Gtk.ResponseType.OK or response == Gtk.ResponseType.APPLY:
+            # User chose to save - clear any pending external change flag
+            # because we're about to overwrite those changes
+            self.file_handler.has_pending_external_change = False
+            return False  # Proceed with save
+        else:
+            return True  # Cancel save
+
     def change_visible_note_group(self, group=None):
         default = self.settings.get_string('active-group')
         if group is None:
@@ -1180,6 +1404,11 @@ class Application(Gtk.Application):
         self.load_notes()
 
     def open_manager(self, *args, time=0):
+        # Check for pending external changes before opening manager
+        if self.file_handler.has_pending_external_change:
+            self.file_handler.has_pending_external_change = False
+            self.show_deferred_external_change_dialog()
+
         if self.manager:
             if time == 0:
                 time = Gtk.get_current_event_time()

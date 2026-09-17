@@ -36,6 +36,16 @@ class FileHandler(GObject.Object):
     def saved(self):
         pass
 
+    @GObject.Signal(flags=GObject.SignalFlags.RUN_LAST, return_type=bool,
+                    accumulator=GObject.signal_accumulator_true_handled)
+    def external_change_detected(self):
+        pass
+
+    @GObject.Signal(flags=GObject.SignalFlags.RUN_LAST, return_type=bool,
+                    accumulator=GObject.signal_accumulator_true_handled)
+    def file_modified_before_save(self):
+        pass
+
     def __init__(self, settings, window):
         super(FileHandler, self).__init__()
 
@@ -45,6 +55,14 @@ class FileHandler(GObject.Object):
         self.backup_timer_id = 0
         self.notes_lists = {}
 
+        # File monitoring variables
+        self.monitor = None # the GFileMonitor object used to watch for external changes
+        self.ignore_next_change = False # Flag to prevent the app from reacting to its own file writes
+        self.had_pending_changes = False # tracks active save timer (used in detecting race condition)
+        self.file_mtime = None  # Track file modification time for conflict detection
+        self.dirty = False  # Track whether notes have been modified since last save/load
+        self.has_pending_external_change = False  # Track deferred external changes while notes hidden
+
         if os.path.exists(CONFIG_PATH):
             self.load_notes()
 
@@ -52,11 +70,22 @@ class FileHandler(GObject.Object):
         self.settings.connect('changed::backup-interval', self.check_backup)
         self.check_backup()
 
+        # Setup file monitoring for external changes
+        self.setup_file_monitor()
+
     def load_notes(self, *args):
         with open(CONFIG_PATH, 'r') as file:
             info = json.loads(file.read())
 
         self.notes_lists = info
+
+        # Track the file modification time for conflict detection
+        actual_path = os.path.realpath(CONFIG_PATH)
+        if os.path.exists(actual_path):
+            self.file_mtime = os.path.getmtime(actual_path)
+
+        # Clear dirty flag - we've just loaded from disk
+        self.dirty = False
 
     def get_note_list(self, group_name):
         return self.notes_lists[group_name]
@@ -66,6 +95,7 @@ class FileHandler(GObject.Object):
 
     def update_note_list(self, notes_list, group_name):
         self.notes_lists[group_name] = notes_list
+        self.dirty = True
 
         self.queue_save()
 
@@ -78,16 +108,43 @@ class FileHandler(GObject.Object):
         self.save_timer_id = GLib.timeout_add_seconds(SAVE_DELAY, self.save_note_list)
 
     def save_to_file(self, file_path):
+        # Mark that we're about to write, so we ignore the monitor event
+        self.ignore_next_change = True
+
         with open(file_path, 'w+') as file:
             file.write(json.dumps(self.notes_lists, indent=4))
 
     def save_note_list(self):
         self.save_timer_id = 0
 
+        # Skip save if nothing has changed
+        if not self.dirty:
+            return
+
         if not os.path.exists(CONFIG_DIR):
             os.makedirs(CONFIG_DIR)
 
+        # Check if file was modified since we last read it
+        actual_path = os.path.realpath(CONFIG_PATH)
+        if os.path.exists(actual_path) and self.file_mtime is not None:
+            current_mtime = os.path.getmtime(actual_path)
+            if current_mtime != self.file_mtime:
+                # File was modified externally since we loaded it
+                # Signal the app to ask user what to do
+                if self.emit('file-modified-before-save'):
+                    # Signal handler returned True, meaning "don't save"
+                    return
+                # Otherwise, handler returned False or wasn't connected, proceed with save
+
         self.save_to_file(CONFIG_PATH)
+
+        # Update the modification time after saving
+        if os.path.exists(actual_path):
+            self.file_mtime = os.path.getmtime(actual_path)
+
+        # Clear dirty flag after successful save
+        self.dirty = False
+
         self.emit('saved')
 
     def check_backup(self, *args):
@@ -114,6 +171,42 @@ class FileHandler(GObject.Object):
             self.save_backup()
         else:
             self.backup_timer_id = GLib.timeout_add_seconds(next_backup - now, self.save_backup)
+
+    def setup_file_monitor(self):
+        """Setup file monitoring for external changes to notes.json"""
+        try:
+            # Resolve symlinks to monitor the actual file
+            actual_path = os.path.realpath(CONFIG_PATH)
+            file = Gio.File.new_for_path(actual_path)
+            # Create the monitor object
+            self.monitor = file.monitor_file(Gio.FileMonitorFlags.NONE, None)
+            # Establish the callback
+            self.monitor.connect('changed', self.on_file_changed)
+        except Exception as e:
+            # If monitoring fails, log but don't crash the app
+            print(f"Warning: Could not setup file monitoring: {e}")
+
+    def on_file_changed(self, monitor, file, other_file, event_type):
+        """Called when notes.json is modified externally"""
+        # Only respond to the final change event
+        if event_type != Gio.FileMonitorEvent.CHANGES_DONE_HINT:
+            return
+
+        # Ignore changes from our own writes
+        if self.ignore_next_change:
+            self.ignore_next_change = False
+            return
+
+        # Check if there are pending changes BEFORE canceling the timer
+        self.had_pending_changes = (self.save_timer_id > 0)
+
+        # Cancel any pending save to prevent overwriting external changes
+        if self.save_timer_id > 0:
+            GLib.source_remove(self.save_timer_id)
+            self.save_timer_id = 0
+
+        # Notify the application of external changes
+        self.emit('external-change-detected')
 
     def save_backup(self, *args):
         self.backup_timer_id = 0
@@ -248,6 +341,7 @@ class FileHandler(GObject.Object):
             # should really be added to load_notes() as well
 
             self.notes_lists = info
+            self.dirty = True  # Content has changed
             self.save_note_list()
 
             self.emit('lists-changed')
@@ -269,6 +363,7 @@ class FileHandler(GObject.Object):
                 return False
 
         self.notes_lists[group_name] = []
+        self.dirty = True
 
         self.save_note_list()
         self.emit('lists-changed')
@@ -282,12 +377,14 @@ class FileHandler(GObject.Object):
         if group_name not in self.notes_lists:
             raise ValueError('invalid group name %s' % group_name)
         del self.notes_lists[group_name]
+        self.dirty = True
 
         self.save_note_list()
         self.emit('lists-changed')
 
     def change_group_name(self, old_group, new_group):
         self.notes_lists[new_group] = self.notes_lists.pop(old_group)
+        self.dirty = True
 
         self.save_note_list()
         self.emit('group-name-changed', old_group, new_group)

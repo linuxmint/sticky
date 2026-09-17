@@ -209,6 +209,14 @@
       </description>
     </key>
 
+    <key name='auto-reload-external-changes' type='b'>
+      <default>false</default>
+      <summary>Automatically reload external changes</summary>
+      <description>
+        When enabled, automatically reload notes when external changes are detected, without prompting. Only applies when there are no unsaved changes. Note: Edits less than 1 second old may be lost if external changes arrive during that time.
+      </description>
+    </key>
+
   </schema>
 
 </schemalist>
