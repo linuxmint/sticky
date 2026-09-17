@@ -1220,17 +1220,7 @@ class Application(Gtk.Application):
         dlg.set_title(_("About"))
         dlg.set_program_name(_("Notes"))
         dlg.set_comments(_("Take notes and stay organized"))
-        try:
-            h = open('/usr/share/common-licenses/GPL', encoding="utf-8")
-            s = h.readlines()
-            gpl = ""
-            for line in s:
-                gpl += line
-            h.close()
-            dlg.set_license(gpl)
-        except Exception as e:
-            print (e)
-
+        dlg.set_license_type(Gtk.License.GPL_2_0)
         dlg.set_version("__DEB_VERSION__")
         dlg.set_icon_name("sticky")
         dlg.set_logo_icon_name("sticky")
