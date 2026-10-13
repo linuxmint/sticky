@@ -1,3 +1,11 @@
+sticky (1.33) adrien; urgency=medium
+
+  [ Balló György ]
+  * Set window icon (#168)
+  * Set license type on about dialog (#169)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 13 Oct 2026 15:06:41 +0100
+
 sticky (1.32) alfa; urgency=medium
 
   [ Michael Webster ]
