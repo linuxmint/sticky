@@ -18,12 +18,16 @@ class NoteEntry(Gtk.Container):
 
         self.item = item
         self.settings = settings
+        self.hidden_icon = None
 
         self.set_has_window(False)
         self.style_manager = XApp.StyleManager(widget=self)
 
         self.title_bar = Gtk.Box(name='title-bar', visible=True)
-        self.title_bar.pack_start(Gtk.Label(label=item.title, name='title', visible=True, margin_top=5, margin_bottom=5, ellipsize=Pango.EllipsizeMode.END), False, False, 0)
+        self.title_bar.pack_start(Gtk.Label(label=item.title, name='title', visible=True, margin_top=5, margin_bottom=5, ellipsize=Pango.EllipsizeMode.END), True, True, 0)
+        if item.hidden:
+            self.hidden_icon = Gtk.Image(icon_name='xsi-view-conceal-symbolic', icon_size=Gtk.IconSize.MENU, visible=True, margin_end=2)
+            self.title_bar.pack_end(self.hidden_icon, False, False, 0)
         self.title_bar.set_parent(self)
 
         self.buffer = NoteBuffer()
@@ -36,7 +40,10 @@ class NoteEntry(Gtk.Container):
         self.settings.connect('changed::font', self.set_font)
         self.set_font()
 
-        self.set_tooltip_text(item.title)
+        if item.hidden:
+            self.set_tooltip_text(_("%s (hidden - click the icon to show)") % item.title)
+        else:
+            self.set_tooltip_text(item.title)
 
         self.initialized = True
 
@@ -218,6 +225,7 @@ class Note(GObject.Object):
         self.info = info
         self.group_name = group_name
         self.text = info['text']
+        self.hidden = info.get('hidden', False)
         if not 'title'in info or info['title'] in [None, '']:
             self.title = _("Untitled")
         else:
@@ -338,7 +346,7 @@ class NotesManager(object):
 
     def on_list_clicked(self, list, event):
         for note in self.app.notes:
-            note.present_with_time(Gtk.get_current_event_time())
+            note.restore(Gtk.get_current_event_time())
 
     def on_list_changed(self, a, group_name):
         if group_name == self.get_current_group():
@@ -402,11 +410,37 @@ class NotesManager(object):
         self.search_bar.set_search_mode(True)
 
     def on_note_activated(self, *args):
-        activated = self.note_view.get_selected_children()[0].item
-        activated_group = activated.group_name
-        self.select_group(activated_group)
+        self.show_note(self.note_view.get_selected_children()[0].item)
 
-        self.app.focus_note(activated.info)
+    def show_note(self, item):
+        self.select_group(item.group_name)
+
+        self.app.focus_note(item.info)
+
+    def is_over_hidden_icon(self, wrapper, entry, event):
+        icon = entry.hidden_icon
+        allocation = icon.get_allocation()
+        (x, y) = icon.translate_coordinates(wrapper, 0, 0)
+        padding = 4
+
+        return (x - padding <= event.x < x + allocation.width + padding and
+                y - padding <= event.y < y + allocation.height + padding)
+
+    def on_preview_motion(self, wrapper, event, entry):
+        cursor = None
+        if self.is_over_hidden_icon(wrapper, entry, event):
+            cursor = Gdk.Cursor.new_from_name(wrapper.get_display(), 'pointer')
+
+        wrapper.get_window().set_cursor(cursor)
+
+    def on_preview_released(self, wrapper, event, entry):
+        if event.button != 1 or not self.is_over_hidden_icon(wrapper, entry, event):
+            return Gdk.EVENT_PROPAGATE
+
+        wrapper.get_window().set_cursor(None)
+        GLib.idle_add(self.show_note, entry.item)
+
+        return Gdk.EVENT_STOP
 
     def on_selected_notes_changed(self, *args):
         sensitive = len(self.note_view.get_selected_children()) != 0
@@ -430,10 +464,18 @@ class NotesManager(object):
         context = wrapper.get_style_context()
         context.add_class(item.info['color'])
         context.add_class('note-preview')
+        if item.hidden:
+            context.add_class('hidden-note')
         outer_box.pack_start(wrapper, False, False, 0)
 
         entry = NoteEntry(item, self.app.settings)
         wrapper.pack_start(entry, False, False, 0)
+
+        if item.hidden:
+            dnd_wrapper.add_events(Gdk.EventMask.POINTER_MOTION_MASK | Gdk.EventMask.BUTTON_RELEASE_MASK | Gdk.EventMask.LEAVE_NOTIFY_MASK)
+            dnd_wrapper.connect('motion-notify-event', self.on_preview_motion, entry)
+            dnd_wrapper.connect('leave-notify-event', lambda w, e: w.get_window().set_cursor(None))
+            dnd_wrapper.connect('button-release-event', self.on_preview_released, entry)
 
         widget.show_all()
 
@@ -535,6 +577,7 @@ class NotesManager(object):
         note_info = selected.copy()
         note_info['x'] += 50
         note_info['y'] += 50
+        note_info['hidden'] = False
         group = self.get_current_group()
         notes = self.file_handler.get_note_list(group)
         notes.append(note_info)

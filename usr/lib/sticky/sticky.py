@@ -132,6 +132,7 @@ class Note(Gtk.Window):
         title = info.get('title', '')
         self.cached_text = info.get('text', '')
         self.color = info.get('color', self.app.settings.get_string('default-color'))
+        self.hidden = info.get('hidden', False)
 
         super(Note, self).__init__(
             skip_taskbar_hint=True,
@@ -199,6 +200,13 @@ class Note(Gtk.Window):
         close_button.set_tooltip_text(_("Delete Note"))
         self.title_bar.pack_end(close_button, False, False, 0)
 
+        hide_icon = Gtk.Image.new_from_icon_name('sticky-hide', Gtk.IconSize.BUTTON)
+        hide_button = Gtk.Button(image=hide_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
+        hide_button.connect('clicked', self.hide_note)
+        hide_button.connect('button-press-event', self.on_title_click)
+        hide_button.set_tooltip_text(_("Hide Note"))
+        self.title_bar.pack_end(hide_button, False, False, 0)
+
         add_icon = Gtk.Image.new_from_icon_name('sticky-add', Gtk.IconSize.BUTTON)
         add_button = Gtk.Button(image=add_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         add_button.connect('clicked', self.app.new_note, self)
@@ -249,7 +257,11 @@ class Note(Gtk.Window):
 
         self.move(self.x, self.y)
 
-        self.show_all()
+        if self.hidden:
+            self.title_bar.show_all()
+            scroll.show_all()
+        else:
+            self.show_all()
 
     def test(self, *args):
         self.buffer.test()
@@ -366,12 +378,25 @@ class Note(Gtk.Window):
         return Gdk.EVENT_PROPAGATE
 
     def restore(self, time=0):
+        if self.hidden:
+            return
+
         if time == 0:
             time = Gtk.get_current_event_time()
 
         self.show()
         self.present_with_time(time)
         self.move(self.x, self.y)
+
+    def hide_note(self, *args):
+        self.hidden = True
+        self.hide()
+        self.emit('update')
+
+    def show_note(self, time=0):
+        self.hidden = False
+        self.restore(time)
+        self.emit('update')
 
     def queue_update(self, b=None, invalidate_cache=False):
         self.invalid_cache = invalidate_cache
@@ -399,7 +424,8 @@ class Note(Gtk.Window):
             'width': self.width,
             'color': self.color,
             'title': self.title.get_text(),
-            'text': self.cached_text
+            'text': self.cached_text,
+            'hidden': self.hidden
         }
 
         return info
@@ -422,6 +448,10 @@ class Note(Gtk.Window):
         edit_title = Gtk.MenuItem(label=label, visible=True)
         edit_title.connect('activate', self.set_title)
         popup.append(edit_title)
+
+        hide_item = Gtk.MenuItem(label=_("Hide Note"), visible=True)
+        hide_item.connect('activate', self.hide_note)
+        popup.append(hide_item)
 
         duplicate_item = Gtk.MenuItem(label=_("Duplicate Note"), visible=True)
         duplicate_item.connect('activate', self.duplicate)
@@ -1130,13 +1160,18 @@ class Application(Gtk.Application):
         new_note_info = new_note.get_info()
         new_note_info['x'] += 50
         new_note_info['y'] += 50
+        new_note_info['hidden'] = False
 
         self.add_note(new_note_info)
 
     def focus_note(self, note_info):
+        note_info = dict(note_info, hidden=note_info.get('hidden', False))
         for note in self.notes:
             if note.get_info() == note_info:
-                note.present_with_time(0)
+                if note.hidden:
+                    note.show_note()
+                else:
+                    note.present_with_time(0)
 
     def on_lists_changed(self, *args):
         if not self.note_group in self.file_handler.get_note_group_names():
