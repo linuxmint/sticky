@@ -60,7 +60,8 @@ COLORS = {
     'purple': _("Purple"),
     'teal': _("Teal"),
     'orange': _("Orange"),
-    'magenta': _("Magenta")
+    'magenta': _("Magenta"),
+    'transparent':_("transparent")
 }
 
 COLOR_CODES = {
@@ -71,7 +72,8 @@ COLOR_CODES = {
     'purple': "#a553ff",
     'teal': "#41ffed",
     'orange': "#ffa939",
-    'magenta': "#ff7ff7"
+    'magenta': "#ff7ff7",
+    'transparent':"#ffffff00"
 }
 
 SHORTCUTS = {
@@ -227,6 +229,10 @@ class Note(Gtk.Window):
         self.view.set_right_margin(10)
         self.view.set_top_margin(10)
         self.view.set_bottom_margin(10)
+        self.view.set_app_paintable(True)
+        self.view.override_background_color(Gtk.StateFlags.NORMAL, Gdk.RGBA(0, 0, 0, 0))
+        self.view.get_style_context().add_class("note-textview")
+        self.view.override_background_color(Gtk.StateFlags.NORMAL, None)
         self.view.connect('populate-popup', lambda w, p: self.add_context_menu_items(p))
         self.view.connect('key-press-event', self.on_key_press)
         self.view_style_manager = XApp.StyleManager(widget=self.view)
@@ -529,10 +535,18 @@ class Note(Gtk.Window):
         if color == self.color:
             return
 
-        self.get_style_context().remove_class(self.color)
-        self.get_style_context().add_class(color)
-        self.color = color
+        ctx = self.get_style_context()
+        ctx.remove_class(self.color)
+        ctx.add_class(color)
 
+        tv_ctx = self.view.get_style_context()
+
+        if color == "transparent":
+            tv_ctx.add_class("note-transparent")
+        else:
+            tv_ctx.remove_class("note-transparent")
+
+        self.color = color
         self.emit('update')
 
     def set_font(self, *args):
