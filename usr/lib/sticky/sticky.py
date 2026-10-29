@@ -2,6 +2,7 @@
 
 import json
 import os
+import signal
 import sys
 
 import gi
@@ -374,7 +375,7 @@ class Note(Gtk.Window):
         self.move(self.x, self.y)
 
     def queue_update(self, b=None, invalidate_cache=False):
-        self.invalid_cache = invalidate_cache
+        self.invalid_cache = self.invalid_cache or invalidate_cache
 
         if self.changed_timer_id:
             GLib.source_remove(self.changed_timer_id)
@@ -800,6 +801,10 @@ class Application(Gtk.Application):
         self.load_notes()
 
         self.hold()
+
+        GLib.unix_signal_add(GLib.PRIORITY_HIGH, signal.SIGTERM, self.quit_app)
+        GLib.unix_signal_add(GLib.PRIORITY_HIGH, signal.SIGHUP, self.quit_app)
+        GLib.unix_signal_add(GLib.PRIORITY_HIGH, signal.SIGINT, self.quit_app)
 
         if self.autostart_mode:
             self.autostart_mode = False
@@ -1259,7 +1264,19 @@ class Application(Gtk.Application):
         self.notes.remove(note)
         self.on_update()
 
+    def flush_pending_updates(self):
+        pending = False
+        for note in self.notes:
+            if note.changed_timer_id:
+                GLib.source_remove(note.changed_timer_id)
+                note.changed_timer_id = 0
+                pending = True
+
+        if pending:
+            self.on_update()
+
     def quit_app(self, *args):
+        self.flush_pending_updates()
         self.file_handler.flush()
 
         for note in self.notes:
