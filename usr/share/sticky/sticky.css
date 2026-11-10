@@ -98,7 +98,7 @@ textview text {
 #sticky-note #title {
     color: #303030;
     caret-color: #303030;
-    font-size: 1.3em;
+    font-size: 1em;
 }
 
 #sticky-note check,
@@ -138,6 +138,10 @@ textview text {
     padding: 0px 0px 0px 0px;
     border: none;
     border-radius: 12px;
+}
+
+#window-button:checked {
+    color: #303030;
 }
 
 #dummy-window {
