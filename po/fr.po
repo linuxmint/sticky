@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-06-12 13:48+0100\n"
-"PO-Revision-Date: 2025-09-09 21:44+0000\n"
+"PO-Revision-Date: 2026-11-14 23:18+0000\n"
 "Last-Translator: AO <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2026-01-08 15:44+0000\n"
-"X-Generator: Launchpad (build 99c00f518760bdd50fc6e353e7736d2fff8fba4a)\n"
+"X-Launchpad-Export-Date: 2026-11-16 12:01+0000\n"
+"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
 "Language: fr\n"
 
 #: usr/lib/sticky/common.py:150 usr/lib/sticky/manager.py:300
@@ -58,7 +58,8 @@ msgstr "Restaurer"
 #: usr/lib/sticky/common.py:255
 msgid "Unable to restore: invalid or corrupted backup file"
 msgstr ""
-"Impossible de restaurer : le fichier de sauvegarde est invalide ou corrompu"
+"La sauvegarde ne peut pas être restaurée : le fichier est invalide ou "
+"endommagé."
 
 #: usr/lib/sticky/common.py:268
 msgid "Overwrite Existing Group"
@@ -217,7 +218,7 @@ msgstr "Activer, désactiver les puces"
 
 #: usr/lib/sticky/sticky.py:84
 msgid "Formatting"
-msgstr "Formatage"
+msgstr "Mise en forme"
 
 #: usr/lib/sticky/sticky.py:85 usr/lib/sticky/sticky.py:471
 #: usr/lib/sticky/sticky.py:472
@@ -252,7 +253,7 @@ msgstr "Surligné"
 #: usr/lib/sticky/sticky.py:91 usr/lib/sticky/sticky.py:501
 #: usr/lib/sticky/sticky.py:502
 msgid "Header"
-msgstr "Entête"
+msgstr "En-tête"
 
 #: usr/lib/sticky/sticky.py:96
 msgid "Top Left"
@@ -419,7 +420,7 @@ msgstr "Indiquez 0 pour garder les sauvegardes indéfiniment"
 
 #: usr/lib/sticky/sticky.py:642
 msgid "Number to keep"
-msgstr "Sauvegardes à garder"
+msgstr "Nombre de sauvegardes à conserver"
 
 #: usr/lib/sticky/sticky.py:644
 msgid "Backups"
@@ -483,8 +484,8 @@ msgstr "Nouvelle note"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr "Supprimer la note sélectionnée"
+msgstr "Supprimer la note choisie"
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
-msgstr "Dupliquer la note sélectionnée"
+msgstr "Dupliquer la note choisie"

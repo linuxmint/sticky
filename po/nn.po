@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-06-12 13:48+0100\n"
-"PO-Revision-Date: 2025-11-16 17:48+0000\n"
+"PO-Revision-Date: 2026-02-12 09:24+0000\n"
 "Last-Translator: Simen Ryland Førde <Unknown>\n"
 "Language-Team: Norwegian Nynorsk <nn@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2026-01-08 15:44+0000\n"
-"X-Generator: Launchpad (build 99c00f518760bdd50fc6e353e7736d2fff8fba4a)\n"
+"X-Launchpad-Export-Date: 2026-11-16 12:01+0000\n"
+"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
 "Language: nn\n"
 
 #: usr/lib/sticky/common.py:150 usr/lib/sticky/manager.py:300
@@ -45,7 +45,7 @@ msgstr "Opne"
 
 #: usr/lib/sticky/common.py:197
 msgid "Restore Backup"
-msgstr "Gjenopprett reservekopi"
+msgstr "Gjenopprett sikkerheits­kopi"
 
 #: usr/lib/sticky/common.py:199
 msgid "Clear"
@@ -57,7 +57,7 @@ msgstr "Gjenopprett"
 
 #: usr/lib/sticky/common.py:255
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr "Kan ikkje gjenopprette: ugyldig eller skada reservekopi"
+msgstr "Kan ikkje gjenopprette: ugyldig eller skada sikkerheits­kopi"
 
 #: usr/lib/sticky/common.py:268
 msgid "Overwrite Existing Group"
@@ -123,7 +123,7 @@ msgstr "Ta reservekopi"
 
 #: usr/lib/sticky/manager.py:290
 msgid "Restore Backups..."
-msgstr "Gjenopprett reservekopiar..."
+msgstr "Gjenopprett sikkerheits­kopiar..."
 
 #: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:603
 #: usr/lib/sticky/sticky.py:919
@@ -402,11 +402,11 @@ msgstr "Notat"
 
 #: usr/lib/sticky/sticky.py:639
 msgid "Automatic backups"
-msgstr "Automatiske reservekopiar"
+msgstr "Automatiske sikkerheits­kopiar"
 
 #: usr/lib/sticky/sticky.py:640
 msgid "Time between backups"
-msgstr "Tid mellom reservekopiar"
+msgstr "Tid mellom sikkerheits­kopiar"
 
 #: usr/lib/sticky/sticky.py:640
 msgid "hours"
@@ -415,7 +415,8 @@ msgstr "timar"
 #: usr/lib/sticky/sticky.py:641
 msgid "Set this to zero if you wish to keep all backups indefinitely"
 msgstr ""
-"Set dette til null viss du vil behalde alle reservekopiar på ubestemt tid"
+"Set dette til null viss du vil behalde alle sikkerheits­kopiar på ubestemt "
+"tid"
 
 #: usr/lib/sticky/sticky.py:642
 msgid "Number to keep"
@@ -423,7 +424,7 @@ msgstr "Antal å behalde"
 
 #: usr/lib/sticky/sticky.py:644
 msgid "Backups"
-msgstr "Reservekopiar"
+msgstr "Sikkerheitskopiar"
 
 #: usr/lib/sticky/sticky.py:648
 msgid "Start automatically"

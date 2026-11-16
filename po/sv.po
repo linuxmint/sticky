@@ -8,18 +8,19 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-06-12 13:48+0100\n"
-"PO-Revision-Date: 2024-06-12 22:29+0000\n"
+"PO-Revision-Date: 2026-09-16 23:09+0000\n"
 "Last-Translator: Jan-Olof Svensson <jan-olof.svensson@abc.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2026-01-08 15:44+0000\n"
-"X-Generator: Launchpad (build 99c00f518760bdd50fc6e353e7736d2fff8fba4a)\n"
+"X-Launchpad-Export-Date: 2026-11-16 12:01+0000\n"
+"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
+"Language: sv\n"
 
 #: usr/lib/sticky/common.py:150 usr/lib/sticky/manager.py:300
 msgid "Export..."
-msgstr "Exportera..."
+msgstr "Exportera…"
 
 #: usr/lib/sticky/common.py:151 usr/lib/sticky/common.py:175
 #: usr/lib/sticky/common.py:198 usr/lib/sticky/common.py:330
@@ -36,7 +37,7 @@ msgstr "Vanlig text"
 
 #: usr/lib/sticky/common.py:174 usr/lib/sticky/manager.py:296
 msgid "Import..."
-msgstr "Importera..."
+msgstr "Importera…"
 
 #: usr/lib/sticky/common.py:175
 msgid "Open"
@@ -44,7 +45,7 @@ msgstr "Öppna"
 
 #: usr/lib/sticky/common.py:197
 msgid "Restore Backup"
-msgstr "Läs in säkerhetskopia"
+msgstr "Återställ säkerhetskopia"
 
 #: usr/lib/sticky/common.py:199
 msgid "Clear"
@@ -56,11 +57,11 @@ msgstr "Återställ"
 
 #: usr/lib/sticky/common.py:255
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr "Kunde inte återställa - ogiltig eller skadad säkerhetskopia"
+msgstr "Kunde inte återställa: ogiltig eller skadad säkerhetskopia"
 
 #: usr/lib/sticky/common.py:268
 msgid "Overwrite Existing Group"
-msgstr "Skriv över existerande grupp"
+msgstr "Skriv över befintlig grupp"
 
 #: usr/lib/sticky/common.py:268
 #, python-format
@@ -68,8 +69,8 @@ msgid ""
 "There is already a group named '%s'. This action will overwrite it. Continue "
 "anyway?"
 msgstr ""
-"Det finns redan en grupp med namnet '%s'. Detta val kommer att ersätta den. "
-"Vill du fortsätta ändå?"
+"Det finns redan en grupp med namnet '%s'. Åtgärden ersätter den. Vill du "
+"fortsätta ändå?"
 
 #: usr/lib/sticky/common.py:279 usr/lib/sticky/manager.py:280
 msgid "Remove Group"
@@ -122,7 +123,7 @@ msgstr "Säkerhetskopiera"
 
 #: usr/lib/sticky/manager.py:290
 msgid "Restore Backups..."
-msgstr "Läs in säkerhetskopior..."
+msgstr "Återställ säkerhetskopior…"
 
 #: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:603
 #: usr/lib/sticky/sticky.py:919
@@ -207,11 +208,11 @@ msgstr "Gör om"
 
 #: usr/lib/sticky/sticky.py:81 usr/lib/sticky/sticky.py:516
 msgid "Toggle Checklist"
-msgstr "Checklista till/från"
+msgstr "Växla checklista"
 
 #: usr/lib/sticky/sticky.py:82 usr/lib/sticky/sticky.py:520
 msgid "Toggle Bullets"
-msgstr "Punkttecken till/från"
+msgstr "Växla punktlista"
 
 #: usr/lib/sticky/sticky.py:84
 msgid "Formatting"
@@ -230,7 +231,7 @@ msgstr "Kursiv"
 #: usr/lib/sticky/sticky.py:87 usr/lib/sticky/sticky.py:481
 #: usr/lib/sticky/sticky.py:482
 msgid "Fixed Width"
-msgstr "Fast bredd"
+msgstr "Fast teckenbredd"
 
 #: usr/lib/sticky/sticky.py:88 usr/lib/sticky/sticky.py:486
 #: usr/lib/sticky/sticky.py:487
@@ -250,7 +251,7 @@ msgstr "Markering"
 #: usr/lib/sticky/sticky.py:91 usr/lib/sticky/sticky.py:501
 #: usr/lib/sticky/sticky.py:502
 msgid "Header"
-msgstr "Sidhuvud"
+msgstr "Rubrik"
 
 #: usr/lib/sticky/sticky.py:96
 msgid "Top Left"
@@ -327,7 +328,7 @@ msgstr "Redigera titel"
 
 #: usr/lib/sticky/sticky.py:424
 msgid "Duplicate Note"
-msgstr "Duplicera anteckningar"
+msgstr "Duplicera anteckning"
 
 #: usr/lib/sticky/sticky.py:436
 msgid "Only on This Workspace"
@@ -343,7 +344,7 @@ msgstr "Alltid överst"
 
 #: usr/lib/sticky/sticky.py:547
 msgid "Are you sure you want to remove this note?"
-msgstr "Är du säker på att du vill ta bort denna anteckning?"
+msgstr "Är du säker på att du vill ta bort den här anteckningen?"
 
 #: usr/lib/sticky/sticky.py:607
 msgid "Show notes on all desktops"
@@ -355,7 +356,7 @@ msgstr "Visa i aktivitetsfältet"
 
 #: usr/lib/sticky/sticky.py:609
 msgid "Tray icon"
-msgstr "Aktivitetsikon"
+msgstr "Panelikon"
 
 #: usr/lib/sticky/sticky.py:610
 msgid "Show the main window automatically"
@@ -375,7 +376,7 @@ msgstr "Standardvidd"
 
 #: usr/lib/sticky/sticky.py:618
 msgid "Default position"
-msgstr "Förvalt läge"
+msgstr "Standardposition"
 
 #: usr/lib/sticky/sticky.py:622 usr/lib/sticky/sticky.py:627
 msgid "Cycle Colors"
@@ -413,7 +414,8 @@ msgstr "timmar"
 
 #: usr/lib/sticky/sticky.py:641
 msgid "Set this to zero if you wish to keep all backups indefinitely"
-msgstr "Sätt detta värde till noll om du vill spara alla kopior för alltid"
+msgstr ""
+"Ställ in värdet på noll om du vill behålla alla säkerhetskopior för alltid"
 
 #: usr/lib/sticky/sticky.py:642
 msgid "Number to keep"
@@ -453,11 +455,11 @@ msgstr "Grupp 1"
 
 #: usr/lib/sticky/sticky.py:884
 msgid "Left click to toggle notes"
-msgstr "Vänsterklicka för att växla anteckningar"
+msgstr "Vänsterklicka för att visa eller dölja anteckningar"
 
 #: usr/lib/sticky/sticky.py:885
 msgid "Middle click to toggle the manager"
-msgstr "Mittenklicka för att växla hanterare"
+msgstr "Mittenklicka för att visa eller dölja hanteraren"
 
 #: usr/lib/sticky/sticky.py:903
 msgid "Manage Notes"
@@ -469,11 +471,11 @@ msgstr "Avsluta"
 
 #: usr/lib/sticky/sticky.py:1158 usr/share/sticky/manager.ui.h:2
 msgid "Take notes and stay organized"
-msgstr "Gör anteckningar och håll dig organiserad"
+msgstr "Gör anteckningar och håll ordning"
 
 #: usr/lib/sticky/util.py:79
 msgid "Unfiled"
-msgstr "Inte lagrad"
+msgstr "Osorterade"
 
 #: usr/share/sticky/manager.ui.h:3
 msgid "New note"

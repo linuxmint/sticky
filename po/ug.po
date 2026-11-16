@@ -1,0 +1,488 @@
+# Uyghur translation for linuxmint
+# Copyright (c) 2026 Rosetta Contributors and Canonical Ltd 2026
+# This file is distributed under the same license as the linuxmint package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: linuxmint\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2024-06-12 13:48+0100\n"
+"PO-Revision-Date: 2026-07-11 22:51+0000\n"
+"Last-Translator: Abduqadir Abliz <Unknown>\n"
+"Language-Team: Uyghur <ug@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2026-11-16 12:01+0000\n"
+"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
+"Language: ug\n"
+
+#: usr/lib/sticky/common.py:150 usr/lib/sticky/manager.py:300
+msgid "Export..."
+msgstr "چىقار…"
+
+#: usr/lib/sticky/common.py:151 usr/lib/sticky/common.py:175
+#: usr/lib/sticky/common.py:198 usr/lib/sticky/common.py:330
+msgid "Cancel"
+msgstr "ۋاز كەچ"
+
+#: usr/lib/sticky/common.py:151
+msgid "Save"
+msgstr "ساقلا"
+
+#: usr/lib/sticky/common.py:162 usr/lib/sticky/common.py:184
+msgid "Plain Text"
+msgstr "ساپ تېكىست"
+
+#: usr/lib/sticky/common.py:174 usr/lib/sticky/manager.py:296
+msgid "Import..."
+msgstr "ئەكىر…"
+
+#: usr/lib/sticky/common.py:175
+msgid "Open"
+msgstr "ئاچ"
+
+#: usr/lib/sticky/common.py:197
+msgid "Restore Backup"
+msgstr "زاپاسنى ئەسلىگە كەلتۈر"
+
+#: usr/lib/sticky/common.py:199
+msgid "Clear"
+msgstr "تازىلا"
+
+#: usr/lib/sticky/common.py:200
+msgid "Restore"
+msgstr "ئەسلىگە كەلتۈر"
+
+#: usr/lib/sticky/common.py:255
+msgid "Unable to restore: invalid or corrupted backup file"
+msgstr "ئەسلىگە كەلتۈرەلمەيدۇ: زاپاس ھۆججەت ئىناۋەتسىز ياكى بۇزۇلغان"
+
+#: usr/lib/sticky/common.py:268
+msgid "Overwrite Existing Group"
+msgstr "مەۋجۇت گۇرۇپپىنى قاپلا"
+
+#: usr/lib/sticky/common.py:268
+#, python-format
+msgid ""
+"There is already a group named '%s'. This action will overwrite it. Continue "
+"anyway?"
+msgstr ""
+"«%s» ئاتلىق گۇرۇپپا مەۋجۇت. بۇ مەشغۇلات ئۇنى قاپلايدۇ. داۋاملاشتۇرۇۋېرەمسىز؟"
+
+#: usr/lib/sticky/common.py:279 usr/lib/sticky/manager.py:280
+msgid "Remove Group"
+msgstr "گۇرۇپپىنى چىقىرىۋەت"
+
+#: usr/lib/sticky/common.py:279
+#, python-format
+msgid "Are you sure you want to remove the group %s?"
+msgstr "راستتىنلا %s گۇرۇپپىنى چىقىرىۋېتەمسىز؟"
+
+#: usr/lib/sticky/common.py:331
+msgid "OK"
+msgstr "تامام"
+
+#: usr/lib/sticky/common.py:354
+msgid "No"
+msgstr "ياق"
+
+#: usr/lib/sticky/common.py:355
+msgid "Yes"
+msgstr "ھەئە"
+
+#: usr/lib/sticky/common.py:365
+msgid "Don't ask me again"
+msgstr "قايتا سورىما"
+
+#: usr/lib/sticky/manager.py:108
+msgid "New"
+msgstr "يېڭى"
+
+#: usr/lib/sticky/manager.py:113
+msgid "Edit"
+msgstr "تەھرىر"
+
+#: usr/lib/sticky/manager.py:117
+msgid "Remove"
+msgstr "چىقىرىۋەت"
+
+#: usr/lib/sticky/manager.py:222
+msgid "Untitled"
+msgstr "ماۋزۇسىز"
+
+#: usr/lib/sticky/manager.py:276
+msgid "New Group"
+msgstr "يېڭى گۇرۇپپا"
+
+#: usr/lib/sticky/manager.py:286
+msgid "Back Up"
+msgstr "زاپاسلا"
+
+#: usr/lib/sticky/manager.py:290
+msgid "Restore Backups..."
+msgstr "زاپاسنى ئەسلىگە كەلتۈر…"
+
+#: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:603
+#: usr/lib/sticky/sticky.py:919
+msgid "Preferences"
+msgstr "مايىللىق"
+
+#: usr/lib/sticky/manager.py:310
+msgid "Keyboard Shortcuts"
+msgstr "ھەرپتاختا تېزلەتمىسى"
+
+#: usr/lib/sticky/manager.py:315 usr/lib/sticky/sticky.py:1156
+msgid "About"
+msgstr "ھەققىدە"
+
+#: usr/lib/sticky/sticky.py:47
+msgid "Small Text"
+msgstr "كىچىك تېكىست"
+
+#: usr/lib/sticky/sticky.py:48
+msgid "Normal Text"
+msgstr "ئادەتتىكى تېكىست"
+
+#: usr/lib/sticky/sticky.py:49
+msgid "Large Text"
+msgstr "چوڭ تېكىست"
+
+#: usr/lib/sticky/sticky.py:50
+msgid "Larger Text"
+msgstr "چوڭراق تېكىست"
+
+#: usr/lib/sticky/sticky.py:54
+msgid "Red"
+msgstr "قىزىل"
+
+#: usr/lib/sticky/sticky.py:55
+msgid "Green"
+msgstr "يېشىل"
+
+#: usr/lib/sticky/sticky.py:56
+msgid "Blue"
+msgstr "كۆك"
+
+#: usr/lib/sticky/sticky.py:57
+msgid "Yellow"
+msgstr "سېرىق"
+
+#: usr/lib/sticky/sticky.py:58
+msgid "Purple"
+msgstr "سۆسۈن"
+
+#: usr/lib/sticky/sticky.py:59
+msgid "Teal"
+msgstr "توق كۆك"
+
+#: usr/lib/sticky/sticky.py:60
+msgid "Orange"
+msgstr "قىزغۇچ سېرىق"
+
+#: usr/lib/sticky/sticky.py:61
+msgid "Magenta"
+msgstr "ئاچ قىزىل"
+
+#: usr/lib/sticky/sticky.py:76
+msgid "Operations"
+msgstr "مەشغۇلات"
+
+#: usr/lib/sticky/sticky.py:77
+msgid "Move selection up"
+msgstr "تاللىغاننى ئۈستىگە يۆتكە"
+
+#: usr/lib/sticky/sticky.py:78
+msgid "Move selection down"
+msgstr "تاللىغاننى ئاستىغا يۆتكە"
+
+#: usr/lib/sticky/sticky.py:79
+msgid "Undo"
+msgstr "يېنىۋال"
+
+#: usr/lib/sticky/sticky.py:80
+msgid "Redo"
+msgstr "قايتىلا"
+
+#: usr/lib/sticky/sticky.py:81 usr/lib/sticky/sticky.py:516
+msgid "Toggle Checklist"
+msgstr "بېجىرىش تىزىمىنى ئالماشتۇر"
+
+#: usr/lib/sticky/sticky.py:82 usr/lib/sticky/sticky.py:520
+msgid "Toggle Bullets"
+msgstr "تۈر بەلگىسىنى ئالماشتۇر"
+
+#: usr/lib/sticky/sticky.py:84
+msgid "Formatting"
+msgstr "پىچىم"
+
+#: usr/lib/sticky/sticky.py:85 usr/lib/sticky/sticky.py:471
+#: usr/lib/sticky/sticky.py:472
+msgid "Bold"
+msgstr "توم"
+
+#: usr/lib/sticky/sticky.py:86 usr/lib/sticky/sticky.py:476
+#: usr/lib/sticky/sticky.py:477
+msgid "Italic"
+msgstr "يانتۇ"
+
+#: usr/lib/sticky/sticky.py:87 usr/lib/sticky/sticky.py:481
+#: usr/lib/sticky/sticky.py:482
+msgid "Fixed Width"
+msgstr "مۇقىم كەڭلىك"
+
+#: usr/lib/sticky/sticky.py:88 usr/lib/sticky/sticky.py:486
+#: usr/lib/sticky/sticky.py:487
+msgid "Underline"
+msgstr "ئاستى سىزىق"
+
+#: usr/lib/sticky/sticky.py:89 usr/lib/sticky/sticky.py:491
+#: usr/lib/sticky/sticky.py:492
+msgid "Strikethrough"
+msgstr "ئۆچۈرۈش سىزىقى"
+
+#: usr/lib/sticky/sticky.py:90 usr/lib/sticky/sticky.py:496
+#: usr/lib/sticky/sticky.py:497
+msgid "Highlight"
+msgstr "يورۇت"
+
+#: usr/lib/sticky/sticky.py:91 usr/lib/sticky/sticky.py:501
+#: usr/lib/sticky/sticky.py:502
+msgid "Header"
+msgstr "بەت قېشى"
+
+#: usr/lib/sticky/sticky.py:96
+msgid "Top Left"
+msgstr "سول ئۈستى"
+
+#: usr/lib/sticky/sticky.py:97
+msgid "Top Center"
+msgstr "ئوتتۇرا ئۈستى"
+
+#: usr/lib/sticky/sticky.py:98
+msgid "Top Right"
+msgstr "ئوڭ ئۈستى"
+
+#: usr/lib/sticky/sticky.py:99
+msgid "Center Left"
+msgstr "ئوتتۇرا سول"
+
+#: usr/lib/sticky/sticky.py:100
+msgid "Center"
+msgstr "مەركەز"
+
+#: usr/lib/sticky/sticky.py:101
+msgid "Center Right"
+msgstr "ئوتتۇرا ئوڭ"
+
+#: usr/lib/sticky/sticky.py:102
+msgid "Bottom Left"
+msgstr "سول ئاستى"
+
+#: usr/lib/sticky/sticky.py:103
+msgid "Bottom Center"
+msgstr "ئاستى ئوتتۇرا"
+
+#: usr/lib/sticky/sticky.py:104
+msgid "Bottom Right"
+msgstr "ئوڭ ئاستى"
+
+#: usr/lib/sticky/sticky.py:172
+msgid "Note Color"
+msgstr "ئىزاھ رەڭگى"
+
+#: usr/lib/sticky/sticky.py:189
+msgid "Rename"
+msgstr "ئات ئۆزگەرت"
+
+#: usr/lib/sticky/sticky.py:197 usr/lib/sticky/sticky.py:428
+#: usr/lib/sticky/sticky.py:547
+msgid "Delete Note"
+msgstr "ئىزاھ ئۆچۈر"
+
+#: usr/lib/sticky/sticky.py:204 usr/lib/sticky/sticky.py:899
+msgid "New Note"
+msgstr "يېڭى ئىزاھ"
+
+#: usr/lib/sticky/sticky.py:210
+msgid "Format"
+msgstr "پىچىم"
+
+#: usr/lib/sticky/sticky.py:409
+msgid "undo"
+msgstr "يېنىۋال"
+
+#: usr/lib/sticky/sticky.py:413
+msgid "redo"
+msgstr "قايتىلا"
+
+#: usr/lib/sticky/sticky.py:419
+msgid "Set Title"
+msgstr "ماۋزۇ تەڭشەك"
+
+#: usr/lib/sticky/sticky.py:419
+msgid "Edit Title"
+msgstr "ماۋزۇ تەھرىر"
+
+#: usr/lib/sticky/sticky.py:424
+msgid "Duplicate Note"
+msgstr "تەكرار ئىزاھ"
+
+#: usr/lib/sticky/sticky.py:436
+msgid "Only on This Workspace"
+msgstr "پەقەت مۇشۇ خىزمەت بوشلۇقىدىلا"
+
+#: usr/lib/sticky/sticky.py:440
+msgid "Always on Visible Workspace"
+msgstr "ھەمىشە كۆرۈنۈشچان خىزمەت بوشلۇقىدا"
+
+#: usr/lib/sticky/sticky.py:452
+msgid "Always on Top"
+msgstr "ھەمىشە ئۈستىدە"
+
+#: usr/lib/sticky/sticky.py:547
+msgid "Are you sure you want to remove this note?"
+msgstr "راستتىنلا بۇ ئىزاھنى چىقىرىۋېتەمسىز؟"
+
+#: usr/lib/sticky/sticky.py:607
+msgid "Show notes on all desktops"
+msgstr "بارلىق ئۈستەلئۈستىىدە ئىزاھ كۆرسەت"
+
+#: usr/lib/sticky/sticky.py:608
+msgid "Show in taskbar"
+msgstr "ۋەزىپە بالداقتا كۆرسەت"
+
+#: usr/lib/sticky/sticky.py:609
+msgid "Tray icon"
+msgstr "قونداق سىنبەلگىسى"
+
+#: usr/lib/sticky/sticky.py:610
+msgid "Show the main window automatically"
+msgstr "ئاساسىي كۆزنەكنى ئۆزلۈكىدىن كۆرسەت"
+
+#: usr/lib/sticky/sticky.py:611
+msgid "General"
+msgstr "ئادەتتىكى"
+
+#: usr/lib/sticky/sticky.py:615
+msgid "Default height"
+msgstr "كۆڭۈلدىكى ئېگىزلىك"
+
+#: usr/lib/sticky/sticky.py:616
+msgid "Default width"
+msgstr "كۆڭۈلدىكى كەڭلىك"
+
+#: usr/lib/sticky/sticky.py:618
+msgid "Default position"
+msgstr "كۆڭۈلدىكى ئورنى"
+
+#: usr/lib/sticky/sticky.py:622 usr/lib/sticky/sticky.py:627
+msgid "Cycle Colors"
+msgstr "ئايلانما رەڭ"
+
+#: usr/lib/sticky/sticky.py:624 usr/lib/sticky/sticky.py:629
+msgid "Default color"
+msgstr "كۆڭۈلدىكى رەڭ"
+
+#: usr/lib/sticky/sticky.py:631
+msgid "Font"
+msgstr "خەت نۇسخا"
+
+#: usr/lib/sticky/sticky.py:632
+msgid "Show spelling mistakes"
+msgstr "ئىملا خاتالىقىنى كۆرسەت"
+
+#: usr/lib/sticky/sticky.py:634 usr/lib/sticky/sticky.py:754
+#: usr/lib/sticky/sticky.py:851 usr/lib/sticky/sticky.py:883
+#: usr/lib/sticky/sticky.py:1157 usr/share/sticky/manager.ui.h:1
+msgid "Notes"
+msgstr "ئىزاھ"
+
+#: usr/lib/sticky/sticky.py:639
+msgid "Automatic backups"
+msgstr "ئاپتوماتىك زاپاسلاش"
+
+#: usr/lib/sticky/sticky.py:640
+msgid "Time between backups"
+msgstr "زاپاسلاش ئارىسىدىكى ۋاقتى"
+
+#: usr/lib/sticky/sticky.py:640
+msgid "hours"
+msgstr "سائەت"
+
+#: usr/lib/sticky/sticky.py:641
+msgid "Set this to zero if you wish to keep all backups indefinitely"
+msgstr "ئەگەر زاپاسنى قەرەلسىز ساقلاپ قالماقچى بولغاندا بۇ نۆلگە تەڭشىلىدۇ"
+
+#: usr/lib/sticky/sticky.py:642
+msgid "Number to keep"
+msgstr "ساقلاپ قالىدىغان سانى"
+
+#: usr/lib/sticky/sticky.py:644
+msgid "Backups"
+msgstr "زاپاسلاش"
+
+#: usr/lib/sticky/sticky.py:648
+msgid "Start automatically"
+msgstr "ئۆزلۈكىدىن باشلا"
+
+#: usr/lib/sticky/sticky.py:649
+msgid "Show notes on the screen"
+msgstr "ئىزاھنى ئېكراندا كۆرسەت"
+
+#: usr/lib/sticky/sticky.py:650
+msgid "Automatic start"
+msgstr "ئۆزلۈكىدىن باشلا"
+
+#: usr/lib/sticky/sticky.py:668
+msgid "Text Size"
+msgstr "تېكىست چوڭلۇقى"
+
+#: usr/lib/sticky/sticky.py:852
+msgid ""
+"Would you like to import your notes from Gnote? This will not change your "
+"Gnote notes in any way."
+msgstr ""
+"ئىزاھنى Gnote تىن ئەكىرىشنى خالامسىز؟ بۇ مەشغۇلات Gnote ئىزاھاتىنى ھەر "
+"قانداق ئۇسۇلدا ئۆزگەرتمەيدۇ."
+
+#: usr/lib/sticky/sticky.py:875
+msgid "Group 1"
+msgstr "1-گۇرۇپپا"
+
+#: usr/lib/sticky/sticky.py:884
+msgid "Left click to toggle notes"
+msgstr "ئىزاھ ئالماشتۇرۇشتا سول چېكىلىدۇ"
+
+#: usr/lib/sticky/sticky.py:885
+msgid "Middle click to toggle the manager"
+msgstr "باشقۇرغۇچنى ئالماشتۇرۇشتا ئوتتۇرا چېكىلىدۇ"
+
+#: usr/lib/sticky/sticky.py:903
+msgid "Manage Notes"
+msgstr "ئىزاھ باشقۇرۇش"
+
+#: usr/lib/sticky/sticky.py:925
+msgid "Quit"
+msgstr "چېكىن"
+
+#: usr/lib/sticky/sticky.py:1158 usr/share/sticky/manager.ui.h:2
+msgid "Take notes and stay organized"
+msgstr "ئىزاھ يېزىپ ۋە تەرتىپلىك قىلىدۇ"
+
+#: usr/lib/sticky/util.py:79
+msgid "Unfiled"
+msgstr "رەتلەنمىگەن"
+
+#: usr/share/sticky/manager.ui.h:3
+msgid "New note"
+msgstr "يېڭى ئىزاھ"
+
+#: usr/share/sticky/manager.ui.h:4
+msgid "Remove selected note"
+msgstr "تاللىغان ئىزاھنى چىقىرىۋەت"
+
+#: usr/share/sticky/manager.ui.h:5
+msgid "Duplicate selected note"
+msgstr "تاللىغان ئىزاھنى كۆپەيت"

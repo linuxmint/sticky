@@ -1,0 +1,488 @@
+# Afrikaans translation for linuxmint
+# Copyright (c) 2026 Rosetta Contributors and Canonical Ltd 2026
+# This file is distributed under the same license as the linuxmint package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: linuxmint\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2024-06-12 13:48+0100\n"
+"PO-Revision-Date: 2026-10-07 13:15+0000\n"
+"Last-Translator: Stéfan Driaan Turvey <Unknown>\n"
+"Language-Team: Afrikaans <af@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2026-11-16 12:01+0000\n"
+"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
+
+#: usr/lib/sticky/common.py:150 usr/lib/sticky/manager.py:300
+msgid "Export..."
+msgstr "Voer uit..."
+
+#: usr/lib/sticky/common.py:151 usr/lib/sticky/common.py:175
+#: usr/lib/sticky/common.py:198 usr/lib/sticky/common.py:330
+msgid "Cancel"
+msgstr "Kanselleer"
+
+#: usr/lib/sticky/common.py:151
+msgid "Save"
+msgstr "Stoor"
+
+#: usr/lib/sticky/common.py:162 usr/lib/sticky/common.py:184
+msgid "Plain Text"
+msgstr "Gewone teks"
+
+#: usr/lib/sticky/common.py:174 usr/lib/sticky/manager.py:296
+msgid "Import..."
+msgstr "Voer in..."
+
+#: usr/lib/sticky/common.py:175
+msgid "Open"
+msgstr "Open"
+
+#: usr/lib/sticky/common.py:197
+msgid "Restore Backup"
+msgstr "Herstel rugsteun"
+
+#: usr/lib/sticky/common.py:199
+msgid "Clear"
+msgstr "Maak skoon"
+
+#: usr/lib/sticky/common.py:200
+msgid "Restore"
+msgstr "Herstel"
+
+#: usr/lib/sticky/common.py:255
+msgid "Unable to restore: invalid or corrupted backup file"
+msgstr "Kan nie herstel nie: ongeldige of korrupte rugsteunlêer"
+
+#: usr/lib/sticky/common.py:268
+msgid "Overwrite Existing Group"
+msgstr "Oorskryf bestaande groep"
+
+#: usr/lib/sticky/common.py:268
+#, python-format
+msgid ""
+"There is already a group named '%s'. This action will overwrite it. Continue "
+"anyway?"
+msgstr ""
+"Daar is reeds 'n groep met die naam '%s'. Hierdie aksie sal dit oorskryf. "
+"Tog voortgaan?"
+
+#: usr/lib/sticky/common.py:279 usr/lib/sticky/manager.py:280
+msgid "Remove Group"
+msgstr "Verwyder groep"
+
+#: usr/lib/sticky/common.py:279
+#, python-format
+msgid "Are you sure you want to remove the group %s?"
+msgstr "Is jy seker jy wil die groep %s verwyder?"
+
+#: usr/lib/sticky/common.py:331
+msgid "OK"
+msgstr "Goed"
+
+#: usr/lib/sticky/common.py:354
+msgid "No"
+msgstr "Nee"
+
+#: usr/lib/sticky/common.py:355
+msgid "Yes"
+msgstr "Ja"
+
+#: usr/lib/sticky/common.py:365
+msgid "Don't ask me again"
+msgstr "Moenie my weer vra nie"
+
+#: usr/lib/sticky/manager.py:108
+msgid "New"
+msgstr "Nuwe"
+
+#: usr/lib/sticky/manager.py:113
+msgid "Edit"
+msgstr "Redigeer"
+
+#: usr/lib/sticky/manager.py:117
+msgid "Remove"
+msgstr "Verwyder"
+
+#: usr/lib/sticky/manager.py:222
+msgid "Untitled"
+msgstr "Naamloos"
+
+#: usr/lib/sticky/manager.py:276
+msgid "New Group"
+msgstr "Nuwe groep"
+
+#: usr/lib/sticky/manager.py:286
+msgid "Back Up"
+msgstr "Rugsteun"
+
+#: usr/lib/sticky/manager.py:290
+msgid "Restore Backups..."
+msgstr "Herstel rugsteune..."
+
+#: usr/lib/sticky/manager.py:306 usr/lib/sticky/sticky.py:603
+#: usr/lib/sticky/sticky.py:919
+msgid "Preferences"
+msgstr "Voorkeure"
+
+#: usr/lib/sticky/manager.py:310
+msgid "Keyboard Shortcuts"
+msgstr "Sleutelbordkortpaaie"
+
+#: usr/lib/sticky/manager.py:315 usr/lib/sticky/sticky.py:1156
+msgid "About"
+msgstr "Aangaande"
+
+#: usr/lib/sticky/sticky.py:47
+msgid "Small Text"
+msgstr "Klein teks"
+
+#: usr/lib/sticky/sticky.py:48
+msgid "Normal Text"
+msgstr "Normale teks"
+
+#: usr/lib/sticky/sticky.py:49
+msgid "Large Text"
+msgstr "Groot teks"
+
+#: usr/lib/sticky/sticky.py:50
+msgid "Larger Text"
+msgstr "Groter teks"
+
+#: usr/lib/sticky/sticky.py:54
+msgid "Red"
+msgstr "Rooi"
+
+#: usr/lib/sticky/sticky.py:55
+msgid "Green"
+msgstr "Groen"
+
+#: usr/lib/sticky/sticky.py:56
+msgid "Blue"
+msgstr "Blou"
+
+#: usr/lib/sticky/sticky.py:57
+msgid "Yellow"
+msgstr "Geel"
+
+#: usr/lib/sticky/sticky.py:58
+msgid "Purple"
+msgstr "Pers"
+
+#: usr/lib/sticky/sticky.py:59
+msgid "Teal"
+msgstr "Blougroen"
+
+#: usr/lib/sticky/sticky.py:60
+msgid "Orange"
+msgstr "Oranje"
+
+#: usr/lib/sticky/sticky.py:61
+msgid "Magenta"
+msgstr "Magenta"
+
+#: usr/lib/sticky/sticky.py:76
+msgid "Operations"
+msgstr "Bewerkings"
+
+#: usr/lib/sticky/sticky.py:77
+msgid "Move selection up"
+msgstr "Skuif seleksie op"
+
+#: usr/lib/sticky/sticky.py:78
+msgid "Move selection down"
+msgstr "Skuif seleksie af"
+
+#: usr/lib/sticky/sticky.py:79
+msgid "Undo"
+msgstr "Ontdoen"
+
+#: usr/lib/sticky/sticky.py:80
+msgid "Redo"
+msgstr "Herdoen"
+
+#: usr/lib/sticky/sticky.py:81 usr/lib/sticky/sticky.py:516
+msgid "Toggle Checklist"
+msgstr "Wissel kontrolelys"
+
+#: usr/lib/sticky/sticky.py:82 usr/lib/sticky/sticky.py:520
+msgid "Toggle Bullets"
+msgstr "Wissel kolpunte"
+
+#: usr/lib/sticky/sticky.py:84
+msgid "Formatting"
+msgstr "Formattering"
+
+#: usr/lib/sticky/sticky.py:85 usr/lib/sticky/sticky.py:471
+#: usr/lib/sticky/sticky.py:472
+msgid "Bold"
+msgstr "Vetdruk"
+
+#: usr/lib/sticky/sticky.py:86 usr/lib/sticky/sticky.py:476
+#: usr/lib/sticky/sticky.py:477
+msgid "Italic"
+msgstr "Skuinsdruk"
+
+#: usr/lib/sticky/sticky.py:87 usr/lib/sticky/sticky.py:481
+#: usr/lib/sticky/sticky.py:482
+msgid "Fixed Width"
+msgstr "Vaste wydte"
+
+#: usr/lib/sticky/sticky.py:88 usr/lib/sticky/sticky.py:486
+#: usr/lib/sticky/sticky.py:487
+msgid "Underline"
+msgstr "Onderstreep"
+
+#: usr/lib/sticky/sticky.py:89 usr/lib/sticky/sticky.py:491
+#: usr/lib/sticky/sticky.py:492
+msgid "Strikethrough"
+msgstr "Deurhaal"
+
+#: usr/lib/sticky/sticky.py:90 usr/lib/sticky/sticky.py:496
+#: usr/lib/sticky/sticky.py:497
+msgid "Highlight"
+msgstr "Merk"
+
+#: usr/lib/sticky/sticky.py:91 usr/lib/sticky/sticky.py:501
+#: usr/lib/sticky/sticky.py:502
+msgid "Header"
+msgstr "Opskrif"
+
+#: usr/lib/sticky/sticky.py:96
+msgid "Top Left"
+msgstr "Bo links"
+
+#: usr/lib/sticky/sticky.py:97
+msgid "Top Center"
+msgstr "Bo in die middel"
+
+#: usr/lib/sticky/sticky.py:98
+msgid "Top Right"
+msgstr "Bo regs"
+
+#: usr/lib/sticky/sticky.py:99
+msgid "Center Left"
+msgstr "Middel links"
+
+#: usr/lib/sticky/sticky.py:100
+msgid "Center"
+msgstr "Middel"
+
+#: usr/lib/sticky/sticky.py:101
+msgid "Center Right"
+msgstr "Middel regs"
+
+#: usr/lib/sticky/sticky.py:102
+msgid "Bottom Left"
+msgstr "Onder links"
+
+#: usr/lib/sticky/sticky.py:103
+msgid "Bottom Center"
+msgstr "Onder in die middel"
+
+#: usr/lib/sticky/sticky.py:104
+msgid "Bottom Right"
+msgstr "Onder regs"
+
+#: usr/lib/sticky/sticky.py:172
+msgid "Note Color"
+msgstr "Notakleur"
+
+#: usr/lib/sticky/sticky.py:189
+msgid "Rename"
+msgstr "Hernoem"
+
+#: usr/lib/sticky/sticky.py:197 usr/lib/sticky/sticky.py:428
+#: usr/lib/sticky/sticky.py:547
+msgid "Delete Note"
+msgstr "Skrap nota"
+
+#: usr/lib/sticky/sticky.py:204 usr/lib/sticky/sticky.py:899
+msgid "New Note"
+msgstr "Nuwe nota"
+
+#: usr/lib/sticky/sticky.py:210
+msgid "Format"
+msgstr "Formaat"
+
+#: usr/lib/sticky/sticky.py:409
+msgid "undo"
+msgstr "ontdoen"
+
+#: usr/lib/sticky/sticky.py:413
+msgid "redo"
+msgstr "herdoen"
+
+#: usr/lib/sticky/sticky.py:419
+msgid "Set Title"
+msgstr "Stel titel"
+
+#: usr/lib/sticky/sticky.py:419
+msgid "Edit Title"
+msgstr "Redigeer titel"
+
+#: usr/lib/sticky/sticky.py:424
+msgid "Duplicate Note"
+msgstr "Dupliseer nota"
+
+#: usr/lib/sticky/sticky.py:436
+msgid "Only on This Workspace"
+msgstr "Slegs op hierdie werkspasie"
+
+#: usr/lib/sticky/sticky.py:440
+msgid "Always on Visible Workspace"
+msgstr "Altyd op sigbare werkspasie"
+
+#: usr/lib/sticky/sticky.py:452
+msgid "Always on Top"
+msgstr "Altyd bo-op"
+
+#: usr/lib/sticky/sticky.py:547
+msgid "Are you sure you want to remove this note?"
+msgstr "Is jy seker jy wil hierdie nota verwyder?"
+
+#: usr/lib/sticky/sticky.py:607
+msgid "Show notes on all desktops"
+msgstr "Wys notas op alle lessenaars"
+
+#: usr/lib/sticky/sticky.py:608
+msgid "Show in taskbar"
+msgstr "Wys in taakbalk"
+
+#: usr/lib/sticky/sticky.py:609
+msgid "Tray icon"
+msgstr "Laai-ikoon"
+
+#: usr/lib/sticky/sticky.py:610
+msgid "Show the main window automatically"
+msgstr "Wys die hoofvenster outomaties"
+
+#: usr/lib/sticky/sticky.py:611
+msgid "General"
+msgstr "Algemeen"
+
+#: usr/lib/sticky/sticky.py:615
+msgid "Default height"
+msgstr "Verstekhoogte"
+
+#: usr/lib/sticky/sticky.py:616
+msgid "Default width"
+msgstr "Verstekwydte"
+
+#: usr/lib/sticky/sticky.py:618
+msgid "Default position"
+msgstr "Verstekposisie"
+
+#: usr/lib/sticky/sticky.py:622 usr/lib/sticky/sticky.py:627
+msgid "Cycle Colors"
+msgstr "Wissel kleure"
+
+#: usr/lib/sticky/sticky.py:624 usr/lib/sticky/sticky.py:629
+msgid "Default color"
+msgstr "Verstekkleur"
+
+#: usr/lib/sticky/sticky.py:631
+msgid "Font"
+msgstr "Font"
+
+#: usr/lib/sticky/sticky.py:632
+msgid "Show spelling mistakes"
+msgstr "Wys spelfoute"
+
+#: usr/lib/sticky/sticky.py:634 usr/lib/sticky/sticky.py:754
+#: usr/lib/sticky/sticky.py:851 usr/lib/sticky/sticky.py:883
+#: usr/lib/sticky/sticky.py:1157 usr/share/sticky/manager.ui.h:1
+msgid "Notes"
+msgstr "Notas"
+
+#: usr/lib/sticky/sticky.py:639
+msgid "Automatic backups"
+msgstr "Outomatiese rugsteune"
+
+#: usr/lib/sticky/sticky.py:640
+msgid "Time between backups"
+msgstr "Tyd tussen rugsteune"
+
+#: usr/lib/sticky/sticky.py:640
+msgid "hours"
+msgstr "ure"
+
+#: usr/lib/sticky/sticky.py:641
+msgid "Set this to zero if you wish to keep all backups indefinitely"
+msgstr "Stel dit op nul as jy alle rugsteune onbepaald wil hou"
+
+#: usr/lib/sticky/sticky.py:642
+msgid "Number to keep"
+msgstr "Aantal om te hou"
+
+#: usr/lib/sticky/sticky.py:644
+msgid "Backups"
+msgstr "Rugsteune"
+
+#: usr/lib/sticky/sticky.py:648
+msgid "Start automatically"
+msgstr "Begin outomaties"
+
+#: usr/lib/sticky/sticky.py:649
+msgid "Show notes on the screen"
+msgstr "Wys notas op die skerm"
+
+#: usr/lib/sticky/sticky.py:650
+msgid "Automatic start"
+msgstr "Outomatiese begin"
+
+#: usr/lib/sticky/sticky.py:668
+msgid "Text Size"
+msgstr "Teksgrootte"
+
+#: usr/lib/sticky/sticky.py:852
+msgid ""
+"Would you like to import your notes from Gnote? This will not change your "
+"Gnote notes in any way."
+msgstr ""
+"Wil jy jou notas uit Gnote invoer? Dit sal jou Gnote-notas op geen wyse "
+"verander nie."
+
+#: usr/lib/sticky/sticky.py:875
+msgid "Group 1"
+msgstr "Groep 1"
+
+#: usr/lib/sticky/sticky.py:884
+msgid "Left click to toggle notes"
+msgstr "Klik links om notas te wissel"
+
+#: usr/lib/sticky/sticky.py:885
+msgid "Middle click to toggle the manager"
+msgstr "Klik middel om die bestuurder te wissel"
+
+#: usr/lib/sticky/sticky.py:903
+msgid "Manage Notes"
+msgstr "Bestuur notas"
+
+#: usr/lib/sticky/sticky.py:925
+msgid "Quit"
+msgstr "Sluit af"
+
+#: usr/lib/sticky/sticky.py:1158 usr/share/sticky/manager.ui.h:2
+msgid "Take notes and stay organized"
+msgstr "Maak notas en bly georganiseerd"
+
+#: usr/lib/sticky/util.py:79
+msgid "Unfiled"
+msgstr "Nie ingedeel nie"
+
+#: usr/share/sticky/manager.ui.h:3
+msgid "New note"
+msgstr "Nuwe nota"
+
+#: usr/share/sticky/manager.ui.h:4
+msgid "Remove selected note"
+msgstr "Verwyder geselekteerde nota"
+
+#: usr/share/sticky/manager.ui.h:5
+msgid "Duplicate selected note"
+msgstr "Dupliseer geselekteerde nota"
