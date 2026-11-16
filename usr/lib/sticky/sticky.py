@@ -121,7 +121,7 @@ class Note(Gtk.Window):
         self.app = app
 
         self.showing = False
-        self.is_pinned = False
+        self.is_pinned = info.get('pinned', False)
         self.changed_timer_id = 0
         self.invalid_cache = False
 
@@ -210,7 +210,16 @@ class Note(Gtk.Window):
         text_button = Gtk.MenuButton(image=text_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
         text_button.connect('button-press-event', self.on_title_click)
         text_button.set_tooltip_text(_("Format"))
-        self.title_bar.pack_end(text_button, False, False, 20)
+        self.title_bar.pack_end(text_button, False, False, 0)
+
+        pin_icon_name = 'xapp-unpin-symbolic' if self.is_pinned else 'xapp-pin-symbolic'
+        self.pin_icon = Gtk.Image.new_from_icon_name(pin_icon_name, Gtk.IconSize.BUTTON)
+        self.pin_button = Gtk.ToggleButton(image=self.pin_icon, relief=Gtk.ReliefStyle.NONE, name='window-button', valign=Gtk.Align.CENTER)
+        self.pin_button.set_active(self.is_pinned)
+        self.pin_button.connect('toggled', self.on_pin_toggled)
+        self.pin_button.connect('button-press-event', self.on_title_click)
+        self.pin_button.set_tooltip_text(_("Always on Top"))
+        self.title_bar.pack_end(self.pin_button, False, False, 0)
 
         self.set_titlebar(self.title_bar)
 
@@ -250,6 +259,7 @@ class Note(Gtk.Window):
         self.move(self.x, self.y)
 
         self.show_all()
+        self.set_keep_above(self.is_pinned)
 
     def test(self, *args):
         self.buffer.test()
@@ -355,6 +365,13 @@ class Note(Gtk.Window):
         # for some reason, the ABOVE flag is never actually being set, even when it should be
         # self.is_pinned = event.new_window_state & Gdk.WindowState.ABOVE
 
+    def on_pin_toggled(self, button):
+        self.is_pinned = button.get_active()
+        icon_name = 'xapp-unpin-symbolic' if self.is_pinned else 'xapp-pin-symbolic'
+        self.pin_icon.set_from_icon_name(icon_name, Gtk.IconSize.BUTTON)
+        self.set_keep_above(self.is_pinned)
+        self.queue_update()
+
     def on_title_click(self, w, event):
         if event.button == 3:
             menu = Gtk.Menu()
@@ -402,6 +419,9 @@ class Note(Gtk.Window):
             'text': self.cached_text
         }
 
+        if self.is_pinned:
+            info['pinned'] = True
+
         return info
 
     def add_context_menu_items(self, popup, is_title=False):
@@ -447,12 +467,8 @@ class Note(Gtk.Window):
             stick_menu_item.connect('activate', on_activate)
             popup.append(stick_menu_item)
 
-            def on_activate(*args):
-                self.set_keep_above(not self.is_pinned)
-                self.is_pinned = not self.is_pinned
-
             pin_menu_item = Gtk.CheckMenuItem(active=self.is_pinned, label=_("Always on Top"), visible=True)
-            pin_menu_item.connect('activate', on_activate)
+            pin_menu_item.connect('toggled', lambda item: self.pin_button.set_active(item.get_active()))
             popup.append(pin_menu_item)
 
     def create_format_menu(self, color_button, text_button):
