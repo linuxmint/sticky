@@ -1,3 +1,9 @@
+sticky (1.35) adrien; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 24 Nov 2026 16:29:11 +0000
+
 sticky (1.34) adrien; urgency=medium
 
   * l10n: Update translations
