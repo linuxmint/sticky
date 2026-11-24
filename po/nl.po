@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-06-12 13:48+0100\n"
-"PO-Revision-Date: 2024-06-12 14:20+0000\n"
+"PO-Revision-Date: 2026-11-18 20:36+0000\n"
 "Last-Translator: Pjotr12345 <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2026-11-16 12:01+0000\n"
-"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
+"X-Launchpad-Export-Date: 2026-11-24 12:01+0000\n"
+"X-Generator: Launchpad (build 012091084314157d19ae714f55ef4c582ff0feb5)\n"
 
 #: usr/lib/sticky/common.py:150 usr/lib/sticky/manager.py:300
 msgid "Export..."
@@ -56,7 +56,7 @@ msgstr "Terugzetten"
 
 #: usr/lib/sticky/common.py:255
 msgid "Unable to restore: invalid or corrupted backup file"
-msgstr "Kon niet terugzetten: ongeldig of corrupt reservekopiebestand"
+msgstr "Kan niet terugzetten: ongeldig of corrupt reservekopiebestand"
 
 #: usr/lib/sticky/common.py:268
 msgid "Overwrite Existing Group"
@@ -225,7 +225,7 @@ msgstr "Vet"
 #: usr/lib/sticky/sticky.py:86 usr/lib/sticky/sticky.py:476
 #: usr/lib/sticky/sticky.py:477
 msgid "Italic"
-msgstr "Cursief"
+msgstr "Schuingedrukt"
 
 #: usr/lib/sticky/sticky.py:87 usr/lib/sticky/sticky.py:481
 #: usr/lib/sticky/sticky.py:482
@@ -290,7 +290,7 @@ msgstr "Rechtsonder"
 
 #: usr/lib/sticky/sticky.py:172
 msgid "Note Color"
-msgstr "Achtergrondkleur notities"
+msgstr "Achtergrondkleur notitie"
 
 #: usr/lib/sticky/sticky.py:189
 msgid "Rename"
@@ -379,7 +379,7 @@ msgstr "Standaardpositie"
 
 #: usr/lib/sticky/sticky.py:622 usr/lib/sticky/sticky.py:627
 msgid "Cycle Colors"
-msgstr "Kleuren roteren"
+msgstr "Kleuren cyclisch toepassen"
 
 #: usr/lib/sticky/sticky.py:624 usr/lib/sticky/sticky.py:629
 msgid "Default color"
@@ -413,7 +413,8 @@ msgstr "uren"
 
 #: usr/lib/sticky/sticky.py:641
 msgid "Set this to zero if you wish to keep all backups indefinitely"
-msgstr "Zet dit op nul indien u alle reservekopieën oneindig wilt bewaren"
+msgstr ""
+"Zet dit op nul indien u alle reservekopieën oneindig lang wilt bewaren"
 
 #: usr/lib/sticky/sticky.py:642
 msgid "Number to keep"
@@ -481,7 +482,7 @@ msgstr "Nieuwe notitie"
 
 #: usr/share/sticky/manager.ui.h:4
 msgid "Remove selected note"
-msgstr "Verwijder gekozen notitie"
+msgstr "Gekozen notitie verwijderen"
 
 #: usr/share/sticky/manager.ui.h:5
 msgid "Duplicate selected note"
